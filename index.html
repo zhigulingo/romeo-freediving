@@ -32,7 +32,7 @@
         }
         
         .accordion-content { transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
-        .accordion-content.active { max-height: 1500px; opacity: 1; }
+        .accordion-content.active { max-height: 2000px; opacity: 1; }
         
         .chevron { transition: transform 0.3s ease; }
         .chevron.rotate { transform: rotate(90deg); }
@@ -75,7 +75,7 @@
             }
         }
         .blur-fade-in {
-            animation: blurFadeIn 2s ease-out forwards;
+            animation: blurFadeIn 2.5s ease-out forwards;
         }
     </style>
 </head>
@@ -133,6 +133,7 @@
         </div>
         <div class="relative z-10 text-center text-white px-4">
             <p class="text-micro mb-4 text-cyan-400" data-aos="fade-down" data-aos-duration="1500" data-i18n="hero_location">Дахаб • Египет</p>
+            <!-- MAIN TITLE -->
             <h1 class="text-4xl md:text-9xl font-light mb-6 tracking-wide leading-tight" data-aos="fade-up" data-aos-duration="1500">ROMEO FREEDIVING</h1>
             <div class="h-[1px] w-24 bg-white/30 mx-auto mb-8"></div>
             <!-- TEXT WITH BLUR FADE IN -->
@@ -208,13 +209,37 @@
                                 </div>
                             </div>
                             <div class="w-full lg:w-2/4 font-light text-gray-600 pr-0 lg:pr-8 border-none lg:border-r border-gray-100" data-i18n="serv_photo_desc">
-                                <!-- Content injected via JS -->
+                                <!-- Default Russian Content (Fallback) -->
+                                <div class='mb-8'>
+                                    <h4 class='font-normal text-black text-lg mb-2'>Тренировочная фото/видео сессия</h4>
+                                    <p class='text-sm mb-1'>Стандартная длительность — 80 минут.</p>
+                                    <p class='text-sm mb-2'>Вы получите 10-30 обработанных фотографий и 2 видео (reels/story’s).</p>
+                                    <p class='font-medium text-black'>~130€ <span class='text-gray-400 text-xs font-light'>(~13 500₽ / 7 000 EGP)</span></p>
+                                </div>
+                                <div class='mb-8'>
+                                    <h4 class='font-normal text-black text-lg mb-2'>Индивидуальная фото/видео сессия</h4>
+                                    <ul class='list-disc list-inside text-sm space-y-1 mb-4 text-gray-500'>
+                                        <li>Техника безопасности</li>
+                                        <li>Базовые знания о задержке дыхания и фридайвинге</li>
+                                        <li>Инструктаж плана погружений</li>
+                                        <li>Сценарий съёмки</li>
+                                        <li>Необходимое оборудование</li>
+                                        <li>Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты</li>
+                                    </ul>
+                                    <div class='mb-2'>
+                                        <span class='block text-black font-medium'>Дахаб, Египет</span>
+                                        <span class='text-sm'>от 150€ <span class='text-gray-400 text-xs'>(~15 500₽ / 8 000 EGP)</span></span>
+                                    </div>
+                                    <div>
+                                        <span class='block text-black font-medium'>Шарм-Эль-Шейх, Египет</span>
+                                        <span class='text-sm'>от 200€ <span class='text-gray-400 text-xs'>(~21 000₽ / 10 500 EGP)</span></span>
+                                    </div>
+                                </div>
+                                <p class='text-sm text-gray-500 italic mb-4'>Услуги сложного монтажа обсуждаются отдельно.</p>
+                                <p class='text-sm text-black'>Локации: <br> <span class='text-gray-500 font-light'>Dahab (Египет, Южный Синай), Sharm- El-Sheikh (Egypt, South Sinai)<br>Lighthouse, Islands, Blue Hole and others</span></p>
                             </div>
                             <div class="w-full lg:w-1/4 flex flex-col justify-between h-auto lg:h-full min-h-[150px] gap-6 lg:gap-0">
-                                <div class="mb-0 lg:mb-6">
-                                    <!-- Price Block hidden here as it is moved to description, but we can keep general text or leave empty -->
-                                    <span class="block text-2xl text-black font-normal" data-i18n="serv_photo_price"></span>
-                                </div>
+                                <div class="mb-0 lg:mb-6"></div>
                                 <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
                             </div>
                         </div>
@@ -240,12 +265,19 @@
                                 </div>
                             </div>
                             <div class="w-full lg:w-2/4 font-light text-gray-600 pr-0 lg:pr-8 border-none lg:border-r border-gray-100" data-i18n="serv_course_desc">
-                                <!-- Content injected via JS -->
+                                <!-- Default Russian Content -->
+                                <div class='mb-6'>
+                                    <h4 class='font-normal text-black text-lg'>Персональные тренировки</h4>
+                                    <p class='font-medium text-black mt-1'>от 100€ <span class='text-gray-400 text-xs font-light'>(~10 500₽ / 5 300 EGP)</span></p>
+                                </div>
+                                <div>
+                                    <h4 class='font-normal text-black text-lg'>Курсы W1/W2 по системе Molchanovs</h4>
+                                    <p class='text-sm text-gray-500 mb-1'>(Сертификация после сдачи нормативов)</p>
+                                    <p class='font-medium text-black'>от 500€ <span class='text-gray-400 text-xs font-light'>(~52 000₽ / 26 500 EGP)</span></p>
+                                </div>
                             </div>
                             <div class="w-full lg:w-1/4 flex flex-col justify-between h-auto lg:h-full min-h-[150px] gap-6 lg:gap-0">
-                                <div class="mb-0 lg:mb-6">
-                                     <!-- Prices are in description -->
-                                </div>
+                                <div class="mb-0 lg:mb-6"></div>
                                 <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_signup">Записаться</a>
                             </div>
                         </div>
@@ -297,7 +329,7 @@
         </div>
     </section>
 
-    <!-- GALLERY SECTION (INSTAGRAM EMBEDS) -->
+    <!-- GALLERY SECTION -->
     <section id="gallery" class="py-20 md:py-32 content-section">
         <div class="container mx-auto px-6 md:px-12">
              <div class="flex items-end justify-between mb-12 md:mb-20">
@@ -307,22 +339,16 @@
 
             <!-- Grid 3 Cols for Instagram -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                <!-- Instagram Post 1 -->
+                <!-- Posts -->
                 <div class="w-full flex justify-center bg-white" data-aos="fade-up">
-                   <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSLaBNViBuz/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+                   <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSLaBNViBuz/" data-instgrm-version="14" style="background:#FFF; border:0; width:100%;"></blockquote>
                 </div>
-
-                <!-- Instagram Post 2 -->
                 <div class="w-full flex justify-center bg-white" data-aos="fade-up" data-aos-delay="100">
-                   <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSGWDTFjW4C/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+                   <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSGWDTFjW4C/" data-instgrm-version="14" style="background:#FFF; border:0; width:100%;"></blockquote>
                 </div>
-
-                <!-- Instagram Post 3 -->
                 <div class="w-full flex justify-center bg-white" data-aos="fade-up" data-aos-delay="200">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRRqbICDC0o/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"></blockquote>
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRRqbICDC0o/" data-instgrm-version="14" style="background:#FFF; border:0; width:100%;"></blockquote>
                 </div>
-
             </div>
         </div>
     </section>
@@ -333,7 +359,7 @@
             <div class="mb-12 md:mb-0">
                 <h2 class="text-3xl md:text-5xl font-light mb-8" data-i18n="contact_title">Начнем погружение.</h2>
                 <div class="flex flex-col space-y-4 items-start">
-                    <a href="https://t.me/romeo_freediving" target="_blank" class="text-lg md:text-xl font-light hover:text-cyan-400 transition-colors flex items-center gap-4">
+                    <a href="https://wa.me/79261903619" target="_blank" class="text-lg md:text-xl font-light hover:text-cyan-400 transition-colors flex items-center gap-4">
                         <span class="text-xs uppercase tracking-widest text-gray-500 w-16" data-i18n="contact_direct">Связь</span> WhatsApp
                     </a>
                     <a href="https://t.me/romeo_freediving" class="text-lg md:text-xl font-light hover:text-cyan-400 transition-colors flex items-center gap-4">
@@ -353,7 +379,7 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script async src="//www.instagram.com/embed.js"></script> <!-- Instagram Script -->
+    <script async src="//www.instagram.com/embed.js"></script> 
     <script>
         AOS.init({ once: true, duration: 1200, easing: 'ease-out-cubic' });
 
@@ -451,4 +477,85 @@
                     <div>
                         <h4 class='font-normal text-black text-lg'>Курсы W1/W2 по системе Molchanovs</h4>
                         <p class='text-sm text-gray-500 mb-1'>(Сертификация после сдачи нормативов)</p>
-                        <p class='
+                        <p class='font-medium text-black'>от 500€ <span class='text-gray-400 text-xs font-light'>(~52 000₽ / 26 500 EGP)</span></p>
+                    </div>
+                `, 
+                serv_course_note: "", serv_course_price: "", btn_signup: "Записаться",
+                
+                serv_rental_title: "Аренда снаряжения", serv_rental_sub: "Nearby Coral Coast Hotel and Haven Food Court", serv_rental_price: "от 5 € <span class='text-sm text-gray-400'>/ сутки</span>", btn_write: "Написать",
+                section_gallery: "Галерея", contact_title: "Начнем погружение.", contact_direct: "Связь", contact_chat: "Чат", contact_social: "Соцсети", footer_desc: "Индивидуальный подход к каждому погружению. Безопасность и эстетика."
+            },
+            en: {
+                nav_info: "Info", nav_services: "Services", nav_gallery: "Gallery", nav_contact: "Contact",
+                hero_location: "Dahab • Egypt", hero_subtitle: "Underwater Photography. Education. Equipment. Freedive Tours.<br>The Art of Holding Breath.", scroll: "Scroll",
+                section_info: "Info", about_p1: "Hello friend! My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor and an active athlete AIDA&CMAS.", about_p2: "My base is Dahab, South Sinai.<br>Here I teach people to find peace underwater and create visual stories, stopping time in my shots.<br><br>You can also rent necessary equipment for freediving!",
+                label_cert: "Certification", label_loc: "Location", val_loc: "Dahab, South Sinai", label_focus: "Focus", val_focus: "Education & Art", label_sport: "Sport",
+                section_services: "Services",
+                
+                serv_photo_title: "Underwater Photo", 
+                serv_photo_sub: "Dahab/Sharm-El-Sheikh, South Sinai, Egypt", 
+                serv_photo_desc: `
+                    <div class='mb-8'>
+                        <h4 class='font-normal text-black text-lg mb-2'>Training photo/video session</h4>
+                        <p class='text-sm mb-1'>Standard duration — 80 minutes.</p>
+                        <p class='text-sm mb-2'>You get 10-30 processed photos and 2 videos (reels/story’s).</p>
+                        <p class='font-medium text-black'>~130€ <span class='text-gray-400 text-xs font-light'>(~13 500₽ / 7 000 EGP)</span></p>
+                    </div>
+                    <div class='mb-8'>
+                        <h4 class='font-normal text-black text-lg mb-2'>Individual photo/video session</h4>
+                        <ul class='list-disc list-inside text-sm space-y-1 mb-4 text-gray-500'>
+                            <li>Safety Briefing</li>
+                            <li>Basic Breath-Hold & Freediving Knowledge</li>
+                            <li>Dive Plan Briefing</li>
+                            <li>Shooting Scenario</li>
+                            <li>Necessary Equipment</li>
+                            <li>Swimsuits, wetsuits, goggles, masks, fins, belts, monofins</li>
+                        </ul>
+                        <div class='mb-2'>
+                            <span class='block text-black font-medium'>Dahab, Egypt</span>
+                            <span class='text-sm'>from 150€ <span class='text-gray-400 text-xs'>(~15 500₽ / 8 000 EGP)</span></span>
+                        </div>
+                        <div>
+                            <span class='block text-black font-medium'>Sharm-El-Sheikh, Egypt</span>
+                            <span class='text-sm'>from 200€ <span class='text-gray-400 text-xs'>(~21 000₽ / 10 500 EGP)</span></span>
+                        </div>
+                    </div>
+                    <p class='text-sm text-gray-500 italic mb-4'>Advanced editing services discussed separately.</p>
+                    <p class='text-sm text-black'>Locations: <br> <span class='text-gray-500 font-light'>Dahab (Egypt, South Sinai), Sharm- El-Sheikh (Egypt, South Sinai)<br>Lighthouse, Islands, Blue Hole and others</span></p>
+                `, 
+                serv_photo_price: "", 
+                btn_book: "Book Now",
+
+                serv_course_title: "Molchanovs Courses", 
+                serv_course_sub: "Certification Wave 1 / Wave 2", 
+                serv_course_desc: `
+                    <div class='mb-6'>
+                        <h4 class='font-normal text-black text-lg'>Personal Training</h4>
+                        <p class='font-medium text-black mt-1'>from 100€ <span class='text-gray-400 text-xs font-light'>(~10 500₽ / 5 300 EGP)</span></p>
+                    </div>
+                    <div>
+                        <h4 class='font-normal text-black text-lg'>Molchanovs W1/W2 Courses</h4>
+                        <p class='text-sm text-gray-500 mb-1'>(Certification upon passing standards)</p>
+                        <p class='font-medium text-black'>from 500€ <span class='text-gray-400 text-xs font-light'>(~52 000₽ / 26 500 EGP)</span></p>
+                    </div>
+                `,
+                serv_course_note: "", serv_course_price: "", btn_signup: "Sign Up",
+                
+                serv_rental_title: "Equipment Rental", serv_rental_sub: "Nearby Coral Coast Hotel and Haven Food Court", serv_rental_price: "from 5 € <span class='text-sm text-gray-400'>/ day</span>", btn_write: "Contact",
+                section_gallery: "Gallery", contact_title: "Let's Dive.", contact_direct: "Direct", contact_chat: "Chat", contact_social: "Social", footer_desc: "Individual approach to every dive. Safety and aesthetics."
+            }
+        };
+
+        function setLang(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang][key]) el.innerHTML = translations[lang][key]; });
+            const ruBtns = document.querySelectorAll('.lang-ru'); const enBtns = document.querySelectorAll('.lang-en');
+            if (lang === 'ru') { ruBtns.forEach(btn => { btn.classList.add('text-cyan-400', 'font-normal'); btn.classList.remove('text-white', 'text-gray-500'); }); enBtns.forEach(btn => { btn.classList.remove('text-cyan-400', 'font-normal'); btn.classList.add('text-white', 'text-gray-500'); }); } 
+            else { enBtns.forEach(btn => { btn.classList.add('text-cyan-400', 'font-normal'); btn.classList.remove('text-white', 'text-gray-500'); }); ruBtns.forEach(btn => { btn.classList.remove('text-cyan-400', 'font-normal'); btn.classList.add('text-white', 'text-gray-500'); }); }
+        }
+        
+        // Initialize
+        setLang('ru');
+    </script>
+</body>
+</html>
