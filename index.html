@@ -576,9 +576,6 @@
                     ru: '<h2 class="text-2xl font-bold mb-4">Выбор маски</h2><p>Маска — ключевой элемент...</p>',
                     en: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>'
                 },
-                id: 3, cat: 'spots', title: 'Lighthouse Night Dive', 
-                desc: 'Why you should dive at night.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Lighthouse Night Dive</h2><p>Magic happens when sun goes down...</p>', 
                 img: 'assets/blog3.jpg' 
             },
             { 
@@ -665,7 +662,7 @@
                 faq_a10: "Напишите мне в Telegram, мы выберем удобный день.",
                 btn_show_more: "Еще",
                 btn_read: "Читать",
-                btn_share: "Поделиться",
+                btn_share: "Поделиться статьей",
                 share_alert: "Ссылка скопирована в буфер обмена!",
                 footer_location: "Дахаб • Египет",
                 footer_nav_home: "Интро",
@@ -738,7 +735,7 @@
                 faq_a10: "Message me on Telegram (link in menu/footer) to pick a date.",
                 btn_show_more: "Show More",
                 btn_read: "Read",
-                btn_share: "Share Article",
+                btn_share: "Share this article",
                 share_alert: "Link copied to clipboard!",
                 footer_location: "Dahab • Egypt",
                 footer_nav_home: "Intro",
@@ -845,8 +842,6 @@
                         </div>
                         <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title[curLang]}</h3>
                         <p class="text-sm text-gray-500 mb-4">${b.desc[curLang]}</p>
-                        <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title}</h3>
-                        <p class="text-sm text-gray-500 mb-4">${b.desc}</p>
                         <span class="text-xs border-b border-black pb-1 uppercase" data-i18n="btn_read">Читать</span>
                     </div>
                 `;
@@ -886,8 +881,7 @@
                 <div class="prose max-w-none">
                     ${article.full[curLang]}
                 </div>
-                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title[curLang]}')" data-i18n="btn_share">Share Article</button>
-                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title}')" data-i18n="btn_share">Share Article</button>
+                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title[curLang]}')" data-i18n="btn_share">Share this article</button>
             `;
             updateTexts();
             modal.classList.remove('closed'); modal.classList.add('open');
