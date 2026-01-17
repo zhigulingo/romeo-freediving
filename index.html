@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romeo Freediving | Dahab</title>
+    <title>Romeo Freediving | SPA</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,80 +14,96 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Шрифты -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap&subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
 
     <style>
-        /* Основной фон сайта черный для overscroll-эффекта */
+        /* BASE STYLES */
         body { 
             font-family: 'Manrope', sans-serif; 
             background-color: #000000; 
             color: #111; 
+            overflow-x: hidden;
         }
         
-        /* Секции с контентом должны перекрывать черный фон */
-        .content-section {
+        /* PAGES TRANSITIONS */
+        .page-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            min-height: 100vh;
             background-color: #FAFAFA;
+            padding-top: 80px; /* Space for fixed header */
         }
         
-        .accordion-content { transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out; max-height: 0; opacity: 0; overflow: hidden; }
-        .accordion-content.active { max-height: 2000px; opacity: 1; }
-        
-        .chevron { transition: transform 0.3s ease; }
-        .chevron.rotate { transform: rotate(90deg); }
+        .page-section.active {
+            display: block;
+            opacity: 1;
+        }
 
-        .hover-underline { display: inline-block; position: relative; }
+        /* Hero Section Special Case */
+        #page-home {
+            padding-top: 0;
+            background-color: #000;
+        }
+
+        /* UTILS */
+        .hover-underline { display: inline-block; position: relative; cursor: pointer; }
         .hover-underline::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: 0; left: 0; background-color: #00bcd4; transform-origin: bottom right; transition: transform 0.25s ease-out; }
         .hover-underline:hover::after { transform: scaleX(1); transform-origin: bottom left; }
         
-        .section-header { font-size: 0.75rem; font-weight: 700; color: #d1d5db; text-transform: uppercase; letter-spacing: 0.3em; display: block; margin-bottom: 2rem; }
+        .section-header { font-size: 0.75rem; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.3em; display: block; margin-bottom: 2rem; }
         @media (min-width: 768px) { .section-header { margin-bottom: 4rem; } }
 
-        #mobile-menu-overlay { transition: opacity 0.3s ease-in-out, visibility 0.3s; }
-        #mobile-menu-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
-        #mobile-menu-overlay.closed { opacity: 0; visibility: hidden; pointer-events: none; }
-
-        .fade-slider { position: relative; width: 100%; height: 100%; }
-        .fade-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; object-fit: cover; }
-        .fade-slide.active { opacity: 1; }
-
-        /* Instagram Embed Fixes */
-        iframe.instagram-media {
-            min-width: unset !important;
-            width: 100% !important;
-            border-radius: 0 !important;
-            border: none !important;
-            box-shadow: none !important;
-        }
-
-        /* Blur Fade In Animation */
+        /* HERO ANIMATIONS */
         @keyframes blurFadeIn {
-            0% {
-                opacity: 0;
-                filter: blur(15px);
-                transform: scale(0.98);
-            }
-            100% {
-                opacity: 1;
-                filter: blur(0);
-                transform: scale(1);
-            }
+            0% { opacity: 0; filter: blur(15px); transform: scale(0.98); }
+            100% { opacity: 1; filter: blur(0); transform: scale(1); }
         }
-        .blur-fade-in {
-            animation: blurFadeIn 2s ease-out forwards;
-        }
-        
-        /* Delays for sequence */
+        .blur-fade-in { animation: blurFadeIn 2s ease-out forwards; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-500 { animation-delay: 0.5s; }
-        .delay-1000 { animation-delay: 1.0s; }
+
+        /* CAROUSEL */
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .carousel-item {
+            min-width: 100%;
+            flex-shrink: 0;
+        }
+
+        /* BLOG ARTICLE EXPANSION */
+        .article-content {
+            max-height: 100px;
+            overflow: hidden;
+            position: relative;
+            transition: max-height 0.5s ease;
+        }
+        .article-content.expanded {
+            max-height: 2000px; /* large enough value */
+        }
+        .article-fade-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 40px;
+            background: linear-gradient(to bottom, transparent, white);
+            transition: opacity 0.3s;
+        }
+        .article-content.expanded .article-fade-overlay {
+            opacity: 0; pointer-events: none;
+        }
+
+        /* MOBILE MENU */
+        #mobile-menu-overlay { transition: opacity 0.3s, visibility 0.3s; }
+        #mobile-menu-overlay.open { opacity: 1; visibility: visible; pointer-events: auto; }
+        #mobile-menu-overlay.closed { opacity: 0; visibility: hidden; pointer-events: none; }
     </style>
 </head>
-<body class="antialiased selection:bg-cyan-100 selection:text-cyan-900 pt-0 md:pt-8">
+<body class="antialiased selection:bg-cyan-100 selection:text-cyan-900">
 
-    <!-- Language Switcher Desktop -->
-    <div class="hidden md:flex fixed top-0 left-0 w-full h-8 bg-black z-[60] justify-end items-center px-4 md:px-12 border-b border-gray-800">
+    <!-- LANGUAGE SWITCHER -->
+    <div class="hidden md:flex fixed top-0 left-0 w-full h-8 bg-black z-[70] justify-end items-center px-4 md:px-12 border-b border-gray-800">
         <div class="text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
             <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru">RU</span>
             <span class="text-gray-600">|</span>
@@ -95,504 +111,481 @@
         </div>
     </div>
 
-    <!-- Desktop Header -->
-    <header class="hidden md:block fixed top-8 w-full z-50 mix-blend-difference text-white py-6">
+    <!-- DESKTOP HEADER -->
+    <header class="hidden md:block fixed top-8 w-full z-60 mix-blend-difference text-white py-6">
         <div class="container mx-auto px-6 md:px-12 flex justify-center items-center">
             <nav class="flex space-x-12 text-xs tracking-[0.2em] uppercase font-light">
-                <a href="#about" class="hover-underline" data-i18n="nav_info">Инфо</a>
-                <a href="#services" class="hover-underline" data-i18n="nav_services">Услуги</a>
-                <a href="#gallery" class="hover-underline" data-i18n="nav_gallery">Галерея</a>
-                <a href="#contact" class="hover-underline" data-i18n="nav_contact">Контакты</a>
+                <span onclick="navTo('home')" class="hover-underline" data-i18n="nav_home">Интро</span>
+                <span onclick="navTo('services')" class="hover-underline" data-i18n="nav_services">Услуги</span>
+                <span onclick="navTo('rental')" class="hover-underline" data-i18n="nav_rental">Аренда</span>
+                <span onclick="navTo('blog')" class="hover-underline" data-i18n="nav_blog">Блог</span>
             </nav>
         </div>
     </header>
 
-    <!-- Mobile Header -->
-    <div class="md:hidden fixed top-0 left-0 w-full z-50 flex justify-end items-center p-6 mix-blend-difference text-white">
+    <!-- MOBILE HEADER -->
+    <div class="md:hidden fixed top-0 left-0 w-full z-60 flex justify-end items-center p-6 mix-blend-difference text-white">
         <button onclick="toggleMobileMenu()" class="text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
 
-    <!-- Mobile Menu -->
+    <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
         <nav class="flex flex-col space-y-8 text-center">
-            <a href="#about" onclick="toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400 transition-colors" data-i18n="nav_info">Инфо</a>
-            <a href="#services" onclick="toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400 transition-colors" data-i18n="nav_services">Услуги</a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400 transition-colors" data-i18n="nav_gallery">Галерея</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400 transition-colors" data-i18n="nav_contact">Контакты</a>
+            <span onclick="navTo('home'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400" data-i18n="nav_home">Интро</span>
+            <span onclick="navTo('services'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400" data-i18n="nav_services">Услуги</span>
+            <span onclick="navTo('rental'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400" data-i18n="nav_rental">Аренда</span>
+            <span onclick="navTo('blog'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase hover:text-cyan-400" data-i18n="nav_blog">Блог</span>
         </nav>
         <div class="mt-16 flex items-center space-x-8">
-            <span onclick="setLang('ru')" class="cursor-pointer text-3xl font-light transition-colors lang-ru">RU</span>
+            <span onclick="setLang('ru')" class="cursor-pointer text-3xl font-light text-white lang-ru">RU</span>
             <span class="text-3xl text-gray-700 font-thin">/</span>
-            <span onclick="setLang('en')" class="cursor-pointer text-3xl font-light transition-colors lang-en">EN</span>
+            <span onclick="setLang('en')" class="cursor-pointer text-3xl font-light text-gray-500 lang-en">EN</span>
         </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-        <div class="absolute inset-0 z-0 opacity-60">
-            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale">
-                <source src="assets/hero.mp4" type="video/mp4">
-                <img src="assets/hero-poster.jpg" class="w-full h-full object-cover">
-            </video>
+    <!-- ==================================================================================== -->
+    <!-- PAGE 1: HOME (INTRO) -->
+    <!-- ==================================================================================== -->
+    <section id="page-home" class="page-section active">
+        
+        <!-- HERO -->
+        <div class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+            <div class="absolute inset-0 z-0 opacity-60">
+                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale">
+                    <source src="assets/hero.mp4" type="video/mp4">
+                    <img src="assets/hero-poster.jpg" class="w-full h-full object-cover">
+                </video>
+            </div>
+            <div class="relative z-10 text-center text-white px-4">
+                <p class="text-micro mb-4 text-cyan-400 blur-fade-in" style="opacity: 0;" data-i18n="hero_location">Дахаб • Египет</p>
+                <h1 class="text-4xl md:text-9xl font-light mb-6 tracking-wide leading-tight blur-fade-in delay-200" style="opacity: 0;">ROMEO FREEDIVING</h1>
+                <div class="h-[1px] w-24 bg-white/30 mx-auto mb-8"></div>
+                <p class="text-sm md:text-base font-light tracking-wide text-gray-300 max-w-lg mx-auto blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_subtitle">
+                    Подводная съемка. Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.
+                </p>
+            </div>
+            <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+                <span class="text-[10px] tracking-widest uppercase text-white" data-i18n="scroll">Вниз</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+            </div>
         </div>
-        <div class="relative z-10 text-center text-white px-4">
-            <!-- LOCATION: Blur Animation -->
-            <p class="text-micro mb-4 text-cyan-400 blur-fade-in" style="opacity: 0;" data-i18n="hero_location">Дахаб • Египет</p>
-            
-            <!-- TITLE: Blur Animation (Delayed) -->
-            <h1 class="text-4xl md:text-9xl font-light mb-6 tracking-wide leading-tight blur-fade-in delay-200" style="opacity: 0;">ROMEO FREEDIVING</h1>
-            
-            <div class="h-[1px] w-24 bg-white/30 mx-auto mb-8"></div>
-            
-            <!-- SUBTITLE: Blur Animation (More Delayed) -->
-            <p class="text-sm md:text-base font-light tracking-wide text-gray-300 max-w-lg mx-auto blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_subtitle">
-                Подводная съемка. Обучение. Снаряжение. Фридайв-туры.<br>
-                Искусство задержки дыхания.
-            </p>
-        </div>
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-            <span class="text-[10px] tracking-widest uppercase text-white" data-i18n="scroll">Вниз</span>
-            <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
-        </div>
-    </section>
 
-    <!-- INFO SECTION -->
-    <section id="about" class="py-20 md:py-32 content-section">
-        <div class="container mx-auto px-6 md:px-12">
-            <h2 class="section-header" data-aos="fade-right" data-i18n="section_info">Инфо</h2>
-            <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
-                <div class="w-full md:w-5/12" data-aos="fade-up">
-                    <div class="aspect-[4/5] w-full bg-gray-200 relative overflow-hidden h-full">
-                        <img src="assets/profile.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Romeo Portrait">
+        <!-- INFO BLOCK -->
+        <div class="py-20 md:py-32 bg-[#FAFAFA]">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-header" data-i18n="section_info">Инфо</h2>
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
+                    <div class="w-full md:w-5/12">
+                        <div class="aspect-[4/5] w-full bg-gray-200 relative overflow-hidden">
+                            <img src="assets/profile.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Romeo">
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-between">
+                        <div class="space-y-8">
+                            <p data-i18n="about_p1">Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class="font-normal text-black">Molchanovs</strong> и действующий атлет AIDA&CMAS.</p>
+                            <p data-i18n="about_p2">Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8 pt-8 mt-8 border-t border-gray-200 text-xs uppercase tracking-widest text-gray-500">
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span>Molchanovs W1/W2</div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_loc">Локация</span><span data-i18n="val_loc">Дахаб, Южный Синай</span></div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span>Nearby Coral Coast</div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span>Dahab / Sharm</div>
+                        </div>
                     </div>
                 </div>
-                <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
-                    <div class="space-y-8">
-                        <p data-i18n="about_p1">
-                            Здравствуй, друг!<br>
-                            Мое имя Ромео.<br>
-                            Я инструктор системы <strong class="font-normal text-black">Molchanovs</strong> и действующий атлет AIDA&CMAS.
-                        </p>
-                        <p data-i18n="about_p2">
-                            Моя база — Дахаб, Южный Синай.<br>
-                            Здесь я учу людей находить покой под водой и создаю визуальные истории, останавливая время на своих снимках.<br><br>
-                            Так же вы можете взять необходимую экипировку для занятий фридайвингом!
-                        </p>
-                    </div>
-                    <!-- INFO GRID -->
-                    <div class="grid grid-cols-2 gap-8 pt-8 mt-8 border-t border-gray-200 text-xs uppercase tracking-widest text-gray-500">
-                        <!-- Row 1 -->
-                        <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span>Molchanovs W1/W2</div>
-                        <div><span class="block text-black font-semibold mb-1" data-i18n="label_loc">Локация</span><span data-i18n="val_loc">Дахаб, Южный Синай</span></div>
-                        
-                        <!-- Row 2 -->
-                        <div><span class="block text-black font-semibold mb-1" data-i18n="label_focus">Фокус</span><span data-i18n="val_focus">Обучение и Арт</span></div>
-                        <div><span class="block text-black font-semibold mb-1" data-i18n="label_sport">Спорт</span>AIDA / CMAS</div>
+            </div>
+        </div>
 
-                        <!-- Row 3 (New) -->
-                        <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span><span data-i18n="val_equip">Nearby Coral Coast Hotel and Haven Food Court</span></div>
-                        <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo_short">Подводная съемка</span><span data-i18n="val_photo_short">Дахаб, Египет<br>Шарм-Эль-Шейх, Египет<br>Южный Синай</span></div>
+        <!-- GALLERY SECTION (Custom Carousel) -->
+        <div class="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <!-- Social Header -->
+                <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-12">
+                    <h2 class="section-header mb-4 md:mb-0" style="margin-bottom:0" data-i18n="section_gallery">Галерея</h2>
+                    <div class="flex flex-wrap gap-6 text-xl text-gray-400">
+                        <a href="#" class="hover:text-black transition-colors" title="Personal Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-black transition-colors" title="Work Instagram"><i class="fas fa-camera"></i></a>
+                        <a href="#" class="hover:text-red-600 transition-colors" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="hover:text-black transition-colors" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <p class="mb-8 text-sm text-gray-500 font-light max-w-lg" data-i18n="gallery_cta">Смотрите свежие работы в моих соцсетях. Подписывайтесь, чтобы не пропустить анонсы туров.</p>
+                
+                <!-- Carousel Container -->
+                <div class="relative w-full overflow-hidden group">
+                    <div class="carousel-track" id="gallery-track">
+                        <!-- JS Will Inject Images Here -->
+                    </div>
+                    
+                    <!-- Controls -->
+                    <button onclick="prevSlide()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white p-4 transition-colors"><i class="fas fa-chevron-left"></i></button>
+                    <button onclick="nextSlide()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white p-4 transition-colors"><i class="fas fa-chevron-right"></i></button>
+                    
+                    <!-- Caption Overlay -->
+                    <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6 text-white pointer-events-none">
+                        <p id="gallery-caption" class="text-lg font-light tracking-wide">Dahab Blue Hole</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-20 content-section border-t border-gray-100">
-        <div class="container mx-auto px-6 md:px-12">
+    <!-- ==================================================================================== -->
+    <!-- PAGE 2: SERVICES -->
+    <!-- ==================================================================================== -->
+    <section id="page-services" class="page-section">
+        <div class="container mx-auto px-6 md:px-12 pb-20">
             <h2 class="section-header" data-i18n="section_services">Услуги</h2>
-            <div class="flex flex-col border-t border-gray-100">
 
-                <!-- 1. PHOTO SERVICE -->
-                <div class="border-b border-gray-100 py-8" data-aos="fade-up">
-                    <div class="cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 group" onclick="toggleAccordion('photo')">
-                        <div class="md:w-1/3 w-full flex justify-between items-center">
-                            <h3 class="text-2xl md:text-3xl font-light text-gray-800 group-hover:text-cyan-700 transition-colors" data-i18n="serv_photo_title">Подводная съемка</h3>
-                            <i id="chevron-photo-mobile" class="fas fa-chevron-right text-lg text-cyan-500 chevron md:hidden"></i>
-                        </div>
-                        <div class="hidden md:block md:w-1/3 text-sm text-gray-500 font-light" data-i18n="serv_photo_sub">Дахаб/Шарм-Эль-Шейх, Египет</div>
-                        <div class="md:w-1/6 text-right hidden md:block"><i id="chevron-photo" class="fas fa-chevron-right text-xl text-cyan-500 chevron"></i></div>
-                    </div>
-                    
-                    <div id="content-photo" class="accordion-content">
-                        <div class="pt-8 md:pt-12 pb-4 flex flex-col lg:flex-row gap-8 items-start">
-                            <div class="w-full lg:w-1/4 flex-shrink-0">
-                                <div class="aspect-[4/5] w-full bg-gray-200 overflow-hidden fade-slider" id="slider-photo">
-                                    <img src="assets/photo1.jpg" class="fade-slide active" alt="Slide 1">
-                                    <img src="assets/photo2.jpg" class="fade-slide" alt="Slide 2">
-                                    <img src="assets/photo3.jpg" class="fade-slide" alt="Slide 3">
-                                    <img src="assets/photo4.jpg" class="fade-slide" alt="Slide 4">
-                                    <img src="assets/photo5.jpg" class="fade-slide" alt="Slide 5">
-                                    <img src="assets/photo6.jpg" class="fade-slide" alt="Slide 6">
-                                    <img src="assets/photo7.jpg" class="fade-slide" alt="Slide 7">
-                                </div>
-                            </div>
-                            <div class="w-full lg:w-2/4 font-light text-gray-600 pr-0 lg:pr-8 border-none lg:border-r border-gray-100" data-i18n="serv_photo_desc">
-                                <!-- Default Russian Content (Fallback) -->
-                                <div class='mb-8'>
-                                    <h4 class='font-normal text-black text-lg mb-2'>Тренировочная фото/видео сессия</h4>
-                                    <p class='text-sm mb-1'>Стандартная длительность — 80 минут.</p>
-                                    <p class='text-sm mb-2'>Вы получите 10-30 обработанных фотографий и 2 видео (reels/story’s).</p>
-                                    <p class='font-medium text-black'>~130€ <span class='text-gray-400 text-xs font-light'>(~13 500₽ / 7 000 EGP)</span></p>
-                                </div>
-                                <div class='mb-8'>
-                                    <h4 class='font-normal text-black text-lg mb-2'>Индивидуальная фото/видео сессия</h4>
-                                    <ul class='list-disc list-inside text-sm space-y-1 mb-4 text-gray-500'>
-                                        <li>Техника безопасности</li>
-                                        <li>Базовые знания о задержке дыхания и фридайвинге</li>
-                                        <li>Инструктаж плана погружений</li>
-                                        <li>Сценарий съёмки</li>
-                                        <li>Необходимое оборудование</li>
-                                        <li>Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты</li>
-                                    </ul>
-                                    <div class='mb-2'>
-                                        <span class='block text-black font-medium'>Дахаб, Египет</span>
-                                        <span class='text-sm'>от 150€ <span class='text-gray-400 text-xs'>(~15 500₽ / 8 000 EGP)</span></span>
-                                    </div>
-                                    <div>
-                                        <span class='block text-black font-medium'>Шарм-Эль-Шейх, Египет</span>
-                                        <span class='text-sm'>от 200€ <span class='text-gray-400 text-xs'>(~21 000₽ / 10 500 EGP)</span></span>
-                                    </div>
-                                </div>
-                                <p class='text-sm text-gray-500 italic mb-4'>Услуги сложного монтажа обсуждаются отдельно.</p>
-                                <p class='text-sm text-black'>Локации: <br> <span class='text-gray-500 font-light'>Dahab (Египет, Южный Синай), Sharm- El-Sheikh (Egypt, South Sinai)<br>Lighthouse, Islands, Blue Hole and others</span></p>
-                            </div>
-                            <div class="w-full lg:w-1/4 flex flex-col justify-between h-auto lg:h-full min-h-[150px] gap-6 lg:gap-0">
-                                <div class="mb-0 lg:mb-6"></div>
-                                <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
-                            </div>
-                        </div>
+            <!-- Service 1: Photo -->
+            <div class="flex flex-col lg:flex-row gap-12 mb-24 border-b border-gray-200 pb-12" data-aos="fade-up">
+                <div class="w-full lg:w-1/2">
+                    <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+                        <img src="assets/photo1.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
                     </div>
                 </div>
-
-                <!-- 2. COURSE -->
-                <div class="border-b border-gray-100 py-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 group" onclick="toggleAccordion('course')">
-                        <div class="md:w-1/3 w-full flex justify-between items-center">
-                            <h3 class="text-2xl md:text-3xl font-light text-gray-800 group-hover:text-cyan-700 transition-colors" data-i18n="serv_course_title">Курсы Molchanovs</h3>
-                            <i id="chevron-course-mobile" class="fas fa-chevron-right text-lg text-cyan-500 chevron md:hidden"></i>
+                <div class="w-full lg:w-1/2 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-light mb-4" data-i18n="serv_photo_title">Подводная съемка</h3>
+                        <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="serv_photo_desc">
+                            Создаю визуальную магию под водой. Работаю в Дахабе и Шарм-Эль-Шейхе.<br><br>
+                            <strong>Тренировочная сессия (80 мин):</strong> 10-30 фото + 2 видео.<br>
+                            <strong>Индивидуальная (Art):</strong> Полный инструктаж, сценарий, свет, оборудование.
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between border-b border-gray-100 py-2">
+                                <span>Training Set</span>
+                                <span class="font-semibold">~130€</span>
+                            </div>
+                            <div class="flex justify-between border-b border-gray-100 py-2">
+                                <span>Art Individual</span>
+                                <span class="font-semibold">from 150€</span>
+                            </div>
                         </div>
-                        <div class="hidden md:block md:w-1/3 text-sm text-gray-500 font-light" data-i18n="serv_course_sub">Сертификация Wave 1 / Wave 2</div>
-                        <div class="md:w-1/6 text-right hidden md:block"><i id="chevron-course" class="fas fa-chevron-right text-xl text-cyan-500 chevron"></i></div>
                     </div>
-                    
-                    <div id="content-course" class="accordion-content">
-                        <div class="pt-8 md:pt-12 pb-4 flex flex-col lg:flex-row gap-8 items-start">
-                            <div class="w-full lg:w-1/4 flex-shrink-0">
-                                <div class="aspect-[4/5] w-full bg-gray-200 overflow-hidden">
-                                    <img src="assets/course.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500" alt="Course">
-                                </div>
-                            </div>
-                            <div class="w-full lg:w-2/4 font-light text-gray-600 pr-0 lg:pr-8 border-none lg:border-r border-gray-100" data-i18n="serv_course_desc">
-                                <!-- Default Russian Content -->
-                                <div class='mb-6'>
-                                    <h4 class='font-normal text-black text-lg'>Персональные тренировки</h4>
-                                    <p class='font-medium text-black mt-1'>от 100€ <span class='text-gray-400 text-xs font-light'>(~10 500₽ / 5 300 EGP)</span></p>
-                                </div>
-                                <div>
-                                    <h4 class='font-normal text-black text-lg'>Курсы W1/W2 по системе Molchanovs</h4>
-                                    <p class='text-sm text-gray-500 mb-1'>(Сертификация после сдачи нормативов)</p>
-                                    <p class='font-medium text-black'>от 500€ <span class='text-gray-400 text-xs font-light'>(~52 000₽ / 26 500 EGP)</span></p>
-                                </div>
-                            </div>
-                            <div class="w-full lg:w-1/4 flex flex-col justify-between h-auto lg:h-full min-h-[150px] gap-6 lg:gap-0">
-                                <div class="mb-0 lg:mb-6"></div>
-                                <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_signup">Записаться</a>
-                            </div>
-                        </div>
+                    <a href="https://t.me/romeo_freediving" target="_blank" class="mt-8 inline-block w-max border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book_photo">Забронировать Съемку</a>
+                </div>
+            </div>
+
+            <!-- Service 2: Education -->
+            <div class="flex flex-col lg:flex-row gap-12" data-aos="fade-up">
+                <div class="w-full lg:w-1/2 lg:order-2">
+                    <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+                        <img src="assets/course.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
                     </div>
                 </div>
-
-                <!-- 3. RENTAL -->
-                <div class="border-b border-gray-100 py-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cursor-pointer flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-0 group" onclick="toggleAccordion('rental')">
-                        <div class="md:w-1/3 w-full flex justify-between items-center">
-                            <h3 class="text-2xl md:text-3xl font-light text-gray-800 group-hover:text-cyan-700 transition-colors" data-i18n="serv_rental_title">Аренда снаряжения</h3>
-                            <i id="chevron-rental-mobile" class="fas fa-chevron-right text-lg text-cyan-500 chevron md:hidden"></i>
-                        </div>
-                        <div class="hidden md:block md:w-1/3 text-sm text-gray-500 font-light" data-i18n="serv_rental_sub">Nearby Coral Coast Hotel and Haven Food Court</div>
-                        <div class="md:w-1/6 text-right hidden md:block"><i id="chevron-rental" class="fas fa-chevron-right text-xl text-cyan-500 chevron"></i></div>
-                    </div>
-                    
-                    <div id="content-rental" class="accordion-content">
-                        <div class="pt-8 md:pt-12 pb-4 flex flex-col lg:flex-row gap-8 items-start">
-                            <div class="w-full lg:w-1/4 flex-shrink-0">
-                                <div class="aspect-[4/5] w-full bg-gray-200 overflow-hidden fade-slider" id="slider-rental">
-                                    <img src="assets/equip1.jpg" class="fade-slide active" alt="Equip 1">
-                                    <img src="assets/equip2.jpg" class="fade-slide" alt="Equip 2">
-                                </div>
+                <div class="w-full lg:w-1/2 lg:order-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-light mb-4" data-i18n="serv_course_title">Обучение Molchanovs</h3>
+                        <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="serv_course_desc">
+                            Системный подход к глубине. Сертификация Wave 1 / Wave 2.<br>
+                            Включает теорию, сухие тренировки и сессии в открытой воде.
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between border-b border-gray-100 py-2">
+                                <span>Personal Training</span>
+                                <span class="font-semibold">100€</span>
                             </div>
-                            <div class="w-full lg:w-2/4 font-light text-gray-600 pr-0 lg:pr-8 border-none lg:border-r border-gray-100">
-                                <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm uppercase tracking-wide text-gray-800 font-medium">
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> MONOFINS</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> BIFINS</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> WETSUITS</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> MASK & GOGGLES</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> WATCHS</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> BUOY (80M)</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> SOCKS, GLOVES</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> WEIGHT</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> NOSECLIPS</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> LANYARDS</div>
-                                    <div class="flex items-center gap-2"><div class="w-1 h-1 bg-cyan-500 rounded-full"></div> SUITCASES</div>
-                                </div>
-                            </div>
-                            <div class="w-full lg:w-1/4 flex flex-col justify-between h-auto lg:h-full min-h-[150px] gap-6 lg:gap-0">
-                                <div class="mb-0 lg:mb-6"><span class="block text-2xl text-black font-normal" data-i18n="serv_rental_price">от 5 € <span class="text-sm text-gray-400">/ сутки</span></span><span class="text-xs text-gray-400 uppercase tracking-widest">≈ 550 ₽ / 270 EGP</span></div>
-                                <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_write">Написать</a>
+                            <div class="flex justify-between border-b border-gray-100 py-2">
+                                <span>Wave 1 / Wave 2 Course</span>
+                                <span class="font-semibold">500€</span>
                             </div>
                         </div>
                     </div>
+                    <a href="https://t.me/romeo_freediving" target="_blank" class="mt-8 inline-block w-max border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book_course">Записаться на Курс</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALLERY SECTION -->
-    <section id="gallery" class="py-20 md:py-32 content-section">
-        <div class="container mx-auto px-6 md:px-12">
-             <div class="flex items-end justify-between mb-12 md:mb-20">
-                <h2 class="section-header mb-0" style="margin-bottom: 0;" data-i18n="section_gallery">Галерея</h2>
-                <!-- INSTAGRAM LINKS -->
-                <div class="flex gap-6">
-                    <a href="https://www.instagram.com/romeo_freediving" target="_blank" class="text-xs text-black uppercase tracking-widest border-b border-black pb-1 hover:text-cyan-600 hover:border-cyan-600 transition-colors">@romeo_freediving</a>
-                    <a href="https://www.instagram.com/romeosintecho" target="_blank" class="text-xs text-black uppercase tracking-widest border-b border-black pb-1 hover:text-cyan-600 hover:border-cyan-600 transition-colors">@romeosintecho</a>
-                </div>
-            </div>
-
-            <!-- Grid 3 Cols for Instagram -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Posts -->
-                <div class="w-full flex justify-center bg-white" data-aos="fade-up">
-                   <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSLaBNViBuz/" data-instgrm-version="14" style="background:#FFF; border:0; width:100%;"></blockquote>
-                </div>
-                <div class="w-full flex justify-center bg-white" data-aos="fade-up" data-aos-delay="100">
-                   <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DSGWDTFjW4C/" data-instgrm-version="14" style="background:#FFF; border:0; width:100%;"></blockquote>
-                </div>
-                <div class="w-full flex justify-center bg-white" data-aos="fade-up" data-aos-delay="200">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DRRqbICDC0o/" data-instgrm-version="14" style="background:#FFF; border:0; width:100%;"></blockquote>
-                </div>
+    <!-- ==================================================================================== -->
+    <!-- PAGE 3: RENTAL -->
+    <!-- ==================================================================================== -->
+    <section id="page-rental" class="page-section">
+        <div class="container mx-auto px-6 md:px-12 pb-20">
+            <h2 class="section-header" data-i18n="section_rental">Аренда Снаряжения</h2>
+            <p class="mb-12 text-gray-500 font-light max-w-2xl" data-i18n="rental_intro">Полный сетап для погружений. Локация: Coral Coast Hotel area. Все оборудование проходит дезинфекцию.</p>
+            
+            <!-- Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="rental-grid">
+                <!-- JS will inject cards here -->
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <section id="contact" class="bg-black text-white py-16 md:py-24 border-t border-gray-900">
-        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start">
-            <div class="mb-12 md:mb-0">
-                <h2 class="text-3xl md:text-5xl font-light mb-8" data-i18n="contact_title">Начнем погружение.</h2>
-                <div class="flex flex-col space-y-4 items-start">
-                    <a href="https://wa.me/79261903619" target="_blank" class="text-lg md:text-xl font-light hover:text-cyan-400 transition-colors flex items-center gap-4">
-                        <span class="text-xs uppercase tracking-widest text-gray-500 w-16" data-i18n="contact_direct">Связь</span> WhatsApp
-                    </a>
-                    <a href="https://t.me/romeo_freediving" class="text-lg md:text-xl font-light hover:text-cyan-400 transition-colors flex items-center gap-4">
-                        <span class="text-xs uppercase tracking-widest text-gray-500 w-16" data-i18n="contact_chat">Чат</span> Telegram
-                    </a>
-                    <a href="https://instagram.com/romeo_freediving" class="text-lg md:text-xl font-light hover:text-cyan-400 transition-colors flex items-center gap-4">
-                        <span class="text-xs uppercase tracking-widest text-gray-500 w-16" data-i18n="contact_social">Соцсети</span> Instagram
-                    </a>
+    <!-- ==================================================================================== -->
+    <!-- PAGE 4: BLOG -->
+    <!-- ==================================================================================== -->
+    <section id="page-blog" class="page-section">
+        <div class="container mx-auto px-6 md:px-12 pb-20">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="section-header mb-0" data-i18n="section_blog">Блог</h2>
+                
+                <!-- Filters -->
+                <div class="flex gap-4 overflow-x-auto pb-2 md:pb-0" id="blog-filters">
+                    <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)">All</button>
+                    <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)">Equipment</button>
+                    <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)">Spots</button>
+                    <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('lifestyle', this)">Lifestyle</button>
                 </div>
             </div>
-            <div class="text-right flex flex-col justify-between h-full">
-                <p class="text-gray-500 text-sm font-light max-w-xs ml-auto mb-8" data-i18n="footer_desc">Индивидуальный подход к каждому погружению. Безопасность и эстетика.</p>
-                <div class="text-[10px] uppercase tracking-widest text-gray-600">© Romeo Freediving <br>Dahab, Egypt</div>
+
+            <div class="flex flex-col space-y-12" id="blog-feed">
+                <!-- Blog Articles Injected via JS -->
             </div>
         </div>
     </section>
 
-    <!-- Scripts -->
+    <!-- ==================================================================================== -->
+    <!-- FOOTER -->
+    <!-- ==================================================================================== -->
+    <footer class="bg-black text-white py-16 border-t border-gray-900">
+        <div class="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+            
+            <!-- Brand -->
+            <div class="col-span-1 md:col-span-1">
+                <h3 class="text-2xl font-light mb-4 tracking-widest">ROMEO</h3>
+                <p class="text-gray-500 text-xs uppercase tracking-widest">Dahab, Egypt<br>Freediving & Photography</p>
+            </div>
+
+            <!-- Navigation -->
+            <div class="col-span-1">
+                <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-6">Site Map</h4>
+                <div class="flex flex-col space-y-3 text-sm font-light text-gray-300">
+                    <span onclick="navTo('home')" class="cursor-pointer hover:text-cyan-400 transition">Интро</span>
+                    <span onclick="navTo('services')" class="cursor-pointer hover:text-cyan-400 transition">Услуги</span>
+                    <span onclick="navTo('rental')" class="cursor-pointer hover:text-cyan-400 transition">Аренда</span>
+                    <span onclick="navTo('blog')" class="cursor-pointer hover:text-cyan-400 transition">Блог</span>
+                </div>
+            </div>
+
+            <!-- Socials -->
+            <div class="col-span-1">
+                <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-6">Follow</h4>
+                <div class="flex flex-col space-y-3 text-sm font-light text-gray-300">
+                    <a href="#" target="_blank" class="hover:text-cyan-400 flex items-center gap-3"><i class="fab fa-instagram w-4"></i> @romeo_freediving</a>
+                    <a href="#" target="_blank" class="hover:text-cyan-400 flex items-center gap-3"><i class="fas fa-camera w-4"></i> @romeosintecho</a>
+                    <a href="#" target="_blank" class="hover:text-cyan-400 flex items-center gap-3"><i class="fab fa-youtube w-4"></i> YouTube</a>
+                    <a href="#" target="_blank" class="hover:text-cyan-400 flex items-center gap-3"><i class="fab fa-tiktok w-4"></i> TikTok</a>
+                </div>
+            </div>
+
+            <!-- Contacts -->
+            <div class="col-span-1">
+                <h4 class="text-xs font-bold text-gray-600 uppercase tracking-widest mb-6">Contact</h4>
+                <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors">Telegram Chat</a>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-gray-900 text-center md:text-left">
+            <span class="text-[10px] text-gray-700 uppercase tracking-widest">© 2026 Romeo Freediving. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script async src="//www.instagram.com/embed.js"></script> 
     <script>
-        AOS.init({ once: true, duration: 1200, easing: 'ease-out-cubic' });
+        // --- 1. INITIALIZATION ---
+        AOS.init({ once: true, duration: 1000 });
+        
+        // --- 2. SPA NAVIGATION ---
+        function navTo(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(el => {
+                el.classList.remove('active');
+                setTimeout(() => { if(!el.classList.contains('active')) el.style.display = 'none'; }, 400); // fade out wait
+            });
+            
+            // Show target page
+            const target = document.getElementById('page-' + pageId);
+            target.style.display = 'block';
+            
+            // Allow display:block to apply before adding opacity
+            setTimeout(() => {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 50);
 
+            // Close mobile menu if open
+            document.getElementById('mobile-menu-overlay').classList.remove('open');
+            document.getElementById('mobile-menu-overlay').classList.add('closed');
+        }
+
+        // --- 3. MOBILE MENU ---
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu-overlay');
             if (menu.classList.contains('closed')) {
-                menu.classList.remove('closed'); menu.classList.add('open'); document.body.style.overflow = 'hidden'; 
+                menu.classList.remove('closed'); menu.classList.add('open');
             } else {
-                menu.classList.remove('open'); menu.classList.add('closed'); document.body.style.overflow = 'auto';
+                menu.classList.remove('open'); menu.classList.add('closed');
             }
         }
 
-        function toggleAccordion(id) {
-            const content = document.getElementById('content-' + id);
-            const chevronDesktop = document.getElementById('chevron-' + id);
-            const chevronMobile = document.getElementById('chevron-' + id + '-mobile');
-            const allContents = document.querySelectorAll('.accordion-content');
-            const allChevrons = document.querySelectorAll('.chevron');
-            
-            allContents.forEach(el => { if (el.id !== 'content-' + id) el.classList.remove('active'); });
-            allChevrons.forEach(el => { if (el.id !== 'chevron-' + id && el.id !== 'chevron-' + id + '-mobile') { el.classList.remove('rotate'); }});
+        // --- 4. GALLERY CAROUSEL LOGIC ---
+        const galleryImages = [
+            { src: 'assets/gallery1.jpg', caption: 'Blue Hole Arch, Dahab' },
+            { src: 'assets/gallery2.jpg', caption: 'Canyon, Dahab' },
+            { src: 'assets/gallery3.jpg', caption: 'Ras Mohammed, Sharm' },
+            { src: 'assets/gallery4.jpg', caption: 'Lighthouse Night Dive' }
+        ];
+        
+        const track = document.getElementById('gallery-track');
+        const captionEl = document.getElementById('gallery-caption');
+        let currentSlide = 0;
 
-            content.classList.toggle('active');
-            if(chevronDesktop) chevronDesktop.classList.toggle('rotate');
-            if(chevronMobile) chevronMobile.classList.toggle('rotate');
-        }
-
-        function startSliders() {
-            const sliders = document.querySelectorAll('.fade-slider');
-            sliders.forEach(slider => {
-                const slides = slider.querySelectorAll('.fade-slide');
-                if (slides.length < 2) return;
-                let current = 0;
-                setInterval(() => {
-                    slides[current].classList.remove('active');
-                    current = (current + 1) % slides.length;
-                    slides[current].classList.add('active');
-                }, 3000); 
+        // Init Gallery
+        if(track) {
+            galleryImages.forEach(img => {
+                const div = document.createElement('div');
+                div.className = 'carousel-item w-full h-[500px] md:h-[700px] bg-gray-300 relative';
+                div.innerHTML = `<img src="${img.src}" class="w-full h-full object-cover" alt="${img.caption}" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'w-full h-full flex items-center justify-center text-gray-500\\'>Image Placeholder</div>'">`;
+                track.appendChild(div);
             });
         }
-        startSliders();
 
-        // --- Translations ---
-        const translations = {
-            ru: {
-                nav_info: "Инфо", nav_services: "Услуги", nav_gallery: "Галерея", nav_contact: "Контакты",
-                hero_location: "Дахаб • Египет", hero_subtitle: "Подводная съемка. Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.", scroll: "Вниз",
-                section_info: "Инфо", 
-                about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong> и действующий атлет AIDA&CMAS.", 
-                about_p2: "Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории, останавливая время на своих снимках.<br><br>Так же вы можете взять необходимую экипировку для занятий фридайвингом!",
-                
-                label_cert: "Сертификация", label_loc: "Локация", val_loc: "Дахаб, Южный Синай", label_focus: "Фокус", val_focus: "Обучение и Арт", label_sport: "Спорт",
-                
-                // NEW GRID ITEMS RU
-                label_equip: "Снаряжение", val_equip: "Nearby Coral Coast Hotel and Haven Food Court",
-                label_photo_short: "Подводная съемка", val_photo_short: "Дахаб, Египет<br>Шарм-Эль-Шейх, Египет<br>Южный Синай",
-
-                section_services: "Услуги",
-                
-                serv_photo_title: "Подводная съемка", 
-                serv_photo_sub: "Дахаб/Шарм-Эль-Шейх, Южный Синай, Египет", 
-                serv_photo_desc: `
-                    <div class='mb-8'>
-                        <h4 class='font-normal text-black text-lg mb-2'>Тренировочная фото/видео сессия</h4>
-                        <p class='text-sm mb-1'>Стандартная длительность — 80 минут.</p>
-                        <p class='text-sm mb-2'>Вы получите 10-30 обработанных фотографий и 2 видео (reels/story’s).</p>
-                        <p class='font-medium text-black'>~130€ <span class='text-gray-400 text-xs font-light'>(~13 500₽ / 7 000 EGP)</span></p>
-                    </div>
-                    <div class='mb-8'>
-                        <h4 class='font-normal text-black text-lg mb-2'>Индивидуальная фото/видео сессия</h4>
-                        <ul class='list-disc list-inside text-sm space-y-1 mb-4 text-gray-500'>
-                            <li>Техника безопасности</li>
-                            <li>Базовые знания о задержке дыхания и фридайвинге</li>
-                            <li>Инструктаж плана погружений</li>
-                            <li>Сценарий съёмки</li>
-                            <li>Необходимое оборудование</li>
-                            <li>Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты</li>
-                        </ul>
-                        <div class='mb-2'>
-                            <span class='block text-black font-medium'>Дахаб, Египет</span>
-                            <span class='text-sm'>от 150€ <span class='text-gray-400 text-xs'>(~15 500₽ / 8 000 EGP)</span></span>
-                        </div>
-                        <div>
-                            <span class='block text-black font-medium'>Шарм-Эль-Шейх, Египет</span>
-                            <span class='text-sm'>от 200€ <span class='text-gray-400 text-xs'>(~21 000₽ / 10 500 EGP)</span></span>
-                        </div>
-                    </div>
-                    <p class='text-sm text-gray-500 italic mb-4'>Услуги сложного монтажа обсуждаются отдельно.</p>
-                    <p class='text-sm text-black'>Локации: <br> <span class='text-gray-500 font-light'>Dahab (Египет, Южный Синай), Sharm- El-Sheikh (Egypt, South Sinai)<br>Lighthouse, Islands, Blue Hole and others</span></p>
-                `, 
-                serv_photo_price: "", 
-                btn_book: "Забронировать",
-
-                serv_course_title: "Курсы Molchanovs", 
-                serv_course_sub: "Сертификация Wave 1 / Wave 2", 
-                serv_course_desc: `
-                    <div class='mb-6'>
-                        <h4 class='font-normal text-black text-lg'>Персональные тренировки</h4>
-                        <p class='font-medium text-black mt-1'>от 100€ <span class='text-gray-400 text-xs font-light'>(~10 500₽ / 5 300 EGP)</span></p>
-                    </div>
-                    <div>
-                        <h4 class='font-normal text-black text-lg'>Курсы W1/W2 по системе Molchanovs</h4>
-                        <p class='text-sm text-gray-500 mb-1'>(Сертификация после сдачи нормативов)</p>
-                        <p class='font-medium text-black'>от 500€ <span class='text-gray-400 text-xs font-light'>(~52 000₽ / 26 500 EGP)</span></p>
-                    </div>
-                `, 
-                serv_course_note: "", serv_course_price: "", btn_signup: "Записаться",
-                
-                serv_rental_title: "Аренда снаряжения", serv_rental_sub: "Nearby Coral Coast Hotel and Haven Food Court", serv_rental_price: "от 5 € <span class='text-sm text-gray-400'>/ сутки</span>", btn_write: "Написать",
-                section_gallery: "Галерея", contact_title: "Начнем погружение.", contact_direct: "Связь", contact_chat: "Чат", contact_social: "Соцсети", footer_desc: "Индивидуальный подход к каждому погружению. Безопасность и эстетика."
-            },
-            en: {
-                nav_info: "Info", nav_services: "Services", nav_gallery: "Gallery", nav_contact: "Contact",
-                hero_location: "Dahab • Egypt", hero_subtitle: "Underwater Photography. Education. Equipment. Freedive Tours.<br>The Art of Holding Breath.", scroll: "Scroll",
-                section_info: "Info", about_p1: "Hello friend! My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor and an active athlete AIDA&CMAS.", about_p2: "My base is Dahab, South Sinai.<br>Here I teach people to find peace underwater and create visual stories, stopping time in my shots.<br><br>You can also rent necessary equipment for freediving!",
-                
-                label_cert: "Certification", label_loc: "Location", val_loc: "Dahab, South Sinai", label_focus: "Focus", val_focus: "Education & Art", label_sport: "Sport",
-                
-                // NEW GRID ITEMS EN
-                label_equip: "Equipment", val_equip: "Nearby Coral Coast Hotel and Haven Food Court",
-                label_photo_short: "Underwater Photo", val_photo_short: "Dahab, Egypt<br>Sharm-El-Sheikh, Egypt<br>South Sinai",
-
-                section_services: "Services",
-                
-                serv_photo_title: "Underwater Photo", 
-                serv_photo_sub: "Dahab/Sharm-El-Sheikh, South Sinai, Egypt", 
-                serv_photo_desc: `
-                    <div class='mb-8'>
-                        <h4 class='font-normal text-black text-lg mb-2'>Training photo/video session</h4>
-                        <p class='text-sm mb-1'>Standard duration — 80 minutes.</p>
-                        <p class='text-sm mb-2'>You get 10-30 processed photos and 2 videos (reels/story’s).</p>
-                        <p class='font-medium text-black'>~130€ <span class='text-gray-400 text-xs font-light'>(~13 500₽ / 7 000 EGP)</span></p>
-                    </div>
-                    <div class='mb-8'>
-                        <h4 class='font-normal text-black text-lg mb-2'>Individual photo/video session</h4>
-                        <ul class='list-disc list-inside text-sm space-y-1 mb-4 text-gray-500'>
-                            <li>Safety Briefing</li>
-                            <li>Basic Breath-Hold & Freediving Knowledge</li>
-                            <li>Dive Plan Briefing</li>
-                            <li>Shooting Scenario</li>
-                            <li>Necessary Equipment</li>
-                            <li>Swimsuits, wetsuits, goggles, masks, fins, belts, monofins</li>
-                        </ul>
-                        <div class='mb-2'>
-                            <span class='block text-black font-medium'>Dahab, Egypt</span>
-                            <span class='text-sm'>from 150€ <span class='text-gray-400 text-xs'>(~15 500₽ / 8 000 EGP)</span></span>
-                        </div>
-                        <div>
-                            <span class='block text-black font-medium'>Sharm-El-Sheikh, Egypt</span>
-                            <span class='text-sm'>from 200€ <span class='text-gray-400 text-xs'>(~21 000₽ / 10 500 EGP)</span></span>
-                        </div>
-                    </div>
-                    <p class='text-sm text-gray-500 italic mb-4'>Advanced editing services discussed separately.</p>
-                    <p class='text-sm text-black'>Locations: <br> <span class='text-gray-500 font-light'>Dahab (Egypt, South Sinai), Sharm- El-Sheikh (Egypt, South Sinai)<br>Lighthouse, Islands, Blue Hole and others</span></p>
-                `, 
-                serv_photo_price: "", 
-                btn_book: "Book Now",
-
-                serv_course_title: "Molchanovs Courses", 
-                serv_course_sub: "Certification Wave 1 / Wave 2", 
-                serv_course_desc: `
-                    <div class='mb-6'>
-                        <h4 class='font-normal text-black text-lg'>Personal Training</h4>
-                        <p class='font-medium text-black mt-1'>from 100€ <span class='text-gray-400 text-xs font-light'>(~10 500₽ / 5 300 EGP)</span></p>
-                    </div>
-                    <div>
-                        <h4 class='font-normal text-black text-lg'>Molchanovs W1/W2 Courses</h4>
-                        <p class='text-sm text-gray-500 mb-1'>(Certification upon passing standards)</p>
-                        <p class='font-medium text-black'>from 500€ <span class='text-gray-400 text-xs font-light'>(~52 000₽ / 26 500 EGP)</span></p>
-                    </div>
-                `,
-                serv_course_note: "", serv_course_price: "", btn_signup: "Sign Up",
-                
-                serv_rental_title: "Equipment Rental", serv_rental_sub: "Nearby Coral Coast Hotel and Haven Food Court", serv_rental_price: "from 5 € <span class='text-sm text-gray-400'>/ day</span>", btn_write: "Contact",
-                section_gallery: "Gallery", contact_title: "Let's Dive.", contact_direct: "Direct", contact_chat: "Chat", contact_social: "Social", footer_desc: "Individual approach to every dive. Safety and aesthetics."
-            }
-        };
-
-        function setLang(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => { const key = el.getAttribute('data-i18n'); if (translations[lang][key]) el.innerHTML = translations[lang][key]; });
-            const ruBtns = document.querySelectorAll('.lang-ru'); const enBtns = document.querySelectorAll('.lang-en');
-            if (lang === 'ru') { ruBtns.forEach(btn => { btn.classList.add('text-cyan-400', 'font-normal'); btn.classList.remove('text-white', 'text-gray-500'); }); enBtns.forEach(btn => { btn.classList.remove('text-cyan-400', 'font-normal'); btn.classList.add('text-white', 'text-gray-500'); }); } 
-            else { enBtns.forEach(btn => { btn.classList.add('text-cyan-400', 'font-normal'); btn.classList.remove('text-white', 'text-gray-500'); }); ruBtns.forEach(btn => { btn.classList.remove('text-cyan-400', 'font-normal'); btn.classList.add('text-white', 'text-gray-500'); }); }
+        function updateGallery() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            captionEl.innerText = galleryImages[currentSlide].caption;
         }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % galleryImages.length;
+            updateGallery();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + galleryImages.length) % galleryImages.length;
+            updateGallery();
+        }
+
+
+        // --- 5. RENTAL SYSTEM ---
+        const rentalItems = [
+            { id: 1, name: 'Molchanovs Bifins', price: '10€', status: 'available', img: 'assets/equip1.jpg' },
+            { id: 2, name: 'Wetsuit 3mm', price: '15€', status: 'available', img: 'assets/equip2.jpg' },
+            { id: 3, name: 'Lanyard & Belt', price: '5€', status: 'taken', img: 'assets/equip3.jpg' },
+            { id: 4, name: 'Mask & Snorkel', price: '5€', status: 'available', img: 'assets/equip4.jpg' },
+            { id: 5, name: 'Monofin', price: '20€', status: 'available', img: 'assets/equip5.jpg' },
+            { id: 6, name: 'Buoy & Rope', price: '10€', status: 'available', img: 'assets/equip6.jpg' }
+        ];
+
+        const rentalGrid = document.getElementById('rental-grid');
         
-        // Initialize
-        setLang('ru');
+        if(rentalGrid) {
+            rentalItems.forEach(item => {
+                const statusColor = item.status === 'available' ? 'bg-green-500' : 'bg-gray-400';
+                const statusText = item.status === 'available' ? 'Available' : 'Booked';
+                const btnDisabled = item.status !== 'available' ? 'opacity-50 cursor-not-allowed pointer-events-none' : '';
+                
+                const card = document.createElement('div');
+                card.className = 'bg-white border border-gray-100 p-4 hover:shadow-lg transition duration-300';
+                card.innerHTML = `
+                    <div class="aspect-square bg-gray-100 mb-4 overflow-hidden relative">
+                        <img src="${item.img}" class="w-full h-full object-cover" alt="${item.name}" onerror="this.style.display='none'">
+                        <div class="absolute top-2 right-2 text-[10px] uppercase font-bold text-white px-2 py-1 ${statusColor}">${statusText}</div>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-lg font-light">${item.name}</h4>
+                        <span class="font-bold">${item.price}</span>
+                    </div>
+                    <button onclick="rentItem('${item.name}')" class="w-full border border-black py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition ${btnDisabled}">
+                        ${item.status === 'available' ? 'Rent Now' : 'Unavailable'}
+                    </button>
+                `;
+                rentalGrid.appendChild(card);
+            });
+        }
+
+        function rentItem(itemName) {
+            const msg = `Здравствуйте! Хочу арендовать ${itemName}. Свободно ли на эти даты?`;
+            window.open(`https://t.me/romeo_freediving?text=${encodeURIComponent(msg)}`, '_blank');
+        }
+
+
+        // --- 6. BLOG SYSTEM ---
+        const articles = [
+            { 
+                id: 1, category: 'equipment', title: 'Why I choose Molchanovs Bifins?', 
+                snippet: 'Choosing the right fins is crucial for efficiency. Here is my breakdown of carbon vs fiberglass...',
+                full: 'Choosing the right fins is crucial for efficiency. Here is my breakdown of carbon vs fiberglass. Carbon fins offer superior responsiveness, meaning you get more propulsion for less energy. However, they are fragile. Fiberglass is durable but heavier. For Dahab conditions...',
+                img: 'assets/blog1.jpg'
+            },
+            { 
+                id: 2, category: 'spots', title: 'Blue Hole: Beyond the Arch', 
+                snippet: 'The Blue Hole is infamous, but its coral garden is the real gem for photographers...',
+                full: 'The Blue Hole is infamous, but its coral garden is the real gem for photographers. While everyone rushes to the Arch, the saddle area offers incredible light play at 5-10 meters depth. Best time to shoot is 10:00 AM...',
+                img: 'assets/blog2.jpg'
+            },
+            { 
+                id: 3, category: 'lifestyle', title: 'A Day in Dahab', 
+                snippet: 'Morning routine of a freediver: yoga, coffee, and the deep blue...',
+                full: 'Morning routine of a freediver: yoga, coffee, and the deep blue. We start at 7 AM at Lighthouse. The water is calm. Pranayama on the beach helps settle the mind...',
+                img: 'assets/blog3.jpg'
+            }
+        ];
+
+        const blogFeed = document.getElementById('blog-feed');
+
+        function renderBlog(filter = 'all') {
+            blogFeed.innerHTML = '';
+            const filtered = filter === 'all' ? articles : articles.filter(a => a.category === filter);
+            
+            filtered.forEach(article => {
+                const articleEl = document.createElement('div');
+                articleEl.className = 'flex flex-col md:flex-row gap-8 items-start border-b border-gray-100 pb-12';
+                articleEl.innerHTML = `
+                    <div class="w-full md:w-1/3 aspect-[4/3] bg-gray-200">
+                         <img src="${article.img}" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                    </div>
+                    <div class="w-full md:w-2/3">
+                        <span class="text-[10px] text-cyan-600 uppercase tracking-widest font-bold mb-2 block">${article.category}</span>
+                        <h3 class="text-2xl font-light mb-4">${article.title}</h3>
+                        <div class="article-content text-gray-500 font-light leading-relaxed mb-4 text-sm relative" id="art-${article.id}">
+                            ${article.full}
+                            <div class="article-fade-overlay"></div>
+                        </div>
+                        <button onclick="toggleArticle(${article.id})" class="text-xs uppercase border-b border-black pb-1 hover:text-cyan-600 hover:border-cyan-600 transition">Read More</button>
+                    </div>
+                `;
+                blogFeed.appendChild(articleEl);
+            });
+        }
+
+        function filterBlog(category, btn) {
+            renderBlog(category);
+            // Update UI buttons
+            const buttons = document.querySelectorAll('#blog-filters button');
+            buttons.forEach(b => {
+                b.classList.remove('text-black', 'border-black', 'font-semibold');
+                b.classList.add('text-gray-400', 'border-transparent');
+            });
+            btn.classList.remove('text-gray-400', 'border-transparent');
+            btn.classList.add('text-black', 'border-black', 'font-semibold');
+        }
+
+        function toggleArticle(id) {
+            const content = document.getElementById(`art-${id}`);
+            content.classList.toggle('expanded');
+        }
+
+        // Init Blog
+        if(blogFeed) renderBlog();
+
+        // --- 7. LANGUAGE STUB ---
+        // (Simplified for SPA: You would extend the translations dictionary here as in previous versions)
+        function setLang(lang) {
+            const ruBtns = document.querySelectorAll('.lang-ru');
+            const enBtns = document.querySelectorAll('.lang-en');
+            
+            if(lang === 'ru') {
+                ruBtns.forEach(b => b.classList.add('text-white', 'font-bold'));
+                enBtns.forEach(b => b.classList.remove('text-white', 'font-bold'));
+                // Add translation logic here if needed
+            } else {
+                enBtns.forEach(b => b.classList.add('text-white', 'font-bold'));
+                ruBtns.forEach(b => b.classList.remove('text-white', 'font-bold'));
+            }
+        }
     </script>
 </body>
 </html>
