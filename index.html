@@ -158,10 +158,10 @@
                             <p data-i18n="about_p2">Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.</p>
                         </div>
                         <div class="grid grid-cols-2 gap-8 pt-8 mt-8 border-t border-gray-200 text-xs uppercase tracking-widest text-gray-500">
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span>Molchanovs W1/W2</div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span><span data-i18n="val_cert">Molchanovs W1/W2</span></div>
                             <div><span class="block text-black font-semibold mb-1" data-i18n="label_loc">Локация</span><span data-i18n="val_loc">Дахаб, Южный Синай</span></div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span>Nearby Coral Coast</div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span>Dahab / Sharm</div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span><span data-i18n="val_equip">Nearby Coral Coast</span></div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span><span data-i18n="val_photo">Dahab / Sharm</span></div>
                         </div>
                     </div>
                 </div>
@@ -441,9 +441,9 @@
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                     <h3 class="text-2xl font-light mb-8 md:mb-0" data-i18n="blog_title">Статьи</h3>
                     <div class="flex gap-4 overflow-x-auto pb-2 md:pb-0" id="blog-filters">
-                        <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)">All</button>
-                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)">Equipment</button>
-                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)">Spots</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)" data-i18n="filter_all">All</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)" data-i18n="filter_equipment">Equipment</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)" data-i18n="filter_spots">Spots</button>
                     </div>
                 </div>
 
@@ -476,20 +476,20 @@
              <div class="flex flex-col md:flex-row justify-between items-start gap-12">
                  <div>
                     <h3 class="text-xl font-bold tracking-widest mb-2">ROMEO</h3>
-                    <p class="text-xs text-gray-500 uppercase">Dahab • Egypt</p>
+                    <p class="text-xs text-gray-500 uppercase" data-i18n="footer_location">Dahab • Egypt</p>
                  </div>
                  <div class="flex flex-col gap-4 text-sm font-light text-gray-400">
-                    <span onclick="navTo('home')" class="cursor-pointer hover:text-white">Intro</span>
-                    <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white">Shooting</span>
-                    <span onclick="navTo('rental')" class="cursor-pointer hover:text-white">Rental</span>
-                    <span onclick="navTo('education')" class="cursor-pointer hover:text-white">Education</span>
+                    <span onclick="navTo('home')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_home">Intro</span>
+                    <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_shooting">Shooting</span>
+                    <span onclick="navTo('rental')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_rental">Rental</span>
+                    <span onclick="navTo('education')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_education">Education</span>
                  </div>
                  <div>
-                     <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">Contact Telegram</a>
+                     <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Contact Telegram</a>
                  </div>
              </div>
              <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase">
-                 © 2026 Romeo Freediving
+                 <span data-i18n="footer_copyright">© 2026 Romeo Freediving</span>
              </div>
         </div>
     </footer>
@@ -561,7 +561,8 @@
                 nav_home: "Интро", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
                 hero_location: "Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
                 section_info: "Инфо", about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong>.",
-                label_cert: "Сертификация", label_loc: "Локация", label_equip: "Снаряжение", label_photo: "Съемка",
+                about_p2: "Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.",
+                label_cert: "Сертификация", val_cert: "Molchanovs W1/W2", label_loc: "Локация", val_loc: "Дахаб, Южный Синай", label_equip: "Снаряжение", val_equip: "Nearby Coral Coast", label_photo: "Съемка", val_photo: "Dahab / Sharm",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
                 section_shooting: "Съемка",
                 shooting_individual_title: "Индивидуальная съемка",
@@ -592,6 +593,7 @@
                 course_wave_desc: "Полное обучение по системе Molchanovs с получением сертификата.",
                 btn_enroll: "Записаться",
                 blog_title: "Полезные статьи",
+                filter_all: "Все", filter_equipment: "Снаряжение", filter_spots: "Споты",
                 scroll: "Вниз",
                 section_faq: "Частые вопросы",
                 faq_q1: "Нужно ли уметь хорошо плавать?",
@@ -614,13 +616,23 @@
                 faq_a9: "Обработка занимает 5-7 дней. Вы получите ссылку на облако.",
                 faq_q10: "Как забронировать дату?",
                 faq_a10: "Напишите мне в Telegram, мы выберем удобный день.",
-                btn_show_more: "Еще"
+                btn_show_more: "Еще",
+                btn_read: "Читать",
+                btn_share: "Поделиться",
+                footer_location: "Дахаб • Египет",
+                footer_nav_home: "Интро",
+                footer_nav_shooting: "Съемка",
+                footer_nav_rental: "Аренда",
+                footer_nav_education: "Обучение",
+                footer_contact: "Написать в Telegram",
+                footer_copyright: "© 2026 Romeo Freediving"
             },
             en: {
                 nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
                 hero_location: "Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
                 section_info: "Info", about_p1: "Hello friend!<br>My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor.",
-                label_cert: "Certification", label_loc: "Location", label_equip: "Equipment", label_photo: "Shooting",
+                about_p2: "My base is Dahab, South Sinai.<br>I teach people to find calm underwater and create visual stories.",
+                label_cert: "Certification", val_cert: "Molchanovs W1/W2", label_loc: "Location", val_loc: "Dahab, South Sinai", label_equip: "Equipment", val_equip: "Nearby Coral Coast", label_photo: "Shooting", val_photo: "Dahab / Sharm",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
                 section_shooting: "Shooting",
                 shooting_individual_title: "Individual Shooting",
@@ -651,6 +663,7 @@
                 course_wave_desc: "Full training in the Molchanovs system with certification.",
                 btn_enroll: "Enroll Now",
                 blog_title: "Useful Articles",
+                filter_all: "All", filter_equipment: "Equipment", filter_spots: "Spots",
                 scroll: "Scroll",
                 section_faq: "FAQ",
                 faq_q1: "Do I need to be a strong swimmer?",
@@ -673,7 +686,16 @@
                 faq_a9: "Editing takes 5-7 days. You will receive a link to cloud storage.",
                 faq_q10: "How to book?",
                 faq_a10: "Message me on Telegram (link in menu/footer) to pick a date.",
-                btn_show_more: "Show More"
+                btn_show_more: "Show More",
+                btn_read: "Read",
+                btn_share: "Share Article",
+                footer_location: "Dahab • Egypt",
+                footer_nav_home: "Intro",
+                footer_nav_shooting: "Shooting",
+                footer_nav_rental: "Rental",
+                footer_nav_education: "Education",
+                footer_contact: "Contact on Telegram",
+                footer_copyright: "© 2026 Romeo Freediving"
             }
         };
 
@@ -770,7 +792,7 @@
                         </div>
                         <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title}</h3>
                         <p class="text-sm text-gray-500 mb-4">${b.desc}</p>
-                        <span class="text-xs border-b border-black pb-1 uppercase">Читать</span>
+                        <span class="text-xs border-b border-black pb-1 uppercase" data-i18n="btn_read">Читать</span>
                     </div>
                 `;
             });
@@ -809,7 +831,7 @@
                 <div class="prose max-w-none">
                     ${article.full}
                 </div>
-                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title}')">Share Article</button>
+                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title}')" data-i18n="btn_share">Share Article</button>
             `;
             modal.classList.remove('closed'); modal.classList.add('open');
         }
