@@ -412,7 +412,7 @@
                 section_services: "Услуги", serv_photo_title: "Подводная съемка", serv_photo_desc: "Визуальная магия в Дахабе и Шарме.", serv_training: "Тренировочная сессия (80 мин)", serv_art: "Индивидуальная (Art)", btn_book_photo: "Забронировать",
                 serv_course_title: "Обучение Molchanovs", serv_personal: "Персональная тренировка", serv_wave: "Курс Wave 1 / Wave 2", btn_book_course: "Записаться",
                 section_rental: "Аренда Снаряжения", rental_intro: "Полный сетап для погружений. Локация: Coral Coast Hotel area.", btn_rent: "Арендовать",
-                section_blog: "Блог", btn_read: "Читать"
+                section_blog: "Блог", btn_read: "Читать", scroll: "Вниз"
             },
             en: {
                 nav_home: "Intro", nav_services: "Services", nav_rental: "Rental", nav_blog: "Blog",
@@ -423,7 +423,7 @@
                 section_services: "Services", serv_photo_title: "Underwater Photography", serv_photo_desc: "Visual magic in Dahab and Sharm.", serv_training: "Training Session (80 min)", serv_art: "Individual (Art)", btn_book_photo: "Book Now",
                 serv_course_title: "Molchanovs Education", serv_personal: "Personal Training", serv_wave: "Wave 1 / Wave 2 Course", btn_book_course: "Sign Up",
                 section_rental: "Equipment Rental", rental_intro: "Full diving setup. Location: Coral Coast Hotel area.", btn_rent: "Rent Now",
-                section_blog: "Blog", btn_read: "Read"
+                section_blog: "Blog", btn_read: "Read", scroll: "Scroll"
             }
         };
 
@@ -431,13 +431,29 @@
         
         let curLang = 'ru';
 
-        // 1. Navigation
+        // 1. Navigation (FIXED BUG)
         function navTo(page) {
-            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.page-section').forEach(p => setTimeout(() => p.style.display='none', 400));
             const target = document.getElementById('page-'+page);
+            const currentActive = document.querySelector('.page-section.active');
+            
+            // Remove active from all
+            document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+            
+            // Show target
             target.style.display = 'block';
-            setTimeout(() => { target.classList.add('active'); window.scrollTo(0,0); }, 50);
+            setTimeout(() => { 
+                target.classList.add('active'); 
+                window.scrollTo(0, 0); 
+            }, 50);
+            
+            // Hide others
+            setTimeout(() => {
+                document.querySelectorAll('.page-section').forEach(p => {
+                    if(p !== target) p.style.display = 'none';
+                });
+            }, 400);
+            
+            // Close mobile menu
             document.getElementById('mobile-menu-overlay').classList.remove('open');
             document.getElementById('mobile-menu-overlay').classList.add('closed');
         }
@@ -581,6 +597,9 @@
             if(m.classList.contains('closed')) { m.classList.remove('closed'); m.classList.add('open'); }
             else { m.classList.remove('open'); m.classList.add('closed'); }
         }
+
+        // Init translations
+        updateTexts();
     </script>
 </body>
 </html>
