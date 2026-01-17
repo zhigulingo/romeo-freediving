@@ -65,6 +65,9 @@
         .fade-slider { position: relative; width: 100%; height: 100%; }
         .fade-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; object-fit: cover; }
         .fade-slide.active { opacity: 1; }
+
+        /* BLOG SHOW MORE */
+        .blog-item-hidden { display: none; }
     </style>
 </head>
 <body class="antialiased">
@@ -447,6 +450,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="blog-feed">
                     <!-- Blog Grid -->
                 </div>
+
+                <!-- Show More Button -->
+                <div class="text-center mt-12">
+                    <button id="blog-show-more-btn" onclick="showMoreBlog()" class="border border-black px-12 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_show_more">Еще</button>
+                </div>
             </div>
         </div>
     </section>
@@ -565,7 +573,7 @@
                 course_wave: "Курс Wave 1 / Wave 2",
                 course_wave_desc: "Полное обучение по системе Molchanovs с получением сертификата.",
                 btn_enroll: "Записаться",
-                blog_title: "Статьи",
+                blog_title: "Полезные статьи",
                 scroll: "Вниз",
                 section_faq: "Частые вопросы",
                 faq_q1: "Нужно ли уметь хорошо плавать?",
@@ -588,7 +596,25 @@
                 faq_a9: "Обработка занимает 5-7 дней. Вы получите ссылку на облако.",
                 faq_q10: "Как забронировать дату?",
                 faq_a10: "Напишите мне в Telegram, мы выберем удобный день.",
-
+                btn_show_more: "Еще"
+            },
+            { 
+                id: 4, cat: 'equipment', title: 'Wetsuit Guide', 
+                desc: 'Choosing the right thickness.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Wetsuit Guide</h2><p>Temperature and comfort...</p>', 
+                img: 'assets/blog1.jpg' 
+            },
+            { 
+                id: 5, cat: 'spots', title: 'Canyon Deep Dive', 
+                desc: 'Exploring Dahab Canyon.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Canyon Deep Dive</h2><p>The famous canyon spot...</p>', 
+                img: 'assets/blog2.jpg' 
+            },
+            { 
+                id: 6, cat: 'equipment', title: 'Mask Selection', 
+                desc: 'Low volume vs regular masks.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>', 
+                img: 'assets/blog3.jpg' 
             },
             en: {
                 nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
@@ -624,7 +650,7 @@
                 course_wave: "Wave 1 / Wave 2 Course",
                 course_wave_desc: "Full training in the Molchanovs system with certification.",
                 btn_enroll: "Enroll Now",
-                blog_title: "Articles",
+                blog_title: "Useful Articles",
                 scroll: "Scroll",
                 section_faq: "FAQ",
                 faq_q1: "Do I need to be a strong swimmer?",
@@ -647,7 +673,7 @@
                 faq_a9: "Editing takes 5-7 days. You will receive a link to cloud storage.",
                 faq_q10: "How to book?",
                 faq_a10: "Message me on Telegram (link in menu/footer) to pick a date.",
-
+                btn_show_more: "Show More"
             }
         };
 
@@ -734,9 +760,10 @@
             const feed = document.getElementById('blog-feed');
             feed.innerHTML = '';
             const filtered = filter === 'all' ? blogData : blogData.filter(b => b.cat === filter);
-            filtered.forEach(b => {
+            filtered.forEach((b, index) => {
+                const hiddenClass = index >= 3 ? 'blog-item-hidden' : '';
                 feed.innerHTML += `
-                    <div class="cursor-pointer group" onclick="openBlogModal(${b.id})">
+                    <div class="cursor-pointer group ${hiddenClass}" onclick="openBlogModal(${b.id})">
                         <div class="aspect-[4/3] bg-gray-200 overflow-hidden mb-4 relative">
                             <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                             <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${b.cat}</div>
@@ -747,7 +774,19 @@
                     </div>
                 `;
             });
+
+            // Show/hide button
+            const showMoreBtn = document.getElementById('blog-show-more-btn');
+            const hasHidden = document.querySelectorAll('.blog-item-hidden').length > 0;
+            if (showMoreBtn) showMoreBtn.style.display = hasHidden ? 'block' : 'none';
+
             updateTexts();
+        }}
+        function showMoreBlog() {
+            document.querySelectorAll('.blog-item-hidden').forEach(item => {
+                item.classList.remove('blog-item-hidden');
+            });
+            document.getElementById('blog-show-more-btn').style.display = 'none';
         }
         function filterBlog(cat, btn) {
             renderBlog(cat);
