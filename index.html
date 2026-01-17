@@ -638,6 +638,8 @@
                 course_wave_desc: "Полное обучение по системе Molchanovs с получением сертификата.",
                 btn_enroll: "Записаться",
                 blog_title: "Полезные статьи",
+                blog_cat_equipment: "Снаряжение",
+                blog_cat_spots: "Споты",
                 filter_all: "Все", filter_equipment: "Снаряжение", filter_spots: "Споты",
                 scroll: "Вниз",
                 section_faq: "Частые вопросы",
@@ -664,6 +666,7 @@
                 btn_show_more: "Еще",
                 btn_read: "Читать",
                 btn_share: "Поделиться",
+                share_alert: "Ссылка скопирована в буфер обмена!",
                 footer_location: "Дахаб • Египет",
                 footer_nav_home: "Интро",
                 footer_nav_shooting: "Съемка",
@@ -708,6 +711,8 @@
                 course_wave_desc: "Full training in the Molchanovs system with certification.",
                 btn_enroll: "Enroll Now",
                 blog_title: "Useful Articles",
+                blog_cat_equipment: "Equipment",
+                blog_cat_spots: "Spots",
                 filter_all: "All", filter_equipment: "Equipment", filter_spots: "Spots",
                 scroll: "Scroll",
                 section_faq: "FAQ",
@@ -734,6 +739,7 @@
                 btn_show_more: "Show More",
                 btn_read: "Read",
                 btn_share: "Share Article",
+                share_alert: "Link copied to clipboard!",
                 footer_location: "Dahab • Egypt",
                 footer_nav_home: "Intro",
                 footer_nav_shooting: "Shooting",
@@ -835,7 +841,7 @@
                     <div class="cursor-pointer group ${hiddenClass}" onclick="openBlogModal(${b.id})">
                         <div class="aspect-[4/3] bg-gray-200 overflow-hidden mb-4 relative">
                             <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                            <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${b.cat}</div>
+                            <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${translations[curLang][`blog_cat_${b.cat}`] || b.cat}</div>
                         </div>
                         <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title[curLang]}</h3>
                         <p class="text-sm text-gray-500 mb-4">${b.desc[curLang]}</p>
@@ -880,8 +886,10 @@
                 <div class="prose max-w-none">
                     ${article.full[curLang]}
                 </div>
+                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title[curLang]}')" data-i18n="btn_share">Share Article</button>
                 <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title}')" data-i18n="btn_share">Share Article</button>
             `;
+            updateTexts();
             modal.classList.remove('closed'); modal.classList.add('open');
         }
         function closeBlogModal() {
@@ -890,7 +898,7 @@
         }
         function shareArticle(title) {
             navigator.clipboard.writeText(window.location.href);
-            alert('Link copied to clipboard!');
+            alert(translations[curLang].share_alert);
         }
 
         // 5. Languages
