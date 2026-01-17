@@ -519,18 +519,63 @@
 
         const blogData = [
             { 
-                id: 1, cat: 'equipment', title: 'Carbon vs Fiberglass', 
-                desc: 'How to choose your first fins.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Carbon vs Fiberglass</h2><p class="mb-4">Choosing the right fins...</p><p>Full article text here...</p>', 
+                id: 1, cat: 'equipment',
+                title: { ru: 'Карбон vs стеклопластик', en: 'Carbon vs Fiberglass' },
+                desc: { ru: 'Как выбрать свои первые ласты.', en: 'How to choose your first fins.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Карбон vs стеклопластик</h2><p class="mb-4">Как выбрать ласты под ваши цели...</p><p>Полный текст статьи здесь...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Carbon vs Fiberglass</h2><p class="mb-4">Choosing the right fins...</p><p>Full article text here...</p>'
+                },
                 img: 'assets/blog1.jpg' 
             },
             { 
-                id: 2, cat: 'spots', title: 'Blue Hole Guide', 
-                desc: 'Hidden gems of the famous spot.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Blue Hole Guide</h2><p>Beyond the arch...</p>', 
+                id: 2, cat: 'spots',
+                title: { ru: 'Гид по Blue Hole', en: 'Blue Hole Guide' },
+                desc: { ru: 'Скрытые места знаменитого спота.', en: 'Hidden gems of the famous spot.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Гид по Blue Hole</h2><p>Что скрывается за аркой...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Blue Hole Guide</h2><p>Beyond the arch...</p>'
+                },
                 img: 'assets/blog2.jpg' 
             },
             { 
+                id: 3, cat: 'spots',
+                title: { ru: 'Ночное погружение в Lighthouse', en: 'Lighthouse Night Dive' },
+                desc: { ru: 'Почему стоит нырять ночью.', en: 'Why you should dive at night.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Ночное погружение в Lighthouse</h2><p>Магия начинается после заката...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Lighthouse Night Dive</h2><p>Magic happens when sun goes down...</p>'
+                },
+                img: 'assets/blog3.jpg' 
+            },
+            { 
+                id: 4, cat: 'equipment',
+                title: { ru: 'Гид по гидрокостюмам', en: 'Wetsuit Guide' },
+                desc: { ru: 'Как подобрать толщину.', en: 'Choosing the right thickness.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Гид по гидрокостюмам</h2><p>Температура и комфорт...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Wetsuit Guide</h2><p>Temperature and comfort...</p>'
+                },
+                img: 'assets/blog1.jpg' 
+            },
+            { 
+                id: 5, cat: 'spots',
+                title: { ru: 'Глубокое погружение в Canyon', en: 'Canyon Deep Dive' },
+                desc: { ru: 'Исследуем Дахабский каньон.', en: 'Exploring Dahab Canyon.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Глубокое погружение в Canyon</h2><p>Знаменитый спот каньона...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Canyon Deep Dive</h2><p>The famous canyon spot...</p>'
+                },
+                img: 'assets/blog2.jpg' 
+            },
+            { 
+                id: 6, cat: 'equipment',
+                title: { ru: 'Выбор маски', en: 'Mask Selection' },
+                desc: { ru: 'Low volume vs классические маски.', en: 'Low volume vs regular masks.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Выбор маски</h2><p>Маска — ключевой элемент...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>'
+                },
                 id: 3, cat: 'spots', title: 'Lighthouse Night Dive', 
                 desc: 'Why you should dive at night.', 
                 full: '<h2 class="text-2xl font-bold mb-4">Lighthouse Night Dive</h2><p>Magic happens when sun goes down...</p>', 
@@ -778,8 +823,10 @@
         }
 
         // 4. Blog System
+        let currentBlogFilter = 'all';
         function renderBlog(filter) {
             const feed = document.getElementById('blog-feed');
+            currentBlogFilter = filter;
             feed.innerHTML = '';
             const filtered = filter === 'all' ? blogData : blogData.filter(b => b.cat === filter);
             filtered.forEach((b, index) => {
@@ -790,6 +837,8 @@
                             <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
                             <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${b.cat}</div>
                         </div>
+                        <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title[curLang]}</h3>
+                        <p class="text-sm text-gray-500 mb-4">${b.desc[curLang]}</p>
                         <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title}</h3>
                         <p class="text-sm text-gray-500 mb-4">${b.desc}</p>
                         <span class="text-xs border-b border-black pb-1 uppercase" data-i18n="btn_read">Читать</span>
@@ -829,7 +878,7 @@
             content.innerHTML = `
                 <div class="aspect-video w-full bg-gray-100 mb-8"><img src="${article.img}" class="w-full h-full object-cover"></div>
                 <div class="prose max-w-none">
-                    ${article.full}
+                    ${article.full[curLang]}
                 </div>
                 <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title}')" data-i18n="btn_share">Share Article</button>
             `;
@@ -850,6 +899,7 @@
             document.querySelectorAll('.lang-ru').forEach(e => e.classList.toggle('text-cyan-400', l==='ru'));
             document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', l==='en'));
             updateTexts();
+            renderBlog(currentBlogFilter);
         }
         function updateTexts() {
             document.querySelectorAll('[data-i18n]').forEach(el => {
