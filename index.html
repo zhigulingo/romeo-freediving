@@ -73,7 +73,7 @@
 <body class="antialiased">
 
     <!-- LANGUAGE SWITCHER (FIXED TOP) -->
-    <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
+    <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] hidden md:flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
         <div class="text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
             <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
             <span class="text-gray-600">|</span>
@@ -100,7 +100,7 @@
 
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo FD</div>
+        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo Freediving</div>
         <button onclick="toggleMobileMenu()" class="pointer-events-auto text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
 
@@ -108,11 +108,16 @@
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
         <nav class="flex flex-col space-y-8 text-center">
-            <span onclick="navTo('home'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
-            <span onclick="navTo('shooting'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
-            <span onclick="navTo('rental'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
-            <span onclick="navTo('education'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
+            <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
+            <span onclick="navTo('shooting')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
+            <span onclick="navTo('rental')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
+            <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
+        <div class="mt-12 text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
+            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+            <span class="text-gray-600">|</span>
+            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+        </div>
     </div>
 
     <!-- ==================================================================================== -->
