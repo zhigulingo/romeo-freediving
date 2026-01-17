@@ -576,6 +576,27 @@
                     ru: '<h2 class="text-2xl font-bold mb-4">Выбор маски</h2><p>Маска — ключевой элемент...</p>',
                     en: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>'
                 },
+                id: 3, cat: 'spots', title: 'Lighthouse Night Dive', 
+                desc: 'Why you should dive at night.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Lighthouse Night Dive</h2><p>Magic happens when sun goes down...</p>', 
+                img: 'assets/blog3.jpg' 
+            },
+            { 
+                id: 4, cat: 'equipment', title: 'Wetsuit Guide', 
+                desc: 'Choosing the right thickness.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Wetsuit Guide</h2><p>Temperature and comfort...</p>', 
+                img: 'assets/blog1.jpg' 
+            },
+            { 
+                id: 5, cat: 'spots', title: 'Canyon Deep Dive', 
+                desc: 'Exploring Dahab Canyon.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Canyon Deep Dive</h2><p>The famous canyon spot...</p>', 
+                img: 'assets/blog2.jpg' 
+            },
+            { 
+                id: 6, cat: 'equipment', title: 'Mask Selection', 
+                desc: 'Low volume vs regular masks.', 
+                full: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>', 
                 img: 'assets/blog3.jpg' 
             }
         ];
@@ -818,6 +839,8 @@
                         </div>
                         <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title[curLang]}</h3>
                         <p class="text-sm text-gray-500 mb-4">${b.desc[curLang]}</p>
+                        <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title}</h3>
+                        <p class="text-sm text-gray-500 mb-4">${b.desc}</p>
                         <span class="text-xs border-b border-black pb-1 uppercase" data-i18n="btn_read">Читать</span>
                     </div>
                 `;
