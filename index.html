@@ -400,8 +400,8 @@
             <!-- Education Courses Section -->
             <div class="mb-20">
                 <h3 class="text-2xl font-light mb-8" data-i18n="courses_title">Курсы Molchanovs</h3>
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between">
                         <div>
                             <h4 class="text-lg font-light mb-4" data-i18n="course_personal">Персональная тренировка</h4>
                             <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="course_personal_desc">
@@ -415,9 +415,9 @@
                                 <div class="text-[10px] text-gray-400">~10 500₽ / 5 300 EGP</div>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors w-max" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
-                    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between">
                         <div>
                             <h4 class="text-lg font-light mb-4" data-i18n="course_wave">Курс Wave 1 / Wave 2</h4>
                             <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="course_wave_desc">
@@ -431,7 +431,7 @@
                                 <div class="text-[10px] text-gray-400">~52 000₽ / 26 500 EGP</div>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors w-max" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
                 </div>
             </div>
@@ -463,7 +463,7 @@
     <div id="blog-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeBlogModal()"></div>
         <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 shadow-2xl">
-            <button onclick="closeBlogModal()" class="absolute top-4 right-4 text-2xl z-20 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow"><i class="fas fa-times"></i></button>
+            <button onclick="closeBlogModal()" class="absolute top-4 right-4 z-20 border border-black px-5 py-2 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition" data-i18n="btn_close">Закрыть</button>
             <div id="modal-content" class="p-8 md:p-12">
                 <!-- Content injected via JS -->
             </div>
@@ -576,24 +576,6 @@
                     ru: '<h2 class="text-2xl font-bold mb-4">Выбор маски</h2><p>Маска — ключевой элемент...</p>',
                     en: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>'
                 },
-                img: 'assets/blog3.jpg' 
-            },
-            { 
-                id: 4, cat: 'equipment', title: 'Wetsuit Guide', 
-                desc: 'Choosing the right thickness.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Wetsuit Guide</h2><p>Temperature and comfort...</p>', 
-                img: 'assets/blog1.jpg' 
-            },
-            { 
-                id: 5, cat: 'spots', title: 'Canyon Deep Dive', 
-                desc: 'Exploring Dahab Canyon.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Canyon Deep Dive</h2><p>The famous canyon spot...</p>', 
-                img: 'assets/blog2.jpg' 
-            },
-            { 
-                id: 6, cat: 'equipment', title: 'Mask Selection', 
-                desc: 'Low volume vs regular masks.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>', 
                 img: 'assets/blog3.jpg' 
             }
         ];
