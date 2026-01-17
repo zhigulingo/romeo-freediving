@@ -86,9 +86,10 @@
         <!-- Nav Center -->
         <nav class="pointer-events-auto flex space-x-12 text-xs tracking-[0.2em] uppercase font-light">
             <span onclick="navTo('home')" class="hover-underline" data-i18n="nav_home">Интро</span>
-            <span onclick="navTo('services')" class="hover-underline" data-i18n="nav_services">Услуги</span>
+            <span onclick="navTo('services')" class="hover-underline" data-i18n="nav_shooting">Съемка</span>
             <span onclick="navTo('rental')" class="hover-underline" data-i18n="nav_rental">Аренда</span>
-            <span onclick="navTo('blog')" class="hover-underline" data-i18n="nav_blog">Блог</span>
+            <span onclick="navTo('blog')" class="hover-underline" data-i18n="nav_education">Обучение</span>
+</div>
         </nav>
         
         <!-- Empty Right (Balance) -->
@@ -106,9 +107,10 @@
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
         <nav class="flex flex-col space-y-8 text-center">
             <span onclick="navTo('home'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
-            <span onclick="navTo('services'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_services">Услуги</span>
+            <span onclick="navTo('services'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
             <span onclick="navTo('rental'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
-            <span onclick="navTo('blog'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_blog">Блог</span>
+            <span onclick="navTo('blog'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
+</div>
         </nav>
     </div>
 
@@ -211,79 +213,102 @@
     </section>
 
     <!-- ==================================================================================== -->
-    <!-- PAGE 2: SERVICES -->
+    <!-- PAGE 2: SERVICES (SHOOTING) -->
     <!-- ==================================================================================== -->
     <section id="page-services" class="page-section">
         <div class="container mx-auto px-6 md:px-12 pb-20">
-            <h2 class="section-header" data-i18n="section_services">Услуги</h2>
+            <h2 class="section-header" data-i18n="section_shooting">Съемка</h2>
 
-            <!-- Service 1: Photo (With Slider) -->
-            <div class="flex flex-col lg:flex-row gap-12 mb-24 border-b border-gray-200 pb-12" data-aos="fade-up">
-                <div class="w-full lg:w-1/2">
-                    <div class="aspect-[4/5] md:aspect-[16/9] bg-gray-200 overflow-hidden fade-slider" id="service-photo-slider">
-                        <!-- Images injected by JS -->
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-3xl font-light mb-4" data-i18n="serv_photo_title">Подводная съемка</h3>
-                        <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="serv_photo_desc">
-                            Визуальная магия в Дахабе и Шарме.
-                        </p>
-                        
-                        <div class="space-y-4 text-sm mt-6">
-                            <div class="border-b border-gray-100 pb-2">
-                                <div class="flex justify-between font-medium">
-                                    <span data-i18n="serv_training">Тренировочная сессия (80 мин)</span>
-                                    <span>~130€</span>
-                                </div>
-                                <div class="text-[10px] text-gray-400 mt-1">~13 500₽ / 7 000 EGP</div>
-                            </div>
-                            <div class="border-b border-gray-100 pb-2">
-                                <div class="flex justify-between font-medium">
-                                    <span data-i18n="serv_art">Индивидуальная (Art)</span>
-                                    <span>from 150€</span>
-                                </div>
-                                <div class="text-[10px] text-gray-400 mt-1">~15 500₽ / 8 000 EGP</div>
-                            </div>
+            <!-- Service Card 1: Training Session -->
+            <div class="mb-16 border border-gray-200" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="w-full lg:w-1/2">
+                        <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+                            <img src="assets/photo1.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
                         </div>
                     </div>
-                    <a href="https://t.me/romeo_freediving" target="_blank" class="mt-8 inline-block w-max border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book_photo">Забронировать</a>
+                    <div class="w-full lg:w-1/2 p-8 md:p-12 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-light mb-6">Тренировочная сессия</h3>
+                            <div class="space-y-4 text-sm font-light mb-8">
+                                <div>
+                                    <h4 class="font-semibold text-black mb-2">Съемка (80 минут, на воде/под водой)</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>10-30 обработанных фотографий</li>
+                                        <li>2 видео 9:16 (формат инстаграм сторис)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="font-semibold text-black mb-3">Локация:</h4>
+                                <p class="text-gray-700 text-sm mb-1">Dahab (Египет, Южный Синай)</p>
+                                <p class="text-xl font-light text-black">130€</p>
+                                <p class="text-[10px] text-gray-400 mt-1">~13 500₽ / 7 000 EGP</p>
+                            </div>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="mt-8 inline-block w-max border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors">Забронировать</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Service 2: Education -->
-            <div class="flex flex-col lg:flex-row gap-12" data-aos="fade-up">
-                <div class="w-full lg:w-1/2 lg:order-2">
-                    <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
-                        <img src="assets/course.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
-                    </div>
-                </div>
-                <div class="w-full lg:w-1/2 lg:order-1 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-3xl font-light mb-4" data-i18n="serv_course_title">Обучение Molchanovs</h3>
-                        <div class="space-y-4 text-sm mt-6">
-                            <div class="border-b border-gray-100 pb-2">
-                                <div class="flex justify-between font-medium">
-                                    <span data-i18n="serv_personal">Персональная тренировка</span>
-                                    <span>100€</span>
-                                </div>
-                                <div class="text-[10px] text-gray-400 mt-1">~10 500₽ / 5 300 EGP</div>
-                            </div>
-                            <div class="border-b border-gray-100 pb-2">
-                                <div class="flex justify-between font-medium">
-                                    <span data-i18n="serv_wave">Курс Wave 1 / Wave 2</span>
-                                    <span>500€</span>
-                                </div>
-                                <div class="text-[10px] text-gray-400 mt-1">~52 000₽ / 26 500 EGP</div>
-                            </div>
+            <!-- Service Card 2: Individual Art Session -->
+            <div class="border border-gray-200" data-aos="fade-up">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="w-full lg:w-1/2 lg:order-2">
+                        <div class="aspect-[16/9] bg-gray-200 overflow-hidden">
+                            <img src="assets/photo2.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
                         </div>
                     </div>
-                    <a href="https://t.me/romeo_freediving" target="_blank" class="mt-8 inline-block w-max border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book_course">Записаться</a>
+                    <div class="w-full lg:w-1/2 lg:order-1 p-8 md:p-12 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-light mb-6">Индивидуальная съемка (Art)</h3>
+                            <div class="space-y-4 text-sm font-light mb-8">
+                                <div>
+                                    <h4 class="font-semibold text-black mb-2">Что входит</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>Сценарий съёмки</li>
+                                        <li>Необходимое оборудование</li>
+                                        <li>Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-black mb-2">Техника безопасности при погружение (30 минут, на суше)</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>Базовые знания о задержке дыхания и фридайвинге</li>
+                                        <li>Инструктаж плана погружений</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-black mb-2">Съемка (60 минут, на воде/под водой)</h4>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                                        <li>5-30 обработанных фотографий</li>
+                                        <li>2 видео 9:16 (формат инстаграм сторис)</li>
+                                        <li><em class="text-gray-500">*Услуги сложного монтажа обсуждаются отдельно.</em></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 pt-6">
+                                <h4 class="font-semibold text-black mb-3">Локации:</h4>
+                                <div class="space-y-2 mb-4">
+                                    <div>
+                                        <p class="text-gray-700 text-sm">Dahab (Египет, Южный Синай)</p>
+                                        <p class="text-lg font-light text-black">от 150€</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-700 text-sm">Sharm El-Sheikh (Египет, Южный Синай)</p>
+                                        <p class="text-lg font-light text-black">от 200€</p>
+                                    </div>
+                                </div>
+                                <p class="text-[10px] text-gray-400">~15 500₽ - 20 000₽ / 8 000 - 10 500 EGP</p>
+                            </div>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="mt-8 inline-block w-max border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors">Забронировать</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
 
     <!-- ==================================================================================== -->
     <!-- PAGE 3: RENTAL -->
@@ -300,24 +325,66 @@
     </section>
 
     <!-- ==================================================================================== -->
-    <!-- PAGE 4: BLOG -->
+    <!-- PAGE 4: EDUCATION (BLOG + COURSES) -->
     <!-- ==================================================================================== -->
     <section id="page-blog" class="page-section">
         <div class="container mx-auto px-6 md:px-12 pb-20">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <h2 class="section-header mb-0" data-i18n="section_blog">Блог</h2>
-                <div class="flex gap-4 overflow-x-auto pb-2 md:pb-0" id="blog-filters">
-                    <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)">All</button>
-                    <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)">Equipment</button>
-                    <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)">Spots</button>
+            <h2 class="section-header" data-i18n="section_education">Обучение</h2>
+
+            <!-- COURSES SECTION -->
+            <div class="mb-24 pb-12 border-b border-gray-200">
+                <h3 class="text-3xl font-light mb-8">Курсы Molchanovs</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Course 1: Personal Training -->
+                    <div class="border border-gray-200 p-8">
+                        <div class="aspect-[16/9] bg-gray-200 overflow-hidden mb-6">
+                            <img src="assets/course.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                        </div>
+                        <h4 class="text-2xl font-light mb-2">Персональная тренировка</h4>
+                        <div class="space-y-4 text-sm mb-6">
+                            <div>
+                                <p class="text-xl font-light text-black">100€</p>
+                                <p class="text-[10px] text-gray-400 mt-1">~10 500₽ / 5 300 EGP</p>
+                            </div>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="w-full border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors text-center">Записаться</a>
+                    </div>
+                    
+                    <!-- Course 2: Wave Course -->
+                    <div class="border border-gray-200 p-8">
+                        <div class="aspect-[16/9] bg-gray-200 overflow-hidden mb-6">
+                            <img src="assets/course.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                        </div>
+                        <h4 class="text-2xl font-light mb-2">Курс Wave 1 / Wave 2</h4>
+                        <div class="space-y-4 text-sm mb-6">
+                            <div>
+                                <p class="text-xl font-light text-black">500€</p>
+                                <p class="text-[10px] text-gray-400 mt-1">~52 000₽ / 26 500 EGP</p>
+                            </div>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="w-full border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors text-center">Записаться</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="blog-feed">
-                <!-- Blog Grid -->
+            <!-- BLOG SECTION -->
+            <div>
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <h3 class="text-3xl font-light mb-6 md:mb-0">Статьи</h3>
+                    <div class="flex gap-4 overflow-x-auto pb-2 md:pb-0" id="blog-filters">
+                        <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)">All</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)">Equipment</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)">Spots</button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="blog-feed">
+                    <!-- Blog Grid -->
+                </div>
             </div>
         </div>
     </section>
+</div>
 
     <!-- BLOG MODAL POPUP -->
     <div id="blog-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
@@ -340,10 +407,11 @@
                  </div>
                  <div class="flex flex-col gap-4 text-sm font-light text-gray-400">
                     <span onclick="navTo('home')" class="cursor-pointer hover:text-white">Intro</span>
-                    <span onclick="navTo('services')" class="cursor-pointer hover:text-white">Services</span>
+                    <span onclick="navTo('services')" class="cursor-pointer hover:text-white">Shooting</span>
                     <span onclick="navTo('rental')" class="cursor-pointer hover:text-white">Rental</span>
-                    <span onclick="navTo('blog')" class="cursor-pointer hover:text-white">Blog</span>
+                    <span onclick="navTo('blog')" class="cursor-pointer hover:text-white">Education</span>
                  </div>
+</div>
                  <div>
                      <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">Contact Telegram</a>
                  </div>
@@ -404,26 +472,28 @@
 
         const translations = {
             ru: {
-                nav_home: "Интро", nav_services: "Услуги", nav_rental: "Аренда", nav_blog: "Блог",
+                nav_home: "Интро", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
+</div>
                 hero_location: "Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
                 section_info: "Инфо", about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong>.",
                 label_cert: "Сертификация", label_loc: "Локация", label_equip: "Снаряжение", label_photo: "Съемка",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
-                section_services: "Услуги", serv_photo_title: "Подводная съемка", serv_photo_desc: "Визуальная магия в Дахабе и Шарме.", serv_training: "Тренировочная сессия (80 мин)", serv_art: "Индивидуальная (Art)", btn_book_photo: "Забронировать",
-                serv_course_title: "Обучение Molchanovs", serv_personal: "Персональная тренировка", serv_wave: "Курс Wave 1 / Wave 2", btn_book_course: "Записаться",
+                section_shooting: "Съемка",
                 section_rental: "Аренда Снаряжения", rental_intro: "Полный сетап для погружений. Локация: Coral Coast Hotel area.", btn_rent: "Арендовать",
-                section_blog: "Блог", btn_read: "Читать", scroll: "Вниз"
+                section_education: "Обучение", btn_read: "Читать", scroll: "Вниз"
+</div>
             },
             en: {
-                nav_home: "Intro", nav_services: "Services", nav_rental: "Rental", nav_blog: "Blog",
+                nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
+</div>
                 hero_location: "Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
                 section_info: "Info", about_p1: "Hello friend!<br>My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor.",
                 label_cert: "Certification", label_loc: "Location", label_equip: "Equipment", label_photo: "Shooting",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
-                section_services: "Services", serv_photo_title: "Underwater Photography", serv_photo_desc: "Visual magic in Dahab and Sharm.", serv_training: "Training Session (80 min)", serv_art: "Individual (Art)", btn_book_photo: "Book Now",
-                serv_course_title: "Molchanovs Education", serv_personal: "Personal Training", serv_wave: "Wave 1 / Wave 2 Course", btn_book_course: "Sign Up",
+                section_shooting: "Shooting",
                 section_rental: "Equipment Rental", rental_intro: "Full diving setup. Location: Coral Coast Hotel area.", btn_rent: "Rent Now",
-                section_blog: "Blog", btn_read: "Read", scroll: "Scroll"
+                section_education: "Education", btn_read: "Read", scroll: "Scroll"
+</div>
             }
         };
 
