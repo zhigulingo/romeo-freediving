@@ -846,13 +846,16 @@
                 const hiddenClass = index >= 3 ? 'blog-item-hidden' : '';
                 feed.innerHTML += `
                     <div class="cursor-pointer group ${hiddenClass}" onclick="openBlogModal(${b.id})">
-                        <div class="aspect-[4/3] bg-gray-200 overflow-hidden mb-4 relative">
+                        <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative">
                             <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                            <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${translations[curLang][`blog_cat_${b.cat}`] || b.cat}</div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                            <div class="absolute top-3 left-3 bg-white px-2 py-1 text-[10px] uppercase font-bold">${translations[curLang][`blog_cat_${b.cat}`] || b.cat}</div>
+                            <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                                <h3 class="text-xl font-light mb-2 group-hover:text-cyan-300 transition">${b.title[curLang]}</h3>
+                                <p class="text-sm text-white/70 mb-4">${b.desc[curLang]}</p>
+                                <span class="text-xs border-b border-white/80 pb-1 uppercase" data-i18n="btn_read">Читать</span>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title[curLang]}</h3>
-                        <p class="text-sm text-gray-500 mb-4">${b.desc[curLang]}</p>
-                        <span class="text-xs border-b border-black pb-1 uppercase" data-i18n="btn_read">Читать</span>
                     </div>
                 `;
             });
