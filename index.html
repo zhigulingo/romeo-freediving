@@ -47,9 +47,11 @@
         .gallery-main-img { transition: opacity 0.5s ease; }
         .thumb-active { border: 2px solid white; opacity: 1 !important; }
 
-        /* RENTAL GRAYSCALE HOVER */
-        .rental-card img { filter: grayscale(100%); transition: filter 0.5s ease; }
-        .rental-card:hover img { filter: grayscale(0%); }
+        /* RENTAL GRAYSCALE HOVER (DESKTOP ONLY) */
+        @media (min-width: 768px) {
+            .rental-card img { filter: grayscale(100%); transition: filter 0.5s ease; }
+            .rental-card:hover img { filter: grayscale(0%); }
+        }
 
         /* BLOG MODAL */
         #blog-modal { transition: opacity 0.3s ease, visibility 0.3s; }
@@ -862,7 +864,7 @@
                 feed.innerHTML += `
                     <div class="cursor-pointer group ${hiddenClass}" onclick="openBlogModal(${b.id})">
                         <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative">
-                            <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                            <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105 md:grayscale md:group-hover:grayscale-0">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                             <div class="absolute top-3 left-3 bg-white px-2 py-1 text-[10px] uppercase font-bold">${translations[curLang][`blog_cat_${b.cat}`] || b.cat}</div>
                             <div class="absolute inset-x-0 bottom-0 p-4 text-white">
