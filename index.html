@@ -817,9 +817,15 @@
         const rentalGrid = document.getElementById('rental-grid');
         rentalData.forEach(item => {
             rentalGrid.innerHTML += `
-                <div class="rental-card bg-white p-4 border border-gray-100 group">
-                    <div class="aspect-square bg-gray-100 overflow-hidden mb-4">
+                <div class="rental-card bg-white border border-gray-100 group overflow-hidden">
+                    <div class="relative aspect-[4/5] bg-gray-100">
                         <img src="${item.img}" class="w-full h-full object-cover" onerror="this.style.opacity=0">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+                            <h4 class="font-light text-lg mb-1">${item.name}</h4>
+                            <p class="text-xs text-white/70 mb-4">${item.priceFull}</p>
+                            <button class="w-full border border-white px-6 py-3 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="btn_rent" onclick="rentItem('${item.name}')">Арендовать</button>
+                        </div>
                     </div>
                     <h4 class="font-light text-lg mb-1">${item.name}</h4>
                     <p class="text-xs text-gray-400 mb-4">${item.priceFull}</p>
