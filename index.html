@@ -815,6 +815,7 @@
 
         // 3. Rental Grid
         const rentalGrid = document.getElementById('rental-grid');
+        rentalGrid.innerHTML = '';
         rentalData.forEach(item => {
             rentalGrid.innerHTML += `
                 <div class="rental-card bg-white border border-gray-100 group overflow-hidden">
