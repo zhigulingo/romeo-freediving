@@ -73,7 +73,7 @@
 <body class="antialiased">
 
     <!-- LANGUAGE SWITCHER (FIXED TOP) -->
-    <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
+    <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] hidden md:flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
         <div class="text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
             <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
             <span class="text-gray-600">|</span>
@@ -100,7 +100,7 @@
 
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo FD</div>
+        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo Freediving</div>
         <button onclick="toggleMobileMenu()" class="pointer-events-auto text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
 
@@ -108,11 +108,16 @@
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
         <nav class="flex flex-col space-y-8 text-center">
-            <span onclick="navTo('home'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
-            <span onclick="navTo('shooting'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
-            <span onclick="navTo('rental'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
-            <span onclick="navTo('education'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
+            <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
+            <span onclick="navTo('shooting')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
+            <span onclick="navTo('rental')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
+            <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
+        <div class="mt-12 text-2xl text-white font-light tracking-widest uppercase">
+            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+            <span class="text-gray-600 mx-4">|</span>
+            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+        </div>
     </div>
 
     <!-- ==================================================================================== -->
@@ -129,7 +134,7 @@
                 </video>
             </div>
             <div class="relative z-10 text-center text-white px-4">
-                <p class="text-micro mb-4 text-cyan-400 blur-fade-in" style="opacity: 0;" data-i18n="hero_location">Дахаб • Египет</p>
+                <p class="text-micro mb-4 text-cyan-400 blur-fade-in" style="opacity: 0;" data-i18n="hero_location">Шарм-эль-Шейх • Дахаб • Египет</p>
                 <h1 class="text-3xl md:text-7xl font-light mb-6 tracking-wide leading-tight blur-fade-in delay-200 uppercase" style="opacity: 0;" data-i18n="hero_title">Подводная съемка<br>в Египте</h1>
                 <div class="h-[1px] w-24 bg-white/30 mx-auto mb-8"></div>
                 <p class="text-sm md:text-base font-light tracking-wide text-gray-300 max-w-md mx-auto blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_subtitle">
@@ -476,7 +481,7 @@
              <div class="flex flex-col md:flex-row justify-between items-start gap-12">
                  <div>
                     <h3 class="text-xl font-bold tracking-widest mb-2">ROMEO</h3>
-                    <p class="text-xs text-gray-500 uppercase">Dahab • Egypt</p>
+                    <p class="text-xs text-gray-500 uppercase" data-i18n="footer_location">Sharm El-Sheikh • Dahab • Egypt</p>
                  </div>
                  <div class="flex flex-col gap-4 text-sm font-light text-gray-400">
                     <span onclick="navTo('home')" class="cursor-pointer hover:text-white">Intro</span>
@@ -541,7 +546,7 @@
         const translations = {
             ru: {
                 nav_home: "Интро", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
-                hero_location: "Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
+                hero_location: "Шарм-эль-Шейх • Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
                 section_info: "Инфо", about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong>.",
                 label_cert: "Сертификация", label_loc: "Локация", label_equip: "Снаряжение", label_photo: "Съемка",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
@@ -596,7 +601,8 @@
                 faq_a9: "Обработка занимает 5-7 дней. Вы получите ссылку на облако.",
                 faq_q10: "Как забронировать дату?",
                 faq_a10: "Напишите мне в Telegram, мы выберем удобный день.",
-                btn_show_more: "Еще"
+                btn_show_more: "Еще",
+                footer_location: "Шарм-эль-Шейх • Дахаб • Египет"
             },
             { 
                 id: 4, cat: 'equipment', title: 'Wetsuit Guide', 
@@ -618,7 +624,7 @@
             },
             en: {
                 nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
-                hero_location: "Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
+                hero_location: "Sharm El-Sheikh • Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
                 section_info: "Info", about_p1: "Hello friend!<br>My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor.",
                 label_cert: "Certification", label_loc: "Location", label_equip: "Equipment", label_photo: "Shooting",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
@@ -673,7 +679,8 @@
                 faq_a9: "Editing takes 5-7 days. You will receive a link to cloud storage.",
                 faq_q10: "How to book?",
                 faq_a10: "Message me on Telegram (link in menu/footer) to pick a date.",
-                btn_show_more: "Show More"
+                btn_show_more: "Show More",
+                footer_location: "Sharm El-Sheikh • Dahab • Egypt"
             }
         };
 
