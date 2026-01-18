@@ -193,25 +193,17 @@
                     </div>
                 </div>
 
-                <!-- Infinite Carousel -->
+                <!-- Gallery Carousel -->
                 <div class="relative w-full">
-                    <!-- Main Image Display -->
-                    <div class="relative aspect-[3/2] md:aspect-[16/9] w-full bg-gray-100 mb-4 overflow-hidden group">
-                        <img id="main-gallery-img" src="" class="w-full h-full object-cover gallery-main-img" alt="Gallery">
-                        
-                        <!-- Arrows -->
-                        <button onclick="changeSlide(-1)" class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/20 to-transparent text-white opacity-0 group-hover:opacity-100 transition"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/20 to-transparent text-white opacity-0 group-hover:opacity-100 transition"><i class="fas fa-chevron-right"></i></button>
-                        
-                        <!-- Caption -->
-                        <div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-4 py-2 text-white text-xs tracking-widest uppercase rounded">
-                            <span id="gallery-caption">Loading...</span>
+                    <div class="relative w-full overflow-hidden bg-gray-100">
+                        <div id="gallery-track" class="flex transition-transform duration-500 ease-in-out">
+                            <!-- JS Injected -->
                         </div>
+                        <button onclick="changeSlide(-1)" class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/20 to-transparent text-white opacity-0 hover:opacity-100 transition"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="changeSlide(1)" class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/20 to-transparent text-white opacity-0 hover:opacity-100 transition"><i class="fas fa-chevron-right"></i></button>
                     </div>
-
-                    <!-- Thumbnails Strip -->
-                    <div class="flex gap-2 overflow-x-auto pb-2" id="gallery-thumbs">
-                        <!-- JS Injected -->
+                    <div class="mt-4 text-center text-xs uppercase tracking-widest text-gray-500">
+                        <span id="gallery-caption">Loading...</span>
                     </div>
                 </div>
             </div>
@@ -767,31 +759,58 @@
 
         // 2. Gallery Loop
         let galIdx = 0;
+        let touchStartX = null;
+        function getGalleryPerView() {
+            return window.innerWidth >= 768 ? 3 : 1;
+        }
         function renderGallery() {
-            const img = document.getElementById('main-gallery-img');
+            const track = document.getElementById('gallery-track');
             const cap = document.getElementById('gallery-caption');
-            const thumbs = document.getElementById('gallery-thumbs');
-            
-            // Set Main
-            img.style.opacity = 0;
-            setTimeout(() => {
-                img.src = galleryData[galIdx].src;
-                cap.innerText = galleryData[galIdx].caption;
-                img.style.opacity = 1;
-            }, 200);
+            const perView = getGalleryPerView();
+            const maxIndex = Math.max(0, galleryData.length - perView);
+            if (galIdx > maxIndex) galIdx = maxIndex;
+            track.innerHTML = '';
 
-            // Render Thumbs
-            thumbs.innerHTML = '';
-            galleryData.forEach((item, i) => {
-                const isActive = i === galIdx ? 'thumb-active' : 'opacity-60 hover:opacity-100';
-                thumbs.innerHTML += `<img src="${item.src}" onclick="setSlide(${i})" class="h-16 w-24 object-cover cursor-pointer transition ${isActive}">`;
+            galleryData.forEach((item) => {
+                track.innerHTML += `
+                    <div class="flex-shrink-0 w-full md:w-1/3 p-2">
+                        <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+                            <img src="${item.src}" class="w-full h-full object-cover" alt="${item.caption}">
+                        </div>
+                    </div>
+                `;
             });
+
+            const translatePercent = (galIdx * 100) / perView;
+            track.style.transform = `translateX(-${translatePercent}%)`;
+            cap.innerText = galleryData[Math.min(galIdx, galleryData.length - 1)].caption;
         }
         function changeSlide(dir) {
-            galIdx = (galIdx + dir + galleryData.length) % galleryData.length;
+            const perView = getGalleryPerView();
+            const maxIndex = Math.max(0, galleryData.length - perView);
+            galIdx = Math.min(Math.max(galIdx + dir * perView, 0), maxIndex);
             renderGallery();
         }
-        function setSlide(i) { galIdx = i; renderGallery(); }
+        function setSlide(i) {
+            galIdx = i;
+            renderGallery();
+        }
+        function handleGalleryTouchStart(event) {
+            touchStartX = event.touches[0].clientX;
+        }
+        function handleGalleryTouchEnd(event) {
+            if (touchStartX === null) return;
+            const touchEndX = event.changedTouches[0].clientX;
+            const deltaX = touchStartX - touchEndX;
+            if (Math.abs(deltaX) > 50) {
+                changeSlide(deltaX > 0 ? 1 : -1);
+            }
+            touchStartX = null;
+        }
+        const galleryTrack = document.getElementById('gallery-track');
+        galleryTrack.addEventListener('touchstart', handleGalleryTouchStart, { passive: true });
+        galleryTrack.addEventListener('touchend', handleGalleryTouchEnd);
+        window.addEventListener('resize', renderGallery);
         renderGallery();
 
         // 3. Rental Grid
