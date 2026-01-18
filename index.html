@@ -113,9 +113,9 @@
             <span onclick="navTo('rental')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
             <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
-        <div class="mt-12 text-2xl text-white font-light tracking-widest uppercase">
+        <div class="mt-12 text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
             <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
-            <span class="text-gray-600 mx-4">|</span>
+            <span class="text-gray-600">|</span>
             <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
         </div>
     </div>
@@ -163,10 +163,10 @@
                             <p data-i18n="about_p2">Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.</p>
                         </div>
                         <div class="grid grid-cols-2 gap-8 pt-8 mt-8 border-t border-gray-200 text-xs uppercase tracking-widest text-gray-500">
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span>Molchanovs W1/W2</div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span><span data-i18n="val_cert">Molchanovs W1/W2</span></div>
                             <div><span class="block text-black font-semibold mb-1" data-i18n="label_loc">Локация</span><span data-i18n="val_loc">Дахаб, Южный Синай</span></div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span>Nearby Coral Coast</div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span>Dahab / Sharm</div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span><span data-i18n="val_equip">Nearby Coral Coast</span></div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span><span data-i18n="val_photo">Dahab / Sharm</span></div>
                         </div>
                     </div>
                 </div>
@@ -405,8 +405,8 @@
             <!-- Education Courses Section -->
             <div class="mb-20">
                 <h3 class="text-2xl font-light mb-8" data-i18n="courses_title">Курсы Molchanovs</h3>
-                <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between">
                         <div>
                             <h4 class="text-lg font-light mb-4" data-i18n="course_personal">Персональная тренировка</h4>
                             <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="course_personal_desc">
@@ -420,9 +420,9 @@
                                 <div class="text-[10px] text-gray-400">~10 500₽ / 5 300 EGP</div>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors w-max" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
-                    <div class="w-full lg:w-1/2 flex flex-col justify-between">
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between">
                         <div>
                             <h4 class="text-lg font-light mb-4" data-i18n="course_wave">Курс Wave 1 / Wave 2</h4>
                             <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="course_wave_desc">
@@ -436,7 +436,7 @@
                                 <div class="text-[10px] text-gray-400">~52 000₽ / 26 500 EGP</div>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="inline-block border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors w-max" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
                 </div>
             </div>
@@ -446,9 +446,9 @@
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                     <h3 class="text-2xl font-light mb-8 md:mb-0" data-i18n="blog_title">Статьи</h3>
                     <div class="flex gap-4 overflow-x-auto pb-2 md:pb-0" id="blog-filters">
-                        <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)">All</button>
-                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)">Equipment</button>
-                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)">Spots</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-black text-black font-semibold" onclick="filterBlog('all', this)" data-i18n="filter_all">All</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('equipment', this)" data-i18n="filter_equipment">Equipment</button>
+                        <button class="text-xs uppercase tracking-widest border-b border-transparent text-gray-400 hover:text-black transition" onclick="filterBlog('spots', this)" data-i18n="filter_spots">Spots</button>
                     </div>
                 </div>
 
@@ -468,7 +468,7 @@
     <div id="blog-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeBlogModal()"></div>
         <div class="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto relative z-10 shadow-2xl">
-            <button onclick="closeBlogModal()" class="absolute top-4 right-4 text-2xl z-20 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow"><i class="fas fa-times"></i></button>
+            <button onclick="closeBlogModal()" class="absolute top-4 right-4 z-20 border border-black px-5 py-2 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition" data-i18n="btn_close">Закрыть</button>
             <div id="modal-content" class="p-8 md:p-12">
                 <!-- Content injected via JS -->
             </div>
@@ -481,20 +481,20 @@
              <div class="flex flex-col md:flex-row justify-between items-start gap-12">
                  <div>
                     <h3 class="text-xl font-bold tracking-widest mb-2">ROMEO</h3>
-                    <p class="text-xs text-gray-500 uppercase" data-i18n="footer_location">Sharm El-Sheikh • Dahab • Egypt</p>
+                    <p class="text-xs text-gray-500 uppercase" data-i18n="footer_location">Dahab • Egypt</p>
                  </div>
                  <div class="flex flex-col gap-4 text-sm font-light text-gray-400">
-                    <span onclick="navTo('home')" class="cursor-pointer hover:text-white">Intro</span>
-                    <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white">Shooting</span>
-                    <span onclick="navTo('rental')" class="cursor-pointer hover:text-white">Rental</span>
-                    <span onclick="navTo('education')" class="cursor-pointer hover:text-white">Education</span>
+                    <span onclick="navTo('home')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_home">Intro</span>
+                    <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_shooting">Shooting</span>
+                    <span onclick="navTo('rental')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_rental">Rental</span>
+                    <span onclick="navTo('education')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_education">Education</span>
                  </div>
                  <div>
-                     <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition">Contact Telegram</a>
+                     <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Contact Telegram</a>
                  </div>
              </div>
              <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase">
-                 © 2026 Romeo Freediving
+                 <span data-i18n="footer_copyright">© 2026 Romeo Freediving</span>
              </div>
         </div>
     </footer>
@@ -524,21 +524,63 @@
 
         const blogData = [
             { 
-                id: 1, cat: 'equipment', title: 'Carbon vs Fiberglass', 
-                desc: 'How to choose your first fins.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Carbon vs Fiberglass</h2><p class="mb-4">Choosing the right fins...</p><p>Full article text here...</p>', 
+                id: 1, cat: 'equipment',
+                title: { ru: 'Карбон vs стеклопластик', en: 'Carbon vs Fiberglass' },
+                desc: { ru: 'Как выбрать свои первые ласты.', en: 'How to choose your first fins.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Карбон vs стеклопластик</h2><p class="mb-4">Как выбрать ласты под ваши цели...</p><p>Полный текст статьи здесь...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Carbon vs Fiberglass</h2><p class="mb-4">Choosing the right fins...</p><p>Full article text here...</p>'
+                },
                 img: 'assets/blog1.jpg' 
             },
             { 
-                id: 2, cat: 'spots', title: 'Blue Hole Guide', 
-                desc: 'Hidden gems of the famous spot.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Blue Hole Guide</h2><p>Beyond the arch...</p>', 
+                id: 2, cat: 'spots',
+                title: { ru: 'Гид по Blue Hole', en: 'Blue Hole Guide' },
+                desc: { ru: 'Скрытые места знаменитого спота.', en: 'Hidden gems of the famous spot.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Гид по Blue Hole</h2><p>Что скрывается за аркой...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Blue Hole Guide</h2><p>Beyond the arch...</p>'
+                },
                 img: 'assets/blog2.jpg' 
             },
-             { 
-                id: 3, cat: 'spots', title: 'Lighthouse Night Dive', 
-                desc: 'Why you should dive at night.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Lighthouse Night Dive</h2><p>Magic happens when sun goes down...</p>', 
+            { 
+                id: 3, cat: 'spots',
+                title: { ru: 'Ночное погружение в Lighthouse', en: 'Lighthouse Night Dive' },
+                desc: { ru: 'Почему стоит нырять ночью.', en: 'Why you should dive at night.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Ночное погружение в Lighthouse</h2><p>Магия начинается после заката...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Lighthouse Night Dive</h2><p>Magic happens when sun goes down...</p>'
+                },
+                img: 'assets/blog3.jpg' 
+            },
+            { 
+                id: 4, cat: 'equipment',
+                title: { ru: 'Гид по гидрокостюмам', en: 'Wetsuit Guide' },
+                desc: { ru: 'Как подобрать толщину.', en: 'Choosing the right thickness.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Гид по гидрокостюмам</h2><p>Температура и комфорт...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Wetsuit Guide</h2><p>Temperature and comfort...</p>'
+                },
+                img: 'assets/blog1.jpg' 
+            },
+            { 
+                id: 5, cat: 'spots',
+                title: { ru: 'Глубокое погружение в Canyon', en: 'Canyon Deep Dive' },
+                desc: { ru: 'Исследуем Дахабский каньон.', en: 'Exploring Dahab Canyon.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Глубокое погружение в Canyon</h2><p>Знаменитый спот каньона...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Canyon Deep Dive</h2><p>The famous canyon spot...</p>'
+                },
+                img: 'assets/blog2.jpg' 
+            },
+            { 
+                id: 6, cat: 'equipment',
+                title: { ru: 'Выбор маски', en: 'Mask Selection' },
+                desc: { ru: 'Low volume vs классические маски.', en: 'Low volume vs regular masks.' },
+                full: {
+                    ru: '<h2 class="text-2xl font-bold mb-4">Выбор маски</h2><p>Маска — ключевой элемент...</p>',
+                    en: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>'
+                },
                 img: 'assets/blog3.jpg' 
             }
         ];
@@ -548,7 +590,8 @@
                 nav_home: "Интро", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
                 hero_location: "Шарм-эль-Шейх • Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
                 section_info: "Инфо", about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong>.",
-                label_cert: "Сертификация", label_loc: "Локация", label_equip: "Снаряжение", label_photo: "Съемка",
+                about_p2: "Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.",
+                label_cert: "Сертификация", val_cert: "Molchanovs W1/W2", label_loc: "Локация", val_loc: "Дахаб, Южный Синай", label_equip: "Снаряжение", val_equip: "Nearby Coral Coast", label_photo: "Съемка", val_photo: "Dahab / Sharm",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
                 section_shooting: "Съемка",
                 shooting_individual_title: "Индивидуальная съемка",
@@ -579,6 +622,9 @@
                 course_wave_desc: "Полное обучение по системе Molchanovs с получением сертификата.",
                 btn_enroll: "Записаться",
                 blog_title: "Полезные статьи",
+                blog_cat_equipment: "Снаряжение",
+                blog_cat_spots: "Споты",
+                filter_all: "Все", filter_equipment: "Снаряжение", filter_spots: "Споты",
                 scroll: "Вниз",
                 section_faq: "Частые вопросы",
                 faq_q1: "Нужно ли уметь хорошо плавать?",
@@ -602,31 +648,23 @@
                 faq_q10: "Как забронировать дату?",
                 faq_a10: "Напишите мне в Telegram, мы выберем удобный день.",
                 btn_show_more: "Еще",
-                footer_location: "Шарм-эль-Шейх • Дахаб • Египет"
-            },
-            { 
-                id: 4, cat: 'equipment', title: 'Wetsuit Guide', 
-                desc: 'Choosing the right thickness.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Wetsuit Guide</h2><p>Temperature and comfort...</p>', 
-                img: 'assets/blog1.jpg' 
-            },
-            { 
-                id: 5, cat: 'spots', title: 'Canyon Deep Dive', 
-                desc: 'Exploring Dahab Canyon.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Canyon Deep Dive</h2><p>The famous canyon spot...</p>', 
-                img: 'assets/blog2.jpg' 
-            },
-            { 
-                id: 6, cat: 'equipment', title: 'Mask Selection', 
-                desc: 'Low volume vs regular masks.', 
-                full: '<h2 class="text-2xl font-bold mb-4">Mask Selection</h2><p>Your mask is crucial...</p>', 
-                img: 'assets/blog3.jpg' 
+                btn_read: "Читать",
+                btn_share: "Поделиться статьей",
+                share_alert: "Ссылка скопирована в буфер обмена!",
+                footer_location: "Дахаб • Египет",
+                footer_nav_home: "Интро",
+                footer_nav_shooting: "Съемка",
+                footer_nav_rental: "Аренда",
+                footer_nav_education: "Обучение",
+                footer_contact: "Написать в Telegram",
+                footer_copyright: "© 2026 Romeo Freediving"
             },
             en: {
                 nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
                 hero_location: "Sharm El-Sheikh • Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
                 section_info: "Info", about_p1: "Hello friend!<br>My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor.",
-                label_cert: "Certification", label_loc: "Location", label_equip: "Equipment", label_photo: "Shooting",
+                about_p2: "My base is Dahab, South Sinai.<br>I teach people to find calm underwater and create visual stories.",
+                label_cert: "Certification", val_cert: "Molchanovs W1/W2", label_loc: "Location", val_loc: "Dahab, South Sinai", label_equip: "Equipment", val_equip: "Nearby Coral Coast", label_photo: "Shooting", val_photo: "Dahab / Sharm",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
                 section_shooting: "Shooting",
                 shooting_individual_title: "Individual Shooting",
@@ -657,6 +695,9 @@
                 course_wave_desc: "Full training in the Molchanovs system with certification.",
                 btn_enroll: "Enroll Now",
                 blog_title: "Useful Articles",
+                blog_cat_equipment: "Equipment",
+                blog_cat_spots: "Spots",
+                filter_all: "All", filter_equipment: "Equipment", filter_spots: "Spots",
                 scroll: "Scroll",
                 section_faq: "FAQ",
                 faq_q1: "Do I need to be a strong swimmer?",
@@ -680,7 +721,16 @@
                 faq_q10: "How to book?",
                 faq_a10: "Message me on Telegram (link in menu/footer) to pick a date.",
                 btn_show_more: "Show More",
-                footer_location: "Sharm El-Sheikh • Dahab • Egypt"
+                btn_read: "Read",
+                btn_share: "Share this article",
+                share_alert: "Link copied to clipboard!",
+                footer_location: "Dahab • Egypt",
+                footer_nav_home: "Intro",
+                footer_nav_shooting: "Shooting",
+                footer_nav_rental: "Rental",
+                footer_nav_education: "Education",
+                footer_contact: "Contact on Telegram",
+                footer_copyright: "© 2026 Romeo Freediving"
             }
         };
 
@@ -754,7 +804,7 @@
                     </div>
                     <h4 class="font-light text-lg mb-1">${item.name}</h4>
                     <p class="text-xs text-gray-400 mb-4">${item.priceFull}</p>
-                    <button class="w-full border border-gray-300 py-2 text-xs uppercase hover:bg-black hover:text-white transition" data-i18n="btn_rent" onclick="rentItem('${item.name}')">Арендовать</button>
+                    <button class="w-full border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition" data-i18n="btn_rent" onclick="rentItem('${item.name}')">Арендовать</button>
                 </div>
             `;
         });
@@ -763,8 +813,10 @@
         }
 
         // 4. Blog System
+        let currentBlogFilter = 'all';
         function renderBlog(filter) {
             const feed = document.getElementById('blog-feed');
+            currentBlogFilter = filter;
             feed.innerHTML = '';
             const filtered = filter === 'all' ? blogData : blogData.filter(b => b.cat === filter);
             filtered.forEach((b, index) => {
@@ -773,11 +825,11 @@
                     <div class="cursor-pointer group ${hiddenClass}" onclick="openBlogModal(${b.id})">
                         <div class="aspect-[4/3] bg-gray-200 overflow-hidden mb-4 relative">
                             <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                            <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${b.cat}</div>
+                            <div class="absolute top-2 left-2 bg-white px-2 py-1 text-[10px] uppercase font-bold">${translations[curLang][`blog_cat_${b.cat}`] || b.cat}</div>
                         </div>
-                        <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title}</h3>
-                        <p class="text-sm text-gray-500 mb-4">${b.desc}</p>
-                        <span class="text-xs border-b border-black pb-1 uppercase">Читать</span>
+                        <h3 class="text-xl font-light mb-2 group-hover:text-cyan-600 transition">${b.title[curLang]}</h3>
+                        <p class="text-sm text-gray-500 mb-4">${b.desc[curLang]}</p>
+                        <span class="text-xs border-b border-black pb-1 uppercase" data-i18n="btn_read">Читать</span>
                     </div>
                 `;
             });
@@ -788,7 +840,7 @@
             if (showMoreBtn) showMoreBtn.style.display = hasHidden ? 'block' : 'none';
 
             updateTexts();
-        }}
+        }
         function showMoreBlog() {
             document.querySelectorAll('.blog-item-hidden').forEach(item => {
                 item.classList.remove('blog-item-hidden');
@@ -814,10 +866,11 @@
             content.innerHTML = `
                 <div class="aspect-video w-full bg-gray-100 mb-8"><img src="${article.img}" class="w-full h-full object-cover"></div>
                 <div class="prose max-w-none">
-                    ${article.full}
+                    ${article.full[curLang]}
                 </div>
-                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title}')">Share Article</button>
+                <button class="mt-8 border border-black px-6 py-2 text-xs uppercase hover:bg-black hover:text-white transition" onclick="shareArticle('${article.title[curLang]}')" data-i18n="btn_share">Share this article</button>
             `;
+            updateTexts();
             modal.classList.remove('closed'); modal.classList.add('open');
         }
         function closeBlogModal() {
@@ -826,7 +879,7 @@
         }
         function shareArticle(title) {
             navigator.clipboard.writeText(window.location.href);
-            alert('Link copied to clipboard!');
+            alert(translations[curLang].share_alert);
         }
 
         // 5. Languages
@@ -835,6 +888,7 @@
             document.querySelectorAll('.lang-ru').forEach(e => e.classList.toggle('text-cyan-400', l==='ru'));
             document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', l==='en'));
             updateTexts();
+            renderBlog(currentBlogFilter);
         }
         function updateTexts() {
             document.querySelectorAll('[data-i18n]').forEach(el => {
