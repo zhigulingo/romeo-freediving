@@ -73,7 +73,7 @@
 <body class="antialiased">
 
     <!-- LANGUAGE SWITCHER (FIXED TOP) -->
-    <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
+    <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] hidden md:flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
         <div class="text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
             <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
             <span class="text-gray-600">|</span>
@@ -100,7 +100,7 @@
 
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo FD</div>
+        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo Freediving</div>
         <button onclick="toggleMobileMenu()" class="pointer-events-auto text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
 
@@ -108,11 +108,16 @@
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
         <button onclick="toggleMobileMenu()" class="absolute top-6 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
         <nav class="flex flex-col space-y-8 text-center">
-            <span onclick="navTo('home'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
-            <span onclick="navTo('shooting'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
-            <span onclick="navTo('rental'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
-            <span onclick="navTo('education'); toggleMobileMenu()" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
+            <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
+            <span onclick="navTo('shooting')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
+            <span onclick="navTo('rental')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
+            <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
+        <div class="mt-12 text-2xl text-white font-light tracking-widest uppercase">
+            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+            <span class="text-gray-600 mx-4">|</span>
+            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+        </div>
     </div>
 
     <!-- ==================================================================================== -->
@@ -129,7 +134,7 @@
                 </video>
             </div>
             <div class="relative z-10 text-center text-white px-4">
-                <p class="text-micro mb-4 text-cyan-400 blur-fade-in" style="opacity: 0;" data-i18n="hero_location">Дахаб • Египет</p>
+                <p class="text-micro mb-4 text-cyan-400 blur-fade-in" style="opacity: 0;" data-i18n="hero_location">Шарм-эль-Шейх • Дахаб • Египет</p>
                 <h1 class="text-3xl md:text-7xl font-light mb-6 tracking-wide leading-tight blur-fade-in delay-200 uppercase" style="opacity: 0;" data-i18n="hero_title">Подводная съемка<br>в Египте</h1>
                 <div class="h-[1px] w-24 bg-white/30 mx-auto mb-8"></div>
                 <p class="text-sm md:text-base font-light tracking-wide text-gray-300 max-w-md mx-auto blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_subtitle">
@@ -188,25 +193,17 @@
                     </div>
                 </div>
 
-                <!-- Infinite Carousel -->
+                <!-- Gallery Carousel -->
                 <div class="relative w-full">
-                    <!-- Main Image Display -->
-                    <div class="relative aspect-[3/2] md:aspect-[16/9] w-full bg-gray-100 mb-4 overflow-hidden group">
-                        <img id="main-gallery-img" src="" class="w-full h-full object-cover gallery-main-img" alt="Gallery">
-                        
-                        <!-- Arrows -->
-                        <button onclick="changeSlide(-1)" class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/20 to-transparent text-white opacity-0 group-hover:opacity-100 transition"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/20 to-transparent text-white opacity-0 group-hover:opacity-100 transition"><i class="fas fa-chevron-right"></i></button>
-                        
-                        <!-- Caption -->
-                        <div class="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm px-4 py-2 text-white text-xs tracking-widest uppercase rounded">
-                            <span id="gallery-caption">Loading...</span>
+                    <div class="relative w-full overflow-hidden bg-gray-100">
+                        <div id="gallery-track" class="flex transition-transform duration-500 ease-in-out">
+                            <!-- JS Injected -->
                         </div>
+                        <button onclick="changeSlide(-1)" class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black/20 to-transparent text-white opacity-0 hover:opacity-100 transition"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="changeSlide(1)" class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black/20 to-transparent text-white opacity-0 hover:opacity-100 transition"><i class="fas fa-chevron-right"></i></button>
                     </div>
-
-                    <!-- Thumbnails Strip -->
-                    <div class="flex gap-2 overflow-x-auto pb-2" id="gallery-thumbs">
-                        <!-- JS Injected -->
+                    <div class="mt-4 text-center text-xs uppercase tracking-widest text-gray-500">
+                        <span id="gallery-caption">Loading...</span>
                     </div>
                 </div>
             </div>
@@ -476,7 +473,7 @@
              <div class="flex flex-col md:flex-row justify-between items-start gap-12">
                  <div>
                     <h3 class="text-xl font-bold tracking-widest mb-2">ROMEO</h3>
-                    <p class="text-xs text-gray-500 uppercase">Dahab • Egypt</p>
+                    <p class="text-xs text-gray-500 uppercase" data-i18n="footer_location">Sharm El-Sheikh • Dahab • Egypt</p>
                  </div>
                  <div class="flex flex-col gap-4 text-sm font-light text-gray-400">
                     <span onclick="navTo('home')" class="cursor-pointer hover:text-white">Intro</span>
@@ -541,7 +538,7 @@
         const translations = {
             ru: {
                 nav_home: "Интро", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
-                hero_location: "Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
+                hero_location: "Шарм-эль-Шейх • Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Обучение. Снаряжение. Фридайв-туры.<br>Искусство задержки дыхания.",
                 section_info: "Инфо", about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong>.",
                 label_cert: "Сертификация", label_loc: "Локация", label_equip: "Снаряжение", label_photo: "Съемка",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
@@ -596,7 +593,8 @@
                 faq_a9: "Обработка занимает 5-7 дней. Вы получите ссылку на облако.",
                 faq_q10: "Как забронировать дату?",
                 faq_a10: "Напишите мне в Telegram, мы выберем удобный день.",
-                btn_show_more: "Еще"
+                btn_show_more: "Еще",
+                footer_location: "Шарм-эль-Шейх • Дахаб • Египет"
             },
             { 
                 id: 4, cat: 'equipment', title: 'Wetsuit Guide', 
@@ -618,7 +616,7 @@
             },
             en: {
                 nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
-                hero_location: "Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
+                hero_location: "Sharm El-Sheikh • Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Education. Equipment. Freedive Tours.<br>The Art of Breath Hold.",
                 section_info: "Info", about_p1: "Hello friend!<br>My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor.",
                 label_cert: "Certification", label_loc: "Location", label_equip: "Equipment", label_photo: "Shooting",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
@@ -673,7 +671,8 @@
                 faq_a9: "Editing takes 5-7 days. You will receive a link to cloud storage.",
                 faq_q10: "How to book?",
                 faq_a10: "Message me on Telegram (link in menu/footer) to pick a date.",
-                btn_show_more: "Show More"
+                btn_show_more: "Show More",
+                footer_location: "Sharm El-Sheikh • Dahab • Egypt"
             }
         };
 
@@ -710,31 +709,58 @@
 
         // 2. Gallery Loop
         let galIdx = 0;
+        let touchStartX = null;
+        function getGalleryPerView() {
+            return window.innerWidth >= 768 ? 3 : 1;
+        }
         function renderGallery() {
-            const img = document.getElementById('main-gallery-img');
+            const track = document.getElementById('gallery-track');
             const cap = document.getElementById('gallery-caption');
-            const thumbs = document.getElementById('gallery-thumbs');
-            
-            // Set Main
-            img.style.opacity = 0;
-            setTimeout(() => {
-                img.src = galleryData[galIdx].src;
-                cap.innerText = galleryData[galIdx].caption;
-                img.style.opacity = 1;
-            }, 200);
+            const perView = getGalleryPerView();
+            const maxIndex = Math.max(0, galleryData.length - perView);
+            if (galIdx > maxIndex) galIdx = maxIndex;
+            track.innerHTML = '';
 
-            // Render Thumbs
-            thumbs.innerHTML = '';
-            galleryData.forEach((item, i) => {
-                const isActive = i === galIdx ? 'thumb-active' : 'opacity-60 hover:opacity-100';
-                thumbs.innerHTML += `<img src="${item.src}" onclick="setSlide(${i})" class="h-16 w-24 object-cover cursor-pointer transition ${isActive}">`;
+            galleryData.forEach((item) => {
+                track.innerHTML += `
+                    <div class="flex-shrink-0 w-full md:w-1/3 p-2">
+                        <div class="aspect-[3/4] bg-gray-100 overflow-hidden">
+                            <img src="${item.src}" class="w-full h-full object-cover" alt="${item.caption}">
+                        </div>
+                    </div>
+                `;
             });
+
+            const translatePercent = (galIdx * 100) / perView;
+            track.style.transform = `translateX(-${translatePercent}%)`;
+            cap.innerText = galleryData[Math.min(galIdx, galleryData.length - 1)].caption;
         }
         function changeSlide(dir) {
-            galIdx = (galIdx + dir + galleryData.length) % galleryData.length;
+            const perView = getGalleryPerView();
+            const maxIndex = Math.max(0, galleryData.length - perView);
+            galIdx = Math.min(Math.max(galIdx + dir * perView, 0), maxIndex);
             renderGallery();
         }
-        function setSlide(i) { galIdx = i; renderGallery(); }
+        function setSlide(i) {
+            galIdx = i;
+            renderGallery();
+        }
+        function handleGalleryTouchStart(event) {
+            touchStartX = event.touches[0].clientX;
+        }
+        function handleGalleryTouchEnd(event) {
+            if (touchStartX === null) return;
+            const touchEndX = event.changedTouches[0].clientX;
+            const deltaX = touchStartX - touchEndX;
+            if (Math.abs(deltaX) > 50) {
+                changeSlide(deltaX > 0 ? 1 : -1);
+            }
+            touchStartX = null;
+        }
+        const galleryTrack = document.getElementById('gallery-track');
+        galleryTrack.addEventListener('touchstart', handleGalleryTouchStart, { passive: true });
+        galleryTrack.addEventListener('touchend', handleGalleryTouchEnd);
+        window.addEventListener('resize', renderGallery);
         renderGallery();
 
         // 3. Rental Grid
