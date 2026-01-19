@@ -83,6 +83,9 @@
             background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0) 100%);
             z-index: -1;
         }
+
+        /* LUCIDE ICONS */
+        .lucide-icon { width: 1em; height: 1em; display: inline-block; }
     </style>
 </head>
 <body class="antialiased">
@@ -317,24 +320,15 @@
                         <img src="assets/shooting1.jpg" class="w-full h-full object-cover" alt="Individual Shooting">
                         <div class="absolute top-4 left-4 flex flex-wrap gap-3">
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
-                                <svg class="w-[1em] h-[1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <circle cx="12" cy="12" r="9"></circle>
-                                    <path d="M12 7v5l3 3"></path>
-                                </svg>
+                                <i data-lucide="clock" class="lucide-icon" aria-hidden="true"></i>
                                 <span data-i18n="shooting_individual_chip_time">60 мин в воде</span>
                             </span>
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
-                                <svg class="w-[1em] h-[1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M4 7h4l2-2h4l2 2h4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
+                                <i data-lucide="camera" class="lucide-icon" aria-hidden="true"></i>
                                 <span data-i18n="shooting_individual_chip_photo">5-30 фото</span>
                             </span>
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
-                                <svg class="w-[1em] h-[1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <rect x="3" y="7" width="13" height="10" rx="2"></rect>
-                                    <path d="M16 9l5-2v10l-5-2z"></path>
-                                </svg>
+                                <i data-lucide="video" class="lucide-icon" aria-hidden="true"></i>
                                 <span data-i18n="shooting_individual_chip_video">2 видео</span>
                             </span>
                         </div>
@@ -412,24 +406,15 @@
                         <img src="assets/shooting2.jpg" class="w-full h-full object-cover" alt="Training Session">
                         <div class="absolute top-4 left-4 flex flex-wrap gap-3">
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
-                                <svg class="w-[1em] h-[1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <circle cx="12" cy="12" r="9"></circle>
-                                    <path d="M12 7v5l3 3"></path>
-                                </svg>
+                                <i data-lucide="clock" class="lucide-icon" aria-hidden="true"></i>
                                 <span data-i18n="shooting_training_chip_time">80 мин в воде</span>
                             </span>
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
-                                <svg class="w-[1em] h-[1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M4 7h4l2-2h4l2 2h4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z"></path>
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                </svg>
+                                <i data-lucide="camera" class="lucide-icon" aria-hidden="true"></i>
                                 <span data-i18n="shooting_training_chip_photo">10-30 фото</span>
                             </span>
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
-                                <svg class="w-[1em] h-[1em] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <rect x="3" y="7" width="13" height="10" rx="2"></rect>
-                                    <path d="M16 9l5-2v10l-5-2z"></path>
-                                </svg>
+                                <i data-lucide="video" class="lucide-icon" aria-hidden="true"></i>
                                 <span data-i18n="shooting_training_chip_video">2 видео</span>
                             </span>
                         </div>
@@ -623,6 +608,7 @@
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         AOS.init({ once: true, duration: 800 });
 
@@ -1123,6 +1109,7 @@
             document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', l==='en'));
             updateTexts();
             renderBlog(currentBlogFilter);
+            if (window.lucide) lucide.createIcons({ attrs: { class: 'lucide-icon', 'stroke-width': 1.25, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' } });
         }
         function updateTexts() {
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1139,6 +1126,7 @@
 
         // Init translations
         updateTexts();
+        if (window.lucide) lucide.createIcons({ attrs: { class: 'lucide-icon', 'stroke-width': 1.25, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' } });
     </script>
 </body>
 </html>
