@@ -296,14 +296,22 @@
                 <div class="bg-white border border-gray-200 overflow-hidden" data-aos="fade-up">
                     <div class="relative aspect-[4/5] bg-gray-100 overflow-hidden">
                         <img src="assets/shooting1.jpg" class="w-full h-full object-cover" alt="Individual Shooting">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <h3 class="absolute inset-x-0 bottom-0 p-6 text-white text-2xl font-light" data-i18n="shooting_individual_title">Индивидуальная съемка</h3>
+                        <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/90 text-black" data-i18n="shooting_individual_chip_time">60 мин в воде</span>
+                            <span class="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/90 text-black" data-i18n="shooting_individual_chip_result">5-30 фото + 2 видео 9:16</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="inline-block max-w-[90%] md:max-w-[70%] bg-black/60 text-white p-4">
+                                <h3 class="text-2xl font-light" data-i18n="shooting_individual_title">Индивидуальная съемка</h3>
+                                <p class="text-xs text-white/80 mt-2" data-i18n="shooting_individual_subtitle">Потрясающий контент для соцсетей и захватывающий новый опыт с инструктажем и профессиональным оборудованием.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-8">
                         
                         <div class="space-y-6 mb-8 text-sm text-gray-700 leading-relaxed">
                             <div>
-                                <h4 class="font-semibold text-black mb-2" data-i18n="shooting_included">Что входит</h4>
+                                <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fas fa-box-open text-gray-500 text-sm"></i><span data-i18n="shooting_included">Equipment Included</span></h4>
                                 <ul class="list-disc list-inside space-y-1 text-xs">
                                     <li data-i18n="shooting_scenario">Сценарий съёмки</li>
                                     <li data-i18n="shooting_equipment">Необходимое оборудование</li>
@@ -312,7 +320,7 @@
                             </div>
                             
                             <div>
-                                <h4 class="font-semibold text-black mb-2" data-i18n="shooting_safety">Техника безопасности при погружение (30 минут, на суше)</h4>
+                                <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fas fa-shield-halved text-gray-500 text-sm"></i><span data-i18n="shooting_safety">Техника безопасности при погружение (30 минут, на суше)</span></h4>
                                 <ul class="list-disc list-inside space-y-1 text-xs">
                                     <li data-i18n="shooting_knowledge">Базовые знания о задержке дыхания и фридайвинге</li>
                                     <li data-i18n="shooting_briefing">Инструктаж плана погружений</li>
@@ -320,7 +328,7 @@
                             </div>
                             
                             <div>
-                                <h4 class="font-semibold text-black mb-2" data-i18n="shooting_water">Съемка (60 минут, на воде/под водой)</h4>
+                                <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fas fa-camera text-gray-500 text-sm"></i><span data-i18n="shooting_water">Съемка (60 минут, в воде)</span></h4>
                                 <ul class="list-disc list-inside space-y-1 text-xs">
                                     <li data-i18n="shooting_photos">5-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)</li>
                                     <li data-i18n="shooting_montage" class="text-gray-500">*Услуги сложного монтажа обсуждаются отдельно.</li>
@@ -328,10 +336,16 @@
                             </div>
                             
                             <div class="bg-gray-50 border border-gray-200 rounded p-4">
-                                <h4 class="font-semibold text-black mb-2" data-i18n="shooting_locations">Локации</h4>
-                                <ul class="list-disc list-inside space-y-1 text-xs">
-                                    <li data-i18n="shooting_dahab">Dahab (Египет, Южный Синай) – от 150€</li>
-                                    <li data-i18n="shooting_sharm">Sharm El-Sheikh (Египет, Южный Синай) – от 200€</li>
+                                <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fas fa-location-dot text-gray-500 text-sm"></i><span data-i18n="shooting_locations">Локации</span></h4>
+                                <ul class="space-y-2 text-xs">
+                                    <li class="flex items-center justify-between">
+                                        <span data-i18n="shooting_dahab_loc">Dahab (Египет, Южный Синай)</span>
+                                        <span class="font-semibold text-black" data-i18n="shooting_dahab_price_from">от 150€</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span data-i18n="shooting_sharm_loc">Sharm El-Sheikh (Египет, Южный Синай)</span>
+                                        <span class="font-semibold text-black" data-i18n="shooting_sharm_price_from">от 200€</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -344,23 +358,34 @@
                 <div class="bg-white border border-gray-200 overflow-hidden" data-aos="fade-up">
                     <div class="relative aspect-[4/5] bg-gray-100 overflow-hidden">
                         <img src="assets/shooting2.jpg" class="w-full h-full object-cover" alt="Training Session">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <h3 class="absolute inset-x-0 bottom-0 p-6 text-white text-2xl font-light" data-i18n="shooting_training_title">Тренировочная сессия</h3>
+                        <div class="absolute top-4 left-4 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/90 text-black" data-i18n="shooting_training_chip_time">80 мин в воде</span>
+                            <span class="px-3 py-1 text-[10px] uppercase tracking-widest bg-white/90 text-black" data-i18n="shooting_training_chip_result">10-30 фото + 2 видео 9:16</span>
+                        </div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="inline-block max-w-[90%] md:max-w-[70%] bg-black/60 text-white p-4">
+                                <h3 class="text-2xl font-light" data-i18n="shooting_training_title">Тренировочная сессия</h3>
+                                <p class="text-xs text-white/80 mt-2" data-i18n="shooting_training_subtitle">Идеально подходит для тех, кто хочет получить контент для соцсетей и материал для разбора в процессе тренировки погружений.</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-8">
                         
                         <div class="space-y-6 mb-8 text-sm text-gray-700 leading-relaxed">
                             <div>
-                                <h4 class="font-semibold text-black mb-2" data-i18n="shooting_training_water">Съемка (80 минут, на воде/под водой)</h4>
+                                <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fas fa-camera text-gray-500 text-sm"></i><span data-i18n="shooting_training_water">Съемка (80 минут, в воде)</span></h4>
                                 <ul class="list-disc list-inside space-y-1 text-xs">
                                     <li data-i18n="shooting_training_photos">10-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)</li>
                                 </ul>
                             </div>
                             
                             <div class="bg-gray-50 border border-gray-200 rounded p-4">
-                                <h4 class="font-semibold text-black mb-2" data-i18n="shooting_locations">Локация</h4>
-                                <ul class="list-disc list-inside space-y-1 text-xs">
-                                    <li data-i18n="shooting_dahab_price">Dahab (Египет, Южный Синай) – 130€ / 13 500₽ / 7 000 EGP</li>
+                                <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fas fa-location-dot text-gray-500 text-sm"></i><span data-i18n="shooting_locations">Локация</span></h4>
+                                <ul class="space-y-2 text-xs">
+                                    <li class="flex items-center justify-between">
+                                        <span data-i18n="shooting_training_loc">Dahab (Египет, Южный Синай)</span>
+                                        <span class="font-semibold text-black" data-i18n="shooting_training_price">130€ / 13 500₽ / 7 000 EGP</span>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -602,23 +627,32 @@
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
                 section_shooting: "Съемка",
                 shooting_individual_title: "Индивидуальная съемка",
-                shooting_included: "Что входит",
+                shooting_individual_subtitle: "Потрясающий контент для соцсетей и захватывающий новый опыт с инструктажем и профессиональным оборудованием.",
+                shooting_individual_chip_time: "60 мин в воде",
+                shooting_individual_chip_result: "5-30 фото + 2 видео 9:16",
+                shooting_included: "Equipment Included",
                 shooting_scenario: "Сценарий съёмки",
                 shooting_equipment: "Необходимое оборудование",
                 shooting_gear: "Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты",
                 shooting_safety: "Техника безопасности при погружение (30 минут, на суше)",
                 shooting_knowledge: "Базовые знания о задержке дыхания и фридайвинге",
                 shooting_briefing: "Инструктаж плана погружений",
-                shooting_water: "Съемка (60 минут, на воде/под водой)",
-                shooting_training_water: "Съемка (80 минут, на воде/под водой)",
+                shooting_water: "Съемка (60 минут, в воде)",
+                shooting_training_water: "Съемка (80 минут, в воде)",
                 shooting_photos: "5-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)",
                 shooting_montage: "*Услуги сложного монтажа обсуждаются отдельно.",
                 shooting_locations: "Локации",
-                shooting_dahab: "Dahab (Египет, Южный Синай) – от 150€",
-                shooting_sharm: "Sharm El-Sheikh (Египет, Южный Синай) – от 200€",
+                shooting_dahab_loc: "Dahab (Египет, Южный Синай)",
+                shooting_dahab_price_from: "от 150€",
+                shooting_sharm_loc: "Sharm El-Sheikh (Египет, Южный Синай)",
+                shooting_sharm_price_from: "от 200€",
                 shooting_training_title: "Тренировочная сессия",
+                shooting_training_subtitle: "Идеально подходит для тех, кто хочет получить контент для соцсетей и материал для разбора в процессе тренировки погружений.",
+                shooting_training_chip_time: "80 мин в воде",
+                shooting_training_chip_result: "10-30 фото + 2 видео 9:16",
                 shooting_training_photos: "10-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)",
-                shooting_dahab_price: "Dahab (Египет, Южный Синай) – 130€ / 13 500₽ / 7 000 EGP",
+                shooting_training_loc: "Dahab (Египет, Южный Синай)",
+                shooting_training_price: "130€ / 13 500₽ / 7 000 EGP",
                 shooting_note: "Идеально подходит для тех, кто хочет получить отличные фотографии в процессе тренировки погружений.",
                 btn_book: "Забронировать",
                 section_rental: "Аренда Снаряжения", rental_intro: "Полный сетап для погружений. Локация: Coral Coast Hotel area.", btn_rent: "Арендовать",
@@ -676,23 +710,32 @@
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
                 section_shooting: "Shooting",
                 shooting_individual_title: "Individual Shooting",
-                shooting_included: "What's included",
+                shooting_individual_subtitle: "Stunning content for social media and an unforgettable experience with guidance and professional gear.",
+                shooting_individual_chip_time: "60 min in water",
+                shooting_individual_chip_result: "5-30 photos + 2 videos 9:16",
+                shooting_included: "Equipment Included",
                 shooting_scenario: "Shooting scenario",
                 shooting_equipment: "Necessary equipment",
                 shooting_gear: "Swimwear, wetsuits, goggles, masks, fins, belts, monofins",
                 shooting_safety: "Safety during diving (30 minutes, on shore)",
                 shooting_knowledge: "Basic knowledge about breath-hold and freediving",
                 shooting_briefing: "Dive plan briefing",
-                shooting_water: "Shooting (60 minutes, on water/underwater)",
-                shooting_training_water: "Shooting (80 minutes, on water/underwater)",
+                shooting_water: "Shooting (60 minutes, in water)",
+                shooting_training_water: "Shooting (80 minutes, in water)",
                 shooting_photos: "5-30 processed photos and 2 videos 9:16 (Instagram Stories format)",
                 shooting_montage: "*Complex editing services are discussed separately.",
                 shooting_locations: "Locations",
-                shooting_dahab: "Dahab (Egypt, South Sinai) – from 150€",
-                shooting_sharm: "Sharm El-Sheikh (Egypt, South Sinai) – from 200€",
+                shooting_dahab_loc: "Dahab (Egypt, South Sinai)",
+                shooting_dahab_price_from: "from 150€",
+                shooting_sharm_loc: "Sharm El-Sheikh (Egypt, South Sinai)",
+                shooting_sharm_price_from: "from 200€",
                 shooting_training_title: "Training Session",
+                shooting_training_subtitle: "Ideal for those who want social content and review material during dive training.",
+                shooting_training_chip_time: "80 min in water",
+                shooting_training_chip_result: "10-30 photos + 2 videos 9:16",
                 shooting_training_photos: "10-30 processed photos and 2 videos 9:16 (Instagram Stories format)",
-                shooting_dahab_price: "Dahab (Egypt, South Sinai) – 130€ / 13,500₽ / 7,000 EGP",
+                shooting_training_loc: "Dahab (Egypt, South Sinai)",
+                shooting_training_price: "130€ / 13,500₽ / 7,000 EGP",
                 shooting_note: "Perfect for those who want great photos while training dives.",
                 btn_book: "Book Now",
                 section_rental: "Equipment Rental", rental_intro: "Full diving setup. Location: Coral Coast Hotel area.", btn_rent: "Rent Now",
