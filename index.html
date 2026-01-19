@@ -108,10 +108,12 @@
 
     <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
-        <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
-        <div class="text-center text-white px-6 mb-8">
-            <div class="text-sm uppercase tracking-[0.35em] font-semibold" data-i18n="mobile_menu_title">Romeo_Freediving</div>
-            <p class="mt-3 text-[13px] text-white/80 font-light leading-relaxed" data-i18n="mobile_menu_subtitle">Подводная стемка, обучение, снаряжение, фридайвтуры, исскусиво задержки дыхания.</p>
+        <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 text-white text-2xl leading-none focus:outline-none"><i class="fas fa-times"></i></button>
+        <div class="text-center text-white px-6 mb-8 -mt-16">
+            <div class="inline-block">
+                <div class="text-sm uppercase tracking-[0.35em] font-semibold" data-i18n="mobile_menu_title">Romeo_Freediving</div>
+                <p class="mt-3 text-[13px] text-white/80 font-light leading-relaxed w-full" data-i18n="mobile_menu_subtitle">Подводная стемка, обучение, снаряжение, фридайвтуры, исскусиво задержки дыхания.</p>
+            </div>
         </div>
         <nav class="flex flex-col space-y-8 text-center">
             <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
@@ -119,7 +121,7 @@
             <span onclick="navTo('rental')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
             <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
-        <div class="mt-12 text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
+        <div class="mt-12 text-sm font-bold tracking-[0.35em] text-white space-x-4 uppercase">
             <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
             <span class="text-gray-600">|</span>
             <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
