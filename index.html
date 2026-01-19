@@ -70,6 +70,19 @@
 
         /* BLOG SHOW MORE */
         .blog-item-hidden { display: none; }
+
+        /* SHOOTING CARD FADE */
+        .shooting-text { position: relative; z-index: 10; }
+        .shooting-text::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0) 100%);
+            z-index: -1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -304,12 +317,13 @@
                         <img src="assets/shooting1.jpg" class="w-full h-full object-cover" alt="Individual Shooting">
                         <div class="absolute top-4 left-4 flex flex-wrap gap-3">
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_individual_chip_time"><i class="fa-solid fa-clock text-[12px]"></i>60 мин в воде</span>
-                            <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_individual_chip_result"><i class="fa-solid fa-photo-film text-[12px]"></i>5-30 фото + 2 видео 9:16</span>
+                            <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_individual_chip_photo"><i class="fa-solid fa-camera text-[12px]"></i>5-30 фото</span>
+                            <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_individual_chip_video"><i class="fa-solid fa-video text-[12px]"></i>2 видео 9:16</span>
                         </div>
                         <div class="absolute bottom-4 left-4 right-4">
-                            <div class="inline-block max-w-[90%] md:max-w-[70%] bg-black/60 text-white p-4">
+                            <div class="shooting-text inline-block max-w-[90%] md:max-w-[70%] text-white p-4">
                                 <h3 class="text-2xl font-light" data-i18n="shooting_individual_title">Индивидуальная съемка</h3>
-                                <p class="text-xs text-white/80 mt-2" data-i18n="shooting_individual_subtitle">Потрясающий контент для соцсетей и захватывающий новый опыт с инструктажем и профессиональным оборудованием.</p>
+                                <p class="text-sm md:text-base text-white/80 mt-2" data-i18n="shooting_individual_subtitle">Потрясающий контент для соцсетей и захватывающий новый опыт с инструктажем и профессиональным оборудованием.</p>
                             </div>
                         </div>
                     </div>
@@ -319,9 +333,13 @@
                             <div>
                                 <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fa-solid fa-box-open text-gray-500 text-sm"></i><span data-i18n="shooting_included">Equipment Included</span></h4>
                                 <ul class="list-disc list-inside space-y-1 text-xs">
+                                    <li data-i18n="shooting_intro">Знакомство 10 мин</li>
+                                    <li data-i18n="shooting_lecture">Лекция 30 мин</li>
+                                    <li data-i18n="shooting_breathing">Урок дыхания 30 мин</li>
+                                    <li data-i18n="shooting_equalization">Урок компенсации давления 30 мин</li>
+                                    <li data-i18n="shooting_warmup">Разминка 10 мин</li>
                                     <li data-i18n="shooting_scenario">Сценарий съёмки</li>
-                                    <li data-i18n="shooting_equipment">Необходимое оборудование</li>
-                                    <li data-i18n="shooting_gear">Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты</li>
+                                    <li data-i18n="shooting_equipment">Необходимое оборудование: купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты</li>
                                 </ul>
                             </div>
                             
@@ -337,6 +355,8 @@
                                 <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i class="fa-solid fa-camera text-gray-500 text-sm"></i><span data-i18n="shooting_water">Съемка (60 минут, в воде)</span></h4>
                                 <ul class="list-disc list-inside space-y-1 text-xs">
                                     <li data-i18n="shooting_photos">5-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)</li>
+                                    <li data-i18n="shooting_cinema">Кинематографичные кадры на Sony A7s (полнокадровая камера, раскрывающая технический потенциал профессионального оборудования)</li>
+                                    <li data-i18n="shooting_gopro">Атмосферные кадры на GoPro</li>
                                     <li data-i18n="shooting_montage" class="text-gray-500">*Услуги сложного монтажа обсуждаются отдельно.</li>
                                 </ul>
                             </div>
@@ -366,12 +386,13 @@
                         <img src="assets/shooting2.jpg" class="w-full h-full object-cover" alt="Training Session">
                         <div class="absolute top-4 left-4 flex flex-wrap gap-3">
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_training_chip_time"><i class="fa-solid fa-clock text-[12px]"></i>80 мин в воде</span>
-                            <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_training_chip_result"><i class="fa-solid fa-photo-film text-[12px]"></i>10-30 фото + 2 видео 9:16</span>
+                            <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_training_chip_photo"><i class="fa-solid fa-camera text-[12px]"></i>10-30 фото</span>
+                            <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2" data-i18n="shooting_training_chip_video"><i class="fa-solid fa-video text-[12px]"></i>2 видео 9:16</span>
                         </div>
                         <div class="absolute bottom-4 left-4 right-4">
-                            <div class="inline-block max-w-[90%] md:max-w-[70%] bg-black/60 text-white p-4">
+                            <div class="shooting-text inline-block max-w-[90%] md:max-w-[70%] text-white p-4">
                                 <h3 class="text-2xl font-light" data-i18n="shooting_training_title">Тренировочная сессия</h3>
-                                <p class="text-xs text-white/80 mt-2" data-i18n="shooting_training_subtitle">Идеально подходит для тех, кто хочет получить контент для соцсетей и материал для разбора в процессе тренировки погружений.</p>
+                                <p class="text-sm md:text-base text-white/80 mt-2" data-i18n="shooting_training_subtitle">Идеально подходит для тех, кто хочет получить контент для соцсетей и материал для разбора в процессе тренировки погружений.</p>
                             </div>
                         </div>
                     </div>
@@ -394,12 +415,6 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        
-                        <div class="mb-8 p-4 bg-gray-50 border border-gray-200 rounded">
-                            <p class="text-xs text-gray-600" data-i18n="shooting_note">
-                                Идеально подходит для тех, кто хочет получить отличные фотографии в процессе тренировки погружений.
-                            </p>
                         </div>
                         
                         <a href="https://t.me/romeo_freediving" target="_blank" class="w-full block text-center border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
@@ -637,17 +652,24 @@
                 shooting_individual_title: "Индивидуальная съемка",
                 shooting_individual_subtitle: "Потрясающий контент для соцсетей и захватывающий новый опыт с инструктажем и профессиональным оборудованием.",
                 shooting_individual_chip_time: "60 мин в воде",
-                shooting_individual_chip_result: "5-30 фото + 2 видео 9:16",
-                shooting_included: "Equipment Included",
+                shooting_individual_chip_photo: "5-30 фото",
+                shooting_individual_chip_video: "2 видео 9:16",
+                shooting_included: "Что входит",
+                shooting_intro: "Знакомство 10 мин",
+                shooting_lecture: "Лекция 30 мин",
+                shooting_breathing: "Урок дыхания 30 мин",
+                shooting_equalization: "Урок компенсации давления 30 мин",
+                shooting_warmup: "Разминка 10 мин",
                 shooting_scenario: "Сценарий съёмки",
-                shooting_equipment: "Необходимое оборудование",
-                shooting_gear: "Купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты",
+                shooting_equipment: "Необходимое оборудование: купальники, гидрокостюмы, очки, маски, ласты, ремни, моноласты",
                 shooting_safety: "Техника безопасности при погружение (30 минут, на суше)",
                 shooting_knowledge: "Базовые знания о задержке дыхания и фридайвинге",
                 shooting_briefing: "Инструктаж плана погружений",
                 shooting_water: "Съемка (60 минут, в воде)",
                 shooting_training_water: "Съемка (80 минут, в воде)",
                 shooting_photos: "5-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)",
+                shooting_cinema: "Кинематографичные кадры на Sony A7s (полнокадровая камера, раскрывающая технический потенциал профессионального оборудования)",
+                shooting_gopro: "Атмосферные кадры на GoPro",
                 shooting_montage: "*Услуги сложного монтажа обсуждаются отдельно.",
                 shooting_locations: "Локации",
                 shooting_dahab_loc: "Dahab (Египет, Южный Синай)",
@@ -657,11 +679,11 @@
                 shooting_training_title: "Тренировочная сессия",
                 shooting_training_subtitle: "Идеально подходит для тех, кто хочет получить контент для соцсетей и материал для разбора в процессе тренировки погружений.",
                 shooting_training_chip_time: "80 мин в воде",
-                shooting_training_chip_result: "10-30 фото + 2 видео 9:16",
+                shooting_training_chip_photo: "10-30 фото",
+                shooting_training_chip_video: "2 видео 9:16",
                 shooting_training_photos: "10-30 обработанных фотографий и 2 видео 9:16 (формат инстаграм сторис)",
                 shooting_training_loc: "Dahab (Египет, Южный Синай)",
                 shooting_training_price: "130€ / 13 500₽ / 7 000 EGP",
-                shooting_note: "Идеально подходит для тех, кто хочет получить отличные фотографии в процессе тренировки погружений.",
                 btn_book: "Забронировать",
                 section_rental: "Аренда Снаряжения", rental_intro: "Полный сетап для погружений. Локация: Coral Coast Hotel area.", btn_rent: "Арендовать",
                 section_education: "Обучение",
@@ -722,17 +744,24 @@
                 shooting_individual_title: "Individual Shooting",
                 shooting_individual_subtitle: "Stunning content for social media and an unforgettable experience with guidance and professional gear.",
                 shooting_individual_chip_time: "60 min in water",
-                shooting_individual_chip_result: "5-30 photos + 2 videos 9:16",
-                shooting_included: "Equipment Included",
+                shooting_individual_chip_photo: "5-30 photos",
+                shooting_individual_chip_video: "2 videos 9:16",
+                shooting_included: "What's included",
+                shooting_intro: "Meet & greet 10 min",
+                shooting_lecture: "Lecture 30 min",
+                shooting_breathing: "Breathing lesson 30 min",
+                shooting_equalization: "Pressure equalization lesson 30 min",
+                shooting_warmup: "Warm-up 10 min",
                 shooting_scenario: "Shooting scenario",
-                shooting_equipment: "Necessary equipment",
-                shooting_gear: "Swimwear, wetsuits, goggles, masks, fins, belts, monofins",
+                shooting_equipment: "Necessary equipment: swimwear, wetsuits, goggles, masks, fins, belts, monofins",
                 shooting_safety: "Safety during diving (30 minutes, on shore)",
                 shooting_knowledge: "Basic knowledge about breath-hold and freediving",
                 shooting_briefing: "Dive plan briefing",
                 shooting_water: "Shooting (60 minutes, in water)",
                 shooting_training_water: "Shooting (80 minutes, in water)",
                 shooting_photos: "5-30 processed photos and 2 videos 9:16 (Instagram Stories format)",
+                shooting_cinema: "Cinematic shots on Sony A7s (full-frame camera unlocking professional gear potential)",
+                shooting_gopro: "Atmospheric shots on GoPro",
                 shooting_montage: "*Complex editing services are discussed separately.",
                 shooting_locations: "Locations",
                 shooting_dahab_loc: "Dahab (Egypt, South Sinai)",
@@ -742,11 +771,11 @@
                 shooting_training_title: "Training Session",
                 shooting_training_subtitle: "Ideal for those who want social content and review material during dive training.",
                 shooting_training_chip_time: "80 min in water",
-                shooting_training_chip_result: "10-30 photos + 2 videos 9:16",
+                shooting_training_chip_photo: "10-30 photos",
+                shooting_training_chip_video: "2 videos 9:16",
                 shooting_training_photos: "10-30 processed photos and 2 videos 9:16 (Instagram Stories format)",
                 shooting_training_loc: "Dahab (Egypt, South Sinai)",
                 shooting_training_price: "130€ / 13,500₽ / 7,000 EGP",
-                shooting_note: "Perfect for those who want great photos while training dives.",
                 btn_book: "Book Now",
                 section_rental: "Equipment Rental", rental_intro: "Full diving setup. Location: Coral Coast Hotel area.", btn_rent: "Rent Now",
                 section_education: "Education",
