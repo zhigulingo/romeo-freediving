@@ -107,13 +107,13 @@
     </div>
 
     <!-- MOBILE MENU OVERLAY -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col items-center pt-24">
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
         <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 text-white text-3xl focus:outline-none"><i class="fas fa-times"></i></button>
-        <div class="text-center text-white px-6">
-            <div class="text-xs uppercase tracking-[0.3em] font-semibold" data-i18n="mobile_menu_title">Romeo_Freediving</div>
-            <p class="mt-2 text-[11px] text-white/70 font-light leading-relaxed" data-i18n="mobile_menu_subtitle">Подводная стемка, обучение, снаряжение, фридайвтуры, исскусиво задержки дыхания.</p>
+        <div class="text-center text-white px-6 mb-8">
+            <div class="text-sm uppercase tracking-[0.35em] font-semibold" data-i18n="mobile_menu_title">Romeo_Freediving</div>
+            <p class="mt-3 text-[13px] text-white/80 font-light leading-relaxed" data-i18n="mobile_menu_subtitle">Подводная стемка, обучение, снаряжение, фридайвтуры, исскусиво задержки дыхания.</p>
         </div>
-        <nav class="flex flex-col space-y-8 text-center mt-8">
+        <nav class="flex flex-col space-y-8 text-center">
             <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
             <span onclick="navTo('shooting')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
             <span onclick="navTo('rental')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_rental">Аренда</span>
