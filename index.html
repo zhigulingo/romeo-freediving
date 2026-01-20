@@ -28,16 +28,17 @@
         /* HEADER MIX BLEND MODE FIX */
         .header-blend { mix-blend-mode: difference; color: white; }
         @media (min-width: 768px) {
-            .header-blend { position: relative; }
-            .header-blend::before {
-                content: '';
-                position: absolute;
-                inset: -20px 0 -12px 0;
-                background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0) 100%);
-                backdrop-filter: blur(8px);
-                -webkit-backdrop-filter: blur(8px);
+            .header-backdrop {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 120px;
+                background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                z-index: 60;
                 pointer-events: none;
-                z-index: -1;
             }
         }
         
@@ -115,6 +116,9 @@
             <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
         </div>
     </div>
+
+    <!-- DESKTOP HEADER BACKDROP -->
+    <div class="hidden md:block header-backdrop"></div>
 
     <!-- DESKTOP HEADER (MIX BLEND) -->
     <header class="hidden md:flex fixed top-8 w-full z-[70] header-blend py-6 justify-between px-12 items-center pointer-events-none">
