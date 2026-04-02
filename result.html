@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш результат — Romeo Freediving</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+    <style>
+        body { font-family: 'Manrope', sans-serif; background: #000; color: #111; overflow-x: hidden; }
+        .accent { color: #00bcd4; }
+        .accent-bg { background-color: #00bcd4; }
+        .folder-tree { font-family: 'Manrope', monospace; }
+        .folder-tree .line { border-left: 2px solid #e5e7eb; margin-left: 12px; padding-left: 16px; }
+        .glass-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 py-5 flex items-center justify-between" style="backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); background: rgba(0,0,0,0.6);">
+        <a href="/" class="text-white font-semibold text-lg tracking-wide hover:opacity-80 transition">Romeo Freediving</a>
+        <a href="/" class="text-gray-400 text-sm hover:text-white transition flex items-center gap-2">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> На главную
+        </a>
+    </header>
+
+    <!-- Hero -->
+    <section class="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-24 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black opacity-90"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,188,212,0.08)_0%,_transparent_70%)]"></div>
+        <div class="relative z-10">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-[0.3em] mb-6" data-aos="fade-up">Результат съёмки</p>
+            <h1 class="text-4xl md:text-6xl font-light text-white mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                Что вы <span class="accent font-semibold">получаете</span>
+            </h1>
+            <p class="text-gray-400 text-lg max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Все материалы передаются через Яндекс.Диск — организованно, в высоком качестве, готовые к использованию.
+            </p>
+        </div>
+    </section>
+
+    <!-- What You Get -->
+    <section class="bg-[#FAFAFA] py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-12 text-center" data-aos="fade-up">Состав доставки</p>
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <!-- Card: Video -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 rounded-xl accent-bg flex items-center justify-center mb-6">
+                        <i data-lucide="video" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Готовые видео</h3>
+                    <p class="text-gray-500 leading-relaxed">5 профессионально смонтированных роликов с цветокоррекцией и музыкальным сопровождением.</p>
+                    <div class="mt-4 flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="film" class="w-4 h-4"></i>
+                        <span>MP4 · 4K / 1080p</span>
+                    </div>
+                </div>
+
+                <!-- Card: Photos -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-xl accent-bg flex items-center justify-center mb-6">
+                        <i data-lucide="camera" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Обработанные фото</h3>
+                    <p class="text-gray-500 leading-relaxed">50+ тщательно отобранных и отретушированных фотографий в высоком разрешении.</p>
+                    <div class="mt-4 flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="image" class="w-4 h-4"></i>
+                        <span>JPEG · 6000×4000 px</span>
+                    </div>
+                </div>
+
+                <!-- Card: Originals -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-xl accent-bg flex items-center justify-center mb-6">
+                        <i data-lucide="hard-drive" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Оригиналы</h3>
+                    <p class="text-gray-500 leading-relaxed">Все исходные файлы в максимальном разрешении — для самостоятельной обработки или печати.</p>
+                    <div class="mt-4 flex items-center gap-2 text-sm text-gray-400">
+                        <i data-lucide="file" class="w-4 h-4"></i>
+                        <span>RAW (CR3) + MOV</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Folder Structure -->
+    <section class="bg-white py-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-4 text-center" data-aos="fade-up">Формат доставки</p>
+            <h2 class="text-2xl md:text-3xl font-light text-center mb-4" data-aos="fade-up" data-aos-delay="50">Яндекс.Диск</h2>
+            <p class="text-gray-400 text-center mb-12 max-w-lg mx-auto" data-aos="fade-up" data-aos-delay="100">Организованная структура папок. Всё подписано и готово к скачиванию.</p>
+
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-10 font-mono text-sm" data-aos="fade-up" data-aos-delay="150">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="folder" class="w-5 h-5 accent"></i>
+                    <span class="font-semibold text-gray-800">Romeo Freediving — Имя клиента</span>
+                </div>
+
+                <div class="folder-tree">
+                    <div class="line py-3">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i data-lucide="folder" class="w-4 h-4 text-cyan-500"></i>
+                            <span class="font-medium text-gray-700">Видео</span>
+                            <span class="text-xs text-gray-400 bg-gray-200 px-2 py-0.5 rounded-full">5 файлов</span>
+                        </div>
+                        <div class="ml-6 space-y-1 text-gray-400 text-xs">
+                            <div class="flex items-center gap-2"><i data-lucide="file-video" class="w-3.5 h-3.5"></i> highlight_reel.mp4</div>
+                            <div class="flex items-center gap-2"><i data-lucide="file-video" class="w-3.5 h-3.5"></i> underwater_scene_01.mp4</div>
+                            <div class="flex items-center gap-2"><i data-lucide="file-video" class="w-3.5 h-3.5"></i> slow_motion_dive.mp4</div>
+                            <div class="text-gray-300">...</div>
+                        </div>
+                    </div>
+
+                    <div class="line py-3">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i data-lucide="folder" class="w-4 h-4 text-cyan-500"></i>
+                            <span class="font-medium text-gray-700">Фото обработанные</span>
+                            <span class="text-xs text-gray-400 bg-gray-200 px-2 py-0.5 rounded-full">50+ файлов</span>
+                        </div>
+                        <div class="ml-6 space-y-1 text-gray-400 text-xs">
+                            <div class="flex items-center gap-2"><i data-lucide="file-image" class="w-3.5 h-3.5"></i> IMG_001_edit.jpg</div>
+                            <div class="flex items-center gap-2"><i data-lucide="file-image" class="w-3.5 h-3.5"></i> IMG_002_edit.jpg</div>
+                            <div class="flex items-center gap-2"><i data-lucide="file-image" class="w-3.5 h-3.5"></i> portrait_underwater_03.jpg</div>
+                            <div class="text-gray-300">...</div>
+                        </div>
+                    </div>
+
+                    <div class="line py-3 border-l-0" style="border-left: none;">
+                        <div class="flex items-center gap-3 mb-2">
+                            <i data-lucide="folder" class="w-4 h-4 text-cyan-500"></i>
+                            <span class="font-medium text-gray-700">Оригиналы</span>
+                            <span class="text-xs text-gray-400 bg-gray-200 px-2 py-0.5 rounded-full">RAW + MOV</span>
+                        </div>
+                        <div class="ml-6 space-y-1 text-gray-400 text-xs">
+                            <div class="flex items-center gap-2"><i data-lucide="file" class="w-3.5 h-3.5"></i> RAW_001.cr3</div>
+                            <div class="flex items-center gap-2"><i data-lucide="file" class="w-3.5 h-3.5"></i> RAW_002.cr3</div>
+                            <div class="flex items-center gap-2"><i data-lucide="file-video" class="w-3.5 h-3.5"></i> source_clip_01.mov</div>
+                            <div class="text-gray-300">...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 pt-4 border-t border-gray-200 flex items-center gap-2 text-xs text-gray-400">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                    <span>Ссылка действительна 30 дней с момента отправки</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Download -->
+    <section class="bg-[#FAFAFA] py-20 px-6">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-12 text-center" data-aos="fade-up">Как скачать</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="link" class="w-7 h-7 accent"></i>
+                    </div>
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Шаг 1</div>
+                    <h3 class="font-semibold mb-2">Перейдите по ссылке</h3>
+                    <p class="text-sm text-gray-500">Откройте ссылку на Яндекс.Диск, которую я отправлю в Telegram.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="folder-open" class="w-7 h-7 accent"></i>
+                    </div>
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Шаг 2</div>
+                    <h3 class="font-semibold mb-2">Выберите папку</h3>
+                    <p class="text-sm text-gray-500">Видео, обработанные фото или оригиналы — всё разложено по папкам.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mx-auto mb-5">
+                        <i data-lucide="download" class="w-7 h-7 accent"></i>
+                    </div>
+                    <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Шаг 3</div>
+                    <h3 class="font-semibold mb-2">Скачайте файлы</h3>
+                    <p class="text-sm text-gray-500">Нажмите «Скачать» — можно скачать всё одним архивом или по отдельности.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-white py-20 px-6">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-[0.3em] mb-12 text-center" data-aos="fade-up">Частые вопросы</p>
+
+            <div class="space-y-6">
+                <details class="group" data-aos="fade-up" data-aos-delay="0">
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-gray-100 text-gray-800 font-medium">
+                        Как долго хранятся файлы на Яндекс.Диске?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="py-4 text-gray-500 text-sm leading-relaxed">
+                        Ссылка активна 30 дней. Если вам нужно больше времени — напишите, продлю доступ. Рекомендую скачать все файлы сразу после получения ссылки.
+                    </div>
+                </details>
+
+                <details class="group" data-aos="fade-up" data-aos-delay="50">
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-gray-100 text-gray-800 font-medium">
+                        Можно ли использовать фото в соцсетях?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="py-4 text-gray-500 text-sm leading-relaxed">
+                        Да, конечно! Все фото и видео — ваши. Единственная просьба — отмечайте <span class="accent font-medium">@romeofreediving</span> при публикации. Это поддержит мою работу и поможет другим найти меня.
+                    </div>
+                </details>
+
+                <details class="group" data-aos="fade-up" data-aos-delay="100">
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-gray-100 text-gray-800 font-medium">
+                        Что делать, если ссылка не работает?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="py-4 text-gray-500 text-sm leading-relaxed">
+                        Напишите мне в Telegram — пришлю новую ссылку в течение пары часов. Все ваши файлы хранятся у меня в архиве.
+                    </div>
+                </details>
+
+                <details class="group" data-aos="fade-up" data-aos-delay="150">
+                    <summary class="flex items-center justify-between cursor-pointer py-4 border-b border-gray-100 text-gray-800 font-medium">
+                        Можно ли получить дополнительную обработку?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <div class="py-4 text-gray-500 text-sm leading-relaxed">
+                        Да, дополнительная ретушь или монтаж обсуждаются индивидуально. Напишите, что именно хотите изменить — подскажу стоимость и сроки.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-light mb-4" data-aos="fade-up">Остались вопросы?</h2>
+            <p class="text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="50">Напишите мне — отвечу в течение часа.</p>
+            <a href="https://t.me/romeofreediving" target="_blank" class="inline-flex items-center gap-3 accent-bg text-white font-medium px-8 py-4 rounded-full hover:opacity-90 transition" data-aos="fade-up" data-aos-delay="100">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                Написать в Telegram
+            </a>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+                <a href="/" class="hover:text-white transition">romeofreediving.com</a>
+                <span>Dahab, Egypt</span>
+                <span>&copy; 2026 Romeo Freediving</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS + Lucide Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        lucide.createIcons();
+    </script>
+</body>
+</html>
