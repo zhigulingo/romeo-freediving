@@ -12,6 +12,19 @@
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
+    <!-- Yandex.Webmaster verification -->
+    <meta name="yandex-verification" content="d4d48971bcffe645">
+    <!-- Google Search Console verification -->
+    <meta name="google-site-verification" content="4hafLpQFC4GnMUScnT5ebF-mrhQ43tLAsZCZVlFSc2k">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=108688475','ym');
+    ym(108688475,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/108688475" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://romeofreediving.com/">
@@ -208,12 +221,12 @@
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
         <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo Freediving</div>
-        <button onclick="toggleMobileMenu()" class="pointer-events-auto text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        <button onclick="toggleMobileMenu()" aria-label="Открыть меню" class="pointer-events-auto text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
     </div>
 
     <!-- MOBILE MENU OVERLAY -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black z-[100] closed flex flex-col justify-center items-center">
-        <button onclick="toggleMobileMenu()" class="absolute top-8 right-6 text-white leading-none focus:outline-none"><i class="fas fa-times text-[24px]"></i></button>
+        <button onclick="toggleMobileMenu()" aria-label="Закрыть меню" class="absolute top-8 right-6 text-white leading-none focus:outline-none"><i class="fas fa-times text-[24px]"></i></button>
         <div class="text-center text-white px-6 mb-8 -mt-24">
             <div class="inline-block">
                 <div class="text-sm uppercase tracking-[0.35em] font-semibold" data-i18n="mobile_menu_title">Romeo_Freediving</div>
@@ -240,9 +253,9 @@
         <!-- HERO -->
         <div class="relative h-screen flex items-center justify-center overflow-hidden bg-black">
             <div class="absolute inset-0 z-0 opacity-60">
-                <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale">
+                <video autoplay muted loop playsinline poster="assets/shooting1.jpg" class="w-full h-full object-cover grayscale">
                     <source src="assets/hero.mp4" type="video/mp4">
-                    <img src="assets/hero-poster.jpg" class="w-full h-full object-cover" alt="Подводный портрет фридайвера в Красном море, Дахаб">
+                    <img src="assets/shooting1.jpg" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Подводный портрет фридайвера в Красном море, Дахаб">
                 </video>
             </div>
             <div class="relative z-10 text-center text-white px-4">
@@ -267,7 +280,7 @@
                 <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
                     <div class="w-full md:w-5/12">
                         <div class="aspect-[4/5] w-full bg-gray-200 relative overflow-hidden">
-                            <img src="assets/profile.jpg" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Romeo">
+                            <img src="assets/profile.jpg" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Romeo">
                         </div>
                     </div>
                     <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-between">
@@ -299,10 +312,10 @@
                 <div class="flex justify-between items-start mb-8">
                     <p class="text-sm text-gray-400 font-light max-w-xs" data-i18n="gallery_cta">Свежие работы и анонсы туров.<br>Подписывайтесь.</p>
                     <div class="flex gap-6 text-xl text-black">
-                        <a href="https://instagram.com/romeo_freediving" target="_blank" class="hover:text-cyan-500 transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" target="_blank" class="hover:text-cyan-500 transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="hover:text-black transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-500 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook" class="hover:text-cyan-500 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube" class="hover:text-red-600 transition"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="TikTok" class="hover:text-black transition"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
 
@@ -312,8 +325,8 @@
                         <div id="gallery-track" class="flex transition-transform duration-500 ease-in-out">
                             <!-- JS Injected -->
                         </div>
-                        <button onclick="changeSlide(-1)" class="absolute left-0 top-0 h-full w-12 text-white"><i class="fas fa-chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" class="absolute right-0 top-0 h-full w-12 text-white"><i class="fas fa-chevron-right"></i></button>
+                        <button onclick="changeSlide(-1)" aria-label="Предыдущий слайд" class="absolute left-0 top-0 h-full w-12 text-white"><i class="fas fa-chevron-left"></i></button>
+                        <button onclick="changeSlide(1)" aria-label="Следующий слайд" class="absolute right-0 top-0 h-full w-12 text-white"><i class="fas fa-chevron-right"></i></button>
                     </div>
                     <div class="mt-4 text-center text-xs uppercase tracking-widest text-gray-500">
                         <span id="gallery-caption">Loading...</span>
@@ -331,61 +344,61 @@
 
                     <!-- 1. Swimming -->
                     <div data-aos="fade-up">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q1">Нужно ли уметь хорошо плавать?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q1">Нужно ли уметь хорошо плавать?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a1">Базовые навыки уверенного поведения на воде желательны. Вам не нужно быть спортсменом, но вы должны комфортно чувствовать себя без дна под ногами.</p>
                     </div>
 
                     <!-- 2. Breath Hold -->
                     <div data-aos="fade-up" data-aos-delay="50">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q2">Я не умею задерживать дыхание надолго. Это проблема?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q2">Я не умею задерживать дыхание надолго. Это проблема?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a2">Нет. Для красивых кадров достаточно 10–20 секунд. Перед съемкой я проведу инструктаж и научу вас правильно дышать и расслабляться.</p>
                     </div>
 
                     <!-- 3. Depth -->
                     <div data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q3">На какой глубине проходит съемка?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q3">На какой глубине проходит съемка?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a3">Обычно мы работаем на глубине 3–5 метров. Это безопасно и позволяет свету красиво играть на коже и дне.</p>
                     </div>
 
                     <!-- 4. Safety -->
                     <div data-aos="fade-up" data-aos-delay="150">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q4">Это безопасно?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q4">Это безопасно?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a4">Абсолютно. Я сертифицированный инструктор системы Molchanovs. Ваша безопасность — мой приоритет, я всегда нахожусь на расстоянии вытянутой руки.</p>
                     </div>
 
                     <!-- 5. Equipment -->
                     <div data-aos="fade-up">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q5">Что мне нужно взять с собой?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q5">Что мне нужно взять с собой?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a5">Красивый купальник и хорошее настроение. Маску, ласты и груза я предоставляю, но если у вас есть свои любимые — берите.</p>
                     </div>
 
                     <!-- 6. Posing -->
                     <div data-aos="fade-up" data-aos-delay="50">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q6">Я не знаю, как позировать под водой. Вы поможете?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q6">Я не знаю, как позировать под водой. Вы поможете?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a6">Конечно. Я руковожу процессом, подсказываю движения и поправляю вас. Вода сама подсказывает грациозные позы.</p>
                     </div>
 
                     <!-- 7. Preparation -->
                     <div data-aos="fade-up" data-aos-delay="100">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q7">Как подготовиться к съемке?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q7">Как подготовиться к съемке?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a7">Главное — не есть плотно за 2 часа до воды, чтобы было легко нырять. И обязательно хорошо выспаться накануне.</p>
                     </div>
 
                     <!-- 8. Timing -->
                     <div data-aos="fade-up" data-aos-delay="150">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q8">В какое время лучше снимать?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q8">В какое время лучше снимать?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a8">Идеальное время — раннее утро (8:00–10:00), когда солнце мягкое и на спотах мало людей, или перед закатом для особых лучей.</p>
                     </div>
 
                     <!-- 9. Delivery -->
                     <div data-aos="fade-up">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q9">Как быстро я получу фото?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q9">Как быстро я получу фото?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a9">Обработка занимает от 5 до 7 дней. Вы получите ссылку на облачное хранилище с готовыми кадрами в высоком качестве.</p>
                     </div>
 
                     <!-- 10. Booking -->
                     <div data-aos="fade-up" data-aos-delay="50">
-                        <h4 class="font-medium text-lg mb-3" data-i18n="faq_q10">Как забронировать дату?</h4>
+                        <h3 class="font-medium text-lg mb-3" data-i18n="faq_q10">Как забронировать дату?</h3>
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a10">Напишите мне в Telegram (кнопка в меню или футере). Мы обсудим детали, выберем день и зафиксируем бронь.</p>
                     </div>
 
@@ -405,7 +418,7 @@
                 <!-- Card 1: Individual Shooting -->
                 <div class="bg-white border border-gray-200 overflow-hidden" data-aos="fade-up">
                     <div class="relative aspect-[4/5] bg-gray-100 overflow-hidden">
-                        <img src="assets/shooting1.jpg" class="w-full h-full object-cover" alt="Individual Shooting">
+                        <img src="assets/shooting1.jpg" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Individual Shooting">
                         <div class="absolute top-4 left-4 flex flex-wrap gap-3">
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
                                 <i data-lucide="timer" class="lucide-icon" aria-hidden="true"></i>
@@ -491,7 +504,7 @@
                 <!-- Card 2: Training Session -->
                 <div class="bg-white border border-gray-200 overflow-hidden" data-aos="fade-up">
                     <div class="relative aspect-[4/5] bg-gray-100 overflow-hidden">
-                        <img src="assets/shooting2.jpg" class="w-full h-full object-cover" alt="Training Session">
+                        <img src="assets/shooting2.jpg" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Training Session">
                         <div class="absolute top-4 left-4 flex flex-wrap gap-3">
                             <span class="px-4 py-2 text-xs md:text-sm uppercase tracking-widest bg-white/90 text-black inline-flex items-center gap-2">
                                 <i data-lucide="timer" class="lucide-icon" aria-hidden="true"></i>
@@ -679,10 +692,10 @@
                  <div class="flex flex-col items-start gap-4">
                      <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Contact Telegram</a>
                      <div class="flex gap-4 text-lg text-white">
-                         <a href="https://instagram.com/romeo_freediving" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-instagram"></i></a>
-                         <a href="#" target="_blank" class="hover:text-cyan-400 transition"><i class="fab fa-facebook-f"></i></a>
-                         <a href="#" class="hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
-                         <a href="#" class="hover:text-white/70 transition"><i class="fab fa-tiktok"></i></a>
+                         <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-400 transition"><i class="fab fa-instagram"></i></a>
+                         <a href="#" target="_blank" aria-label="Facebook" class="hover:text-cyan-400 transition"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#" aria-label="YouTube" class="hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
+                         <a href="#" aria-label="TikTok" class="hover:text-white/70 transition"><i class="fab fa-tiktok"></i></a>
                      </div>
                  </div>
              </div>
@@ -1062,7 +1075,7 @@
                 track.innerHTML += `
                     <div class="flex-shrink-0 w-full md:w-1/3 p-2">
                         <div class="aspect-[9/16] bg-gray-100 overflow-hidden">
-                            <img src="${item.src}" class="w-full h-full object-cover" alt="${item.caption}">
+                            <img src="${item.src}" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="${item.caption}">
                         </div>
                     </div>
                 `;
@@ -1107,7 +1120,7 @@
             rentalGrid.innerHTML += `
                 <div class="rental-card bg-white border border-gray-100 group overflow-hidden">
                     <div class="relative aspect-[4/5] bg-gray-100">
-                        <img src="${item.img}" class="w-full h-full object-cover" onerror="this.style.opacity=0" alt="">
+                        <img src="${item.img}" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.style.opacity=0" alt="">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div class="absolute inset-x-0 bottom-0 p-4 text-white">
                             <h4 class="font-light text-lg mb-1">${item.name}</h4>
@@ -1134,7 +1147,7 @@
                 feed.innerHTML += `
                     <div class="cursor-pointer group ${hiddenClass}" onclick="openBlogModal(${b.id})">
                         <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative">
-                            <img src="${b.img}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105 md:grayscale md:group-hover:grayscale-0" alt="${b.title[curLang]}">
+                            <img src="${b.img}" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover transition duration-500 group-hover:scale-105 md:grayscale md:group-hover:grayscale-0" alt="${b.title[curLang]}">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                             <div class="absolute top-3 left-3 bg-white px-2 py-1 text-[10px] uppercase font-bold">${translations[curLang][`blog_cat_${b.cat}`] || b.cat}</div>
                             <div class="absolute inset-x-0 bottom-0 p-4 text-white">
@@ -1177,7 +1190,7 @@
             const modal = document.getElementById('blog-modal');
             const content = document.getElementById('modal-content');
             content.innerHTML = `
-                <div class="aspect-video w-full bg-gray-100 mb-8"><img src="${article.img}" class="w-full h-full object-cover" alt="${article.title[curLang]}"></div>
+                <div class="aspect-video w-full bg-gray-100 mb-8"><img src="${article.img}" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="${article.title[curLang]}"></div>
                 <div class="prose max-w-none">
                     ${article.full[curLang]}
                 </div>
