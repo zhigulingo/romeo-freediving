@@ -1,0 +1,19 @@
+{
+  "name": "romeo-freediving",
+  "version": "1.0.0",
+  "description": "Romeo Freediving landing — romeofreediving.com",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i tailwind.input.css -o assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i tailwind.input.css -o assets/css/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhigulingo/romeo-freediving.git"
+  },
+  "author": "zhigulingo",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "tailwindcss": "^3.4"
+  }
+}
