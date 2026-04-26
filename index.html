@@ -150,9 +150,9 @@
         /* LUCIDE ICONS */
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
 
-        /* CASE STUDY (collapsible) */
-        #case-study-full { display: none; }
-        #case-study-full.expanded { display: block; }
+        /* CASE STUDY CAROUSEL */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 
     </style>
 
@@ -371,120 +371,64 @@
             </div>
         </div>
 
-        <!-- 4. CLIENT STORY (CASE STUDY) -->
+        <!-- 4. CLIENT STORY (CASE STUDY CAROUSEL) -->
         <div class="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-100">
             <div class="container mx-auto px-6 md:px-12">
-                <h2 class="section-header" data-i18n="section_story">История клиента</h2>
+                <div class="flex items-end justify-between mb-8 md:mb-12">
+                    <h2 class="section-header mb-0" style="margin-bottom:0" data-i18n="section_story">История клиента</h2>
+                    <div class="hidden md:flex gap-2">
+                        <button type="button" onclick="caseScroll(-1)" aria-label="Previous" class="w-10 h-10 border border-gray-300 hover:border-black flex items-center justify-center transition">
+                            <i data-lucide="arrow-left" class="lucide-icon" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" onclick="caseScroll(1)" aria-label="Next" class="w-10 h-10 border border-gray-300 hover:border-black flex items-center justify-center transition">
+                            <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
 
-                <article id="case-study-card" class="bg-white border border-gray-200 overflow-hidden">
-                    <!-- Preview: hero photo + summary -->
-                    <div class="grid md:grid-cols-2 gap-0">
-                        <div class="aspect-[4/5] md:aspect-auto bg-gray-100 overflow-hidden">
+                <div id="case-carousel" class="no-scrollbar flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-6 md:mx-0 px-6 md:px-0 pb-2 scroll-smooth">
+
+                    <!-- Card 1: Знакомство -->
+                    <article class="case-card snap-start shrink-0 w-[85vw] md:w-[440px] bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
                             <picture>
                                 <source type="image/webp" srcset="assets/photo3.webp">
-                                <img src="assets/photo3.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Подводный кадр Анны — фридайвинг-съёмка в Дахабе">
+                                <img src="assets/photo3.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Анна — знакомство с Romeo">
                             </picture>
                         </div>
-                        <div class="p-8 md:p-12 flex flex-col justify-center space-y-5">
-                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_label">Кейс · Анна, Москва · 5 дней в Дахабе</div>
-                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_title">«Шла к Ромео за красивыми фото. Ушла с другим отношением к себе в воде».</h3>
-                            <p class="text-base text-gray-600 font-light leading-relaxed" data-i18n="case_summary">Первая поездка в Дахаб. Маска пугала, холодная вода — тоже. Через одну сессию: 23 обработанных фото, 3 видео и привычка задерживать дыхание спокойно, без напряжения в плечах.</p>
-                            <button onclick="toggleCaseStudy()" id="case-toggle-btn" class="self-start border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors mt-2" data-i18n="case_read_more">Читать кейс целиком</button>
+                        <div class="p-6 md:p-8 flex flex-col gap-4">
+                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card1_label">01 · Знакомство</div>
+                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card1_title">Знакомство</h3>
+                            <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card1_body">Случайно увидела reel у Romeo в Instagram — фридайвер парил в лучах света на пяти метрах, кадр выглядел спокойным, без позёрства. Зашла на профиль, проскроллила ленту, потом нашла обсуждение в чате «Фридайвинг для девочек». Там писали про спокойствие и про то, что страшно не было даже у новичков. Написала в Telegram в тот же вечер — коротко, без референсов: «привет, я в Дахабе через две недели — есть слот?»</p>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Expanded content -->
-                    <div id="case-study-full" class="border-t border-gray-200">
-                        <div class="px-6 md:px-16 py-12 md:py-20 space-y-12 md:space-y-16">
-
-                            <!-- Stage 01: meeting -->
-                            <div class="max-w-3xl mx-auto space-y-3">
-                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage1">01 — Знакомство</div>
-                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p1">«Мы встретились в 8 утра на пляже Coral Coast. Ромео заварил чай, мы час разговаривали — про мои страхи, про референсы, про то, какой стиль мне нравится. Я ожидала „позы и щёлк“, а получила настоящий разговор. Стало понятно: меня не будут тащить в воду до того, как я готова».</p>
-                            </div>
-
-                            <!-- Photos: backstage / preparation -->
-                            <div class="grid grid-cols-2 gap-3 md:gap-4 max-w-4xl mx-auto">
-                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/shooting1.jpg')">
-                                    <img src="assets/shooting1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Подготовка перед съёмкой на берегу">
-                                </div>
-                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/shooting2.jpg')">
-                                    <picture>
-                                        <source type="image/webp" srcset="assets/shooting2.webp">
-                                        <img src="assets/shooting2.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Дыхательная практика и инструктаж">
-                                    </picture>
-                                </div>
-                            </div>
-
-                            <!-- Stage 02: preparation -->
-                            <div class="max-w-3xl mx-auto space-y-3">
-                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage2">02 — Подготовка на берегу</div>
-                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p2">«Лекция о фридайвинге заняла 30 минут — без пафоса и сложных терминов, всё про „почему так дышим“ и „что чувствует тело при задержке“. Потом — 30 минут дыхательной практики на коврике. Когда мы шли к воде, я уже не боялась — была собрана и спокойна».</p>
-                            </div>
-
-                            <!-- Photos: in-water process -->
-                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto">
-                                <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo2.jpg')">
-                                    <img src="assets/photo2.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Первое погружение Анны">
-                                </div>
-                                <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo5.jpg')">
-                                    <img src="assets/photo5.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Зависание на 3 метрах">
-                                </div>
-                                <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo7.jpg')">
-                                    <img src="assets/photo7.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Поза в воде с лучами">
-                                </div>
-                            </div>
-
-                            <!-- Stage 03: in water -->
-                            <div class="max-w-3xl mx-auto space-y-3">
-                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage3">03 — Первый час в воде</div>
-                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p3">«Сначала просто плавали — без камеры, без поз. Я привыкала к маске, к температуре, к тому, что под ногами нет дна. Через 15 минут Ромео показал, как зависать. Ещё через полчаса я держала статику по 20 секунд — и забыла, что вообще боялась воды. Камера появилась только тогда, когда я была готова».</p>
-                            </div>
-
-                            <!-- Photos: final results -->
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
-                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo1.jpg')">
-                                    <picture>
-                                        <source type="image/webp" srcset="assets/photo1.webp">
-                                        <img src="assets/photo1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 1">
-                                    </picture>
-                                </div>
-                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo4.jpg')">
-                                    <picture>
-                                        <source type="image/webp" srcset="assets/photo4.webp">
-                                        <img src="assets/photo4.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 2">
-                                    </picture>
-                                </div>
-                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo6.jpg')">
-                                    <picture>
-                                        <source type="image/webp" srcset="assets/photo6.webp">
-                                        <img src="assets/photo6.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 3">
-                                    </picture>
-                                </div>
-                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo8.jpg')">
-                                    <img src="assets/photo8.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 4">
-                                </div>
-                            </div>
-
-                            <!-- Stage 04: delivery -->
-                            <div class="max-w-3xl mx-auto space-y-3">
-                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage4">04 — Через неделю — облако с готовыми кадрами</div>
-                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p4">«Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео. Я открыла на компьютере и расплакалась — не от красоты кадров, а потому что увидела себя такой, какой давно не помнила. Спокойной. Без зажимов в плечах. В своём теле».</p>
-                            </div>
-
-                            <!-- Pull-quote testimonial -->
-                            <div class="max-w-3xl mx-auto border-l-2 border-cyan-500 pl-6 md:pl-8 py-2">
-                                <p class="text-xl md:text-2xl font-light italic text-gray-900 leading-relaxed mb-4" data-i18n="case_quote">«Это была не фотосессия. Это был один из лучших дней в моей жизни — и я наконец вышла из воды без страха».</p>
-                                <p class="text-[11px] uppercase tracking-[0.3em] text-gray-500" data-i18n="case_author">Анна · 32 года · Москва · апрель 2026</p>
-                            </div>
-
-                            <!-- Collapse button -->
-                            <div class="text-center pt-4">
-                                <button onclick="toggleCaseStudy()" class="text-[11px] uppercase tracking-[0.3em] text-gray-500 hover:text-black transition" data-i18n="case_collapse_link">Свернуть кейс</button>
-                            </div>
+                    <!-- Card 2: Съёмка -->
+                    <article class="case-card snap-start shrink-0 w-[85vw] md:w-[440px] bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
+                            <img src="assets/photo5.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Анна — съёмка в воде">
                         </div>
-                    </div>
-                </article>
+                        <div class="p-6 md:p-8 flex flex-col gap-4">
+                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card2_label">02 · Съёмка</div>
+                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card2_title">Съёмка</h3>
+                            <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card2_body">Встретились в 8 утра у Coral Coast. Час на берегу: чай, разговор про страхи и референсы, тридцать минут дыхательной практики на коврике. В воде Romeo не торопил — сначала просто плавали, я привыкала к маске и температуре. Потом он показал, как зависать на 3–5 метрах, поправлял позы взглядом и всегда был на расстоянии вытянутой руки. Через час я держала статику по 20 секунд и забыла, что вообще боялась воды.</p>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Результат -->
+                    <article class="case-card snap-start shrink-0 w-[85vw] md:w-[440px] bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
+                        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
+                            <img src="assets/photo7.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Анна — финальный кадр">
+                        </div>
+                        <div class="p-6 md:p-8 flex flex-col gap-4">
+                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card3_label">03 · Результат</div>
+                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card3_title">Результат</h3>
+                            <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card3_body">Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.</p>
+                            <a href="/result.html" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
+                        </div>
+                    </article>
+
+                </div>
             </div>
         </div>
 
@@ -1081,22 +1025,16 @@
                 label_loc: "Локация", val_loc: "Дахаб, Южный Синай",
                 label_equip: "Снаряжение", val_equip: "Coral Coast, Дахаб",
                 label_photo: "Съемка", val_photo: "Dahab / Sharm",
-                case_label: "Кейс · Анна, Москва · 5 дней в Дахабе",
-                case_title: "«Шла к Ромео за красивыми фото. Ушла с другим отношением к себе в воде».",
-                case_summary: "Первая поездка в Дахаб. Маска пугала, холодная вода — тоже. Через одну сессию: 23 обработанных фото, 3 видео и привычка задерживать дыхание спокойно, без напряжения в плечах.",
-                case_read_more: "Читать кейс целиком",
-                case_collapse: "Свернуть",
-                case_collapse_link: "Свернуть кейс",
-                case_stage1: "01 — Знакомство",
-                case_p1: "«Мы встретились в 8 утра на пляже Coral Coast. Ромео заварил чай, мы час разговаривали — про мои страхи, про референсы, про то, какой стиль мне нравится. Я ожидала „позы и щёлк“, а получила настоящий разговор. Стало понятно: меня не будут тащить в воду до того, как я готова».",
-                case_stage2: "02 — Подготовка на берегу",
-                case_p2: "«Лекция о фридайвинге заняла 30 минут — без пафоса и сложных терминов, всё про „почему так дышим“ и „что чувствует тело при задержке“. Потом — 30 минут дыхательной практики на коврике. Когда мы шли к воде, я уже не боялась — была собрана и спокойна».",
-                case_stage3: "03 — Первый час в воде",
-                case_p3: "«Сначала просто плавали — без камеры, без поз. Я привыкала к маске, к температуре, к тому, что под ногами нет дна. Через 15 минут Ромео показал, как зависать. Ещё через полчаса я держала статику по 20 секунд — и забыла, что вообще боялась воды. Камера появилась только тогда, когда я была готова».",
-                case_stage4: "04 — Через неделю — облако с готовыми кадрами",
-                case_p4: "«Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео. Я открыла на компьютере и расплакалась — не от красоты кадров, а потому что увидела себя такой, какой давно не помнила. Спокойной. Без зажимов в плечах. В своём теле».",
-                case_quote: "«Это была не фотосессия. Это был один из лучших дней в моей жизни — и я наконец вышла из воды без страха».",
-                case_author: "Анна · 32 года · Москва · апрель 2026",
+                case_card1_label: "01 · Знакомство",
+                case_card1_title: "Знакомство",
+                case_card1_body: "Случайно увидела reel у Romeo в Instagram — фридайвер парил в лучах света на пяти метрах, кадр выглядел спокойным, без позёрства. Зашла на профиль, проскроллила ленту, потом нашла обсуждение в чате «Фридайвинг для девочек». Там писали про спокойствие и про то, что страшно не было даже у новичков. Написала в Telegram в тот же вечер — коротко, без референсов: «привет, я в Дахабе через две недели — есть слот?»",
+                case_card2_label: "02 · Съёмка",
+                case_card2_title: "Съёмка",
+                case_card2_body: "Встретились в 8 утра у Coral Coast. Час на берегу: чай, разговор про страхи и референсы, тридцать минут дыхательной практики на коврике. В воде Romeo не торопил — сначала просто плавали, я привыкала к маске и температуре. Потом он показал, как зависать на 3–5 метрах, поправлял позы взглядом и всегда был на расстоянии вытянутой руки. Через час я держала статику по 20 секунд и забыла, что вообще боялась воды.",
+                case_card3_label: "03 · Результат",
+                case_card3_title: "Результат",
+                case_card3_body: "Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.",
+                case_card3_cta: "Посмотреть итоговый результат →",
                 cta_title: "Готовы попробовать?",
                 cta_subtitle: "Выберите формат съёмки и напишите мне — обсудим детали и подберём дату.",
                 cta_button: "Выбрать съёмку",
@@ -1245,22 +1183,16 @@
                 label_loc: "Location", val_loc: "Dahab, South Sinai",
                 label_equip: "Gear", val_equip: "Coral Coast, Dahab",
                 label_photo: "Shooting", val_photo: "Dahab / Sharm",
-                case_label: "Case · Anna, Moscow · 5 days in Dahab",
-                case_title: "“Came to Romeo for nice photos. Left with a different relationship to myself in the water.”",
-                case_summary: "First trip to Dahab. The mask felt scary, the cold water did too. After one session: 23 edited photos, 3 videos and a calm habit of holding her breath without tension in the shoulders.",
-                case_read_more: "Read full case",
-                case_collapse: "Hide",
-                case_collapse_link: "Collapse case",
-                case_stage1: "01 — First meeting",
-                case_p1: "“We met at 8 a.m. on Coral Coast beach. Romeo made tea and we talked for an hour — about my fears, my references, the style I liked. I expected ‘pose and click’, but I got an actual conversation. It became clear nobody would push me into the water before I was ready.”",
-                case_stage2: "02 — Preparation on land",
-                case_p2: "“The freediving lecture took 30 minutes — no jargon, no pretense, just ‘why we breathe this way’ and ‘what your body feels during a breath-hold’. Then 30 minutes of breathing practice on a mat. By the time we walked to the water I wasn’t scared — I was focused and calm.”",
-                case_stage3: "03 — First hour in the water",
-                case_p3: "“At first we just swam — no camera, no posing. I got used to the mask, to the temperature, to having no floor under my feet. After 15 minutes Romeo showed me how to hover. Half an hour later I was holding a 20-second static — and I’d forgotten I was ever scared. The camera only appeared once I was ready.”",
-                case_stage4: "04 — A week later — a cloud folder full of frames",
-                case_p4: "“Six days later a cloud link arrived: 23 edited photos and 3 short videos. I opened them on my laptop and cried — not because the shots were beautiful, but because I saw myself in a way I hadn’t in a long time. Calm. No tension in the shoulders. At home in my body.”",
-                case_quote: "“It wasn’t a photo session. It was one of the best days of my life — and I finally walked out of the water without fear.”",
-                case_author: "Anna · 32 · Moscow · April 2026",
+                case_card1_label: "01 · First contact",
+                case_card1_title: "First contact",
+                case_card1_body: "I stumbled on one of Romeo's reels on Instagram — a freediver hovering in the light at five metres, the frame felt quiet, no posing. I scrolled his feed, then found a thread about him in a women's freediving chat. Everyone wrote about how calm and unscary it felt, even for first-timers. I messaged him on Telegram that same evening — short, no references: “hi, I'm in Dahab in two weeks — any slots?”",
+                case_card2_label: "02 · The session",
+                case_card2_title: "The session",
+                case_card2_body: "We met at 8 a.m. at Coral Coast. An hour on the beach: tea, talk about fears and references, thirty minutes of breathing practice on a mat. In the water Romeo never rushed me — first we just swam, I got used to the mask and the temperature. Then he showed me how to hover at 3–5 metres, corrected my poses with a glance and stayed an arm's length away the whole time. An hour in I was holding a 20-second static and I'd forgotten I was ever scared.",
+                case_card3_label: "03 · The result",
+                case_card3_title: "The result",
+                case_card3_body: "Six days later a cloud link arrived: 23 edited photos and 3 short 9:16 videos for Stories. I opened them on my laptop and cried — I saw myself in a way I hadn't in a long time. Calm, no tension in the shoulders, at home in my body. “It wasn't just a photo session — it was one of the best days of my life.” — Anna, 32, Moscow.",
+                case_card3_cta: "See the final result →",
                 cta_title: "Ready to try it?",
                 cta_subtitle: "Pick a shooting format and message me — we'll talk through the details and lock a date.",
                 cta_button: "Choose a shoot",
@@ -1441,16 +1373,13 @@
             m.classList.remove('open'); m.classList.add('closed');
         }
 
-        function toggleCaseStudy() {
-            const el = document.getElementById('case-study-full');
-            const btn = document.getElementById('case-toggle-btn');
-            const expanded = el.classList.toggle('expanded');
-            const key = expanded ? 'case_collapse' : 'case_read_more';
-            btn.setAttribute('data-i18n', key);
-            if (translations[curLang] && translations[curLang][key]) btn.textContent = translations[curLang][key];
-            if (!expanded) {
-                document.getElementById('case-study-card').scrollIntoView({behavior:'smooth', block:'start'});
-            }
+        function caseScroll(dir) {
+            const c = document.getElementById('case-carousel');
+            if (!c) return;
+            const card = c.querySelector('.case-card');
+            if (!card) return;
+            const w = card.getBoundingClientRect().width + 24;
+            c.scrollBy({ left: dir * w, behavior: 'smooth' });
         }
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
