@@ -116,6 +116,11 @@
         #blog-modal.open { opacity: 1; visibility: visible; }
         #blog-modal.closed { opacity: 0; visibility: hidden; pointer-events: none; }
 
+        /* LIGHTBOX MODAL */
+        #lightbox-modal { transition: opacity 0.3s ease, visibility 0.3s; }
+        #lightbox-modal.open { opacity: 1; visibility: visible; }
+        #lightbox-modal.closed { opacity: 0; visibility: hidden; pointer-events: none; }
+
         /* MOBILE MENU */
         #mobile-menu-overlay { transition: opacity 0.3s; }
         #mobile-menu-overlay.open { opacity: 1; pointer-events: auto; }
@@ -274,45 +279,14 @@
             </div>
         </div>
 
-        <!-- INFO BLOCK -->
+        <!-- 2. GALLERY (grid + lightbox) -->
         <div class="py-20 md:py-32 bg-[#FAFAFA]">
             <div class="container mx-auto px-6 md:px-12">
-                <h2 class="section-header" data-i18n="section_info">Инфо</h2>
-                <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
-                    <div class="w-full md:w-5/12">
-                        <div class="aspect-[4/5] w-full bg-gray-200 relative overflow-hidden">
-                            <picture>
-                                <source type="image/webp" srcset="assets/profile.webp">
-                                <img src="assets/profile.jpg" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Romeo">
-                            </picture>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-between">
-                        <div class="space-y-8">
-                            <p data-i18n="about_p1">Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class="font-normal text-black">Molchanovs</strong> и действующий атлет AIDA&CMAS.</p>
-                            <p data-i18n="about_p2">Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.</p>
-                        </div>
-                        <div class="grid grid-cols-2 gap-8 pt-8 mt-8 border-t border-gray-200 text-xs uppercase tracking-widest text-gray-500">
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span><span data-i18n="val_cert">Molchanovs W1/W2</span></div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_loc">Локация</span><span data-i18n="val_loc">Дахаб, Южный Синай</span></div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span><span data-i18n="val_equip">Nearby Coral Coast</span></div>
-                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span><span data-i18n="val_photo">Dahab / Sharm</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- GALLERY SECTION -->
-        <div class="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-100">
-            <div class="container mx-auto px-6 md:px-12">
-                <!-- Header: Gallery Left, Social Right -->
                 <div class="flex items-start justify-between mb-12 border-b border-gray-200 pb-4">
                     <h2 class="section-header mb-0" style="margin-bottom:0" data-i18n="section_gallery">Галерея</h2>
                     <h2 class="section-header mb-0" style="margin-bottom:0" data-i18n="label_socials">Соцсети</h2>
                 </div>
-                
-                <!-- Social Icons Row (Aligned Right) -->
+
                 <div class="flex justify-between items-start mb-8">
                     <p class="text-sm text-gray-400 font-light max-w-xs" data-i18n="gallery_cta">Свежие работы и анонсы туров.<br>Подписывайтесь.</p>
                     <div class="flex gap-6 text-xl text-black">
@@ -322,24 +296,84 @@
                     </div>
                 </div>
 
-                <!-- Gallery Carousel -->
-                <div class="relative w-full">
-                    <div class="relative w-full overflow-hidden bg-gray-100">
-                        <div id="gallery-track" class="flex transition-transform duration-500 ease-in-out">
-                            <!-- JS Injected -->
-                        </div>
-                        <button onclick="changeSlide(-1)" aria-label="Предыдущий слайд" class="absolute left-0 top-0 h-full w-12 text-white"><i data-lucide="chevron-left"></i></button>
-                        <button onclick="changeSlide(1)" aria-label="Следующий слайд" class="absolute right-0 top-0 h-full w-12 text-white"><i data-lucide="chevron-right"></i></button>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3">
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo1.jpg')">
+                        <picture>
+                            <source type="image/webp" srcset="assets/photo1.webp">
+                            <img src="assets/photo1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 1">
+                        </picture>
                     </div>
-                    <div class="mt-4 text-center text-xs uppercase tracking-widest text-gray-500">
-                        <span id="gallery-caption">Loading...</span>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo2.jpg')">
+                        <img src="assets/photo2.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 2">
+                    </div>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo3.jpg')">
+                        <picture>
+                            <source type="image/webp" srcset="assets/photo3.webp">
+                            <img src="assets/photo3.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 3">
+                        </picture>
+                    </div>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo4.jpg')">
+                        <picture>
+                            <source type="image/webp" srcset="assets/photo4.webp">
+                            <img src="assets/photo4.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 4">
+                        </picture>
+                    </div>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo5.jpg')">
+                        <img src="assets/photo5.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 5">
+                    </div>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo6.jpg')">
+                        <picture>
+                            <source type="image/webp" srcset="assets/photo6.webp">
+                            <img src="assets/photo6.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 6">
+                        </picture>
+                    </div>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo7.jpg')">
+                        <img src="assets/photo7.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 7">
+                    </div>
+                    <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo8.jpg')">
+                        <img src="assets/photo8.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Underwater photo 8">
                     </div>
                 </div>
             </div>
         </div>
-    
-        <!-- FAQ SECTION -->
+
+        <!-- 3. ABOUT ROMEO -->
         <div class="py-20 md:py-32 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-header" data-i18n="section_about">О Ромео</h2>
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
+                    <div class="w-full md:w-5/12">
+                        <div class="aspect-[4/5] w-full bg-gray-200 relative overflow-hidden">
+                            <picture>
+                                <source type="image/webp" srcset="assets/profile.webp">
+                                <img src="assets/profile.jpg" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700" alt="Romeo, фридайвер и подводный фотограф в Дахабе">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-center space-y-6">
+                        <p data-i18n="about_p1">Я Ромео, сертифицированный инструктор системы <strong class="font-normal text-black">Molchanovs</strong> (Wave 1 / Wave 2) и действующий атлет AIDA & CMAS. Уже несколько лет живу и работаю в Дахабе — одном из лучших мест для фридайвинга в мире.</p>
+                        <p data-i18n="about_p2">Подводная съёмка для меня — не просто работа, а способ показать красоту глубины и спокойствие, которое находишь под водой. Снимаю на полнокадровую Sony A7C и GoPro — для художественной картинки и динамики.</p>
+                        <p data-i18n="about_p3">Главное в съёмке — ваша безопасность и ваше состояние. Я всегда рядом, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом — даже если вы первый раз в маске.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. CLIENT STORY -->
+        <div class="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-100">
+            <div class="container mx-auto px-6 md:px-12">
+                <h2 class="section-header" data-i18n="section_story">Как проходит съёмка</h2>
+                <div class="max-w-3xl mx-auto space-y-6 text-base md:text-lg text-gray-700 font-light leading-relaxed">
+                    <p data-i18n="story_p1">Утро. Вы приходите на пляж, мы знакомимся за чашкой чая и обсуждаем референсы: какие кадры вам нравятся, какой стиль вам ближе — лёгкие портреты, динамика, что-то для соцсетей или личный проект.</p>
+                    <p data-i18n="story_p2">Перед водой — короткая лекция о фридайвинге, дыхательная практика и техника выравнивания давления. Это не полноценный курс, а 30–60 минут, чтобы вы чувствовали себя в воде уверенно и расслабленно.</p>
+                    <p data-i18n="story_p3">Заходим в воду медленно. Сначала просто плаваем, привыкаем к маске и температуре. Потом я показываю несколько простых поз — расслабленное зависание, мягкие движения руками. Через 15–20 минут у вас уже получается зависать на 10–20 секунд — этого достаточно для красивых кадров.</p>
+                    <p data-i18n="story_p4">Через 5–7 дней вы получаете ссылку на облако с обработанными фото и видео в высоком качестве — готовыми к печати, к публикации в Instagram или к личному архиву.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. FAQ SECTION -->
+        <div class="py-20 md:py-32 bg-white border-t border-gray-100" id="home-faq">
             <div class="container mx-auto px-6 md:px-12">
                 <h2 class="section-header" data-i18n="section_faq">FAQ</h2>
 
@@ -405,6 +439,26 @@
                         <p class="text-sm text-gray-600 font-light leading-relaxed" data-i18n="faq_a10">Напишите мне в Telegram (кнопка в меню или футере). Мы обсудим детали, выберем день и зафиксируем бронь.</p>
                     </div>
 
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. CTA BOOKING -->
+        <div class="py-20 md:py-32 bg-black text-white border-t border-gray-900">
+            <div class="container mx-auto px-6 md:px-12 text-center">
+                <h2 class="text-3xl md:text-5xl font-light mb-6 uppercase tracking-wide" data-i18n="cta_title">Готовы попробовать?</h2>
+                <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12 font-light" data-i18n="cta_subtitle">Выберите формат съёмки и напишите мне — обсудим детали и подберём дату.</p>
+                <button onclick="navTo('shooting')" class="inline-block border border-white px-12 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors mb-12" data-i18n="cta_button">Выбрать съёмку</button>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center text-sm text-gray-300">
+                    <a href="https://t.me/romeo_freediving" target="_blank" class="inline-flex items-center gap-3 hover:text-cyan-400 transition">
+                        <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
+                        <span>Telegram: @romeo_freediving</span>
+                    </a>
+                    <span class="hidden md:inline text-gray-700">|</span>
+                    <a href="https://wa.me/201069901876" target="_blank" class="inline-flex items-center gap-3 hover:text-cyan-400 transition">
+                        <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
+                        <span>WhatsApp: +20 106 9901876</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -765,6 +819,13 @@
         </div>
     </section>
 
+    <!-- LIGHTBOX MODAL (gallery) -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeLightbox()"></div>
+        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-6 right-6 z-30 text-white hover:text-cyan-400 transition focus:outline-none"><i data-lucide="x" class="w-8 h-8"></i></button>
+        <img id="lightbox-img" src="" class="relative z-10 max-w-full max-h-[90vh] object-contain" alt="">
+    </div>
+
     <!-- BLOG MODAL POPUP -->
     <div id="blog-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeBlogModal()"></div>
@@ -817,14 +878,6 @@
         else window.addEventListener('DOMContentLoaded', initAOS);
 
         // --- DATA & CONTENT ---
-        const galleryData = [
-            { src: 'assets/gallery1.jpg', caption: 'Blue Hole Arch' },
-            { src: 'assets/gallery2.jpg', caption: 'Lighthouse Reef' },
-            { src: 'assets/gallery3.jpg', caption: 'Freediving Training' },
-            { src: 'assets/gallery4.jpg', caption: 'Underwater Art' },
-            { src: 'assets/gallery5.jpg', caption: 'Dahab Canyon' }
-        ];
-
         const rentalData = [
             { id: 1, name: 'Molchanovs Bifins', price: '10€', priceFull: '10€ / 1000₽ / 500 EGP', img: 'assets/equip1.jpg' },
             { id: 2, name: 'Wetsuit 3mm', price: '15€', priceFull: '15€ / 1500₽ / 800 EGP', img: 'assets/equip2.jpg' },
@@ -903,9 +956,18 @@
                 hero_location: "Шарм-эль-Шейх • Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Захватывающая подводная съёмка, которая передаёт красоту глубины и эмоции момента. Идеально для брендов, путешествий и личных проектов.", hero_cta: "Забронировать",
                 mobile_menu_title: "Romeo_Freediving",
                 mobile_menu_subtitle: "Подводная стемка, обучение, снаряжение, фридайвтуры, исскусиво задержки дыхания.",
-                section_info: "Инфо", about_p1: "Здравствуй, друг!<br>Мое имя Ромео.<br>Я инструктор системы <strong class='font-normal text-black'>Molchanovs</strong>.",
-                about_p2: "Моя база — Дахаб, Южный Синай.<br>Здесь я учу людей находить покой под водой и создаю визуальные истории.",
-                label_cert: "Сертификация", val_cert: "Molchanovs W1/W2", label_loc: "Локация", val_loc: "Дахаб, Южный Синай", label_equip: "Снаряжение", val_equip: "Nearby Coral Coast", label_photo: "Съемка", val_photo: "Dahab / Sharm",
+                section_about: "О Ромео",
+                about_p1: "Я Ромео, сертифицированный инструктор системы <strong class='font-normal text-black'>Molchanovs</strong> (Wave 1 / Wave 2) и действующий атлет AIDA & CMAS. Уже несколько лет живу и работаю в Дахабе — одном из лучших мест для фридайвинга в мире.",
+                about_p2: "Подводная съёмка для меня — не просто работа, а способ показать красоту глубины и спокойствие, которое находишь под водой. Снимаю на полнокадровую Sony A7C и GoPro — для художественной картинки и динамики.",
+                about_p3: "Главное в съёмке — ваша безопасность и ваше состояние. Я всегда рядом, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом — даже если вы первый раз в маске.",
+                section_story: "Как проходит съёмка",
+                story_p1: "Утро. Вы приходите на пляж, мы знакомимся за чашкой чая и обсуждаем референсы: какие кадры вам нравятся, какой стиль вам ближе — лёгкие портреты, динамика, что-то для соцсетей или личный проект.",
+                story_p2: "Перед водой — короткая лекция о фридайвинге, дыхательная практика и техника выравнивания давления. Это не полноценный курс, а 30–60 минут, чтобы вы чувствовали себя в воде уверенно и расслабленно.",
+                story_p3: "Заходим в воду медленно. Сначала просто плаваем, привыкаем к маске и температуре. Потом я показываю несколько простых поз — расслабленное зависание, мягкие движения руками. Через 15–20 минут у вас уже получается зависать на 10–20 секунд — этого достаточно для красивых кадров.",
+                story_p4: "Через 5–7 дней вы получаете ссылку на облако с обработанными фото и видео в высоком качестве — готовыми к печати, к публикации в Instagram или к личному архиву.",
+                cta_title: "Готовы попробовать?",
+                cta_subtitle: "Выберите формат съёмки и напишите мне — обсудим детали и подберём дату.",
+                cta_button: "Выбрать съёмку",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
                 section_shooting: "Съемка",
                 shooting_individual_title: "Индивидуальная съемка",
@@ -1042,9 +1104,18 @@
                 hero_location: "Sharm El-Sheikh • Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Captivating underwater photography that conveys the beauty of depth and emotion. Ideal for brands, travel, and personal projects.", hero_cta: "Book Now",
                 mobile_menu_title: "Romeo_Freediving",
                 mobile_menu_subtitle: "Underwater shooting, education, equipment, freedive tours, the art of breath hold.",
-                section_info: "Info", about_p1: "Hello friend!<br>My name is Romeo.<br>I am a <strong class='font-normal text-black'>Molchanovs</strong> instructor.",
-                about_p2: "My base is Dahab, South Sinai.<br>I teach people to find calm underwater and create visual stories.",
-                label_cert: "Certification", val_cert: "Molchanovs W1/W2", label_loc: "Location", val_loc: "Dahab, South Sinai", label_equip: "Equipment", val_equip: "Nearby Coral Coast", label_photo: "Shooting", val_photo: "Dahab / Sharm",
+                section_about: "About Romeo",
+                about_p1: "I'm Romeo, a certified <strong class='font-normal text-black'>Molchanovs</strong> instructor (Wave 1 / Wave 2) and active AIDA & CMAS athlete. I've been living and working in Dahab — one of the best freediving spots in the world — for several years.",
+                about_p2: "Underwater photography for me is not just a job — it's a way to show the beauty of depth and the calm you find below the surface. I shoot on a full-frame Sony A7C and GoPro for artistic image quality and dynamic shots.",
+                about_p3: "Your safety and your state of mind come first. I stay close, lead the scenario, suggest poses and watch your breathing. With me you can relax and enjoy the process — even if it's your first time wearing a mask.",
+                section_story: "How a shoot unfolds",
+                story_p1: "Morning. You come to the beach, we meet over a cup of tea and talk through references: which shots you love, which style fits you — soft portraits, dynamic moves, social content or a personal project.",
+                story_p2: "Before the water — a short freediving briefing, a breathing practice and an equalization technique. It's not a full course, just 30–60 minutes so you feel confident and relaxed in the water.",
+                story_p3: "We enter the water slowly. First we just swim and get used to the mask and temperature. Then I show a few simple poses — a relaxed hover, soft hand movements. Within 15–20 minutes you can already hold a hover for 10–20 seconds — enough for beautiful frames.",
+                story_p4: "In 5–7 days you receive a cloud link with the edited photos and videos in high quality — ready for print, for Instagram or for your personal archive.",
+                cta_title: "Ready to try it?",
+                cta_subtitle: "Pick a shooting format and message me — we'll talk through the details and lock a date.",
+                cta_button: "Choose a shoot",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
                 section_shooting: "Shooting",
                 shooting_individual_title: "Individual Shooting",
@@ -1210,61 +1281,20 @@
             document.getElementById('mobile-menu-overlay').classList.add('closed');
         }
 
-        // 2. Gallery Loop
-        let galIdx = 0;
-        let touchStartX = null;
-        function getGalleryPerView() {
-            return window.innerWidth >= 768 ? 3 : 1;
+        // 2. Gallery Lightbox
+        function openLightbox(src) {
+            const img = document.getElementById('lightbox-img');
+            const m = document.getElementById('lightbox-modal');
+            img.src = src;
+            m.classList.remove('closed'); m.classList.add('open');
         }
-        function renderGallery() {
-            const track = document.getElementById('gallery-track');
-            const cap = document.getElementById('gallery-caption');
-            const perView = getGalleryPerView();
-            const maxIndex = Math.max(0, galleryData.length - perView);
-            if (galIdx > maxIndex) galIdx = maxIndex;
-            track.innerHTML = '';
-
-            galleryData.forEach((item) => {
-                track.innerHTML += `
-                    <div class="flex-shrink-0 w-full md:w-1/3 p-2">
-                        <div class="aspect-[9/16] bg-gray-100 overflow-hidden">
-                            <img src="${item.src}" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="${item.caption}">
-                        </div>
-                    </div>
-                `;
-            });
-
-            const translatePercent = (galIdx * 100) / perView;
-            track.style.transform = `translateX(-${translatePercent}%)`;
-            cap.innerText = galleryData[Math.min(galIdx, galleryData.length - 1)].caption;
+        function closeLightbox() {
+            const m = document.getElementById('lightbox-modal');
+            m.classList.remove('open'); m.classList.add('closed');
         }
-        function changeSlide(dir) {
-            const perView = getGalleryPerView();
-            const maxIndex = Math.max(0, galleryData.length - perView);
-            galIdx = Math.min(Math.max(galIdx + dir * perView, 0), maxIndex);
-            renderGallery();
-        }
-        function setSlide(i) {
-            galIdx = i;
-            renderGallery();
-        }
-        function handleGalleryTouchStart(event) {
-            touchStartX = event.touches[0].clientX;
-        }
-        function handleGalleryTouchEnd(event) {
-            if (touchStartX === null) return;
-            const touchEndX = event.changedTouches[0].clientX;
-            const deltaX = touchStartX - touchEndX;
-            if (Math.abs(deltaX) > 50) {
-                changeSlide(deltaX > 0 ? 1 : -1);
-            }
-            touchStartX = null;
-        }
-        const galleryTrack = document.getElementById('gallery-track');
-        galleryTrack.addEventListener('touchstart', handleGalleryTouchStart, { passive: true });
-        galleryTrack.addEventListener('touchend', handleGalleryTouchEnd);
-        window.addEventListener('resize', renderGallery);
-        renderGallery();
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
 
         // 3. Rental Grid
         const rentalGrid = document.getElementById('rental-grid');
