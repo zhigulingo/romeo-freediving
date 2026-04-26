@@ -150,6 +150,10 @@
         /* LUCIDE ICONS */
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
 
+        /* CASE STUDY (collapsible) */
+        #case-study-full { display: none; }
+        #case-study-full.expanded { display: block; }
+
     </style>
 
     <script type="application/ld+json">
@@ -215,7 +219,7 @@
         
         <!-- Nav Center -->
         <nav class="pointer-events-auto flex space-x-12 text-xs tracking-[0.2em] uppercase font-light">
-            <span onclick="navTo('home')" class="hover-underline" data-i18n="nav_home">Интро</span>
+            <span onclick="navTo('home')" class="hover-underline" data-i18n="nav_home">Галерея</span>
             <span onclick="navTo('shooting')" class="hover-underline" data-i18n="nav_shooting">Съемка</span>
             <span onclick="navTo('education')" class="hover-underline" data-i18n="nav_education">Обучение</span>
         </nav>
@@ -240,7 +244,7 @@
             </div>
         </div>
         <nav class="flex flex-col space-y-8 text-center">
-            <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Интро</span>
+            <span onclick="navTo('home')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_home">Галерея</span>
             <span onclick="navTo('shooting')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_shooting">Съемка</span>
             <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
@@ -290,8 +294,8 @@
                 <div class="flex justify-between items-start mb-8">
                     <p class="text-sm text-gray-400 font-light max-w-xs" data-i18n="gallery_cta">Свежие работы и анонсы туров.<br>Подписывайтесь.</p>
                     <div class="flex gap-6 text-xl text-black">
-                        <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-500 transition"><i data-lucide="instagram"></i></a>
-                        <a href="#" aria-label="YouTube" class="hover:text-red-600 transition"><i data-lucide="youtube"></i></a>
+                        <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-500 transition"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://www.youtube.com/@romeo_freediving" target="_blank" rel="noopener noreferrer" aria-label="YouTube Romeo Freediving" class="hover:text-red-600 transition"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.13-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.37.56A3.02 3.02 0 0 0 .5 6.2C0 8.07 0 12 0 12s0 3.93.5 5.8a3.02 3.02 0 0 0 2.13 2.14C4.49 20.5 12 20.5 12 20.5s7.51 0 9.37-.56a3.02 3.02 0 0 0 2.13-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg></a>
                         <a href="https://www.tiktok.com/@romeo_freediving" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="hover:text-black transition"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.321 5.562a5.124 5.124 0 0 1-5.16-4.956h-3.364v13.672a3.024 3.024 0 1 1-3.024-3.024c.167 0 .335.014.502.041V7.847a6.47 6.47 0 1 0 5.886 6.43V8.302a8.434 8.434 0 0 0 5.16 1.755V6.693a5.125 5.125 0 0 1 0-1.131z"/></svg></a>
                     </div>
                 </div>
@@ -350,25 +354,137 @@
                             </picture>
                         </div>
                     </div>
-                    <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-center space-y-6">
-                        <p data-i18n="about_p1">Я Ромео, сертифицированный инструктор системы <strong class="font-normal text-black">Molchanovs</strong> (Wave 1 / Wave 2) и действующий атлет AIDA & CMAS. Уже несколько лет живу и работаю в Дахабе — одном из лучших мест для фридайвинга в мире.</p>
-                        <p data-i18n="about_p2">Подводная съёмка для меня — не просто работа, а способ показать красоту глубины и спокойствие, которое находишь под водой. Снимаю на полнокадровую Sony A7C и GoPro — для художественной картинки и динамики.</p>
-                        <p data-i18n="about_p3">Главное в съёмке — ваша безопасность и ваше состояние. Я всегда рядом, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом — даже если вы первый раз в маске.</p>
+                    <div class="w-full md:w-7/12 font-light text-lg md:text-xl leading-relaxed text-gray-800 flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <p data-i18n="about_p1">Я Ромео, сертифицированный инструктор системы <strong class="font-normal text-black">Molchanovs</strong> (Wave 1 / Wave 2) и действующий атлет AIDA & CMAS. Уже несколько лет живу и работаю в Дахабе — одном из лучших мест для фридайвинга в мире.</p>
+                            <p data-i18n="about_p2">Подводная съёмка для меня — не просто работа, а способ показать красоту глубины и спокойствие, которое находишь под водой. Снимаю на полнокадровую Sony A7C и GoPro — для художественной картинки и динамики.</p>
+                            <p data-i18n="about_p3">Главное в съёмке — ваша безопасность и ваше состояние. Я всегда рядом, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом — даже если вы первый раз в маске.</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8 pt-8 mt-8 border-t border-gray-200 text-xs uppercase tracking-widest text-gray-500">
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_cert">Сертификация</span><span data-i18n="val_cert">Molchanovs W1 / W2</span></div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_loc">Локация</span><span data-i18n="val_loc">Дахаб, Южный Синай</span></div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_equip">Снаряжение</span><span data-i18n="val_equip">Coral Coast, Дахаб</span></div>
+                            <div><span class="block text-black font-semibold mb-1" data-i18n="label_photo">Съемка</span><span data-i18n="val_photo">Dahab / Sharm</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 4. CLIENT STORY -->
+        <!-- 4. CLIENT STORY (CASE STUDY) -->
         <div class="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-100">
             <div class="container mx-auto px-6 md:px-12">
-                <h2 class="section-header" data-i18n="section_story">Как проходит съёмка</h2>
-                <div class="max-w-3xl mx-auto space-y-6 text-base md:text-lg text-gray-700 font-light leading-relaxed">
-                    <p data-i18n="story_p1">Утро. Вы приходите на пляж, мы знакомимся за чашкой чая и обсуждаем референсы: какие кадры вам нравятся, какой стиль вам ближе — лёгкие портреты, динамика, что-то для соцсетей или личный проект.</p>
-                    <p data-i18n="story_p2">Перед водой — короткая лекция о фридайвинге, дыхательная практика и техника выравнивания давления. Это не полноценный курс, а 30–60 минут, чтобы вы чувствовали себя в воде уверенно и расслабленно.</p>
-                    <p data-i18n="story_p3">Заходим в воду медленно. Сначала просто плаваем, привыкаем к маске и температуре. Потом я показываю несколько простых поз — расслабленное зависание, мягкие движения руками. Через 15–20 минут у вас уже получается зависать на 10–20 секунд — этого достаточно для красивых кадров.</p>
-                    <p data-i18n="story_p4">Через 5–7 дней вы получаете ссылку на облако с обработанными фото и видео в высоком качестве — готовыми к печати, к публикации в Instagram или к личному архиву.</p>
-                </div>
+                <h2 class="section-header" data-i18n="section_story">История клиента</h2>
+
+                <article id="case-study-card" class="bg-white border border-gray-200 overflow-hidden">
+                    <!-- Preview: hero photo + summary -->
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="aspect-[4/5] md:aspect-auto bg-gray-100 overflow-hidden">
+                            <picture>
+                                <source type="image/webp" srcset="assets/photo3.webp">
+                                <img src="assets/photo3.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Подводный кадр Анны — фридайвинг-съёмка в Дахабе">
+                            </picture>
+                        </div>
+                        <div class="p-8 md:p-12 flex flex-col justify-center space-y-5">
+                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_label">Кейс · Анна, Москва · 5 дней в Дахабе</div>
+                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_title">«Шла к Ромео за красивыми фото. Ушла с другим отношением к себе в воде».</h3>
+                            <p class="text-base text-gray-600 font-light leading-relaxed" data-i18n="case_summary">Первая поездка в Дахаб. Маска пугала, холодная вода — тоже. Через одну сессию: 23 обработанных фото, 3 видео и привычка задерживать дыхание спокойно, без напряжения в плечах.</p>
+                            <button onclick="toggleCaseStudy()" id="case-toggle-btn" class="self-start border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors mt-2" data-i18n="case_read_more">Читать кейс целиком</button>
+                        </div>
+                    </div>
+
+                    <!-- Expanded content -->
+                    <div id="case-study-full" class="border-t border-gray-200">
+                        <div class="px-6 md:px-16 py-12 md:py-20 space-y-12 md:space-y-16">
+
+                            <!-- Stage 01: meeting -->
+                            <div class="max-w-3xl mx-auto space-y-3">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage1">01 — Знакомство</div>
+                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p1">«Мы встретились в 8 утра на пляже Coral Coast. Ромео заварил чай, мы час разговаривали — про мои страхи, про референсы, про то, какой стиль мне нравится. Я ожидала „позы и щёлк“, а получила настоящий разговор. Стало понятно: меня не будут тащить в воду до того, как я готова».</p>
+                            </div>
+
+                            <!-- Photos: backstage / preparation -->
+                            <div class="grid grid-cols-2 gap-3 md:gap-4 max-w-4xl mx-auto">
+                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/shooting1.jpg')">
+                                    <img src="assets/shooting1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Подготовка перед съёмкой на берегу">
+                                </div>
+                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/shooting2.jpg')">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/shooting2.webp">
+                                        <img src="assets/shooting2.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Дыхательная практика и инструктаж">
+                                    </picture>
+                                </div>
+                            </div>
+
+                            <!-- Stage 02: preparation -->
+                            <div class="max-w-3xl mx-auto space-y-3">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage2">02 — Подготовка на берегу</div>
+                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p2">«Лекция о фридайвинге заняла 30 минут — без пафоса и сложных терминов, всё про „почему так дышим“ и „что чувствует тело при задержке“. Потом — 30 минут дыхательной практики на коврике. Когда мы шли к воде, я уже не боялась — была собрана и спокойна».</p>
+                            </div>
+
+                            <!-- Photos: in-water process -->
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-5xl mx-auto">
+                                <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo2.jpg')">
+                                    <img src="assets/photo2.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Первое погружение Анны">
+                                </div>
+                                <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo5.jpg')">
+                                    <img src="assets/photo5.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Зависание на 3 метрах">
+                                </div>
+                                <div class="aspect-square bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo7.jpg')">
+                                    <img src="assets/photo7.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Поза в воде с лучами">
+                                </div>
+                            </div>
+
+                            <!-- Stage 03: in water -->
+                            <div class="max-w-3xl mx-auto space-y-3">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage3">03 — Первый час в воде</div>
+                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p3">«Сначала просто плавали — без камеры, без поз. Я привыкала к маске, к температуре, к тому, что под ногами нет дна. Через 15 минут Ромео показал, как зависать. Ещё через полчаса я держала статику по 20 секунд — и забыла, что вообще боялась воды. Камера появилась только тогда, когда я была готова».</p>
+                            </div>
+
+                            <!-- Photos: final results -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 max-w-6xl mx-auto">
+                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo1.jpg')">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/photo1.webp">
+                                        <img src="assets/photo1.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 1">
+                                    </picture>
+                                </div>
+                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo4.jpg')">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/photo4.webp">
+                                        <img src="assets/photo4.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 2">
+                                    </picture>
+                                </div>
+                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo6.jpg')">
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/photo6.webp">
+                                        <img src="assets/photo6.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 3">
+                                    </picture>
+                                </div>
+                                <div class="aspect-[4/5] bg-gray-100 overflow-hidden cursor-pointer group" onclick="openLightbox('assets/photo8.jpg')">
+                                    <img src="assets/photo8.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Финальный кадр Анны 4">
+                                </div>
+                            </div>
+
+                            <!-- Stage 04: delivery -->
+                            <div class="max-w-3xl mx-auto space-y-3">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-gray-400" data-i18n="case_stage4">04 — Через неделю — облако с готовыми кадрами</div>
+                                <p class="text-base md:text-lg text-gray-800 font-light leading-relaxed" data-i18n="case_p4">«Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео. Я открыла на компьютере и расплакалась — не от красоты кадров, а потому что увидела себя такой, какой давно не помнила. Спокойной. Без зажимов в плечах. В своём теле».</p>
+                            </div>
+
+                            <!-- Pull-quote testimonial -->
+                            <div class="max-w-3xl mx-auto border-l-2 border-cyan-500 pl-6 md:pl-8 py-2">
+                                <p class="text-xl md:text-2xl font-light italic text-gray-900 leading-relaxed mb-4" data-i18n="case_quote">«Это была не фотосессия. Это был один из лучших дней в моей жизни — и я наконец вышла из воды без страха».</p>
+                                <p class="text-[11px] uppercase tracking-[0.3em] text-gray-500" data-i18n="case_author">Анна · 32 года · Москва · апрель 2026</p>
+                            </div>
+
+                            <!-- Collapse button -->
+                            <div class="text-center pt-4">
+                                <button onclick="toggleCaseStudy()" class="text-[11px] uppercase tracking-[0.3em] text-gray-500 hover:text-black transition" data-i18n="case_collapse_link">Свернуть кейс</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
 
@@ -850,16 +966,16 @@
                     <p class="text-xs text-gray-500 uppercase" data-i18n="footer_location">Dahab • Egypt</p>
                  </div>
                  <div class="flex flex-col gap-4 text-sm font-light text-gray-400">
-                    <span onclick="navTo('home')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_home">Intro</span>
-                    <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_shooting">Shooting</span>
+                    <span onclick="navTo('home')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_home">Gallery</span>
+                    <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_shooting">Prices</span>
                     <span onclick="navTo('rental')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_rental">Rental</span>
                     <span onclick="navTo('education')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_education">Education</span>
                  </div>
                  <div class="flex flex-col items-start gap-4">
                      <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Contact Telegram</a>
                      <div class="flex gap-4 text-lg text-white">
-                         <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-400 transition"><i data-lucide="instagram"></i></a>
-                         <a href="#" aria-label="YouTube" class="hover:text-red-500 transition"><i data-lucide="youtube"></i></a>
+                         <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-400 transition"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                         <a href="https://www.youtube.com/@romeo_freediving" target="_blank" rel="noopener noreferrer" aria-label="YouTube Romeo Freediving" class="hover:text-red-500 transition"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.13-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.37.56A3.02 3.02 0 0 0 .5 6.2C0 8.07 0 12 0 12s0 3.93.5 5.8a3.02 3.02 0 0 0 2.13 2.14C4.49 20.5 12 20.5 12 20.5s7.51 0 9.37-.56a3.02 3.02 0 0 0 2.13-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg></a>
                          <a href="https://www.tiktok.com/@romeo_freediving" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="hover:text-white/70 transition"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.321 5.562a5.124 5.124 0 0 1-5.16-4.956h-3.364v13.672a3.024 3.024 0 1 1-3.024-3.024c.167 0 .335.014.502.041V7.847a6.47 6.47 0 1 0 5.886 6.43V8.302a8.434 8.434 0 0 0 5.16 1.755V6.693a5.125 5.125 0 0 1 0-1.131z"/></svg></a>
                      </div>
                  </div>
@@ -952,7 +1068,7 @@
 
         const translations = {
             ru: {
-                nav_home: "Интро", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
+                nav_home: "Галерея", nav_shooting: "Съемка", nav_rental: "Аренда", nav_education: "Обучение",
                 hero_location: "Шарм-эль-Шейх • Дахаб • Египет", hero_title: "Подводная съемка<br>в Египте", hero_subtitle: "Захватывающая подводная съёмка, которая передаёт красоту глубины и эмоции момента. Идеально для брендов, путешествий и личных проектов.", hero_cta: "Забронировать",
                 mobile_menu_title: "Romeo_Freediving",
                 mobile_menu_subtitle: "Подводная стемка, обучение, снаряжение, фридайвтуры, исскусиво задержки дыхания.",
@@ -960,11 +1076,27 @@
                 about_p1: "Я Ромео, сертифицированный инструктор системы <strong class='font-normal text-black'>Molchanovs</strong> (Wave 1 / Wave 2) и действующий атлет AIDA & CMAS. Уже несколько лет живу и работаю в Дахабе — одном из лучших мест для фридайвинга в мире.",
                 about_p2: "Подводная съёмка для меня — не просто работа, а способ показать красоту глубины и спокойствие, которое находишь под водой. Снимаю на полнокадровую Sony A7C и GoPro — для художественной картинки и динамики.",
                 about_p3: "Главное в съёмке — ваша безопасность и ваше состояние. Я всегда рядом, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом — даже если вы первый раз в маске.",
-                section_story: "Как проходит съёмка",
-                story_p1: "Утро. Вы приходите на пляж, мы знакомимся за чашкой чая и обсуждаем референсы: какие кадры вам нравятся, какой стиль вам ближе — лёгкие портреты, динамика, что-то для соцсетей или личный проект.",
-                story_p2: "Перед водой — короткая лекция о фридайвинге, дыхательная практика и техника выравнивания давления. Это не полноценный курс, а 30–60 минут, чтобы вы чувствовали себя в воде уверенно и расслабленно.",
-                story_p3: "Заходим в воду медленно. Сначала просто плаваем, привыкаем к маске и температуре. Потом я показываю несколько простых поз — расслабленное зависание, мягкие движения руками. Через 15–20 минут у вас уже получается зависать на 10–20 секунд — этого достаточно для красивых кадров.",
-                story_p4: "Через 5–7 дней вы получаете ссылку на облако с обработанными фото и видео в высоком качестве — готовыми к печати, к публикации в Instagram или к личному архиву.",
+                section_story: "История клиента",
+                label_cert: "Сертификация", val_cert: "Molchanovs W1 / W2",
+                label_loc: "Локация", val_loc: "Дахаб, Южный Синай",
+                label_equip: "Снаряжение", val_equip: "Coral Coast, Дахаб",
+                label_photo: "Съемка", val_photo: "Dahab / Sharm",
+                case_label: "Кейс · Анна, Москва · 5 дней в Дахабе",
+                case_title: "«Шла к Ромео за красивыми фото. Ушла с другим отношением к себе в воде».",
+                case_summary: "Первая поездка в Дахаб. Маска пугала, холодная вода — тоже. Через одну сессию: 23 обработанных фото, 3 видео и привычка задерживать дыхание спокойно, без напряжения в плечах.",
+                case_read_more: "Читать кейс целиком",
+                case_collapse: "Свернуть",
+                case_collapse_link: "Свернуть кейс",
+                case_stage1: "01 — Знакомство",
+                case_p1: "«Мы встретились в 8 утра на пляже Coral Coast. Ромео заварил чай, мы час разговаривали — про мои страхи, про референсы, про то, какой стиль мне нравится. Я ожидала „позы и щёлк“, а получила настоящий разговор. Стало понятно: меня не будут тащить в воду до того, как я готова».",
+                case_stage2: "02 — Подготовка на берегу",
+                case_p2: "«Лекция о фридайвинге заняла 30 минут — без пафоса и сложных терминов, всё про „почему так дышим“ и „что чувствует тело при задержке“. Потом — 30 минут дыхательной практики на коврике. Когда мы шли к воде, я уже не боялась — была собрана и спокойна».",
+                case_stage3: "03 — Первый час в воде",
+                case_p3: "«Сначала просто плавали — без камеры, без поз. Я привыкала к маске, к температуре, к тому, что под ногами нет дна. Через 15 минут Ромео показал, как зависать. Ещё через полчаса я держала статику по 20 секунд — и забыла, что вообще боялась воды. Камера появилась только тогда, когда я была готова».",
+                case_stage4: "04 — Через неделю — облако с готовыми кадрами",
+                case_p4: "«Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео. Я открыла на компьютере и расплакалась — не от красоты кадров, а потому что увидела себя такой, какой давно не помнила. Спокойной. Без зажимов в плечах. В своём теле».",
+                case_quote: "«Это была не фотосессия. Это был один из лучших дней в моей жизни — и я наконец вышла из воды без страха».",
+                case_author: "Анна · 32 года · Москва · апрель 2026",
                 cta_title: "Готовы попробовать?",
                 cta_subtitle: "Выберите формат съёмки и напишите мне — обсудим детали и подберём дату.",
                 cta_button: "Выбрать съёмку",
@@ -1092,7 +1224,7 @@
                 btn_share: "Поделиться статьей",
                 share_alert: "Ссылка скопирована в буфер обмена!",
                 footer_location: "Дахаб • Египет",
-                footer_nav_home: "Интро",
+                footer_nav_home: "Галерея",
                 footer_nav_shooting: "Съемка",
                 footer_nav_rental: "Аренда",
                 footer_nav_education: "Обучение",
@@ -1100,7 +1232,7 @@
                 footer_copyright: "© 2026 Romeo Freediving"
             },
             en: {
-                nav_home: "Intro", nav_shooting: "Shooting", nav_rental: "Rental", nav_education: "Education",
+                nav_home: "Gallery", nav_shooting: "Prices", nav_rental: "Rental", nav_education: "Education",
                 hero_location: "Sharm El-Sheikh • Dahab • Egypt", hero_title: "Underwater Photo<br>in Egypt", hero_subtitle: "Captivating underwater photography that conveys the beauty of depth and emotion. Ideal for brands, travel, and personal projects.", hero_cta: "Book Now",
                 mobile_menu_title: "Romeo_Freediving",
                 mobile_menu_subtitle: "Underwater shooting, education, equipment, freedive tours, the art of breath hold.",
@@ -1108,11 +1240,27 @@
                 about_p1: "I'm Romeo, a certified <strong class='font-normal text-black'>Molchanovs</strong> instructor (Wave 1 / Wave 2) and active AIDA & CMAS athlete. I've been living and working in Dahab — one of the best freediving spots in the world — for several years.",
                 about_p2: "Underwater photography for me is not just a job — it's a way to show the beauty of depth and the calm you find below the surface. I shoot on a full-frame Sony A7C and GoPro for artistic image quality and dynamic shots.",
                 about_p3: "Your safety and your state of mind come first. I stay close, lead the scenario, suggest poses and watch your breathing. With me you can relax and enjoy the process — even if it's your first time wearing a mask.",
-                section_story: "How a shoot unfolds",
-                story_p1: "Morning. You come to the beach, we meet over a cup of tea and talk through references: which shots you love, which style fits you — soft portraits, dynamic moves, social content or a personal project.",
-                story_p2: "Before the water — a short freediving briefing, a breathing practice and an equalization technique. It's not a full course, just 30–60 minutes so you feel confident and relaxed in the water.",
-                story_p3: "We enter the water slowly. First we just swim and get used to the mask and temperature. Then I show a few simple poses — a relaxed hover, soft hand movements. Within 15–20 minutes you can already hold a hover for 10–20 seconds — enough for beautiful frames.",
-                story_p4: "In 5–7 days you receive a cloud link with the edited photos and videos in high quality — ready for print, for Instagram or for your personal archive.",
+                section_story: "Client story",
+                label_cert: "Certification", val_cert: "Molchanovs W1 / W2",
+                label_loc: "Location", val_loc: "Dahab, South Sinai",
+                label_equip: "Gear", val_equip: "Coral Coast, Dahab",
+                label_photo: "Shooting", val_photo: "Dahab / Sharm",
+                case_label: "Case · Anna, Moscow · 5 days in Dahab",
+                case_title: "“Came to Romeo for nice photos. Left with a different relationship to myself in the water.”",
+                case_summary: "First trip to Dahab. The mask felt scary, the cold water did too. After one session: 23 edited photos, 3 videos and a calm habit of holding her breath without tension in the shoulders.",
+                case_read_more: "Read full case",
+                case_collapse: "Hide",
+                case_collapse_link: "Collapse case",
+                case_stage1: "01 — First meeting",
+                case_p1: "“We met at 8 a.m. on Coral Coast beach. Romeo made tea and we talked for an hour — about my fears, my references, the style I liked. I expected ‘pose and click’, but I got an actual conversation. It became clear nobody would push me into the water before I was ready.”",
+                case_stage2: "02 — Preparation on land",
+                case_p2: "“The freediving lecture took 30 minutes — no jargon, no pretense, just ‘why we breathe this way’ and ‘what your body feels during a breath-hold’. Then 30 minutes of breathing practice on a mat. By the time we walked to the water I wasn’t scared — I was focused and calm.”",
+                case_stage3: "03 — First hour in the water",
+                case_p3: "“At first we just swam — no camera, no posing. I got used to the mask, to the temperature, to having no floor under my feet. After 15 minutes Romeo showed me how to hover. Half an hour later I was holding a 20-second static — and I’d forgotten I was ever scared. The camera only appeared once I was ready.”",
+                case_stage4: "04 — A week later — a cloud folder full of frames",
+                case_p4: "“Six days later a cloud link arrived: 23 edited photos and 3 short videos. I opened them on my laptop and cried — not because the shots were beautiful, but because I saw myself in a way I hadn’t in a long time. Calm. No tension in the shoulders. At home in my body.”",
+                case_quote: "“It wasn’t a photo session. It was one of the best days of my life — and I finally walked out of the water without fear.”",
+                case_author: "Anna · 32 · Moscow · April 2026",
                 cta_title: "Ready to try it?",
                 cta_subtitle: "Pick a shooting format and message me — we'll talk through the details and lock a date.",
                 cta_button: "Choose a shoot",
@@ -1240,8 +1388,8 @@
                 btn_share: "Share this article",
                 share_alert: "Link copied to clipboard!",
                 footer_location: "Dahab • Egypt",
-                footer_nav_home: "Intro",
-                footer_nav_shooting: "Shooting",
+                footer_nav_home: "Gallery",
+                footer_nav_shooting: "Prices",
                 footer_nav_rental: "Rental",
                 footer_nav_education: "Education",
                 footer_contact: "Contact on Telegram",
@@ -1291,6 +1439,18 @@
         function closeLightbox() {
             const m = document.getElementById('lightbox-modal');
             m.classList.remove('open'); m.classList.add('closed');
+        }
+
+        function toggleCaseStudy() {
+            const el = document.getElementById('case-study-full');
+            const btn = document.getElementById('case-toggle-btn');
+            const expanded = el.classList.toggle('expanded');
+            const key = expanded ? 'case_collapse' : 'case_read_more';
+            btn.setAttribute('data-i18n', key);
+            if (translations[curLang] && translations[curLang][key]) btn.textContent = translations[curLang][key];
+            if (!expanded) {
+                document.getElementById('case-study-card').scrollIntoView({behavior:'smooth', block:'start'});
+            }
         }
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
