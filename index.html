@@ -544,20 +544,51 @@
 
         <!-- 6. CTA BOOKING -->
         <div class="py-20 md:py-32 bg-black text-white border-t border-gray-900">
-            <div class="container mx-auto px-6 md:px-12 text-center">
-                <h2 class="text-3xl md:text-5xl font-light mb-6 uppercase tracking-wide" data-i18n="cta_title">Готовы попробовать?</h2>
-                <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto mb-12 font-light" data-i18n="cta_subtitle">Выберите формат съёмки и напишите мне — обсудим детали и подберём дату.</p>
-                <button onclick="navTo('shooting')" class="inline-block border border-white px-12 py-4 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors mb-12" data-i18n="cta_button">Выбрать съёмку</button>
-                <div class="flex flex-col md:flex-row gap-6 justify-center items-center text-sm text-gray-300">
-                    <a href="https://t.me/romeo_freediving" target="_blank" class="inline-flex items-center gap-3 hover:text-cyan-400 transition">
-                        <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
-                        <span>Telegram: @romeo_freediving</span>
-                    </a>
-                    <span class="hidden md:inline text-gray-700">|</span>
-                    <a href="https://wa.me/201069901876" target="_blank" class="inline-flex items-center gap-3 hover:text-cyan-400 transition">
-                        <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
-                        <span>WhatsApp: +20 106 9901876</span>
-                    </a>
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-12">
+                        <span class="inline-block text-xs uppercase tracking-[0.3em] text-cyan-400 mb-6" data-i18n="cta_eyebrow">Съёмка в Дахабе · Красное море</span>
+                        <h2 class="text-3xl md:text-5xl font-light mb-6 uppercase tracking-wide" data-i18n="cta_title">Заберите домой больше, чем впечатления</h2>
+                        <p class="text-base md:text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="cta_subtitle">Готовые материалы за 5–7 дней — даже если вы никогда не ныряли. Сертифицированный инструктор Molchanovs, безопасно для новичков, технически продумано для опытных.</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-800 border border-gray-800 mb-12">
+                        <div class="bg-black p-6 md:p-8 text-center">
+                            <div class="text-3xl md:text-4xl font-light text-white mb-3">5–30</div>
+                            <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400" data-i18n="cta_metric1_label">Обработанных фото</div>
+                        </div>
+                        <div class="bg-black p-6 md:p-8 text-center">
+                            <div class="text-3xl md:text-4xl font-light text-white mb-3">2 × 9:16</div>
+                            <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400" data-i18n="cta_metric2_label">Вертикальных видео для Reels</div>
+                        </div>
+                        <div class="bg-black p-6 md:p-8 text-center">
+                            <div class="text-3xl md:text-4xl font-light text-white mb-3">Sony A7C</div>
+                            <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400" data-i18n="cta_metric3_label">+ GoPro POV</div>
+                        </div>
+                        <div class="bg-black p-6 md:p-8 text-center">
+                            <div class="text-3xl md:text-4xl font-light text-white mb-3">5–7</div>
+                            <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400" data-i18n="cta_metric4_label">Дней до готового результата</div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button onclick="navTo('shooting')" class="inline-block bg-white text-black border border-white px-12 py-4 text-xs uppercase tracking-widest hover:bg-transparent hover:text-white transition-colors" data-i18n="cta_button">Посмотреть форматы и цены</button>
+                        <p class="text-xs text-gray-500 mt-5 max-w-md mx-auto" data-i18n="cta_note">Бесплатная консультация перед бронированием — расскажу, как пройдёт съёмка и какой формат подойдёт именно вам.</p>
+                    </div>
+
+                    <div class="mt-14 pt-10 border-t border-gray-900">
+                        <p class="text-center text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-6" data-i18n="cta_direct">Или напишите напрямую</p>
+                        <div class="flex flex-col md:flex-row gap-3 justify-center items-stretch md:items-center max-w-xl mx-auto">
+                            <a href="https://t.me/romeo_freediving" target="_blank" class="flex-1 border border-gray-700 px-6 py-4 inline-flex items-center justify-center gap-3 text-sm hover:border-white hover:text-cyan-400 transition-colors">
+                                <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
+                                <span>Telegram · @romeo_freediving</span>
+                            </a>
+                            <a href="https://wa.me/201069901876" target="_blank" class="flex-1 border border-gray-700 px-6 py-4 inline-flex items-center justify-center gap-3 text-sm hover:border-white hover:text-cyan-400 transition-colors">
+                                <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
+                                <span>WhatsApp · +20 106 9901876</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1074,9 +1105,16 @@
                 case_card3_title: "Результат",
                 case_card3_body: "Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.",
                 case_card3_cta: "Посмотреть итоговый результат →",
-                cta_title: "Готовы попробовать?",
-                cta_subtitle: "Выберите формат съёмки и напишите мне — обсудим детали и подберём дату.",
-                cta_button: "Выбрать съёмку",
+                cta_eyebrow: "Съёмка в Дахабе · Красное море",
+                cta_title: "Заберите домой больше, чем впечатления",
+                cta_subtitle: "Готовые материалы за 5–7 дней — даже если вы никогда не ныряли. Сертифицированный инструктор Molchanovs, безопасно для новичков, технически продумано для опытных.",
+                cta_metric1_label: "Обработанных фото",
+                cta_metric2_label: "Вертикальных видео для Reels",
+                cta_metric3_label: "+ GoPro POV",
+                cta_metric4_label: "Дней до готового результата",
+                cta_button: "Посмотреть форматы и цены",
+                cta_note: "Бесплатная консультация перед бронированием — расскажу, как пройдёт съёмка и какой формат подойдёт именно вам.",
+                cta_direct: "Или напишите напрямую",
                 section_gallery: "Галерея", label_socials: "Соцсети", gallery_cta: "Свежие работы и анонсы туров.<br>Подписывайтесь.",
                 section_shooting: "Съемка",
                 shooting_individual_title: "Индивидуальная съемка",
@@ -1232,9 +1270,16 @@
                 case_card3_title: "The result",
                 case_card3_body: "Six days later a cloud link arrived: 23 edited photos and 3 short 9:16 videos for Stories. I opened them on my laptop and cried — I saw myself in a way I hadn't in a long time. Calm, no tension in the shoulders, at home in my body. “It wasn't just a photo session — it was one of the best days of my life.” — Anna, 32, Moscow.",
                 case_card3_cta: "See the final result →",
-                cta_title: "Ready to try it?",
-                cta_subtitle: "Pick a shooting format and message me — we'll talk through the details and lock a date.",
-                cta_button: "Choose a shoot",
+                cta_eyebrow: "Underwater shoots · Dahab, Red Sea",
+                cta_title: "Take home more than memories",
+                cta_subtitle: "Final, edited materials in 5–7 days — even if you've never freedived before. Certified Molchanovs instructor, safe for first-timers, technically dialed in for advanced divers.",
+                cta_metric1_label: "Edited photos",
+                cta_metric2_label: "Vertical videos for Reels",
+                cta_metric3_label: "+ GoPro POV",
+                cta_metric4_label: "Days to final delivery",
+                cta_button: "View formats & pricing",
+                cta_note: "Free pre-booking consult — I'll walk you through how the shoot runs and which format fits you.",
+                cta_direct: "Or message me directly",
                 section_gallery: "Gallery", label_socials: "Socials", gallery_cta: "Latest works and tour announcements.<br>Follow me.",
                 section_shooting: "Shooting",
                 shooting_individual_title: "Individual Shooting",
