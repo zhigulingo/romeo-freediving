@@ -669,7 +669,7 @@
                                 </ul>
                             </div>
                             
-                            <div class="bg-gray-50 border border-gray-200 rounded p-4">
+                            <div class="bg-gray-50 border border-gray-200 p-4">
                                 <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i data-lucide="compass" class="lucide-icon text-gray-500"></i><span data-i18n="shooting_locations">Локации</span></h4>
                                 <ul class="space-y-2">
                                     <li class="flex items-center justify-between">
@@ -751,7 +751,7 @@
                                 </ul>
                             </div>
                             
-                            <div class="bg-gray-50 border border-gray-200 rounded p-4">
+                            <div class="bg-gray-50 border border-gray-200 p-4">
                                 <h4 class="font-semibold text-black mb-2 flex items-center gap-2"><i data-lucide="compass" class="lucide-icon text-gray-500"></i><span data-i18n="shooting_locations">Локация</span></h4>
                                 <ul class="space-y-2">
                                     <li class="flex items-center justify-between">
@@ -767,100 +767,111 @@
                 </div>
             </div>
 
-            <!-- Additional packages (compact cards) -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-light mb-8" data-i18n="shooting_packages_title">Дополнительные пакеты</h3>
+            <!-- Bundled packages -->
+            <div class="mt-20 pt-16 border-t border-gray-200">
+                <div class="max-w-3xl mb-12">
+                    <span class="inline-block text-xs uppercase tracking-[0.3em] text-gray-500 mb-4" data-i18n="shooting_packages_kicker">Готовые комплекты</span>
+                    <h3 class="text-2xl md:text-3xl font-light mb-4" data-i18n="shooting_packages_title">Возьмите весь набор материалов сразу</h3>
+                    <p class="text-gray-500 font-light leading-relaxed" data-i18n="shooting_packages_subtitle">Готовые комбинации форматов под разные задачи: только вода, только берег или всё вместе. Один пакет вместо нескольких отдельных съёмок.</p>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                    <!-- Package 1: Land photos + water video — 250€ -->
-                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between" data-aos="fade-up">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="aperture" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_land_water_chip1">Фото проф (суша): 5–15</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="video" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_land_water_chip2">Бэкстейдж 4K</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="camera" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_land_water_chip3">Фото экшн (вода): 5–15</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="film" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_land_water_chip4">Видео (вода): 2–5</span>
-                                </span>
-                            </div>
-                            <h4 class="text-lg font-light mb-3" data-i18n="pkg_land_water_title">Фото на суше + видео в воде</h4>
-                            <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="pkg_land_water_desc">Профессиональное фото на суше + бэкстейдж 4K и съёмка в воде на экшн-камеру.</p>
-                            <div class="space-y-2 text-sm mb-6">
-                                <div class="flex justify-between items-baseline">
-                                    <span data-i18n="pkg_land_water_label">Пакет</span>
-                                    <span class="text-black" data-i18n="pkg_land_water_price"></span>
-                                </div>
+                    <!-- Package 1: Land + GoPro water — 250€ -->
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col" data-aos="fade-up">
+                        <div class="mb-6 pb-6 border-b border-gray-100">
+                            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500" data-i18n="pkg_kicker_label">Комплект 1</span>
+                            <div class="mt-3 flex items-baseline gap-3">
+                                <span class="text-3xl md:text-4xl font-light text-black">250€</span>
+                                <span class="text-xs text-gray-500" data-i18n="pkg_land_water_alt">22 000₽ · 15 250 EGP</span>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <h4 class="text-xl font-light mb-3" data-i18n="pkg_land_water_title">Берег + GoPro в воде</h4>
+                        <p class="text-sm text-gray-500 font-light leading-relaxed mb-6" data-i18n="pkg_land_water_desc">Портретная съёмка на суше плюс динамика в воде на экшн-камеру. Подойдёт, если важны узнаваемые лицевые кадры и атмосферный подводный контент без работы с проф-камерой под водой.</p>
+                        <div class="mb-8 flex-grow">
+                            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-4" data-i18n="pkg_includes_label">Что входит</p>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="aperture" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_land_water_item1">5–15 портретных фото на суше — Sony A7C</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="camera" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_land_water_item2">5–15 фото в воде — GoPro</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="film" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_land_water_item3">2–5 видео в воде — GoPro</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="video" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_land_water_item4">Бэкстейдж 4K</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
 
-                    <!-- Package 2: Pro photo & video combo — 300€ -->
-                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between" data-aos="fade-up">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="aperture" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_pro_combo_chip1">Фото: 5–30</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="film" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_pro_combo_chip2">Видео: 2–5</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="camera" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_pro_combo_chip3">Sony A7C + GoPro</span>
-                                </span>
-                            </div>
-                            <h4 class="text-lg font-light mb-3" data-i18n="pkg_pro_combo_title">Фото и видео: проф фотик + экшн</h4>
-                            <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="pkg_pro_combo_desc">Полный пакет фото и видео в воде на профессиональный фотоаппарат и экшн-камеру.</p>
-                            <div class="space-y-2 text-sm mb-6">
-                                <div class="flex justify-between items-baseline">
-                                    <span data-i18n="pkg_pro_combo_label">Пакет</span>
-                                    <span class="text-black" data-i18n="pkg_pro_combo_price"></span>
-                                </div>
+                    <!-- Package 2: Full in-water — 300€ -->
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col" data-aos="fade-up">
+                        <div class="mb-6 pb-6 border-b border-gray-100">
+                            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500" data-i18n="pkg_kicker_label_2">Комплект 2 · Хит</span>
+                            <div class="mt-3 flex items-baseline gap-3">
+                                <span class="text-3xl md:text-4xl font-light text-black">300€</span>
+                                <span class="text-xs text-gray-500" data-i18n="pkg_pro_combo_alt">26 400₽ · 18 300 EGP</span>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <h4 class="text-xl font-light mb-3" data-i18n="pkg_pro_combo_title">Максимум в воде</h4>
+                        <p class="text-sm text-gray-500 font-light leading-relaxed mb-6" data-i18n="pkg_pro_combo_desc">Полный набор подводного контента: художественная фотография на Sony A7C плюс динамика на GoPro. Лучший выбор для соцсетей, портфолио и личных проектов.</p>
+                        <div class="mb-8 flex-grow">
+                            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-4" data-i18n="pkg_includes_label">Что входит</p>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="aperture" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_pro_combo_item1">5–30 фото в воде — Sony A7C</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="film" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_pro_combo_item2">2–5 видео в воде — Sony A7C + GoPro</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="camera" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_pro_combo_item3">Sony A7C для художественной картинки + GoPro для POV</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
 
-                    <!-- Package 3: Full bundle land + water — 350€ -->
-                    <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between" data-aos="fade-up">
-                        <div>
-                            <div class="flex flex-wrap gap-2 mb-5">
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="aperture" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_full_combo_chip1">Фото проф (суша): 5–15</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="aperture" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_full_combo_chip2">Фото (вода): 5–30</span>
-                                </span>
-                                <span class="px-3 py-1.5 text-[10px] md:text-xs uppercase tracking-widest bg-gray-100 text-black inline-flex items-center gap-1.5">
-                                    <i data-lucide="film" class="lucide-icon" aria-hidden="true"></i>
-                                    <span data-i18n="pkg_full_combo_chip3">Видео (вода): 2–5</span>
-                                </span>
-                            </div>
-                            <h4 class="text-lg font-light mb-3" data-i18n="pkg_full_combo_title">Полный комплекс: суша + вода</h4>
-                            <p class="text-gray-500 font-light mb-6 text-sm" data-i18n="pkg_full_combo_desc">Фото на проф фотик на суше + полный пакет фото и видео под водой (проф фотик и экшн-камера).</p>
-                            <div class="space-y-2 text-sm mb-6">
-                                <div class="flex justify-between items-baseline">
-                                    <span data-i18n="pkg_full_combo_label">Пакет</span>
-                                    <span class="text-black" data-i18n="pkg_full_combo_price"></span>
-                                </div>
+                    <!-- Package 3: Full land + water — 350€ -->
+                    <div class="bg-white border border-gray-200 p-8 flex flex-col" data-aos="fade-up">
+                        <div class="mb-6 pb-6 border-b border-gray-100">
+                            <span class="text-[10px] uppercase tracking-[0.3em] text-gray-500" data-i18n="pkg_kicker_label_3">Комплект 3 · Максимум</span>
+                            <div class="mt-3 flex items-baseline gap-3">
+                                <span class="text-3xl md:text-4xl font-light text-black">350€</span>
+                                <span class="text-xs text-gray-500" data-i18n="pkg_full_combo_alt">30 800₽ · 21 350 EGP</span>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <h4 class="text-xl font-light mb-3" data-i18n="pkg_full_combo_title">Берег и вода — полный набор</h4>
+                        <p class="text-sm text-gray-500 font-light leading-relaxed mb-6" data-i18n="pkg_full_combo_desc">Самый полный комплект: портреты на суше, художественная съёмка под водой и динамика на экшн-камеру. Лучшее соотношение цена/объём контента.</p>
+                        <div class="mb-8 flex-grow">
+                            <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-4" data-i18n="pkg_includes_label">Что входит</p>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="aperture" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_full_combo_item1">5–15 портретных фото на суше — Sony A7C</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="aperture" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_full_combo_item2">5–30 фото в воде — Sony A7C</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i data-lucide="film" class="lucide-icon text-gray-400 flex-shrink-0 mt-0.5" aria-hidden="true"></i>
+                                    <span data-i18n="pkg_full_combo_item3">2–5 видео в воде — GoPro</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
 
                 </div>
@@ -1172,29 +1183,32 @@
                 shooting_training_included_gear: "Дополнительная экипировка при необходимости (маски, ласты, моноласты, ремни).",
                 shooting_training_loc: "Dahab",
                 shooting_training_price: "<span class='font-semibold'>150€</span><span class='text-gray-500 text-xs md:text-sm'> / 13 250₽ / 9 150 EGP</span>",
-                shooting_packages_title: "Дополнительные пакеты",
-                pkg_land_water_title: "Фото на суше + видео в воде",
-                pkg_land_water_desc: "Профессиональное фото на суше + бэкстейдж 4K и съёмка в воде на экшн-камеру.",
-                pkg_land_water_chip1: "Фото проф (суша): 5–15",
-                pkg_land_water_chip2: "Бэкстейдж 4K",
-                pkg_land_water_chip3: "Фото экшн (вода): 5–15",
-                pkg_land_water_chip4: "Видео (вода): 2–5",
-                pkg_land_water_label: "Пакет",
-                pkg_land_water_price: "<span class='font-semibold'>250€</span><span class='text-gray-500 text-xs md:text-sm'> / 22 000₽ / 15 250 EGP</span>",
-                pkg_pro_combo_title: "Фото и видео: проф фотик + экшн",
-                pkg_pro_combo_desc: "Полный пакет фото и видео в воде на профессиональный фотоаппарат и экшн-камеру.",
-                pkg_pro_combo_chip1: "Фото: 5–30",
-                pkg_pro_combo_chip2: "Видео: 2–5",
-                pkg_pro_combo_chip3: "Sony A7C + GoPro",
-                pkg_pro_combo_label: "Пакет",
-                pkg_pro_combo_price: "<span class='font-semibold'>300€</span><span class='text-gray-500 text-xs md:text-sm'> / 26 400₽ / 18 300 EGP</span>",
-                pkg_full_combo_title: "Полный комплекс: суша + вода",
-                pkg_full_combo_desc: "Фото на проф фотик на суше + полный пакет фото и видео под водой (проф фотик и экшн-камера).",
-                pkg_full_combo_chip1: "Фото проф (суша): 5–15",
-                pkg_full_combo_chip2: "Фото (вода): 5–30",
-                pkg_full_combo_chip3: "Видео (вода): 2–5",
-                pkg_full_combo_label: "Пакет",
-                pkg_full_combo_price: "<span class='font-semibold'>350€</span><span class='text-gray-500 text-xs md:text-sm'> / 30 800₽ / 21 350 EGP</span>",
+                shooting_packages_kicker: "Готовые комплекты",
+                shooting_packages_title: "Возьмите весь набор материалов сразу",
+                shooting_packages_subtitle: "Готовые комбинации форматов под разные задачи: только вода, только берег или всё вместе. Один пакет вместо нескольких отдельных съёмок.",
+                pkg_includes_label: "Что входит",
+                pkg_kicker_label: "Комплект 1",
+                pkg_kicker_label_2: "Комплект 2 · Хит",
+                pkg_kicker_label_3: "Комплект 3 · Максимум",
+                pkg_land_water_title: "Берег + GoPro в воде",
+                pkg_land_water_alt: "22 000₽ · 15 250 EGP",
+                pkg_land_water_desc: "Портретная съёмка на суше плюс динамика в воде на экшн-камеру. Подойдёт, если важны узнаваемые лицевые кадры и атмосферный подводный контент без работы с проф-камерой под водой.",
+                pkg_land_water_item1: "5–15 портретных фото на суше — Sony A7C",
+                pkg_land_water_item2: "5–15 фото в воде — GoPro",
+                pkg_land_water_item3: "2–5 видео в воде — GoPro",
+                pkg_land_water_item4: "Бэкстейдж 4K",
+                pkg_pro_combo_title: "Максимум в воде",
+                pkg_pro_combo_alt: "26 400₽ · 18 300 EGP",
+                pkg_pro_combo_desc: "Полный набор подводного контента: художественная фотография на Sony A7C плюс динамика на GoPro. Лучший выбор для соцсетей, портфолио и личных проектов.",
+                pkg_pro_combo_item1: "5–30 фото в воде — Sony A7C",
+                pkg_pro_combo_item2: "2–5 видео в воде — Sony A7C + GoPro",
+                pkg_pro_combo_item3: "Sony A7C для художественной картинки + GoPro для POV",
+                pkg_full_combo_title: "Берег и вода — полный набор",
+                pkg_full_combo_alt: "30 800₽ · 21 350 EGP",
+                pkg_full_combo_desc: "Самый полный комплект: портреты на суше, художественная съёмка под водой и динамика на экшн-камеру. Лучшее соотношение цена/объём контента.",
+                pkg_full_combo_item1: "5–15 портретных фото на суше — Sony A7C",
+                pkg_full_combo_item2: "5–30 фото в воде — Sony A7C",
+                pkg_full_combo_item3: "2–5 видео в воде — GoPro",
                 btn_book: "Забронировать",
                 section_rental: "Аренда Снаряжения", rental_intro: "Полный сетап для погружений. Локация: Coral Coast Hotel area.", btn_rent: "Арендовать",
                 section_education: "Обучение",
@@ -1337,29 +1351,32 @@
                 shooting_training_included_gear: "Additional equipment if needed (masks, fins, monofins, belts).",
                 shooting_training_loc: "Дахаб",
                 shooting_training_price: "<span class='font-semibold'>150€</span><span class='text-gray-500 text-xs md:text-sm'> / 13,250₽ / 9,150 EGP</span>",
-                shooting_packages_title: "Additional packages",
-                pkg_land_water_title: "Land photos + water video",
-                pkg_land_water_desc: "Professional land photos + 4K backstage and water shots on action camera.",
-                pkg_land_water_chip1: "Pro photos (land): 5–15",
-                pkg_land_water_chip2: "Backstage 4K",
-                pkg_land_water_chip3: "Action photos (water): 5–15",
-                pkg_land_water_chip4: "Water videos: 2–5",
-                pkg_land_water_label: "Package",
-                pkg_land_water_price: "<span class='font-semibold'>250€</span><span class='text-gray-500 text-xs md:text-sm'> / 22,000₽ / 15,250 EGP</span>",
-                pkg_pro_combo_title: "Photo & video: pro camera + action cam",
-                pkg_pro_combo_desc: "Full water photo & video on pro camera and action cam.",
-                pkg_pro_combo_chip1: "Photos: 5–30",
-                pkg_pro_combo_chip2: "Videos: 2–5",
-                pkg_pro_combo_chip3: "Sony A7C + GoPro",
-                pkg_pro_combo_label: "Package",
-                pkg_pro_combo_price: "<span class='font-semibold'>300€</span><span class='text-gray-500 text-xs md:text-sm'> / 26,400₽ / 18,300 EGP</span>",
-                pkg_full_combo_title: "Full bundle: land + water",
-                pkg_full_combo_desc: "Pro land photos + full underwater photo & video pack (pro camera + action cam).",
-                pkg_full_combo_chip1: "Pro photos (land): 5–15",
-                pkg_full_combo_chip2: "Water photos: 5–30",
-                pkg_full_combo_chip3: "Water videos: 2–5",
-                pkg_full_combo_label: "Package",
-                pkg_full_combo_price: "<span class='font-semibold'>350€</span><span class='text-gray-500 text-xs md:text-sm'> / 30,800₽ / 21,350 EGP</span>",
+                shooting_packages_kicker: "Bundled packages",
+                shooting_packages_title: "Get a complete content set in one go",
+                shooting_packages_subtitle: "Ready-made format combinations for different needs: water only, land only, or the full set. One bundle instead of separate shoots.",
+                pkg_includes_label: "What's included",
+                pkg_kicker_label: "Bundle 1",
+                pkg_kicker_label_2: "Bundle 2 · Most popular",
+                pkg_kicker_label_3: "Bundle 3 · Everything",
+                pkg_land_water_title: "Land + GoPro in the water",
+                pkg_land_water_alt: "22,000₽ · 15,250 EGP",
+                pkg_land_water_desc: "Portrait shoot on land plus dynamic underwater footage on action camera. Best when you want recognizable facial frames and atmospheric water content without a pro camera underwater.",
+                pkg_land_water_item1: "5–15 portrait photos on land — Sony A7C",
+                pkg_land_water_item2: "5–15 photos in water — GoPro",
+                pkg_land_water_item3: "2–5 videos in water — GoPro",
+                pkg_land_water_item4: "4K backstage footage",
+                pkg_pro_combo_title: "Maximum underwater coverage",
+                pkg_pro_combo_alt: "26,400₽ · 18,300 EGP",
+                pkg_pro_combo_desc: "The full underwater content set: artistic photography on Sony A7C plus dynamic GoPro footage. Best pick for social media, portfolios and personal projects.",
+                pkg_pro_combo_item1: "5–30 photos in water — Sony A7C",
+                pkg_pro_combo_item2: "2–5 videos in water — Sony A7C + GoPro",
+                pkg_pro_combo_item3: "Sony A7C for artistic image + GoPro for POV",
+                pkg_full_combo_title: "Land + water — the complete kit",
+                pkg_full_combo_alt: "30,800₽ · 21,350 EGP",
+                pkg_full_combo_desc: "The most complete bundle: portraits on land, artistic underwater photography and dynamic action-cam footage. Best price-to-volume ratio.",
+                pkg_full_combo_item1: "5–15 portrait photos on land — Sony A7C",
+                pkg_full_combo_item2: "5–30 photos in water — Sony A7C",
+                pkg_full_combo_item3: "2–5 videos in water — GoPro",
                 btn_book: "Book Now",
                 section_rental: "Equipment Rental", rental_intro: "Full diving setup. Location: Coral Coast Hotel area.", btn_rent: "Rent Now",
                 section_education: "Education",
