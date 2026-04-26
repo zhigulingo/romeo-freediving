@@ -150,9 +150,55 @@
         /* LUCIDE ICONS */
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
 
-        /* CASE STUDY CAROUSEL */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        /* CASE STUDY CAROUSEL — single slide, fade transition */
+        .case-stack { position: relative; display: grid; }
+        .case-stack > .case-slide { grid-area: 1 / 1; }
+        .case-slide {
+            display: grid;
+            grid-template-columns: 1fr;
+            background: #fff;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+            overflow: hidden;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .4s ease, visibility 0s linear .4s;
+        }
+        .case-slide.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transition: opacity .4s ease, visibility 0s linear 0s;
+        }
+        .case-photo { aspect-ratio: 4 / 5; background: #f3f4f6; overflow: hidden; }
+        .case-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .case-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+        @media (min-width: 768px) {
+            .case-slide { grid-template-columns: 3fr 4fr; }
+            .case-photo { aspect-ratio: auto; height: 100%; min-height: 480px; }
+            .case-body { padding: 3rem 3rem; gap: 1.25rem; justify-content: center; }
+        }
+        .case-arrow {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            z-index: 10;
+            width: 2.25rem; height: 2.25rem;
+            background: rgba(255,255,255,0.92);
+            border: 1px solid rgba(0,0,0,0.12);
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s ease, border-color .2s ease;
+        }
+        .case-arrow:hover { background: #fff; border-color: #000; }
+        .case-arrow-prev { left: 0.5rem; }
+        .case-arrow-next { right: 0.5rem; }
+        @media (min-width: 768px) {
+            .case-arrow { width: 3rem; height: 3rem; }
+            .case-arrow-prev { left: -1.5rem; }
+            .case-arrow-next { right: -1.5rem; }
+        }
+        .case-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; }
+        .case-dot { width: 0.5rem; height: 0.5rem; border-radius: 9999px; background: #d1d5db; transition: background .2s ease, width .2s ease; }
+        .case-dot.active { background: #000; width: 1.5rem; }
 
     </style>
 
@@ -374,60 +420,67 @@
         <!-- 4. CLIENT STORY (CASE STUDY CAROUSEL) -->
         <div class="py-20 md:py-32 bg-[#FAFAFA] border-t border-gray-100">
             <div class="container mx-auto px-6 md:px-12">
-                <div class="flex items-end justify-between mb-8 md:mb-12">
+                <div class="mb-8 md:mb-12">
                     <h2 class="section-header mb-0" style="margin-bottom:0" data-i18n="section_story">История клиента</h2>
-                    <div class="hidden md:flex gap-2">
-                        <button type="button" onclick="caseScroll(-1)" aria-label="Previous" class="w-10 h-10 border border-gray-300 hover:border-black flex items-center justify-center transition">
-                            <i data-lucide="arrow-left" class="lucide-icon" aria-hidden="true"></i>
-                        </button>
-                        <button type="button" onclick="caseScroll(1)" aria-label="Next" class="w-10 h-10 border border-gray-300 hover:border-black flex items-center justify-center transition">
-                            <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
-                        </button>
-                    </div>
                 </div>
 
-                <div id="case-carousel" class="no-scrollbar flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-6 md:mx-0 px-6 md:px-0 pb-2 scroll-smooth">
+                <div class="relative max-w-5xl mx-auto">
+                    <button type="button" onclick="setCaseCard(currentCaseIndex - 1)" aria-label="Previous" class="case-arrow case-arrow-prev">
+                        <i data-lucide="arrow-left" class="lucide-icon" aria-hidden="true"></i>
+                    </button>
+                    <button type="button" onclick="setCaseCard(currentCaseIndex + 1)" aria-label="Next" class="case-arrow case-arrow-next">
+                        <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
+                    </button>
 
-                    <!-- Card 1: Знакомство -->
-                    <article class="case-card snap-start shrink-0 w-[85vw] md:w-[440px] bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
-                        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
-                            <picture>
-                                <source type="image/webp" srcset="assets/photo3.webp">
-                                <img src="assets/photo3.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Анна — знакомство с Romeo">
-                            </picture>
-                        </div>
-                        <div class="p-6 md:p-8 flex flex-col gap-4">
-                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card1_label">01 · Знакомство</div>
-                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card1_title">Знакомство</h3>
-                            <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card1_body">Случайно увидела reel у Romeo в Instagram — фридайвер парил в лучах света на пяти метрах, кадр выглядел спокойным, без позёрства. Зашла на профиль, проскроллила ленту, потом нашла обсуждение в чате «Фридайвинг для девочек». Там писали про спокойствие и про то, что страшно не было даже у новичков. Написала в Telegram в тот же вечер — коротко, без референсов: «привет, я в Дахабе через две недели — есть слот?»</p>
-                        </div>
-                    </article>
+                    <div id="case-carousel" class="case-stack">
 
-                    <!-- Card 2: Съёмка -->
-                    <article class="case-card snap-start shrink-0 w-[85vw] md:w-[440px] bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
-                        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
-                            <img src="assets/photo5.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Анна — съёмка в воде">
-                        </div>
-                        <div class="p-6 md:p-8 flex flex-col gap-4">
-                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card2_label">02 · Съёмка</div>
-                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card2_title">Съёмка</h3>
-                            <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card2_body">Встретились в 8 утра у Coral Coast. Час на берегу: чай, разговор про страхи и референсы, тридцать минут дыхательной практики на коврике. В воде Romeo не торопил — сначала просто плавали, я привыкала к маске и температуре. Потом он показал, как зависать на 3–5 метрах, поправлял позы взглядом и всегда был на расстоянии вытянутой руки. Через час я держала статику по 20 секунд и забыла, что вообще боялась воды.</p>
-                        </div>
-                    </article>
+                        <!-- Card 1: Знакомство -->
+                        <article class="case-slide active" data-case-index="0">
+                            <div class="case-photo">
+                                <picture>
+                                    <source type="image/webp" srcset="assets/photo3.webp">
+                                    <img src="assets/photo3.jpg" loading="lazy" decoding="async" alt="Анна — знакомство с Romeo">
+                                </picture>
+                            </div>
+                            <div class="case-body">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card1_label">01 · Знакомство</div>
+                                <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card1_title">Знакомство</h3>
+                                <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card1_body">Случайно увидела reel у Romeo в Instagram — фридайвер парил в лучах света на пяти метрах, кадр выглядел спокойным, без позёрства. Зашла на профиль, проскроллила ленту, потом нашла обсуждение в чате «Фридайвинг для девочек». Там писали про спокойствие и про то, что страшно не было даже у новичков. Написала в Telegram в тот же вечер — коротко, без референсов: «привет, я в Дахабе через две недели — есть слот?»</p>
+                            </div>
+                        </article>
 
-                    <!-- Card 3: Результат -->
-                    <article class="case-card snap-start shrink-0 w-[85vw] md:w-[440px] bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
-                        <div class="aspect-[4/5] bg-gray-100 overflow-hidden">
-                            <img src="assets/photo7.jpg" loading="lazy" decoding="async" class="w-full h-full object-cover" alt="Анна — финальный кадр">
-                        </div>
-                        <div class="p-6 md:p-8 flex flex-col gap-4">
-                            <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card3_label">03 · Результат</div>
-                            <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card3_title">Результат</h3>
-                            <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card3_body">Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.</p>
-                            <a href="/result.html" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
-                        </div>
-                    </article>
+                        <!-- Card 2: Съёмка -->
+                        <article class="case-slide" data-case-index="1">
+                            <div class="case-photo">
+                                <img src="assets/photo5.jpg" loading="lazy" decoding="async" alt="Анна — съёмка в воде">
+                            </div>
+                            <div class="case-body">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card2_label">02 · Съёмка</div>
+                                <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card2_title">Съёмка</h3>
+                                <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card2_body">Встретились в 8 утра у Coral Coast. Час на берегу: чай, разговор про страхи и референсы, тридцать минут дыхательной практики на коврике. В воде Romeo не торопил — сначала просто плавали, я привыкала к маске и температуре. Потом он показал, как зависать на 3–5 метрах, поправлял позы взглядом и всегда был на расстоянии вытянутой руки. Через час я держала статику по 20 секунд и забыла, что вообще боялась воды.</p>
+                            </div>
+                        </article>
 
+                        <!-- Card 3: Результат -->
+                        <article class="case-slide" data-case-index="2">
+                            <div class="case-photo">
+                                <img src="assets/photo7.jpg" loading="lazy" decoding="async" alt="Анна — финальный кадр">
+                            </div>
+                            <div class="case-body">
+                                <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card3_label">03 · Результат</div>
+                                <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card3_title">Результат</h3>
+                                <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card3_body">Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.</p>
+                                <a href="/result.html" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <div class="case-dots" role="tablist" aria-label="Case study slides">
+                        <button type="button" class="case-dot active" onclick="setCaseCard(0)" aria-label="Slide 1"></button>
+                        <button type="button" class="case-dot" onclick="setCaseCard(1)" aria-label="Slide 2"></button>
+                        <button type="button" class="case-dot" onclick="setCaseCard(2)" aria-label="Slide 3"></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1373,13 +1426,16 @@
             m.classList.remove('open'); m.classList.add('closed');
         }
 
-        function caseScroll(dir) {
-            const c = document.getElementById('case-carousel');
-            if (!c) return;
-            const card = c.querySelector('.case-card');
-            if (!card) return;
-            const w = card.getBoundingClientRect().width + 24;
-            c.scrollBy({ left: dir * w, behavior: 'smooth' });
+        let currentCaseIndex = 0;
+        function setCaseCard(index) {
+            const slides = document.querySelectorAll('#case-carousel .case-slide');
+            const dots = document.querySelectorAll('.case-dot');
+            if (!slides.length) return;
+            const total = slides.length;
+            const i = ((index % total) + total) % total;
+            slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+            dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+            currentCaseIndex = i;
         }
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
