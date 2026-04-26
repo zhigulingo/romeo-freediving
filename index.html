@@ -151,7 +151,7 @@
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
 
         /* CASE STUDY CAROUSEL — flex track, translateX */
-        .case-viewport { position: relative; overflow: hidden; border-radius: 0.75rem; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); background: #fff; }
+        .case-viewport { position: relative; overflow: hidden; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); background: #fff; }
         .case-track { display: flex; width: 100%; transition: transform .4s ease; will-change: transform; }
         .case-slide { flex: 0 0 100%; min-width: 0; display: grid; grid-template-columns: 1fr; background: #fff; }
         .case-photo { aspect-ratio: 4 / 5; background: #f3f4f6; overflow: hidden; }
@@ -181,7 +181,7 @@
             .case-arrow-next { right: -1.5rem; }
         }
         .case-dots { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; }
-        .case-dot { width: 0.5rem; height: 0.5rem; border-radius: 9999px; background: #d1d5db; cursor: pointer; transition: background .2s ease, width .2s ease; border: 0; padding: 0; }
+        .case-dot { width: 0.5rem; height: 0.5rem; background: #d1d5db; cursor: pointer; transition: background .2s ease, width .2s ease; border: 0; padding: 0; }
         .case-dot.active { background: #000; width: 1.5rem; }
 
     </style>
