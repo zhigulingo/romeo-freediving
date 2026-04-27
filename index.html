@@ -305,7 +305,7 @@
                 <p class="text-sm md:text-base font-light tracking-wide text-gray-300 max-w-md mx-auto blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_subtitle">
                     Захватывающая подводная съёмка, которая передаёт красоту глубины и эмоции момента. Идеально для брендов, путешествий и личных проектов.
                 </p>
-                <button onclick="navTo('shooting')" class="mt-10 border border-white px-10 py-3 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_cta">Забронировать</button>
+                <button onclick="navTo('shooting')" data-goal="click_hero_cta" class="mt-10 border border-white px-10 py-3 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors blur-fade-in delay-500" style="opacity: 0;" data-i18n="hero_cta">Забронировать</button>
             </div>
             <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
                 <span class="text-[10px] tracking-widest uppercase text-white" data-i18n="scroll">Вниз</span>
@@ -448,7 +448,7 @@
                                     <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card3_label">03 · Результат</div>
                                     <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card3_title">Результат</h3>
                                     <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card3_body">Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.</p>
-                                    <a id="result-link" href="/result.html" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
+                                    <a id="result-link" href="/result.html" data-goal="click_view_case" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
                                 </div>
                             </article>
 
@@ -572,18 +572,18 @@
                     </div>
 
                     <div class="text-center">
-                        <button onclick="navTo('shooting')" class="inline-block bg-white text-black border border-white px-12 py-4 text-xs uppercase tracking-widest hover:bg-transparent hover:text-white transition-colors" data-i18n="cta_button">Посмотреть форматы и цены</button>
+                        <button onclick="navTo('shooting')" data-goal="click_main_cta_pricing" class="inline-block bg-white text-black border border-white px-12 py-4 text-xs uppercase tracking-widest hover:bg-transparent hover:text-white transition-colors" data-i18n="cta_button">Посмотреть форматы и цены</button>
                         <p class="text-xs text-gray-500 mt-5 max-w-md mx-auto" data-i18n="cta_note">Бесплатная консультация перед бронированием — расскажу, как пройдёт съёмка и какой формат подойдёт именно вам.</p>
                     </div>
 
                     <div class="mt-14 pt-10 border-t border-gray-900">
                         <p class="text-center text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-6" data-i18n="cta_direct">Или напишите напрямую</p>
                         <div class="flex flex-col md:flex-row gap-3 justify-center items-stretch md:items-center max-w-xl mx-auto">
-                            <a href="https://t.me/romeo_freediving" target="_blank" class="flex-1 border border-gray-700 px-6 py-4 inline-flex items-center justify-center gap-3 text-sm hover:border-white hover:text-cyan-400 transition-colors">
+                            <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_telegram_cta" class="flex-1 border border-gray-700 px-6 py-4 inline-flex items-center justify-center gap-3 text-sm hover:border-white hover:text-cyan-400 transition-colors">
                                 <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
                                 <span>Telegram · @romeo_freediving</span>
                             </a>
-                            <a href="https://wa.me/201069901876" target="_blank" class="flex-1 border border-gray-700 px-6 py-4 inline-flex items-center justify-center gap-3 text-sm hover:border-white hover:text-cyan-400 transition-colors">
+                            <a href="https://wa.me/201069901876" target="_blank" data-goal="click_whatsapp_cta" class="flex-1 border border-gray-700 px-6 py-4 inline-flex items-center justify-center gap-3 text-sm hover:border-white hover:text-cyan-400 transition-colors">
                                 <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
                                 <span>WhatsApp · +20 106 9901876</span>
                             </a>
@@ -672,7 +672,7 @@
                             </div>
                         </div>
                         
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="w-full block text-center border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_book_individual" class="w-full block text-center border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
                     </div>
                 </div>
 
@@ -744,7 +744,7 @@
                             </div>
                         </div>
                         
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="w-full block text-center border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_book_training" class="w-full block text-center border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_book">Забронировать</a>
                     </div>
                 </div>
             </div>
@@ -791,7 +791,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_package_1" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
 
                     <!-- Package 2: Full in-water — 300€ -->
@@ -822,7 +822,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_package_2" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
 
                     <!-- Package 3: Full land + water — 350€ -->
@@ -853,7 +853,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_package_3" class="block w-full text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
 
                 </div>
@@ -899,7 +899,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_course_personal" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
                     <div class="bg-white border border-gray-200 p-8 flex flex-col justify-between">
                         <div>
@@ -914,7 +914,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="https://t.me/romeo_freediving" target="_blank" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
+                        <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_course_wave" class="block w-full md:w-max text-center border border-black px-8 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="btn_enroll">Записаться</a>
                     </div>
                 </div>
             </div>
@@ -979,7 +979,7 @@
                     <span onclick="navTo('education')" class="cursor-pointer hover:text-white" data-i18n="footer_nav_education">Education</span>
                  </div>
                  <div class="flex flex-col items-start gap-4">
-                     <a href="https://t.me/romeo_freediving" target="_blank" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Contact Telegram</a>
+                     <a href="https://t.me/romeo_freediving" target="_blank" data-goal="click_telegram_footer" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Contact Telegram</a>
                      <div class="flex gap-4 text-lg text-white">
                          <a href="https://instagram.com/romeo_freediving" target="_blank" aria-label="Instagram Romeo Freediving" class="hover:text-cyan-400 transition"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                          <a href="https://www.youtube.com/@romeo_freediving" target="_blank" rel="noopener noreferrer" aria-label="YouTube Romeo Freediving" class="hover:text-red-500 transition"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.13-2.14C19.51 3.5 12 3.5 12 3.5s-7.51 0-9.37.56A3.02 3.02 0 0 0 .5 6.2C0 8.07 0 12 0 12s0 3.93.5 5.8a3.02 3.02 0 0 0 2.13 2.14C4.49 20.5 12 20.5 12 20.5s7.51 0 9.37-.56a3.02 3.02 0 0 0 2.13-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.8zM9.6 15.57V8.43L15.82 12 9.6 15.57z"/></svg></a>
@@ -1391,8 +1391,20 @@
         // Parse lang from ?lang=en query to honour hreflang alt URL
         let curLang = (new URLSearchParams(window.location.search).get('lang') === 'ru') ? 'ru' : 'en';
 
+        // --- Yandex.Metrika goal helper ---
+        function ymGoal(name, params) {
+            if (typeof ym === 'function') {
+                try { ym(108688475, 'reachGoal', name, params || {}); } catch (e) {}
+            }
+        }
+        document.addEventListener('click', function(e) {
+            const el = e.target.closest('[data-goal]');
+            if (el && el.dataset.goal) ymGoal(el.dataset.goal);
+        }, true);
+
         // 1. Navigation
         function navTo(page) {
+            ymGoal('view_' + page);
             const target = document.getElementById('page-'+page);
             const currentActive = document.querySelector('.page-section.active');
             
@@ -1466,7 +1478,7 @@
                         <div class="absolute inset-x-0 bottom-0 p-4 text-white">
                             <h4 class="font-light text-lg mb-1">${item.name}</h4>
                             <p class="text-xs text-white/70 mb-4">${item.priceFull}</p>
-                            <button class="w-full border border-white px-6 py-3 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="btn_rent" onclick="rentItem('${item.name}')">Арендовать</button>
+                            <button class="w-full border border-white px-6 py-3 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="btn_rent" data-goal="click_rental_item" onclick="rentItem('${item.name}')">Арендовать</button>
                         </div>
                     </div>
                 </div>
