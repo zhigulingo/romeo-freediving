@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Подводная съёмка фридайверов в Дахабе | Romeo Freediving</title>
     <meta name="description" content="Подводные фотосессии и видео с сертифицированным инструктором Molchanovs в Дахабе, Красное море. Безопасно для новичков, обработка 5–7 дней. Запись через Telegram.">
     <link rel="canonical" href="https://romeofreediving.com/">
-    <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/">
-    <link rel="alternate" hreflang="en" href="https://romeofreediving.com/?lang=en">
+    <link rel="alternate" hreflang="en" href="https://romeofreediving.com/">
+    <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/?lang=ru">
     <link rel="alternate" hreflang="x-default" href="https://romeofreediving.com/">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -233,9 +233,9 @@
     <!-- LANGUAGE SWITCHER (FIXED TOP) -->
     <div class="fixed top-0 left-0 w-full h-8 bg-black z-[80] hidden md:flex justify-end items-center px-4 md:px-12 border-b border-gray-800">
         <div class="text-[10px] font-bold tracking-widest text-white space-x-4 uppercase">
-            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru">RU</span>
             <span class="text-gray-600">|</span>
-            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en text-cyan-400">EN</span>
         </div>
     </div>
 
@@ -279,9 +279,9 @@
             <span onclick="navTo('education')" class="text-2xl text-white font-light tracking-widest uppercase" data-i18n="nav_education">Обучение</span>
         </nav>
         <div class="mt-12 text-sm font-bold tracking-[0.35em] text-white space-x-4 uppercase">
-            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+            <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru">RU</span>
             <span class="text-gray-600">|</span>
-            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+            <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en text-cyan-400">EN</span>
         </div>
     </div>
 
@@ -1389,7 +1389,7 @@
         // --- LOGIC ---
 
         // Parse lang from ?lang=en query to honour hreflang alt URL
-        let curLang = (new URLSearchParams(window.location.search).get('lang') === 'en') ? 'en' : 'ru';
+        let curLang = (new URLSearchParams(window.location.search).get('lang') === 'ru') ? 'ru' : 'en';
 
         // 1. Navigation
         function navTo(page) {
@@ -1556,7 +1556,7 @@
             document.querySelectorAll('.lang-ru').forEach(e => e.classList.toggle('text-cyan-400', l==='ru'));
             document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', l==='en'));
             const r = document.getElementById('result-link');
-            if (r) r.href = (l === 'en') ? '/result.html?lang=en' : '/result.html';
+            if (r) r.href = (l === 'ru') ? '/result.html?lang=ru' : '/result.html';
             updateTexts();
             renderBlog(currentBlogFilter);
         }
@@ -1573,9 +1573,8 @@
             else { m.classList.remove('open'); m.classList.add('closed'); }
         }
 
-        // Init translations (honours ?lang=en)
-        if (curLang === 'en') setLang('en');
-        else updateTexts();
+        // Init translations (default EN, ?lang=ru switches to Russian)
+        setLang(curLang);
         function initLucide() {
             if (window.lucide) lucide.createIcons({ attrs: { class: 'lucide-icon', 'stroke-width': 1.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' } });
         }

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page_title">Ваш Результат — Romeo Freediving</title>
     <meta name="description" data-i18n-content="meta_description" content="Что входит в результат подводной фотосессии: 50+ фото, видео 4K, исходники RAW и доступ к облачному архиву на 30 дней.">
     <link rel="canonical" href="https://romeofreediving.com/result.html">
-    <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/result.html">
-    <link rel="alternate" hreflang="en" href="https://romeofreediving.com/result.html?lang=en">
+    <link rel="alternate" hreflang="en" href="https://romeofreediving.com/result.html">
+    <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/result.html?lang=ru">
     <link rel="alternate" hreflang="x-default" href="https://romeofreediving.com/result.html">
     <link rel="icon" type="image/png" href="/assets/favicon.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -85,9 +85,9 @@
 
     <!-- LANG SWITCHER -->
     <div class="fixed top-6 right-6 z-50 text-xs uppercase tracking-widest text-white/70 select-none">
-        <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+        <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru">RU</span>
         <span class="mx-2 text-white/30">|</span>
-        <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+        <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en text-cyan-400">EN</span>
     </div>
 
     <!-- HERO -->
@@ -517,7 +517,7 @@
             }
         };
 
-        let curLang = (new URLSearchParams(window.location.search).get('lang') === 'en') ? 'en' : 'ru';
+        let curLang = (new URLSearchParams(window.location.search).get('lang') === 'ru') ? 'ru' : 'en';
 
         function updateTexts() {
             const dict = translations[curLang];
@@ -534,16 +534,16 @@
         }
 
         function setLang(l) {
-            curLang = (l === 'en') ? 'en' : 'ru';
+            curLang = (l === 'ru') ? 'ru' : 'en';
             document.querySelectorAll('.lang-ru').forEach(e => e.classList.toggle('text-cyan-400', curLang === 'ru'));
             document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', curLang === 'en'));
             const url = new URL(window.location.href);
-            if (curLang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+            if (curLang === 'ru') url.searchParams.set('lang', 'ru'); else url.searchParams.delete('lang');
             history.replaceState(null, '', url.toString());
             updateTexts();
         }
 
-        if (curLang === 'en') setLang('en');
+        setLang(curLang);
 
         function animateCounters() {
             document.querySelectorAll('.counter').forEach(el => {
