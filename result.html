@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ваш Результат — Romeo Freediving</title>
-    <meta name="description" content="Что входит в результат подводной фотосессии: 50+ фото, видео 4K, исходники RAW и доступ к облачному архиву на 30 дней.">
+    <title data-i18n="page_title">Ваш Результат — Romeo Freediving</title>
+    <meta name="description" data-i18n-content="meta_description" content="Что входит в результат подводной фотосессии: 50+ фото, видео 4K, исходники RAW и доступ к облачному архиву на 30 дней.">
     <link rel="canonical" href="https://romeofreediving.com/result.html">
     <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/result.html">
     <link rel="alternate" hreflang="en" href="https://romeofreediving.com/result.html?lang=en">
@@ -26,8 +26,8 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://romeofreediving.com/result.html">
-    <meta property="og:title" content="Ваш Результат — Romeo Freediving">
-    <meta property="og:description" content="50+ обработанных фото, 4K видео, исходники RAW и облачный архив на 30 дней.">
+    <meta property="og:title" data-i18n-content="og_title" content="Ваш Результат — Romeo Freediving">
+    <meta property="og:description" data-i18n-content="og_description" content="50+ обработанных фото, 4K видео, исходники RAW и облачный архив на 30 дней.">
     <meta property="og:image" content="https://romeofreediving.com/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -36,8 +36,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ваш Результат — Romeo Freediving">
-    <meta name="twitter:description" content="50+ фото, 4K видео и облачный архив после съёмки в Дахабе.">
+    <meta name="twitter:title" data-i18n-content="og_title" content="Ваш Результат — Romeo Freediving">
+    <meta name="twitter:description" data-i18n-content="twitter_description" content="50+ фото, 4K видео и облачный архив после съёмки в Дахабе.">
     <meta name="twitter:image" content="https://romeofreediving.com/assets/og-image.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -83,6 +83,13 @@
 </head>
 <body>
 
+    <!-- LANG SWITCHER -->
+    <div class="fixed top-6 right-6 z-50 text-xs uppercase tracking-widest text-white/70 select-none">
+        <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru text-cyan-400">RU</span>
+        <span class="mx-2 text-white/30">|</span>
+        <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en">EN</span>
+    </div>
+
     <!-- HERO -->
     <section class="relative h-screen flex items-center justify-center">
         <video class="hero-video" autoplay muted loop playsinline>
@@ -90,11 +97,11 @@
         </video>
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black"></div>
         <div class="relative z-10 text-center px-6" data-aos="fade-up" data-aos-duration="1200">
-            <p class="text-accent uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">Romeo Freediving</p>
+            <p class="text-accent uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium" data-i18n="hero_eyebrow">Romeo Freediving</p>
             <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-6">
-                <span class="gradient-text">Ваш Результат</span>
+                <span class="gradient-text" data-i18n="hero_h1">Ваш Результат</span>
             </h1>
-            <p class="text-lg md:text-xl text-white/60 max-w-xl mx-auto font-light">
+            <p class="text-lg md:text-xl text-white/60 max-w-xl mx-auto font-light" data-i18n="hero_sub">
                 Профессиональные фото и видео материалы вашего погружения
             </p>
         </div>
@@ -106,9 +113,9 @@
     <!-- PHOTO GRID -->
     <section class="py-24 md:py-32 px-6 max-w-7xl mx-auto">
         <div class="text-center mb-16" data-aos="fade-up">
-            <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-semibold">Фотографии</p>
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-4">50+ фото</h2>
-            <p class="text-white/50 text-lg max-w-md mx-auto">Каждый кадр — отобран и обработан вручную</p>
+            <p class="text-accent uppercase tracking-[0.2em] text-sm mb-4 font-semibold" data-i18n="photos_eyebrow">Фотографии</p>
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-4" data-i18n="photos_h2">50+ фото</h2>
+            <p class="text-white/50 text-lg max-w-md mx-auto" data-i18n="photos_sub">Каждый кадр — отобран и обработан вручную</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4" data-aos="fade-up" data-aos-delay="200">
             <div class="photo-item row-span-2">
@@ -141,12 +148,12 @@
         <div class="relative z-10 text-center px-6" data-aos="zoom-in" data-aos-duration="1000">
             <div class="inline-flex items-center gap-2 glass px-5 py-2 mb-8">
                 <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                <span class="text-sm text-white/80">4K Ultra HD</span>
+                <span class="text-sm text-white/80" data-i18n="video_badge">4K Ultra HD</span>
             </div>
             <h2 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4">
-                <span class="text-accent">5</span> видео
+                <span class="text-accent">5</span> <span data-i18n="video_h2_word">видео</span>
             </h2>
-            <p class="text-white/50 text-lg">Кинематографичное качество каждого ролика</p>
+            <p class="text-white/50 text-lg" data-i18n="video_sub">Кинематографичное качество каждого ролика</p>
         </div>
     </section>
 
@@ -154,8 +161,8 @@
     <section class="py-24 md:py-32 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Что вы получите</h2>
-                <p class="text-white/50 text-lg">Полный пакет материалов</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-i18n="numbers_h2">Что вы получите</h2>
+                <p class="text-white/50 text-lg" data-i18n="numbers_sub">Полный пакет материалов</p>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <div class="glass p-8 text-center" data-aos="fade-up" data-aos-delay="0">
@@ -163,28 +170,28 @@
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
                     </div>
                     <div class="text-4xl md:text-5xl font-extrabold counter mb-2" data-target="50" data-suffix="+">0</div>
-                    <p class="text-white/50 text-sm">фото</p>
+                    <p class="text-white/50 text-sm" data-i18n="numbers_photos">фото</p>
                 </div>
                 <div class="glass p-8 text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex justify-center mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                     </div>
                     <div class="text-4xl md:text-5xl font-extrabold counter mb-2" data-target="5" data-suffix="">0</div>
-                    <p class="text-white/50 text-sm">видео</p>
+                    <p class="text-white/50 text-sm" data-i18n="numbers_videos">видео</p>
                 </div>
                 <div class="glass p-8 text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex justify-center mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                     </div>
                     <div class="text-4xl md:text-5xl font-extrabold mb-2 text-accent">RAW</div>
-                    <p class="text-white/50 text-sm">формат</p>
+                    <p class="text-white/50 text-sm" data-i18n="numbers_raw">формат</p>
                 </div>
                 <div class="glass p-8 text-center" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex justify-center mb-4">
                         <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     </div>
                     <div class="text-4xl md:text-5xl font-extrabold counter mb-2" data-target="30" data-suffix="">0</div>
-                    <p class="text-white/50 text-sm">дней хранения</p>
+                    <p class="text-white/50 text-sm" data-i18n="numbers_days">дней хранения</p>
                 </div>
             </div>
         </div>
@@ -194,30 +201,30 @@
     <section class="py-24 md:py-32 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Ваша папка</h2>
-                <p class="text-white/50 text-lg">Все файлы — структурированы и подписаны</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-i18n="folder_h2">Ваша папка</h2>
+                <p class="text-white/50 text-lg" data-i18n="folder_sub">Все файлы — структурированы и подписаны</p>
             </div>
             <div class="finder-window shadow-2xl shadow-accent/5" data-aos="fade-up" data-aos-delay="200">
                 <div class="finder-titlebar">
                     <div class="finder-dot bg-[#ff5f57]"></div>
                     <div class="finder-dot bg-[#febc2e]"></div>
                     <div class="finder-dot bg-[#28c840]"></div>
-                    <span class="ml-4 text-sm text-white/50 flex-1 text-center">Romeo Freediving — Ваши материалы</span>
+                    <span class="ml-4 text-sm text-white/50 flex-1 text-center" data-i18n="folder_titlebar">Romeo Freediving — Ваши материалы</span>
                 </div>
                 <div class="flex min-h-[360px]">
                     <div class="finder-sidebar w-48 md:w-56 py-3 hidden md:block">
-                        <div class="px-4 py-1 text-[11px] uppercase tracking-wider text-white/30 font-semibold">Избранное</div>
+                        <div class="px-4 py-1 text-[11px] uppercase tracking-wider text-white/30 font-semibold" data-i18n="folder_favorites">Избранное</div>
                         <div class="finder-item active">
                             <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
-                            Romeo Freediving
+                            <span>Romeo Freediving</span>
                         </div>
                         <div class="finder-item">
                             <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                            Загрузки
+                            <span data-i18n="folder_downloads">Загрузки</span>
                         </div>
                         <div class="finder-item">
                             <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg>
-                            Рабочий стол
+                            <span data-i18n="folder_desktop">Рабочий стол</span>
                         </div>
                     </div>
                     <div class="flex-1 p-4 md:p-6">
@@ -225,7 +232,7 @@
                             <div class="finder-item bg-accent/10">
                                 <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
                                 <span class="text-accent font-medium">Photos/</span>
-                                <span class="ml-auto text-white/30 text-xs">50+ файлов</span>
+                                <span class="ml-auto text-white/30 text-xs" data-i18n="folder_files_50">50+ файлов</span>
                             </div>
                             <div class="finder-item pl-10">
                                 <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -238,12 +245,12 @@
                                 <span class="ml-auto text-white/30 text-xs">11.8 MB</span>
                             </div>
                             <div class="finder-item pl-10">
-                                <span class="text-white/30 text-xs italic">... ещё 48 файлов</span>
+                                <span class="text-white/30 text-xs italic" data-i18n="folder_more">... ещё 48 файлов</span>
                             </div>
                             <div class="finder-item bg-accent/10 mt-2">
                                 <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
                                 <span class="text-accent font-medium">Videos/</span>
-                                <span class="ml-auto text-white/30 text-xs">5 файлов</span>
+                                <span class="ml-auto text-white/30 text-xs" data-i18n="folder_files_5">5 файлов</span>
                             </div>
                             <div class="finder-item pl-10">
                                 <svg class="w-4 h-4 text-white/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
@@ -258,7 +265,7 @@
                             <div class="finder-item bg-accent/10 mt-2">
                                 <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>
                                 <span class="text-accent font-medium">RAW/</span>
-                                <span class="ml-auto text-white/30 text-xs">50+ файлов</span>
+                                <span class="ml-auto text-white/30 text-xs" data-i18n="folder_files_50">50+ файлов</span>
                             </div>
                         </div>
                     </div>
@@ -271,8 +278,8 @@
     <section class="py-24 md:py-32 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-20" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Как получить файлы</h2>
-                <p class="text-white/50 text-lg">Три простых шага</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-i18n="steps_h2">Как получить файлы</h2>
+                <p class="text-white/50 text-lg" data-i18n="steps_sub">Три простых шага</p>
             </div>
             <div class="relative">
                 <div class="timeline-line hidden md:block"></div>
@@ -281,8 +288,8 @@
                         <div class="md:w-1/2 md:text-right md:pr-16">
                             <div class="glass p-8">
                                 <div class="inline-flex items-center justify-center w-12 h-12 bg-accent/20 text-accent font-extrabold text-lg mb-4">1</div>
-                                <h3 class="text-2xl font-bold mb-3">Получите ссылку</h3>
-                                <p class="text-white/50">Мы отправим персональную ссылку на облачное хранилище в Telegram в течение 3-5 дней после съёмки</p>
+                                <h3 class="text-2xl font-bold mb-3" data-i18n="step1_title">Получите ссылку</h3>
+                                <p class="text-white/50" data-i18n="step1_text">Мы отправим персональную ссылку на облачное хранилище в Telegram в течение 3-5 дней после съёмки</p>
                             </div>
                         </div>
                         <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-accent border-4 border-black z-10"></div>
@@ -294,8 +301,8 @@
                         <div class="md:w-1/2 md:pl-16">
                             <div class="glass p-8">
                                 <div class="inline-flex items-center justify-center w-12 h-12 bg-accent/20 text-accent font-extrabold text-lg mb-4">2</div>
-                                <h3 class="text-2xl font-bold mb-3">Скачайте файлы</h3>
-                                <p class="text-white/50">Загрузите все фото и видео на ваше устройство. Файлы доступны 30 дней</p>
+                                <h3 class="text-2xl font-bold mb-3" data-i18n="step2_title">Скачайте файлы</h3>
+                                <p class="text-white/50" data-i18n="step2_text">Загрузите все фото и видео на ваше устройство. Файлы доступны 30 дней</p>
                             </div>
                         </div>
                     </div>
@@ -303,8 +310,8 @@
                         <div class="md:w-1/2 md:text-right md:pr-16">
                             <div class="glass p-8">
                                 <div class="inline-flex items-center justify-center w-12 h-12 bg-accent/20 text-accent font-extrabold text-lg mb-4">3</div>
-                                <h3 class="text-2xl font-bold mb-3">Делитесь</h3>
-                                <p class="text-white/50">Публикуйте в соцсетях, отправляйте друзьям. Отметьте нас @romeofreediving — будем рады!</p>
+                                <h3 class="text-2xl font-bold mb-3" data-i18n="step3_title">Делитесь</h3>
+                                <p class="text-white/50" data-i18n="step3_text">Публикуйте в соцсетях, отправляйте друзьям. Отметьте нас @romeofreediving — будем рады!</p>
                             </div>
                         </div>
                         <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-accent border-4 border-black z-10"></div>
@@ -319,52 +326,52 @@
     <section class="py-24 md:py-32 px-6">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Вопросы и ответы</h2>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-i18n="faq_h2">Вопросы и ответы</h2>
             </div>
             <div class="space-y-3" data-aos="fade-up" data-aos-delay="100">
                 <div class="glass overflow-hidden">
                     <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-lg">В каком формате я получу фото?</span>
+                        <span class="font-semibold text-lg" data-i18n="faq_q1">В каком формате я получу фото?</span>
                         <svg class="faq-chevron w-5 h-5 text-accent flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer px-6 text-white/60">
-                        <p class="pb-5">Вы получите обработанные JPEG в высоком разрешении, а также исходные RAW файлы для самостоятельной обработки.</p>
+                        <p class="pb-5" data-i18n="faq_a1">Вы получите обработанные JPEG в высоком разрешении, а также исходные RAW файлы для самостоятельной обработки.</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden">
                     <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-lg">Сколько времени занимает обработка?</span>
+                        <span class="font-semibold text-lg" data-i18n="faq_q2">Сколько времени занимает обработка?</span>
                         <svg class="faq-chevron w-5 h-5 text-accent flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer px-6 text-white/60">
-                        <p class="pb-5">Обработка занимает от 3 до 5 дней. Мы уделяем внимание каждому кадру, чтобы результат был идеальным.</p>
+                        <p class="pb-5" data-i18n="faq_a2">Обработка занимает от 3 до 5 дней. Мы уделяем внимание каждому кадру, чтобы результат был идеальным.</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden">
                     <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-lg">Могу ли я использовать материалы коммерчески?</span>
+                        <span class="font-semibold text-lg" data-i18n="faq_q3">Могу ли я использовать материалы коммерчески?</span>
                         <svg class="faq-chevron w-5 h-5 text-accent flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer px-6 text-white/60">
-                        <p class="pb-5">Да, все материалы принадлежат вам. Вы можете использовать их в любых целях, включая коммерческие.</p>
+                        <p class="pb-5" data-i18n="faq_a3">Да, все материалы принадлежат вам. Вы можете использовать их в любых целях, включая коммерческие.</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden">
                     <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-lg">Что если ссылка перестанет работать?</span>
+                        <span class="font-semibold text-lg" data-i18n="faq_q4">Что если ссылка перестанет работать?</span>
                         <svg class="faq-chevron w-5 h-5 text-accent flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer px-6 text-white/60">
-                        <p class="pb-5">Файлы хранятся 30 дней. Если ссылка истекла, напишите нам в Telegram — мы продлим доступ.</p>
+                        <p class="pb-5" data-i18n="faq_a4">Файлы хранятся 30 дней. Если ссылка истекла, напишите нам в Telegram — мы продлим доступ.</p>
                     </div>
                 </div>
                 <div class="glass overflow-hidden">
                     <button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left" onclick="toggleFaq(this)">
-                        <span class="font-semibold text-lg">Какое качество видео?</span>
+                        <span class="font-semibold text-lg" data-i18n="faq_q5">Какое качество видео?</span>
                         <svg class="faq-chevron w-5 h-5 text-accent flex-shrink-0 ml-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </button>
                     <div class="faq-answer px-6 text-white/60">
-                        <p class="pb-5">Все видео снимаются и доставляются в разрешении 4K (3840x2160) с профессиональной цветокоррекцией.</p>
+                        <p class="pb-5" data-i18n="faq_a5">Все видео снимаются и доставляются в разрешении 4K (3840x2160) с профессиональной цветокоррекцией.</p>
                     </div>
                 </div>
             </div>
@@ -374,12 +381,12 @@
     <!-- CTA -->
     <section class="py-24 md:py-32 px-6">
         <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-6">Остались вопросы?</h2>
-            <p class="text-white/50 text-lg mb-10 max-w-md mx-auto">Напишите нам в Telegram и мы поможем с любым вопросом</p>
+            <h2 class="text-4xl md:text-6xl font-extrabold mb-6" data-i18n="cta_h2">Остались вопросы?</h2>
+            <p class="text-white/50 text-lg mb-10 max-w-md mx-auto" data-i18n="cta_sub">Напишите нам в Telegram и мы поможем с любым вопросом</p>
             <a href="https://t.me/romeofreediving" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-3 bg-accent hover:bg-accent/90 text-black font-bold text-lg px-10 py-4 transition-all hover:scale-105 hover:shadow-lg hover:shadow-accent/25">
                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                Написать в Telegram
+                <span data-i18n="cta_button">Написать в Telegram</span>
             </a>
         </div>
     </section>
@@ -387,14 +394,156 @@
     <!-- FOOTER -->
     <footer class="bg-black border-t border-white/10 py-10 px-6">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="text-white/30 text-sm">Romeo Freediving</p>
-            <p class="text-white/20 text-xs">Все материалы хранятся 30 дней после отправки</p>
+            <p class="text-white/30 text-sm" data-i18n="footer_brand">Romeo Freediving</p>
+            <p class="text-white/20 text-xs" data-i18n="footer_note">Все материалы хранятся 30 дней после отправки</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, duration: 800, offset: 100 });
+
+        // i18n
+        const translations = {
+            ru: {
+                page_title: "Ваш Результат — Romeo Freediving",
+                meta_description: "Что входит в результат подводной фотосессии: 50+ фото, видео 4K, исходники RAW и доступ к облачному архиву на 30 дней.",
+                og_title: "Ваш Результат — Romeo Freediving",
+                og_description: "50+ обработанных фото, 4K видео, исходники RAW и облачный архив на 30 дней.",
+                twitter_description: "50+ фото, 4K видео и облачный архив после съёмки в Дахабе.",
+                hero_eyebrow: "Romeo Freediving",
+                hero_h1: "Ваш Результат",
+                hero_sub: "Профессиональные фото и видео материалы вашего погружения",
+                photos_eyebrow: "Фотографии",
+                photos_h2: "50+ фото",
+                photos_sub: "Каждый кадр — отобран и обработан вручную",
+                video_badge: "4K Ultra HD",
+                video_h2_word: "видео",
+                video_sub: "Кинематографичное качество каждого ролика",
+                numbers_h2: "Что вы получите",
+                numbers_sub: "Полный пакет материалов",
+                numbers_photos: "фото",
+                numbers_videos: "видео",
+                numbers_raw: "формат",
+                numbers_days: "дней хранения",
+                folder_h2: "Ваша папка",
+                folder_sub: "Все файлы — структурированы и подписаны",
+                folder_titlebar: "Romeo Freediving — Ваши материалы",
+                folder_favorites: "Избранное",
+                folder_downloads: "Загрузки",
+                folder_desktop: "Рабочий стол",
+                folder_files_50: "50+ файлов",
+                folder_files_5: "5 файлов",
+                folder_more: "... ещё 48 файлов",
+                steps_h2: "Как получить файлы",
+                steps_sub: "Три простых шага",
+                step1_title: "Получите ссылку",
+                step1_text: "Мы отправим персональную ссылку на облачное хранилище в Telegram в течение 3-5 дней после съёмки",
+                step2_title: "Скачайте файлы",
+                step2_text: "Загрузите все фото и видео на ваше устройство. Файлы доступны 30 дней",
+                step3_title: "Делитесь",
+                step3_text: "Публикуйте в соцсетях, отправляйте друзьям. Отметьте нас @romeofreediving — будем рады!",
+                faq_h2: "Вопросы и ответы",
+                faq_q1: "В каком формате я получу фото?",
+                faq_a1: "Вы получите обработанные JPEG в высоком разрешении, а также исходные RAW файлы для самостоятельной обработки.",
+                faq_q2: "Сколько времени занимает обработка?",
+                faq_a2: "Обработка занимает от 3 до 5 дней. Мы уделяем внимание каждому кадру, чтобы результат был идеальным.",
+                faq_q3: "Могу ли я использовать материалы коммерчески?",
+                faq_a3: "Да, все материалы принадлежат вам. Вы можете использовать их в любых целях, включая коммерческие.",
+                faq_q4: "Что если ссылка перестанет работать?",
+                faq_a4: "Файлы хранятся 30 дней. Если ссылка истекла, напишите нам в Telegram — мы продлим доступ.",
+                faq_q5: "Какое качество видео?",
+                faq_a5: "Все видео снимаются и доставляются в разрешении 4K (3840x2160) с профессиональной цветокоррекцией.",
+                cta_h2: "Остались вопросы?",
+                cta_sub: "Напишите нам в Telegram и мы поможем с любым вопросом",
+                cta_button: "Написать в Telegram",
+                footer_brand: "Romeo Freediving",
+                footer_note: "Все материалы хранятся 30 дней после отправки"
+            },
+            en: {
+                page_title: "Your Result — Romeo Freediving",
+                meta_description: "What's included after a Romeo Freediving underwater shoot: 50+ photos, 4K video, RAW files and 30-day cloud archive.",
+                og_title: "Your Result — Romeo Freediving",
+                og_description: "50+ edited photos, 4K video, RAW files and a 30-day cloud archive.",
+                twitter_description: "50+ photos, 4K video and a cloud archive after your Dahab freediving shoot.",
+                hero_eyebrow: "Romeo Freediving",
+                hero_h1: "Your Result",
+                hero_sub: "Professional photo and video material from your dive",
+                photos_eyebrow: "Photos",
+                photos_h2: "50+ photos",
+                photos_sub: "Every shot — hand-picked and edited",
+                video_badge: "4K Ultra HD",
+                video_h2_word: "videos",
+                video_sub: "Cinematic quality on every clip",
+                numbers_h2: "What you'll get",
+                numbers_sub: "The full set of materials",
+                numbers_photos: "photos",
+                numbers_videos: "videos",
+                numbers_raw: "format",
+                numbers_days: "days of storage",
+                folder_h2: "Your folder",
+                folder_sub: "All files — sorted and labelled",
+                folder_titlebar: "Romeo Freediving — Your materials",
+                folder_favorites: "Favorites",
+                folder_downloads: "Downloads",
+                folder_desktop: "Desktop",
+                folder_files_50: "50+ files",
+                folder_files_5: "5 files",
+                folder_more: "... 48 more files",
+                steps_h2: "How to get your files",
+                steps_sub: "Three simple steps",
+                step1_title: "Get the link",
+                step1_text: "We'll send a personal cloud-storage link via Telegram within 3–5 days after the shoot",
+                step2_title: "Download files",
+                step2_text: "Save all photos and videos to your device. Files stay available for 30 days",
+                step3_title: "Share",
+                step3_text: "Post to social, send to friends. Tag @romeofreediving — we'd love to see it!",
+                faq_h2: "Questions & Answers",
+                faq_q1: "What format are the photos in?",
+                faq_a1: "You receive edited high-resolution JPEGs plus the original RAW files for your own post-processing.",
+                faq_q2: "How long does editing take?",
+                faq_a2: "Editing takes 3 to 5 days. We give attention to every frame so the result is perfect.",
+                faq_q3: "Can I use the materials commercially?",
+                faq_a3: "Yes, all materials belong to you. You can use them for any purpose, including commercial.",
+                faq_q4: "What if the link stops working?",
+                faq_a4: "Files are stored for 30 days. If the link expires, message us on Telegram — we'll extend access.",
+                faq_q5: "What's the video quality?",
+                faq_a5: "All videos are shot and delivered in 4K (3840×2160) with professional colour grading.",
+                cta_h2: "Still have questions?",
+                cta_sub: "Message us on Telegram and we'll help with anything",
+                cta_button: "Message on Telegram",
+                footer_brand: "Romeo Freediving",
+                footer_note: "All materials are stored for 30 days after delivery"
+            }
+        };
+
+        let curLang = (new URLSearchParams(window.location.search).get('lang') === 'en') ? 'en' : 'ru';
+
+        function updateTexts() {
+            const dict = translations[curLang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const k = el.getAttribute('data-i18n');
+                if (dict[k] !== undefined) el.textContent = dict[k];
+            });
+            document.querySelectorAll('[data-i18n-content]').forEach(el => {
+                const k = el.getAttribute('data-i18n-content');
+                if (dict[k] !== undefined) el.setAttribute('content', dict[k]);
+            });
+            if (dict.page_title) document.title = dict.page_title;
+            document.documentElement.lang = curLang;
+        }
+
+        function setLang(l) {
+            curLang = (l === 'en') ? 'en' : 'ru';
+            document.querySelectorAll('.lang-ru').forEach(e => e.classList.toggle('text-cyan-400', curLang === 'ru'));
+            document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', curLang === 'en'));
+            const url = new URL(window.location.href);
+            if (curLang === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+            history.replaceState(null, '', url.toString());
+            updateTexts();
+        }
+
+        if (curLang === 'en') setLang('en');
 
         function animateCounters() {
             document.querySelectorAll('.counter').forEach(el => {

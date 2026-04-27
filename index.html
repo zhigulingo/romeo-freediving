@@ -448,7 +448,7 @@
                                     <div class="text-[11px] uppercase tracking-[0.3em] text-cyan-600" data-i18n="case_card3_label">03 · Результат</div>
                                     <h3 class="text-xl md:text-2xl font-light leading-snug text-black" data-i18n="case_card3_title">Результат</h3>
                                     <p class="text-sm md:text-base text-gray-600 font-light leading-relaxed" data-i18n="case_card3_body">Через 6 дней пришла ссылка на облако: 23 обработанных фото и 3 коротких видео 9:16 для Stories. Открыла на ноутбуке и расплакалась — увидела себя такой, какой давно не помнила. Спокойной, без зажима в плечах, в своём теле. «Это была не просто фотосессия — это был один из лучших дней моей жизни». — Анна, 32 года, Москва.</p>
-                                    <a href="/result.html" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
+                                    <a id="result-link" href="/result.html" class="self-start mt-2 border border-black px-6 py-3 text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-colors" data-i18n="case_card3_cta">Посмотреть итоговый результат →</a>
                                 </div>
                             </article>
 
@@ -1555,6 +1555,8 @@
             document.documentElement.lang = l;
             document.querySelectorAll('.lang-ru').forEach(e => e.classList.toggle('text-cyan-400', l==='ru'));
             document.querySelectorAll('.lang-en').forEach(e => e.classList.toggle('text-cyan-400', l==='en'));
+            const r = document.getElementById('result-link');
+            if (r) r.href = (l === 'en') ? '/result.html?lang=en' : '/result.html';
             updateTexts();
             renderBlog(currentBlogFilter);
         }
