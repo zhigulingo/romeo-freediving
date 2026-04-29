@@ -1606,9 +1606,9 @@
         setLang(curLang);
 
         // --- Cookie banner (informational, soft consent) ---
-        (function(){
+        function initCookieBanner(){
             var KEY = "cookie_consent_v1";
-            if (localStorage.getItem(KEY)) return;
+            try { if (localStorage.getItem(KEY)) return; } catch(e){}
             var b = document.getElementById("cookie-banner");
             if (!b) return;
             b.style.display = "block";
@@ -1619,7 +1619,12 @@
                     b.style.display = "none";
                 });
             }
-        })();
+        }
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initCookieBanner);
+        } else {
+            initCookieBanner();
+        }
         function initLucide() {
             if (window.lucide) lucide.createIcons({ attrs: { class: 'lucide-icon', 'stroke-width': 1.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' } });
         }
