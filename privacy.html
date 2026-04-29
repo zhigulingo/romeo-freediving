@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">Privacy Policy — Romeo Freediving</title>
+    <meta name="description" data-i18n-content="meta_description" content="Privacy and cookie policy for romeofreediving.com">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://romeofreediving.com/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://romeofreediving.com/privacy.html">
+    <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/privacy.html?lang=ru">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { accent: '#00bcd4' }, fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] } } } };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #fff; }
+        a { color: #00bcd4; }
+        a:hover { text-decoration: underline; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 24px; }
+        h2 { font-size: 1.4rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; }
+        p { color: rgba(255,255,255,.75); line-height: 1.7; margin-bottom: 12px; }
+        ul { color: rgba(255,255,255,.75); line-height: 1.7; margin: 8px 0 16px 24px; list-style: disc; }
+        .updated { color: rgba(255,255,255,.4); font-size: 13px; margin-top: 48px; }
+        /* Cookie banner */
+        #cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(15,15,20,.96); color: #fff; padding: 12px 20px; border-top: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 13px; line-height: 1.5; }
+        #cookie-banner .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        #cookie-banner .cookie-link { color: inherit; text-decoration: underline; opacity: .75; font-size: 13px; }
+        #cookie-banner .cookie-link:hover { opacity: 1; }
+        #cookie-accept { cursor: pointer; padding: 8px 18px; background: #fff; color: #0a0a0a; border: 0; border-radius: 999px; font-weight: 600; font-size: 13px; font-family: inherit; }
+        #cookie-accept:hover { background: #e8e8e8; }
+        @media (max-width: 600px) {
+            #cookie-banner .cookie-inner { gap: 10px; justify-content: flex-start; }
+            #cookie-accept { margin-left: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fixed top-6 right-6 z-50 text-xs uppercase tracking-widest text-white/70 select-none">
+        <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru">RU</span>
+        <span class="mx-2 text-white/30">|</span>
+        <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en text-cyan-400">EN</span>
+    </div>
+
+    <main class="max-w-2xl mx-auto px-6 py-20">
+        <a href="/" class="text-sm text-white/50 hover:text-accent" data-i18n="back_link">← Back to site</a>
+
+        <h1 data-i18n="priv_h1" class="mt-8">Privacy &amp; Cookie Policy</h1>
+        <p data-i18n="priv_intro">This page explains what data we collect on romeofreediving.com and why. Romeo Freediving is an individual photographer based in Dahab, Egypt. By using this site you agree to the practices described below.</p>
+
+        <h2 data-i18n="priv_h2_data">What we collect</h2>
+        <p data-i18n="priv_data">We do not run user accounts and do not collect names or contact details directly through this site. The site uses cookies and similar technologies to measure traffic and ad performance. This includes anonymous identifiers, browser and device info, approximate location, pages viewed, and referring source.</p>
+
+        <h2 data-i18n="priv_h2_purpose">Why we use it</h2>
+        <p data-i18n="priv_purpose">To understand which pages and ads work, to improve the site, and to show relevant ads on third-party platforms. We do not sell personal data.</p>
+
+        <h2 data-i18n="priv_h2_processors">Third-party services</h2>
+        <ul>
+            <li data-i18n="priv_proc_ym">Yandex Metrica — analytics and visit recording.</li>
+            <li data-i18n="priv_proc_meta">Meta Pixel (Facebook / Instagram) — ad attribution and audience building.</li>
+            <li data-i18n="priv_proc_google">Google Fonts &amp; CDN — typography and script delivery.</li>
+        </ul>
+        <p data-i18n="priv_proc_note">Each of these services has its own privacy policy and may transfer data outside your country. You can opt out via your browser settings or platform-specific tools.</p>
+
+        <h2 data-i18n="priv_h2_rights">Your choices</h2>
+        <p data-i18n="priv_rights">You can clear cookies in your browser at any time, use private/incognito mode, or install a tracker-blocking extension. Mobile users can reset advertising IDs in system settings.</p>
+
+        <h2 data-i18n="priv_h2_contact">Contact</h2>
+        <p data-i18n="priv_contact">Questions or removal requests — message us on Telegram (link in the site menu) or write to the contact address listed there.</p>
+
+        <p class="updated" data-i18n="priv_updated">Last updated: 28 April 2026</p>
+    </main>
+
+    <div id="cookie-banner" role="region" aria-label="Cookie notice" style="display:none;">
+        <div class="cookie-inner">
+            <span data-i18n="cookie_text">We use cookies for analytics and ad performance. By using this site you agree.</span>
+            <a href="/privacy.html" data-i18n="cookie_privacy" class="cookie-link">Privacy</a>
+            <button type="button" id="cookie-accept" data-i18n="cookie_accept">Got it</button>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            ru: {
+                page_title: "Политика конфиденциальности — Romeo Freediving",
+                meta_description: "Политика конфиденциальности и cookies для romeofreediving.com",
+                back_link: "← На сайт",
+                priv_h1: "Политика конфиденциальности и cookies",
+                priv_intro: "Эта страница описывает, какие данные мы собираем на romeofreediving.com и зачем. Romeo Freediving — индивидуальный фотограф из Дахаба, Египет. Используя сайт, вы соглашаетесь с описанными практиками.",
+                priv_h2_data: "Какие данные собираем",
+                priv_data: "Мы не ведём аккаунты пользователей и не собираем имена и контакты напрямую через сайт. Сайт использует cookies и схожие технологии для измерения трафика и эффективности рекламы. Это анонимные идентификаторы, информация о браузере и устройстве, приблизительная геолокация, просмотренные страницы и источник перехода.",
+                priv_h2_purpose: "Зачем",
+                priv_purpose: "Чтобы понимать, какие страницы и рекламные кампании работают, улучшать сайт и показывать релевантную рекламу на сторонних платформах. Персональные данные мы не продаём.",
+                priv_h2_processors: "Сторонние сервисы",
+                priv_proc_ym: "Яндекс Метрика — аналитика и запись визитов.",
+                priv_proc_meta: "Meta Pixel (Facebook / Instagram) — атрибуция рекламы и аудитории.",
+                priv_proc_google: "Google Fonts и CDN — шрифты и доставка скриптов.",
+                priv_proc_note: "У каждого сервиса своя политика конфиденциальности, данные могут передаваться за пределы вашей страны. Отключить можно в настройках браузера или инструментах самих платформ.",
+                priv_h2_rights: "Что вы можете сделать",
+                priv_rights: "Вы можете в любой момент очистить cookies в браузере, использовать приватный режим или поставить расширение-блокировщик. На мобильных — сбросить рекламный ID в системных настройках.",
+                priv_h2_contact: "Контакт",
+                priv_contact: "Вопросы и запросы на удаление — напишите нам в Telegram (ссылка в меню сайта) или на контактный адрес, указанный там.",
+                priv_updated: "Обновлено: 28 апреля 2026",
+                cookie_text: "Мы используем cookies для аналитики и эффективности рекламы. Продолжая, вы соглашаетесь.",
+                cookie_privacy: "Политика",
+                cookie_accept: "Хорошо"
+            },
+            en: {
+                page_title: "Privacy Policy — Romeo Freediving",
+                meta_description: "Privacy and cookie policy for romeofreediving.com",
+                back_link: "← Back to site",
+                priv_h1: "Privacy & Cookie Policy",
+                priv_intro: "This page explains what data we collect on romeofreediving.com and why. Romeo Freediving is an individual photographer based in Dahab, Egypt. By using this site you agree to the practices described below.",
+                priv_h2_data: "What we collect",
+                priv_data: "We do not run user accounts and do not collect names or contact details directly through this site. The site uses cookies and similar technologies to measure traffic and ad performance. This includes anonymous identifiers, browser and device info, approximate location, pages viewed, and referring source.",
+                priv_h2_purpose: "Why we use it",
+                priv_purpose: "To understand which pages and ads work, to improve the site, and to show relevant ads on third-party platforms. We do not sell personal data.",
+                priv_h2_processors: "Third-party services",
+                priv_proc_ym: "Yandex Metrica — analytics and visit recording.",
+                priv_proc_meta: "Meta Pixel (Facebook / Instagram) — ad attribution and audience building.",
+                priv_proc_google: "Google Fonts & CDN — typography and script delivery.",
+                priv_proc_note: "Each of these services has its own privacy policy and may transfer data outside your country. You can opt out via your browser settings or platform-specific tools.",
+                priv_h2_rights: "Your choices",
+                priv_rights: "You can clear cookies in your browser at any time, use private/incognito mode, or install a tracker-blocking extension. Mobile users can reset advertising IDs in system settings.",
+                priv_h2_contact: "Contact",
+                priv_contact: "Questions or removal requests — message us on Telegram (link in the site menu) or write to the contact address listed there.",
+                priv_updated: "Last updated: 28 April 2026",
+                cookie_text: "We use cookies for analytics and ad performance. By using this site you agree.",
+                cookie_privacy: "Privacy",
+                cookie_accept: "Got it"
+            }
+        };
+
+        let curLang = (new URLSearchParams(window.location.search).get('lang') === 'ru') ? 'ru' : 'en';
+
+        function setLang(lang) {
+            curLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelector('.lang-ru').classList.toggle('text-cyan-400', lang === 'ru');
+            document.querySelector('.lang-en').classList.toggle('text-cyan-400', lang === 'en');
+            const url = new URL(window.location);
+            if (lang === 'ru') url.searchParams.set('lang', 'ru'); else url.searchParams.delete('lang');
+            history.replaceState(null, '', url.toString());
+            updateTexts();
+        }
+        function updateTexts() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[curLang][key]) el.innerHTML = translations[curLang][key];
+            });
+            document.querySelectorAll('[data-i18n-content]').forEach(el => {
+                const key = el.getAttribute('data-i18n-content');
+                if (translations[curLang][key]) el.setAttribute('content', translations[curLang][key]);
+            });
+            const titleEl = document.querySelector('title[data-i18n]');
+            if (titleEl) {
+                const key = titleEl.getAttribute('data-i18n');
+                if (translations[curLang][key]) document.title = translations[curLang][key];
+            }
+        }
+        setLang(curLang);
+
+        // --- Cookie banner (informational, soft consent) ---
+        (function(){
+            var KEY = "cookie_consent_v1";
+            if (localStorage.getItem(KEY)) return;
+            var b = document.getElementById("cookie-banner");
+            if (!b) return;
+            b.style.display = "block";
+            var btn = document.getElementById("cookie-accept");
+            if (btn) {
+                btn.addEventListener("click", function(){
+                    try { localStorage.setItem(KEY, "1"); } catch(e){}
+                    b.style.display = "none";
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

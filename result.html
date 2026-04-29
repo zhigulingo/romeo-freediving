@@ -79,6 +79,17 @@
         @media (max-width: 768px) {
             .timeline-line { left: 24px; }
         }
+        /* Cookie banner */
+        #cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(15,15,20,.96); color: #fff; padding: 12px 20px; border-top: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 13px; line-height: 1.5; }
+        #cookie-banner .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        #cookie-banner .cookie-link { color: inherit; text-decoration: underline; opacity: .75; font-size: 13px; }
+        #cookie-banner .cookie-link:hover { opacity: 1; }
+        #cookie-accept { cursor: pointer; padding: 8px 18px; background: #fff; color: #0a0a0a; border: 0; border-radius: 999px; font-weight: 600; font-size: 13px; font-family: inherit; }
+        #cookie-accept:hover { background: #e8e8e8; }
+        @media (max-width: 600px) {
+            #cookie-banner .cookie-inner { gap: 10px; justify-content: flex-start; }
+            #cookie-accept { margin-left: auto; }
+        }
     </style>
 </head>
 <body>
@@ -458,7 +469,10 @@
                 cta_sub: "Напишите нам в Telegram и мы поможем с любым вопросом",
                 cta_button: "Написать в Telegram",
                 footer_brand: "Romeo Freediving",
-                footer_note: "Все материалы хранятся 30 дней после отправки"
+                footer_note: "Все материалы хранятся 30 дней после отправки",
+                cookie_text: "Мы используем cookies для аналитики и эффективности рекламы. Продолжая, вы соглашаетесь.",
+                cookie_privacy: "Политика",
+                cookie_accept: "Хорошо"
             },
             en: {
                 page_title: "Your Result — Romeo Freediving",
@@ -513,7 +527,10 @@
                 cta_sub: "Message us on Telegram and we'll help with anything",
                 cta_button: "Message on Telegram",
                 footer_brand: "Romeo Freediving",
-                footer_note: "All materials are stored for 30 days after delivery"
+                footer_note: "All materials are stored for 30 days after delivery",
+                cookie_text: "We use cookies for analytics and ad performance. By using this site you agree.",
+                cookie_privacy: "Privacy",
+                cookie_accept: "Got it"
             }
         };
 
@@ -556,6 +573,22 @@
         }
 
         setLang(curLang);
+
+        // --- Cookie banner (informational, soft consent) ---
+        (function(){
+            var KEY = "cookie_consent_v1";
+            if (localStorage.getItem(KEY)) return;
+            var b = document.getElementById("cookie-banner");
+            if (!b) return;
+            b.style.display = "block";
+            var btn = document.getElementById("cookie-accept");
+            if (btn) {
+                btn.addEventListener("click", function(){
+                    try { localStorage.setItem(KEY, "1"); } catch(e){}
+                    b.style.display = "none";
+                });
+            }
+        })();
 
         function animateCounters() {
             document.querySelectorAll('.counter').forEach(el => {
@@ -601,5 +634,13 @@
             }
         }
     </script>
+
+    <div id="cookie-banner" role="region" aria-label="Cookie notice" style="display:none;">
+        <div class="cookie-inner">
+            <span data-i18n="cookie_text">We use cookies for analytics and ad performance. By using this site you agree.</span>
+            <a href="/privacy.html" data-i18n="cookie_privacy" class="cookie-link">Privacy</a>
+            <button type="button" id="cookie-accept" data-i18n="cookie_accept">Got it</button>
+        </div>
+    </div>
 </body>
 </html>

@@ -184,6 +184,17 @@
         .case-dot { width: 0.5rem; height: 0.5rem; background: #d1d5db; cursor: pointer; transition: background .2s ease, width .2s ease; border: 0; padding: 0; }
         .case-dot.active { background: #000; width: 1.5rem; }
 
+        /* Cookie banner */
+        #cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(15,15,20,.96); color: #fff; padding: 12px 20px; border-top: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 13px; line-height: 1.5; }
+        #cookie-banner .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
+        #cookie-banner .cookie-link { color: inherit; text-decoration: underline; opacity: .75; font-size: 13px; }
+        #cookie-banner .cookie-link:hover { opacity: 1; }
+        #cookie-accept { cursor: pointer; padding: 8px 18px; background: #fff; color: #0a0a0a; border: 0; border-radius: 999px; font-weight: 600; font-size: 13px; font-family: inherit; }
+        #cookie-accept:hover { background: #e8e8e8; }
+        @media (max-width: 600px) {
+            #cookie-banner .cookie-inner { gap: 10px; justify-content: flex-start; }
+            #cookie-accept { margin-left: auto; }
+        }
     </style>
 
     <script type="application/ld+json">
@@ -1227,7 +1238,10 @@
                 footer_nav_rental: "Аренда",
                 footer_nav_education: "Обучение",
                 footer_contact: "Написать в Telegram",
-                footer_copyright: "© 2026 Romeo Freediving"
+                footer_copyright: "© 2026 Romeo Freediving",
+                cookie_text: "Мы используем cookies для аналитики и эффективности рекламы. Продолжая, вы соглашаетесь.",
+                cookie_privacy: "Политика",
+                cookie_accept: "Хорошо"
             },
             en: {
                 nav_home: "Gallery", nav_shooting: "Prices", nav_rental: "Rental", nav_education: "Education",
@@ -1382,7 +1396,10 @@
                 footer_nav_rental: "Rental",
                 footer_nav_education: "Education",
                 footer_contact: "Contact on Telegram",
-                footer_copyright: "© 2026 Romeo Freediving"
+                footer_copyright: "© 2026 Romeo Freediving",
+                cookie_text: "We use cookies for analytics and ad performance. By using this site you agree.",
+                cookie_privacy: "Privacy",
+                cookie_accept: "Got it"
             }
         };
 
@@ -1587,11 +1604,35 @@
 
         // Init translations (default EN, ?lang=ru switches to Russian)
         setLang(curLang);
+
+        // --- Cookie banner (informational, soft consent) ---
+        (function(){
+            var KEY = "cookie_consent_v1";
+            if (localStorage.getItem(KEY)) return;
+            var b = document.getElementById("cookie-banner");
+            if (!b) return;
+            b.style.display = "block";
+            var btn = document.getElementById("cookie-accept");
+            if (btn) {
+                btn.addEventListener("click", function(){
+                    try { localStorage.setItem(KEY, "1"); } catch(e){}
+                    b.style.display = "none";
+                });
+            }
+        })();
         function initLucide() {
             if (window.lucide) lucide.createIcons({ attrs: { class: 'lucide-icon', 'stroke-width': 1.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' } });
         }
         if (window.lucide) initLucide();
         else window.addEventListener('DOMContentLoaded', initLucide);
     </script>
+
+    <div id="cookie-banner" role="region" aria-label="Cookie notice" style="display:none;">
+        <div class="cookie-inner">
+            <span data-i18n="cookie_text">We use cookies for analytics and ad performance. By using this site you agree.</span>
+            <a href="/privacy.html" data-i18n="cookie_privacy" class="cookie-link">Privacy</a>
+            <button type="button" id="cookie-accept" data-i18n="cookie_accept">Got it</button>
+        </div>
+    </div>
 </body>
 </html>
