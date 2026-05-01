@@ -74,7 +74,7 @@
         #back-to-top { transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease; }
     </style>
 </head>
-<body>
+<body class="pb-24 md:pb-0">
 
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center justify-center">
@@ -87,13 +87,24 @@
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
                 <span class="gradient-text">Подводная съёмка в Красном море</span>
             </h1>
-            <p class="text-base md:text-lg text-white/70 max-w-xl mx-auto font-light mb-10">
-                Без опыта фридайвинга — безопасно с инструктором Molchanovs. От 250€, обработка 5–7 дней.
+            <p class="text-base md:text-lg text-white/70 max-w-xl mx-auto font-light mb-7">
+                Без опыта фридайвинга — безопасно с инструктором Molchanovs.
             </p>
-            <button onclick="openBookModal('hero')" data-goal="click_tourist_book_hero" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent hover:text-black transition-colors">
-                <span>Записаться</span>
-                <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
-            </button>
+            <div class="flex items-center justify-center flex-wrap gap-x-5 gap-y-2 mb-9 text-xs md:text-sm text-white/80">
+                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>от 250€</span>
+                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>60 мин в воде</span>
+                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>5–30 фото</span>
+                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>обработка 5–7 дней</span>
+            </div>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button onclick="openBookModal('hero')" data-goal="click_tourist_book_hero" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent hover:text-black transition-colors">
+                    <span>Записаться</span>
+                    <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
+                </button>
+                <button onclick="openDetailsModal()" data-goal="click_tourist_details_hero" class="inline-flex items-center gap-3 border border-white/40 text-white px-10 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
+                    <span>Форматы и цены</span>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -131,7 +142,7 @@
                     <img src="/assets/profile.jpg" alt="Ромео — инструктор Molchanovs Wave 2" class="w-full h-full object-cover" loading="lazy">
                 </div>
                 <div class="space-y-5 text-white/70 text-base md:text-lg font-light leading-relaxed">
-                    <p>Я Ромео, сертифицированный инструктор системы <strong class="text-white font-medium">Molchanovs (Wave 2 Instructor)</strong>, действующий атлет AIDA &amp; CMAS, личный максимум — 58 м. Уже несколько лет живу и снимаю в Египте.</p>
+                    <p>Я Ромео, сертифицированный инструктор системы <strong class="text-white font-medium">Molchanovs (Wave 2 Instructor)</strong> — высший инструкторский уровень в системе Молчанова. Действующий атлет AIDA &amp; CMAS, личный максимум — 58 м. Уже несколько лет живу и снимаю в Египте.</p>
                     <p>Снимаю на полнокадровую Sony A7C для художественной картинки и DJI Osmo Action 6 для динамики и POV. На съёмке провожу инструктаж по дыханию, продувке и безопасности — даже если вы первый раз в маске.</p>
                     <p>Главное в съёмке — ваша безопасность и ваше состояние. Я всегда на расстоянии вытянутой руки, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом.</p>
                 </div>
@@ -144,46 +155,69 @@
         <div class="max-w-5xl mx-auto">
             <p class="text-accent uppercase tracking-[0.2em] text-xs mb-4 font-semibold text-center">FAQ</p>
             <h2 class="text-3xl md:text-4xl font-extrabold mb-12 text-center">Частые вопросы</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+            <div class="space-y-14 md:space-y-16">
                 <div>
-                    <h3 class="font-medium text-lg mb-3">Нужно ли уметь хорошо плавать?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Базовые навыки уверенного поведения на воде желательны. Вам не нужно быть спортсменом, но вы должны комфортно чувствовать себя без дна под ногами.</p>
+                    <p class="text-white/40 uppercase tracking-[0.2em] text-[11px] mb-6 font-semibold text-center">Безопасность и подготовка</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Нужно ли уметь хорошо плавать?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Базовые навыки уверенного поведения на воде желательны. Вам не нужно быть спортсменом, но вы должны комфортно чувствовать себя без дна под ногами.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Я не умею задерживать дыхание надолго. Это проблема?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Нет. Для красивых кадров достаточно 10–20 секунд. Перед съёмкой я проведу инструктаж и научу вас правильно дышать и расслабляться.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Это безопасно?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Абсолютно. Я сертифицированный инструктор системы Molchanovs. Ваша безопасность — мой приоритет, я всегда нахожусь на расстоянии вытянутой руки.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Что мне нужно взять с собой?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Красивый купальник и хорошее настроение. Маску, ласты, груза и гидрокостюм я предоставляю.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Как подготовиться к съёмке?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Главное — не есть плотно за 2 часа до воды, чтобы было легко нырять. И обязательно хорошо выспаться накануне.</p>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="font-medium text-lg mb-3">Я не умею задерживать дыхание надолго. Это проблема?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Нет. Для красивых кадров достаточно 10–20 секунд. Перед съёмкой я проведу инструктаж и научу вас правильно дышать и расслабляться.</p>
+                    <p class="text-white/40 uppercase tracking-[0.2em] text-[11px] mb-6 font-semibold text-center">Как проходит съёмка</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">На какой глубине проходит съёмка?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Обычно мы работаем на глубине 3–5 метров. Это безопасно и позволяет свету красиво играть на коже и дне.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Я не знаю, как позировать под водой. Вы поможете?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Конечно. Я руковожу процессом, подсказываю движения и поправляю вас. Вода сама подсказывает грациозные позы.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">В какое время лучше снимать?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Идеальное время — раннее утро (8:00–10:00), когда солнце мягкое и на спотах мало людей, или перед закатом для особых лучей.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">А если шторм или плохая погода?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Если ветер или волна не дают снимать безопасно, переносим съёмку на другой день без потерь — никаких штрафов.</p>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <h3 class="font-medium text-lg mb-3">На какой глубине проходит съёмка?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Обычно мы работаем на глубине 3–5 метров. Это безопасно и позволяет свету красиво играть на коже и дне.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">Это безопасно?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Абсолютно. Я сертифицированный инструктор системы Molchanovs. Ваша безопасность — мой приоритет, я всегда нахожусь на расстоянии вытянутой руки.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">Что мне нужно взять с собой?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Красивый купальник и хорошее настроение. Маску, ласты, груза и гидрокостюм я предоставляю.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">Я не знаю, как позировать под водой. Вы поможете?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Конечно. Я руковожу процессом, подсказываю движения и поправляю вас. Вода сама подсказывает грациозные позы.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">Как подготовиться к съёмке?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Главное — не есть плотно за 2 часа до воды, чтобы было легко нырять. И обязательно хорошо выспаться накануне.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">В какое время лучше снимать?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Идеальное время — раннее утро (8:00–10:00), когда солнце мягкое и на спотах мало людей, или перед закатом для особых лучей.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">Как быстро я получу фото?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Обработка занимает 5–7 дней. Вы получите ссылку на облачное хранилище с готовыми кадрами в высоком качестве.</p>
-                </div>
-                <div>
-                    <h3 class="font-medium text-lg mb-3">Как забронировать дату?</h3>
-                    <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Напишите мне в Instagram, Telegram или WhatsApp — обсудим детали, выберем день и зафиксируем бронь.</p>
+                    <p class="text-white/40 uppercase tracking-[0.2em] text-[11px] mb-6 font-semibold text-center">Бронирование и результат</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Как забронировать дату?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Напишите мне в Instagram, Telegram или WhatsApp — обсудим детали, выберем день и зафиксируем бронь.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Нужна ли предоплата?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Да, для брони нужна предоплата 50%. При отмене за 24+ часа до съёмки — возврат полный, ближе — обсуждаем индивидуально.</p>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-3">Как быстро я получу фото?</h3>
+                            <p class="text-white/60 text-sm md:text-base font-light leading-relaxed">Обработка занимает 5–7 дней. Вы получите ссылку на облачное хранилище с готовыми кадрами в высоком качестве.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -228,8 +262,15 @@
         <p>© Шарм-эль-Шейх, Египет · <a href="https://romeofreediving.com/" class="hover:text-white">romeofreediving.com</a></p>
     </footer>
 
+    <!-- STICKY MOBILE CTA -->
+    <div id="sticky-cta" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-black/85 backdrop-blur border-t border-white/10 px-4 pt-3 opacity-0 pointer-events-none transition-opacity duration-300" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
+        <button onclick="openBookModal('sticky')" data-goal="click_tourist_book_sticky" class="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-3.5 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+            <span>Записаться · от 250€</span>
+        </button>
+    </div>
+
     <!-- BACK TO TOP -->
-    <button id="back-to-top" aria-label="Наверх" class="fixed bottom-6 right-6 z-50 w-12 h-12 flex items-center justify-center bg-white/10 hover:bg-white text-white hover:text-black backdrop-blur border border-white/20 transition-all opacity-0 pointer-events-none translate-y-2" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <button id="back-to-top" aria-label="Наверх" class="hidden md:flex fixed bottom-6 right-6 z-50 w-12 h-12 items-center justify-center bg-white/10 hover:bg-white text-white hover:text-black backdrop-blur border border-white/20 transition-all opacity-0 pointer-events-none translate-y-2" onclick="window.scrollTo({top:0,behavior:'smooth'})">
         <i data-lucide="arrow-up" class="lucide-icon" aria-hidden="true"></i>
     </button>
 
@@ -300,9 +341,10 @@
             <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-3 font-semibold">Готовые комплекты</p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
                 <div class="bg-white/5 border border-white/10 p-4 flex flex-col">
-                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Комплект 1</span>
+                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Старт</span>
                     <div class="text-2xl font-light mb-2">250€</div>
-                    <h5 class="font-medium text-sm mb-2">Берег + Osmo Action 6 в воде</h5>
+                    <h5 class="font-medium text-sm mb-1">Суша + вода с экшн-камерой</h5>
+                    <p class="text-white/40 text-[11px] mb-3">Sony A7C на берегу, DJI Osmo в воде</p>
                     <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
                         <li>5–15 портретов на суше — Sony A7C</li>
                         <li>5–15 фото в воде — DJI Osmo</li>
@@ -310,21 +352,23 @@
                     </ul>
                 </div>
                 <div class="bg-white/5 border border-accent/40 p-4 flex flex-col">
-                    <span class="text-[10px] uppercase tracking-widest text-accent mb-1">Комплект 2 · Хит</span>
+                    <span class="text-[10px] uppercase tracking-widest text-accent mb-1">Хит · Максимум в воде</span>
                     <div class="text-2xl font-light mb-2">300€</div>
-                    <h5 class="font-medium text-sm mb-2">Максимум в воде</h5>
+                    <h5 class="font-medium text-sm mb-1">Только вода, художественная картинка</h5>
+                    <p class="text-white/40 text-[11px] mb-3">Полнокадровая Sony A7C под водой</p>
                     <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
                         <li>5–30 фото в воде — Sony A7C</li>
                         <li>2–5 видео — Sony + DJI Osmo</li>
-                        <li>Художественная картинка + POV</li>
+                        <li>Студийная глубина и POV-кадры</li>
                     </ul>
                 </div>
                 <div class="bg-white/5 border border-white/10 p-4 flex flex-col">
-                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Комплект 3 · Максимум</span>
+                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Премиум</span>
                     <div class="text-2xl font-light mb-2">350€</div>
-                    <h5 class="font-medium text-sm mb-2">Берег и вода — полный набор</h5>
+                    <h5 class="font-medium text-sm mb-1">Полный комплект на Sony</h5>
+                    <p class="text-white/40 text-[11px] mb-3">Sony A7C на суше И в воде</p>
                     <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
-                        <li>5–15 портретов на суше</li>
+                        <li>5–15 портретов на суше — Sony A7C</li>
                         <li>5–30 фото в воде — Sony A7C</li>
                         <li>2–5 видео — DJI Osmo</li>
                     </ul>
@@ -374,13 +418,16 @@
             }
         });
 
-        // Back to top — show after scrolling past hero (~80vh)
+        // Back to top + sticky mobile CTA — show after scrolling past hero (~80vh)
         const backTop = document.getElementById('back-to-top');
+        const stickyCta = document.getElementById('sticky-cta');
         window.addEventListener('scroll', () => {
             const show = window.scrollY > window.innerHeight * 0.8;
             backTop.style.opacity = show ? '1' : '0';
             backTop.style.transform = show ? 'translateY(0)' : 'translateY(8px)';
             backTop.style.pointerEvents = show ? 'auto' : 'none';
+            stickyCta.style.opacity = show ? '1' : '0';
+            stickyCta.style.pointerEvents = show ? 'auto' : 'none';
         }, { passive: true });
 
         // Yandex Metrika goal delegation
