@@ -75,6 +75,10 @@
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
         .ig-icon { width: 18px; height: 18px; flex-shrink: 0; }
         #back-to-top { transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease; }
+        .bundle-tab { color: rgba(255,255,255,0.55); }
+        .bundle-tab:hover { color: rgba(255,255,255,0.85); }
+        .bundle-tab.active { background: #fff; color: #000; }
+        .bundle-tab.active .opacity-60 { opacity: 1; }
     </style>
 </head>
 <body class="pb-24 md:pb-0">
@@ -352,80 +356,108 @@
             <div class="sticky top-0 z-10 flex items-start justify-between gap-4 px-6 md:px-10 pt-6 md:pt-8 pb-4 bg-[#0a0a0a] border-b border-white/10">
                 <div>
                     <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-2 font-semibold">Форматы съёмки</p>
-                    <h3 class="text-2xl md:text-3xl font-extrabold">Выберите формат</h3>
+                    <h3 class="text-2xl md:text-3xl font-extrabold">Сравнение форматов</h3>
                 </div>
                 <button onclick="closeDetailsModal()" aria-label="Close" class="text-white/60 hover:text-white text-3xl leading-none -mt-1 shrink-0">&times;</button>
             </div>
             <div class="px-6 md:px-10 pt-6 pb-6 md:pb-10">
 
-            <!-- Individual session block -->
-            <div class="bg-white/5 border border-white/10 p-5 md:p-6 mb-6">
-                <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
-                    <h4 class="text-xl font-semibold">Индивидуальная съёмка</h4>
-                    <span class="text-white/60 text-sm">от 250€</span>
-                </div>
-                <p class="text-white/60 text-sm mb-4 leading-relaxed">Подводная съёмка под вашу задачу: соцсети, портфолио или личный проект. Без опыта фридайвинга.</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="timer" class="lucide-icon"></i> 60 мин в воде</span>
-                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="aperture" class="lucide-icon"></i> 5–30 фото</span>
-                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="film" class="lucide-icon"></i> 2 видео</span>
-                </div>
-                <ul class="text-white/60 text-sm space-y-1 list-disc list-inside mb-4">
-                    <li>Подготовка на суше — 110 мин: дыхание, продувка, безопасность</li>
-                    <li>Sony A7C + DJI Osmo Action 6, профессиональный свет</li>
-                    <li>Гидрокостюм, маски, ласты, моноласт, ремни — выдаются</li>
-                    <li>Локация: Шарм-эль-Шейх</li>
-                </ul>
+            <!-- Bundle tabs -->
+            <div role="tablist" class="grid grid-cols-3 gap-1 mb-6 bg-white/5 border border-white/10 p-1">
+                <button role="tab" data-bundle="start" onclick="selectBundle('start')" class="bundle-tab py-3 px-2 text-center transition-colors">
+                    <div class="text-[11px] md:text-xs uppercase tracking-widest font-semibold">Старт</div>
+                    <div class="text-[10px] mt-0.5 opacity-60">250€</div>
+                </button>
+                <button role="tab" data-bundle="hit" onclick="selectBundle('hit')" class="bundle-tab py-3 px-2 text-center transition-colors relative">
+                    <div class="text-[11px] md:text-xs uppercase tracking-widest font-semibold">Хит</div>
+                    <div class="text-[10px] mt-0.5 opacity-60">300€</div>
+                    <span class="absolute -top-2 left-1/2 -translate-x-1/2 px-1.5 py-0.5 text-[8px] uppercase tracking-widest bg-accent text-black font-semibold whitespace-nowrap">Популярный</span>
+                </button>
+                <button role="tab" data-bundle="premium" onclick="selectBundle('premium')" class="bundle-tab py-3 px-2 text-center transition-colors">
+                    <div class="text-[11px] md:text-xs uppercase tracking-widest font-semibold">Премиум</div>
+                    <div class="text-[10px] mt-0.5 opacity-60">350€</div>
+                </button>
             </div>
 
-            <!-- Bundles -->
-            <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-3 font-semibold">Готовые комплекты</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-                <div class="bg-white/5 border border-white/10 p-4 flex flex-col">
-                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Старт</span>
-                    <div class="text-2xl font-light mb-2">250€</div>
-                    <h5 class="font-medium text-sm mb-1">Суша + вода с экшн-камерой</h5>
-                    <p class="text-white/40 text-[11px] mb-3">Sony A7C на берегу, DJI Osmo в воде</p>
-                    <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
-                        <li>5–15 портретов на суше — Sony A7C</li>
-                        <li>5–15 фото в воде — DJI Osmo</li>
-                        <li>2–5 видео + бэкстейдж 4K</li>
-                    </ul>
-                </div>
-                <div class="bg-white/5 border border-accent/40 p-4 flex flex-col">
-                    <span class="text-[10px] uppercase tracking-widest text-accent mb-1">Хит · Максимум в воде</span>
-                    <div class="text-2xl font-light mb-2">300€</div>
-                    <h5 class="font-medium text-sm mb-1">Только вода, художественная картинка</h5>
-                    <p class="text-white/40 text-[11px] mb-3">Полнокадровая Sony A7C под водой</p>
-                    <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
-                        <li>5–30 фото в воде — Sony A7C</li>
-                        <li>2–5 видео — Sony + DJI Osmo</li>
-                        <li>Студийная глубина и POV-кадры</li>
-                    </ul>
-                </div>
-                <div class="bg-white/5 border border-white/10 p-4 flex flex-col">
-                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Премиум</span>
-                    <div class="text-2xl font-light mb-2">350€</div>
-                    <h5 class="font-medium text-sm mb-1">Полный комплект на Sony</h5>
-                    <p class="text-white/40 text-[11px] mb-3">Sony A7C на суше И в воде</p>
-                    <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
-                        <li>5–15 портретов на суше — Sony A7C</li>
-                        <li>5–30 фото в воде — Sony A7C</li>
-                        <li>2–5 видео — DJI Osmo</li>
+            <!-- Bundle panels -->
+            <div class="bundle-panel hidden" data-bundle="start">
+                <div class="bg-white/5 border border-white/10 p-5 md:p-6 mb-4">
+                    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                        <h4 class="text-xl md:text-2xl font-semibold">Старт — баланс суши и воды</h4>
+                        <span class="text-2xl font-light">250€</span>
+                    </div>
+                    <p class="text-white/60 text-sm mb-5 leading-relaxed">Половина съёмки на берегу, половина в воде. Полнокадровая камера для портретов на суше, экшн-камера в воде.</p>
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">5–15</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">портретов на суше</div></div>
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">5–15</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">фото в воде</div></div>
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">2–5</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">видео + бэкстейдж</div></div>
+                    </div>
+                    <ul class="text-white/60 text-sm space-y-1.5 list-disc list-inside">
+                        <li>Полнокадровая камера для портретов на берегу</li>
+                        <li>Экшн-камера 4K для съёмки в воде</li>
+                        <li>Хорошо, если хочется и сушу, и воду в одной съёмке</li>
                     </ul>
                 </div>
             </div>
+
+            <div class="bundle-panel" data-bundle="hit">
+                <div class="bg-white/5 border border-accent/40 p-5 md:p-6 mb-4">
+                    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                        <h4 class="text-xl md:text-2xl font-semibold">Хит — максимум в воде</h4>
+                        <span class="text-2xl font-light">300€</span>
+                    </div>
+                    <p class="text-white/60 text-sm mb-5 leading-relaxed">Только вода, художественная картинка. Полнокадровая камера всю съёмку — от глубины до POV-кадров.</p>
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">5–30</div><div class="text-[10px] uppercase tracking-widest text-accent mt-1">фото в воде</div></div>
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">2–5</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">видео</div></div>
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">100%</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">в воде</div></div>
+                    </div>
+                    <ul class="text-white/60 text-sm space-y-1.5 list-disc list-inside">
+                        <li>Полнокадровая камера под водой — студийная глубина кадра</li>
+                        <li>POV-съёмка с экшн-камерой</li>
+                        <li>Хорошо, если важна именно эстетика подводных кадров</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bundle-panel hidden" data-bundle="premium">
+                <div class="bg-white/5 border border-white/10 p-5 md:p-6 mb-4">
+                    <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                        <h4 class="text-xl md:text-2xl font-semibold">Премиум — полный комплект</h4>
+                        <span class="text-2xl font-light">350€</span>
+                    </div>
+                    <p class="text-white/60 text-sm mb-5 leading-relaxed">Полнокадровая камера и на суше, и в воде. Максимум кадров и максимальное качество — без компромиссов.</p>
+                    <div class="grid grid-cols-3 gap-3 mb-5">
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">5–15</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">портретов на суше</div></div>
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">5–30</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">фото в воде</div></div>
+                        <div class="text-center"><div class="text-2xl md:text-3xl font-light">2–5</div><div class="text-[10px] uppercase tracking-widest text-white/50 mt-1">видео</div></div>
+                    </div>
+                    <ul class="text-white/60 text-sm space-y-1.5 list-disc list-inside">
+                        <li>Полнокадровая камера — и на берегу, и в воде</li>
+                        <li>Видео на экшн-камере 4K</li>
+                        <li>Хорошо, если нужен максимум кадров и нет ограничений по бюджету</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Universal "all included" -->
+            <div class="mb-6 p-4 bg-white/5 border border-white/10 text-xs text-white/60 leading-relaxed">
+                <span class="text-white/80 font-medium uppercase tracking-widest text-[10px]">Везде включено:</span>
+                подготовка на суше 110 мин (дыхание, продувка, безопасность) · гидрокостюм, маски, ласты, моноласт · профессиональный свет · обработка 5–7 дней · облако 30 дней · локация Шарм-эль-Шейх
+            </div>
+
+            <p class="text-white/50 text-xs uppercase tracking-widest mb-3 text-center">Записаться на формат «<span id="selected-bundle-label">Хит — максимум в воде</span>»</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_instagram_nested" class="flex items-center justify-center gap-2 bg-white text-black px-4 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+                <a id="contact-instagram" href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_instagram_nested" class="flex items-center justify-center gap-2 bg-white text-black px-4 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
                     <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     <span>Instagram</span>
                 </a>
-                <a href="https://t.me/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_telegram_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
+                <a id="contact-telegram" href="https://t.me/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_telegram_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
                     <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
                     <span>Telegram</span>
                 </a>
-                <a href="https://wa.me/201069901876" target="_blank" rel="noopener" data-goal="click_tourist_book_whatsapp_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
+                <a id="contact-whatsapp" href="https://wa.me/201069901876" target="_blank" rel="noopener" data-goal="click_tourist_book_whatsapp_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
                     <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
                     <span>WhatsApp</span>
                 </a>
@@ -472,6 +504,23 @@
         }
         function lightboxPrev() { lightboxIdx = (lightboxIdx - 1 + lightboxPhotos.length) % lightboxPhotos.length; lightboxRender(); }
         function lightboxNext() { lightboxIdx = (lightboxIdx + 1) % lightboxPhotos.length; lightboxRender(); }
+        const bundleData = {
+            start: { name: 'Старт — баланс суши и воды', price: '250€' },
+            hit: { name: 'Хит — максимум в воде', price: '300€' },
+            premium: { name: 'Премиум — полный комплект', price: '350€' }
+        };
+        function selectBundle(key) {
+            const b = bundleData[key]; if (!b) return;
+            document.querySelectorAll('.bundle-tab').forEach(t => t.classList.toggle('active', t.dataset.bundle === key));
+            document.querySelectorAll('.bundle-panel').forEach(p => p.classList.toggle('hidden', p.dataset.bundle !== key));
+            const label = document.getElementById('selected-bundle-label');
+            if (label) label.textContent = b.name;
+            const wa = document.getElementById('contact-whatsapp');
+            if (wa) {
+                const msg = `Привет! Хочу записаться на подводную съёмку — формат «${b.name}» (${b.price})`;
+                wa.href = `https://wa.me/201069901876?text=${encodeURIComponent(msg)}`;
+            }
+        }
         function openBookModal(src) {
             bookModal.classList.remove('closed'); bookModal.classList.add('open');
             document.body.style.overflow = 'hidden';
@@ -536,6 +585,7 @@
 
         // Lucide icons
         window.addEventListener('load', () => { if (window.lucide) window.lucide.createIcons(); });
+        selectBundle('hit');
     </script>
 </body>
 </html>
