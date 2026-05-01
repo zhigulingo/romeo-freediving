@@ -88,20 +88,20 @@
                 <span class="gradient-text">Подводная съёмка в Красном море</span>
             </h1>
             <p class="text-base md:text-lg text-white/70 max-w-xl mx-auto font-light mb-7">
-                Без опыта фридайвинга — безопасно с инструктором Molchanovs.
+                Без опыта фридайвинга — безопасно с профессиональным инструктором.
             </p>
-            <div class="flex items-center justify-center flex-wrap gap-x-5 gap-y-2 mb-9 text-xs md:text-sm text-white/80">
-                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>от 250€</span>
-                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>60 мин в воде</span>
-                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>5–30 фото</span>
-                <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-accent"></span>обработка 5–7 дней</span>
+            <div class="flex items-center justify-center flex-wrap gap-2 mb-9">
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="banknote" class="lucide-icon"></i> от 250€</span>
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="timer" class="lucide-icon"></i> 60 мин в воде</span>
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="aperture" class="lucide-icon"></i> 5–30 фото</span>
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="clock" class="lucide-icon"></i> 5–7 дней</span>
             </div>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-                <button onclick="openBookModal('hero')" data-goal="click_tourist_book_hero" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent hover:text-black transition-colors">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-md mx-auto sm:max-w-none">
+                <button onclick="openBookModal('hero')" data-goal="click_tourist_book_hero" class="inline-flex items-center justify-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent hover:text-black transition-colors w-full sm:w-[260px]">
                     <span>Записаться</span>
                     <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
                 </button>
-                <button onclick="openDetailsModal()" data-goal="click_tourist_details_hero" class="inline-flex items-center gap-3 border border-white/40 text-white px-10 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
+                <button onclick="openDetailsModal()" data-goal="click_tourist_details_hero" class="inline-flex items-center justify-center gap-3 border border-white/40 text-white px-10 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors w-full sm:w-[260px]">
                     <span>Форматы и цены</span>
                 </button>
             </div>
@@ -286,7 +286,7 @@
                 </div>
             </div>
             <div class="mt-14 text-center">
-                <button onclick="openBookModal('bottom')" data-goal="click_tourist_book_bottom" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+                <button id="bottom-cta" onclick="openBookModal('bottom')" data-goal="click_tourist_book_bottom" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
                     <span>Записаться</span>
                     <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
                 </button>
@@ -345,14 +345,15 @@
 
     <!-- DETAILS MODAL (INDIVIDUAL + 3 BUNDLES) -->
     <div id="details-modal" class="modal closed" onclick="if(event.target===this)closeDetailsModal()">
-        <div class="modal-card modal-detail-card p-6 md:p-10">
-            <div class="flex items-start justify-between mb-6">
+        <div class="modal-card modal-detail-card">
+            <div class="sticky top-0 z-10 flex items-start justify-between gap-4 px-6 md:px-10 pt-6 md:pt-8 pb-4 bg-[#0a0a0a] border-b border-white/10">
                 <div>
                     <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-2 font-semibold">Форматы съёмки</p>
                     <h3 class="text-2xl md:text-3xl font-extrabold">Выберите формат</h3>
                 </div>
-                <button onclick="closeDetailsModal()" aria-label="Close" class="text-white/60 hover:text-white text-2xl leading-none">&times;</button>
+                <button onclick="closeDetailsModal()" aria-label="Close" class="text-white/60 hover:text-white text-3xl leading-none -mt-1 shrink-0">&times;</button>
             </div>
+            <div class="px-6 md:px-10 pt-6 pb-6 md:pb-10">
 
             <!-- Individual session block -->
             <div class="bg-white/5 border border-white/10 p-5 md:p-6 mb-6">
@@ -426,6 +427,7 @@
                     <span>WhatsApp</span>
                 </a>
             </div>
+            </div>
         </div>
     </div>
 
@@ -455,17 +457,27 @@
             }
         });
 
-        // Back to top + sticky mobile CTA — show after scrolling past hero (~80vh)
+        // Back to top + sticky mobile CTA — show after scrolling past hero (~80vh), hide near bottom CTA
         const backTop = document.getElementById('back-to-top');
         const stickyCta = document.getElementById('sticky-cta');
-        window.addEventListener('scroll', () => {
-            const show = window.scrollY > window.innerHeight * 0.8;
-            backTop.style.opacity = show ? '1' : '0';
-            backTop.style.transform = show ? 'translateY(0)' : 'translateY(8px)';
-            backTop.style.pointerEvents = show ? 'auto' : 'none';
-            stickyCta.style.opacity = show ? '1' : '0';
-            stickyCta.style.pointerEvents = show ? 'auto' : 'none';
-        }, { passive: true });
+        const bottomCta = document.getElementById('bottom-cta');
+        let bottomCtaVisible = false;
+        if (bottomCta && 'IntersectionObserver' in window) {
+            new IntersectionObserver((entries) => {
+                bottomCtaVisible = entries[0].isIntersecting;
+                updateScrollUI();
+            }, { rootMargin: '0px 0px -80px 0px' }).observe(bottomCta);
+        }
+        function updateScrollUI() {
+            const pastHero = window.scrollY > window.innerHeight * 0.8;
+            backTop.style.opacity = pastHero ? '1' : '0';
+            backTop.style.transform = pastHero ? 'translateY(0)' : 'translateY(8px)';
+            backTop.style.pointerEvents = pastHero ? 'auto' : 'none';
+            const showSticky = pastHero && !bottomCtaVisible;
+            stickyCta.style.opacity = showSticky ? '1' : '0';
+            stickyCta.style.pointerEvents = showSticky ? 'auto' : 'none';
+        }
+        window.addEventListener('scroll', updateScrollUI, { passive: true });
 
         // Yandex Metrika goal delegation
         document.addEventListener('click', (e) => {
