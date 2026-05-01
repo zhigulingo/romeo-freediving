@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подводная фотосессия в Шарм-эль-Шейхе и Дахабе | Romeo Freediving</title>
+    <meta name="description" content="Подводная фотосессия в Красном море — Шарм-эль-Шейх и Дахаб. Безопасно с инструктором Molchanovs, без опыта фридайвинга. От 150€, обработка 5–7 дней.">
+    <link rel="canonical" href="https://romeofreediving.com/sharm-photoshoot/">
+    <link rel="alternate" hreflang="ru" href="https://romeofreediving.com/sharm-photoshoot/">
+    <link rel="alternate" hreflang="x-default" href="https://romeofreediving.com/sharm-photoshoot/">
+    <meta name="robots" content="index,follow">
+
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=4">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon.png?v=4">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=4">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=108688475','ym');
+    ym(108688475,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/108688475" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://romeofreediving.com/sharm-photoshoot/">
+    <meta property="og:title" content="Подводная фотосессия в Шарме и Дахабе — Romeo Freediving">
+    <meta property="og:description" content="Безопасно с инструктором Molchanovs, без опыта фридайвинга. Обработка 5–7 дней.">
+    <meta property="og:image" content="https://romeofreediving.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Romeo Freediving">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Подводная фотосессия в Шарме и Дахабе">
+    <meta name="twitter:description" content="С инструктором Molchanovs. Без опыта фридайвинга. От 150€.">
+    <meta name="twitter:image" content="https://romeofreediving.com/assets/og-image.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { manrope: ['Manrope', 'sans-serif'] },
+                    colors: { accent: '#00bcd4' }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Manrope', sans-serif; background: #000; color: #fff; overflow-x: hidden; }
+        .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .photo-item { overflow: hidden; }
+        .photo-item img { transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease; }
+        .photo-item:hover img { transform: scale(1.06); filter: brightness(1.08); }
+        .glass { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); }
+        .modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px; transition: opacity 0.3s ease, visibility 0.3s; background: rgba(0,0,0,0.75); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .modal.closed { opacity: 0; visibility: hidden; pointer-events: none; }
+        .modal.open { opacity: 1; visibility: visible; }
+        .modal-card { background: #0a0a0a; border: 1px solid rgba(255,255,255,0.12); max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto; }
+        .modal-detail-card { max-width: 880px; }
+        .gradient-text { background: linear-gradient(135deg, #fff 0%, #00bcd4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .lucide-icon { width: 1em; height: 1em; display: inline-block; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.3s ease; }
+        .faq-answer.open { max-height: 400px; padding-top: 12px; }
+        .faq-chevron { transition: transform 0.3s ease; }
+        .faq-chevron.open { transform: rotate(180deg); }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="relative min-h-screen flex items-center justify-center">
+        <video class="hero-video" autoplay muted loop playsinline poster="/assets/photo1.jpg">
+            <source src="/assets/hero.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black"></div>
+        <div class="relative z-10 text-center px-6 max-w-3xl">
+            <p class="text-accent uppercase tracking-[0.3em] text-xs md:text-sm mb-6 font-medium">Romeo Freediving · Шарм и Дахаб</p>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                <span class="gradient-text">Подводная фотосессия в Красном море</span>
+            </h1>
+            <p class="text-base md:text-lg text-white/70 max-w-xl mx-auto font-light mb-10">
+                Без опыта фридайвинга — безопасно с инструктором Molchanovs. От 150€, обработка 5–7 дней.
+            </p>
+            <button onclick="openBookModal('hero')" data-goal="click_tourist_book_hero" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent hover:text-black transition-colors">
+                <span>Записаться</span>
+                <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="py-20 md:py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <p class="text-accent uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Галерея</p>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Кадры с прошлых съёмок</h2>
+            <p class="text-white/50 text-base max-w-md mx-auto">Каждый кадр — отобран и обработан вручную.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo1.jpg" alt="Подводная фотосессия 1" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo2.jpg" alt="Подводная фотосессия 2" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo3.jpg" alt="Подводная фотосессия 3" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo4.jpg" alt="Подводная фотосессия 4" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo5.jpg" alt="Подводная фотосессия 5" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo6.jpg" alt="Подводная фотосессия 6" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo7.jpg" alt="Подводная фотосессия 7" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]"><img src="/assets/photo8.jpg" alt="Подводная фотосессия 8" class="w-full h-full object-cover" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="py-20 md:py-28 px-6 border-t border-white/10">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-accent uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Обо мне</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Ромео — инструктор Molchanovs (W2I)</h2>
+            <div class="space-y-5 text-white/70 text-base md:text-lg font-light leading-relaxed">
+                <p>Я Ромео, сертифицированный инструктор системы <strong class="text-white font-medium">Molchanovs (Wave 2 Instructor)</strong>, действующий атлет AIDA &amp; CMAS, личный максимум — 58 м. Уже несколько лет живу и снимаю в Дахабе.</p>
+                <p>Снимаю на полнокадровую Sony A7C для художественной картинки и DJI Osmo Action 6 для динамики и POV. На съёмке провожу инструктаж по дыханию, продувке и безопасности — даже если вы первый раз в маске.</p>
+                <p>Главное в съёмке — ваша безопасность и ваше состояние. Я всегда на расстоянии вытянутой руки, веду по сценарию, подсказываю позы и контролирую дыхание. Со мной можно расслабиться и просто наслаждаться процессом.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 md:py-28 px-6 border-t border-white/10">
+        <div class="max-w-4xl mx-auto">
+            <p class="text-accent uppercase tracking-[0.2em] text-xs mb-4 font-semibold text-center">FAQ</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-12 text-center">Частые вопросы</h2>
+            <div class="space-y-3" id="faq-list">
+                <div class="border border-white/10">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="font-medium text-base md:text-lg">Нужно ли уметь хорошо плавать?</span>
+                        <i data-lucide="chevron-down" class="lucide-icon faq-chevron text-white/60"></i>
+                    </button>
+                    <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6 text-white/60 text-sm md:text-base font-light leading-relaxed">
+                        Базовые навыки уверенного поведения на воде желательны. Вам не нужно быть спортсменом, но вы должны комфортно чувствовать себя без дна под ногами.
+                    </div>
+                </div>
+                <div class="border border-white/10">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="font-medium text-base md:text-lg">Я не умею задерживать дыхание надолго. Это проблема?</span>
+                        <i data-lucide="chevron-down" class="lucide-icon faq-chevron text-white/60"></i>
+                    </button>
+                    <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6 text-white/60 text-sm md:text-base font-light leading-relaxed">
+                        Нет. Для красивых кадров достаточно 10–20 секунд. Перед съёмкой я проведу инструктаж и научу вас правильно дышать и расслабляться.
+                    </div>
+                </div>
+                <div class="border border-white/10">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="font-medium text-base md:text-lg">На какой глубине проходит съёмка?</span>
+                        <i data-lucide="chevron-down" class="lucide-icon faq-chevron text-white/60"></i>
+                    </button>
+                    <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6 text-white/60 text-sm md:text-base font-light leading-relaxed">
+                        Обычно мы работаем на глубине 3–5 метров. Это безопасно и позволяет свету красиво играть на коже и дне.
+                    </div>
+                </div>
+                <div class="border border-white/10">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="font-medium text-base md:text-lg">Это безопасно?</span>
+                        <i data-lucide="chevron-down" class="lucide-icon faq-chevron text-white/60"></i>
+                    </button>
+                    <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6 text-white/60 text-sm md:text-base font-light leading-relaxed">
+                        Абсолютно. Я сертифицированный инструктор системы Molchanovs. Ваша безопасность — мой приоритет, я всегда нахожусь на расстоянии вытянутой руки.
+                    </div>
+                </div>
+                <div class="border border-white/10">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="font-medium text-base md:text-lg">Что мне нужно взять с собой?</span>
+                        <i data-lucide="chevron-down" class="lucide-icon faq-chevron text-white/60"></i>
+                    </button>
+                    <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6 text-white/60 text-sm md:text-base font-light leading-relaxed">
+                        Красивый купальник и хорошее настроение. Маску, ласты, груза и гидрокостюм я предоставляю.
+                    </div>
+                </div>
+                <div class="border border-white/10">
+                    <button class="w-full flex items-center justify-between p-5 md:p-6 text-left hover:bg-white/5 transition" onclick="toggleFaq(this)">
+                        <span class="font-medium text-base md:text-lg">Как быстро я получу фото?</span>
+                        <i data-lucide="chevron-down" class="lucide-icon faq-chevron text-white/60"></i>
+                    </button>
+                    <div class="faq-answer px-5 md:px-6 pb-5 md:pb-6 text-white/60 text-sm md:text-base font-light leading-relaxed">
+                        Обработка занимает 5–7 дней. Вы получите ссылку на облачное хранилище с готовыми кадрами в высоком качестве.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESULT (DELIVERABLES) -->
+    <section class="py-20 md:py-32 px-6 border-t border-white/10">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14">
+                <p class="text-accent uppercase tracking-[0.2em] text-xs mb-4 font-semibold">Что вы получите</p>
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Полный пакет материалов</h2>
+                <p class="text-white/50 text-base">Обработано, готово к публикации.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="glass p-6 md:p-8 text-center">
+                    <div class="flex justify-center mb-3"><i data-lucide="image" class="lucide-icon text-accent text-3xl"></i></div>
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1">5–30+</div>
+                    <p class="text-white/50 text-sm">обработанных фото</p>
+                </div>
+                <div class="glass p-6 md:p-8 text-center">
+                    <div class="flex justify-center mb-3"><i data-lucide="film" class="lucide-icon text-accent text-3xl"></i></div>
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1">2</div>
+                    <p class="text-white/50 text-sm">видео 9:16 для Reels</p>
+                </div>
+                <div class="glass p-6 md:p-8 text-center">
+                    <div class="flex justify-center mb-3"><i data-lucide="file-image" class="lucide-icon text-accent text-3xl"></i></div>
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1 text-accent">RAW</div>
+                    <p class="text-white/50 text-sm">по запросу</p>
+                </div>
+                <div class="glass p-6 md:p-8 text-center">
+                    <div class="flex justify-center mb-3"><i data-lucide="cloud" class="lucide-icon text-accent text-3xl"></i></div>
+                    <div class="text-3xl md:text-4xl font-extrabold mb-1">5–7</div>
+                    <p class="text-white/50 text-sm">дней обработка</p>
+                </div>
+            </div>
+            <div class="mt-14 text-center">
+                <button onclick="openBookModal('bottom')" data-goal="click_tourist_book_bottom" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+                    <span>Записаться</span>
+                    <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 px-6 border-t border-white/10 text-center text-white/40 text-xs">
+        <p>© Romeo Freediving · Дахаб &amp; Шарм-эль-Шейх, Египет · <a href="https://romeofreediving.com/" class="hover:text-white">romeofreediving.com</a></p>
+    </footer>
+
+    <!-- PRIMARY BOOK MODAL -->
+    <div id="book-modal" class="modal closed" onclick="if(event.target===this)closeBookModal()">
+        <div class="modal-card p-8 md:p-10">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-2 font-semibold">Запись на съёмку</p>
+                    <h3 class="text-2xl font-extrabold">Свяжитесь со мной</h3>
+                </div>
+                <button onclick="closeBookModal()" aria-label="Close" class="text-white/60 hover:text-white text-2xl leading-none">&times;</button>
+            </div>
+            <p class="text-white/60 text-sm mb-6 leading-relaxed">Напишите мне в любой удобный мессенджер с датами и пожеланиями — отвечу с свободными слотами.</p>
+            <div class="space-y-3">
+                <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_instagram" class="flex items-center justify-center gap-3 w-full bg-white text-black px-6 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+                    <i data-lucide="instagram" class="lucide-icon" aria-hidden="true"></i>
+                    <span>Instagram DM</span>
+                </a>
+                <a href="https://t.me/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_telegram" class="flex items-center justify-center gap-3 w-full border border-white/30 text-white px-6 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
+                    <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/201069901876" target="_blank" rel="noopener" data-goal="click_tourist_book_whatsapp" class="flex items-center justify-center gap-3 w-full border border-white/30 text-white px-6 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
+                    <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <button onclick="openDetailsModal()" data-goal="click_tourist_book_details" class="flex items-center justify-center gap-3 w-full border border-accent/40 text-accent px-6 py-4 text-sm uppercase tracking-widest hover:bg-accent/10 transition-colors">
+                    <i data-lucide="info" class="lucide-icon" aria-hidden="true"></i>
+                    <span>Подробнее о съёмке</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DETAILS MODAL (INDIVIDUAL + 3 BUNDLES) -->
+    <div id="details-modal" class="modal closed" onclick="if(event.target===this)closeDetailsModal()">
+        <div class="modal-card modal-detail-card p-6 md:p-10">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-2 font-semibold">Форматы съёмки</p>
+                    <h3 class="text-2xl md:text-3xl font-extrabold">Выберите формат</h3>
+                </div>
+                <button onclick="closeDetailsModal()" aria-label="Close" class="text-white/60 hover:text-white text-2xl leading-none">&times;</button>
+            </div>
+
+            <!-- Individual session block -->
+            <div class="bg-white/5 border border-white/10 p-5 md:p-6 mb-6">
+                <div class="flex items-baseline justify-between mb-3 flex-wrap gap-2">
+                    <h4 class="text-xl font-semibold">Индивидуальная съёмка</h4>
+                    <span class="text-white/60 text-sm">от 150€</span>
+                </div>
+                <p class="text-white/60 text-sm mb-4 leading-relaxed">Подводная съёмка под вашу задачу: соцсети, портфолио или личный проект. Без опыта фридайвинга.</p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="timer" class="lucide-icon"></i> 60 мин в воде</span>
+                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="aperture" class="lucide-icon"></i> 5–30 фото</span>
+                    <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="film" class="lucide-icon"></i> 2 видео</span>
+                </div>
+                <ul class="text-white/60 text-sm space-y-1 list-disc list-inside mb-4">
+                    <li>Подготовка на суше — 110 мин: дыхание, продувка, безопасность</li>
+                    <li>Sony A7C + DJI Osmo Action 6, профессиональный свет</li>
+                    <li>Гидрокостюм, маски, ласты, моноласт, ремни — выдаются</li>
+                    <li>Локации: Дахаб и Шарм-эль-Шейх</li>
+                </ul>
+            </div>
+
+            <!-- Bundles -->
+            <p class="text-accent uppercase tracking-[0.2em] text-[10px] mb-3 font-semibold">Готовые комплекты</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                <div class="bg-white/5 border border-white/10 p-4 flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Комплект 1</span>
+                    <div class="text-2xl font-light mb-2">250€</div>
+                    <h5 class="font-medium text-sm mb-2">Берег + Osmo Action 6 в воде</h5>
+                    <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
+                        <li>5–15 портретов на суше — Sony A7C</li>
+                        <li>5–15 фото в воде — DJI Osmo</li>
+                        <li>2–5 видео + бэкстейдж 4K</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 border border-accent/40 p-4 flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-accent mb-1">Комплект 2 · Хит</span>
+                    <div class="text-2xl font-light mb-2">300€</div>
+                    <h5 class="font-medium text-sm mb-2">Максимум в воде</h5>
+                    <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
+                        <li>5–30 фото в воде — Sony A7C</li>
+                        <li>2–5 видео — Sony + DJI Osmo</li>
+                        <li>Художественная картинка + POV</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-4 flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-white/40 mb-1">Комплект 3 · Максимум</span>
+                    <div class="text-2xl font-light mb-2">350€</div>
+                    <h5 class="font-medium text-sm mb-2">Берег и вода — полный набор</h5>
+                    <ul class="text-white/60 text-xs space-y-1 list-disc list-inside">
+                        <li>5–15 портретов на суше</li>
+                        <li>5–30 фото в воде — Sony A7C</li>
+                        <li>2–5 видео — DJI Osmo</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_instagram_nested" class="flex items-center justify-center gap-2 bg-white text-black px-4 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+                    <i data-lucide="instagram" class="lucide-icon" aria-hidden="true"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://t.me/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_telegram_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
+                    <i data-lucide="send" class="lucide-icon" aria-hidden="true"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://wa.me/201069901876" target="_blank" rel="noopener" data-goal="click_tourist_book_whatsapp_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
+                    <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bookModal = document.getElementById('book-modal');
+        const detailsModal = document.getElementById('details-modal');
+        function openBookModal(src) {
+            bookModal.classList.remove('closed'); bookModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeBookModal() {
+            bookModal.classList.add('closed'); bookModal.classList.remove('open');
+            if (detailsModal.classList.contains('closed')) document.body.style.overflow = '';
+        }
+        function openDetailsModal() {
+            detailsModal.classList.remove('closed'); detailsModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeDetailsModal() {
+            detailsModal.classList.add('closed'); detailsModal.classList.remove('open');
+            if (bookModal.classList.contains('closed')) document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!detailsModal.classList.contains('closed')) closeDetailsModal();
+                else if (!bookModal.classList.contains('closed')) closeBookModal();
+            }
+        });
+
+        // FAQ toggle
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const chevron = btn.querySelector('.faq-chevron');
+            answer.classList.toggle('open');
+            chevron.classList.toggle('open');
+        }
+
+        // Yandex Metrika goal delegation
+        document.addEventListener('click', (e) => {
+            const el = e.target.closest('[data-goal]');
+            if (el && typeof ym === 'function') {
+                ym(108688475, 'reachGoal', el.getAttribute('data-goal'));
+            }
+        });
+
+        // Auto view goal
+        if (typeof ym === 'function') {
+            ym(108688475, 'reachGoal', 'view_tourist_landing');
+        }
+
+        // Lucide icons
+        window.addEventListener('load', () => { if (window.lucide) window.lucide.createIcons(); });
+    </script>
+</body>
+</html>
