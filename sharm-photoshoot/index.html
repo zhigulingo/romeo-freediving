@@ -70,16 +70,17 @@
         .modal-detail-card { max-width: 880px; }
         .gradient-text { background: linear-gradient(135deg, #fff 0%, #00bcd4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 0.3s ease; }
-        .faq-answer.open { max-height: 400px; padding-top: 12px; }
-        .faq-chevron { transition: transform 0.3s ease; }
-        .faq-chevron.open { transform: rotate(180deg); }
+        .ig-icon { width: 18px; height: 18px; flex-shrink: 0; }
+        .scroll-top-btn { position: fixed; right: 20px; bottom: 20px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.95); color: #000; border: none; cursor: pointer; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s, transform 0.2s ease; z-index: 90; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+        .scroll-top-btn.visible { opacity: 1; visibility: visible; }
+        .scroll-top-btn:hover { background: #00bcd4; transform: translateY(-2px); }
+        .scroll-top-btn svg { width: 20px; height: 20px; }
     </style>
 </head>
 <body>
 
     <!-- HERO -->
-    <section class="relative min-h-screen flex items-center justify-center">
+    <section id="hero-section" class="relative min-h-screen flex items-center justify-center">
         <video class="hero-video" autoplay muted loop playsinline poster="/assets/photo1.jpg">
             <source src="/assets/hero.mp4" type="video/mp4">
         </video>
@@ -248,7 +249,7 @@
             <p class="text-white/60 text-sm mb-6 leading-relaxed">Напишите мне в любой удобный мессенджер с датами и пожеланиями — отвечу с свободными слотами.</p>
             <div class="space-y-3">
                 <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_instagram" class="flex items-center justify-center gap-3 w-full bg-white text-black px-6 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon" aria-hidden="true" style="width:1em;height:1em;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     <span>Instagram DM</span>
                 </a>
                 <a href="https://t.me/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_telegram" class="flex items-center justify-center gap-3 w-full border border-white/30 text-white px-6 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
@@ -335,7 +336,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_instagram_nested" class="flex items-center justify-center gap-2 bg-white text-black px-4 py-3 text-xs uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon" aria-hidden="true" style="width:1em;height:1em;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     <span>Instagram</span>
                 </a>
                 <a href="https://t.me/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_book_telegram_nested" class="flex items-center justify-center gap-2 border border-white/30 text-white px-4 py-3 text-xs uppercase tracking-widest hover:bg-white/5 transition-colors">
