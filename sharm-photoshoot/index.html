@@ -118,14 +118,14 @@
             <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Моменты, которые запомнятся навсегда</h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo1.jpg')"><img src="/assets/photo1.jpg" alt="Подводная фотосессия 1" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo2.jpg')"><img src="/assets/photo2.jpg" alt="Подводная фотосессия 2" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo3.jpg')"><img src="/assets/photo3.jpg" alt="Подводная фотосессия 3" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo4.jpg')"><img src="/assets/photo4.jpg" alt="Подводная фотосессия 4" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo5.jpg')"><img src="/assets/photo5.jpg" alt="Подводная фотосессия 5" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo6.jpg')"><img src="/assets/photo6.jpg" alt="Подводная фотосессия 6" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo7.jpg')"><img src="/assets/photo7.jpg" alt="Подводная фотосессия 7" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox('/assets/photo8.jpg')"><img src="/assets/photo8.jpg" alt="Подводная фотосессия 8" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(0)"><img src="/assets/photo1.jpg" alt="Подводная фотосессия 1" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(1)"><img src="/assets/photo2.jpg" alt="Подводная фотосессия 2" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(2)"><img src="/assets/photo3.jpg" alt="Подводная фотосессия 3" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(3)"><img src="/assets/photo4.jpg" alt="Подводная фотосессия 4" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(4)"><img src="/assets/photo5.jpg" alt="Подводная фотосессия 5" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(5)"><img src="/assets/photo6.jpg" alt="Подводная фотосессия 6" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(6)"><img src="/assets/photo7.jpg" alt="Подводная фотосессия 7" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(7)"><img src="/assets/photo8.jpg" alt="Подводная фотосессия 8" class="w-full h-full object-cover" loading="lazy"></div>
         </div>
         <div class="mt-10 md:mt-12 text-center">
             <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_gallery_instagram" class="inline-flex items-center gap-3 border border-white/30 text-white px-8 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
@@ -435,19 +435,34 @@
     </div>
 
     <!-- LIGHTBOX MODAL (gallery) -->
-    <div id="lightbox-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
+    <div id="lightbox-modal" class="fixed inset-0 z-[200] closed flex flex-col items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeLightbox()"></div>
-        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-6 right-6 z-30 text-white hover:text-accent transition focus:outline-none text-3xl leading-none">&times;</button>
-        <img id="lightbox-img" src="" class="relative z-10 max-w-full max-h-[90vh] object-contain" alt="">
+        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-4 right-4 md:top-6 md:right-6 z-30 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none text-3xl md:text-4xl leading-none">&times;</button>
+        <img id="lightbox-img" src="" class="relative z-10 max-w-full max-h-[78vh] object-contain" alt="">
+        <div class="relative z-10 mt-5 flex items-center gap-5">
+            <button onclick="lightboxPrev()" aria-label="Предыдущее фото" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <span id="lightbox-counter" class="text-white/80 text-sm tracking-widest tabular-nums select-none">1 / 8</span>
+            <button onclick="lightboxNext()" aria-label="Следующее фото" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
     </div>
 
     <script>
         const bookModal = document.getElementById('book-modal');
         const detailsModal = document.getElementById('details-modal');
         const lightboxModal = document.getElementById('lightbox-modal');
-        function openLightbox(src) {
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
+        const lightboxPhotos = ['/assets/photo1.jpg','/assets/photo2.jpg','/assets/photo3.jpg','/assets/photo4.jpg','/assets/photo5.jpg','/assets/photo6.jpg','/assets/photo7.jpg','/assets/photo8.jpg'];
+        let lightboxIdx = 0;
+        function lightboxRender() {
+            document.getElementById('lightbox-img').src = lightboxPhotos[lightboxIdx];
+            document.getElementById('lightbox-counter').textContent = (lightboxIdx + 1) + ' / ' + lightboxPhotos.length;
+        }
+        function openLightbox(idx) {
+            lightboxIdx = ((idx % lightboxPhotos.length) + lightboxPhotos.length) % lightboxPhotos.length;
+            lightboxRender();
             lightboxModal.classList.remove('closed'); lightboxModal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -455,6 +470,8 @@
             lightboxModal.classList.remove('open'); lightboxModal.classList.add('closed');
             if (bookModal.classList.contains('closed') && detailsModal.classList.contains('closed')) document.body.style.overflow = '';
         }
+        function lightboxPrev() { lightboxIdx = (lightboxIdx - 1 + lightboxPhotos.length) % lightboxPhotos.length; lightboxRender(); }
+        function lightboxNext() { lightboxIdx = (lightboxIdx + 1) % lightboxPhotos.length; lightboxRender(); }
         function openBookModal(src) {
             bookModal.classList.remove('closed'); bookModal.classList.add('open');
             document.body.style.overflow = 'hidden';
@@ -476,6 +493,9 @@
                 if (!lightboxModal.classList.contains('closed')) closeLightbox();
                 else if (!detailsModal.classList.contains('closed')) closeDetailsModal();
                 else if (!bookModal.classList.contains('closed')) closeBookModal();
+            } else if (!lightboxModal.classList.contains('closed')) {
+                if (e.key === 'ArrowLeft') lightboxPrev();
+                else if (e.key === 'ArrowRight') lightboxNext();
             }
         });
 
