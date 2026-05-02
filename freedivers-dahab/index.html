@@ -121,12 +121,12 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(0)"><img src="/assets/photo1.jpg" alt="Freediver underwater 1" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(1)"><img src="/assets/photo2.jpg" alt="Freediver underwater 2" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(1)"><img src="/assets/diver1.jpg" alt="Freediver underwater 2" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(2)"><img src="/assets/photo3.jpg" alt="Freediver underwater 3" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(3)"><img src="/assets/photo4.jpg" alt="Freediver underwater 4" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(3)"><img src="/assets/diver2.jpg" alt="Freediver underwater 4" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(4)"><img src="/assets/photo5.jpg" alt="Freediver underwater 5" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(5)"><img src="/assets/photo6.jpg" alt="Freediver underwater 6" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(6)"><img src="/assets/photo7.jpg" alt="Freediver underwater 7" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(6)"><img src="/assets/diver3.jpg" alt="Freediver underwater 7" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(7)"><img src="/assets/photo8.jpg" alt="Freediver underwater 8" class="w-full h-full object-cover" loading="lazy"></div>
         </div>
         <div class="mt-10 md:mt-12 text-center">
@@ -318,7 +318,7 @@
         const bookModal = document.getElementById('book-modal');
         const detailsModal = document.getElementById('details-modal');
         const lightboxModal = document.getElementById('lightbox-modal');
-        const lightboxPhotos = ['/assets/photo1.jpg','/assets/photo2.jpg','/assets/photo3.jpg','/assets/photo4.jpg','/assets/photo5.jpg','/assets/photo6.jpg','/assets/photo7.jpg','/assets/photo8.jpg'];
+        const lightboxPhotos = ['/assets/photo1.jpg','/assets/diver1.jpg','/assets/photo3.jpg','/assets/diver2.jpg','/assets/photo5.jpg','/assets/photo6.jpg','/assets/diver3.jpg','/assets/photo8.jpg'];
         let lightboxIdx = 0;
         function lightboxRender() {
             document.getElementById('lightbox-img').src = lightboxPhotos[lightboxIdx];
