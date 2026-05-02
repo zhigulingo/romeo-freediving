@@ -74,9 +74,10 @@
         .gradient-text { background: linear-gradient(135deg, #fff 0%, #00bcd4 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .lucide-icon { width: 1em; height: 1em; display: inline-block; }
         .ig-icon { width: 18px; height: 18px; flex-shrink: 0; }
+        #back-to-top { transition: opacity 0.3s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease; }
     </style>
 </head>
-<body>
+<body class="pb-24 md:pb-0">
 
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center justify-center">
@@ -85,13 +86,19 @@
         </video>
         <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.6) 85%, #000 100%);"></div>
         <div class="relative z-10 text-center px-6 max-w-3xl">
-            <p class="text-accent uppercase tracking-[0.3em] text-xs md:text-sm mb-6 font-medium">Romeo Freediving · Dahab, Egypt</p>
+            <p class="text-accent uppercase tracking-[0.3em] text-xs md:text-sm mb-6 font-medium">Blue Hole · Lighthouse · Bells</p>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
                 <span class="gradient-text">Underwater photo & video for freedivers</span>
             </h1>
-            <p class="text-base md:text-lg text-white/70 max-w-xl mx-auto font-light mb-10">
-                Shot during your real training session by a Molchanovs W2I in Dahab. Sony A7C + DJI Osmo Action 6.
+            <p class="text-base md:text-lg text-white/70 max-w-xl mx-auto font-light mb-7">
+                Portfolio frames and Reels-ready video from your real training dive — shot by a Molchanovs W2I who moves with you.
             </p>
+            <div class="flex items-center justify-center flex-wrap gap-2 mb-9">
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="timer" class="lucide-icon"></i> 80 min in water</span>
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="aperture" class="lucide-icon"></i> 10–30 photos</span>
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="film" class="lucide-icon"></i> 2 videos 9:16</span>
+                <span class="px-2.5 py-1 text-[10px] uppercase tracking-widest bg-white/10 inline-flex items-center gap-1.5"><i data-lucide="video" class="lucide-icon"></i> 4K</span>
+            </div>
             <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
                 <button onclick="openBookModal('hero')" data-goal="click_pros_book_hero" class="inline-flex items-center justify-center gap-3 w-full sm:w-[260px] bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent hover:text-black transition-colors">
                     <span>Book now</span>
@@ -132,13 +139,21 @@
 
     <!-- ABOUT -->
     <section class="py-20 md:py-28 px-6 border-t border-white/10">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             <p class="text-accent uppercase tracking-[0.2em] text-xs mb-4 font-semibold">About</p>
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-8">Romeo — Molchanovs W2I, PB 58m</h2>
-            <div class="space-y-5 text-white/70 text-base md:text-lg font-light leading-relaxed">
-                <p>I'm Romeo — a Molchanovs <strong class="text-white font-medium">Wave 2 Instructor</strong>, AIDA &amp; CMAS athlete with a personal best of 58 m. Based in Dahab, I shoot freedivers on their training dives — Blue Hole, Lighthouse, Bells.</p>
-                <p>I shoot full-frame Sony A7C for portfolio-grade frames and DJI Osmo Action 6 for POV and Reels-ready dynamics. The shoot doesn't break your training session — I move with you, time the apnea, and frame the line.</p>
-                <p>Because I'm a freediver too, I know what kind of frames make a 60 m mouthfill or a clean turn actually look like depth. That's the difference between a tourist photo and a freediver's photo.</p>
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-10">Romeo — Molchanovs W2I, PB 58m</h2>
+            <div class="grid md:grid-cols-[2fr_3fr] gap-8 md:gap-12 items-start">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <picture>
+                        <source srcset="/assets/profile.webp" type="image/webp">
+                        <img src="/assets/profile.jpg" alt="Romeo — Molchanovs W2I freediving instructor in Dahab" class="w-full h-full object-cover" loading="lazy">
+                    </picture>
+                </div>
+                <div class="space-y-5 text-white/70 text-base md:text-lg font-light leading-relaxed">
+                    <p>I'm Romeo — a Molchanovs <strong class="text-white font-medium">Wave 2 Instructor</strong>, AIDA &amp; CMAS athlete with a personal best of 58 m. Based in Dahab, I shoot freedivers on their training dives — Blue Hole, Lighthouse, Bells.</p>
+                    <p>I shoot full-frame Sony A7C for portfolio-grade frames and DJI Osmo Action 6 for POV and Reels-ready dynamics. The shoot doesn't break your training session — I move with you, time the apnea, and frame the line.</p>
+                    <p>Because I'm a freediver too, I know what kind of frames make a 60 m mouthfill or a clean turn actually look like depth. That's the difference between a tourist photo and a freediver's photo.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -179,7 +194,7 @@
                 </div>
             </div>
             <div class="mt-14 text-center">
-                <button onclick="openBookModal('bottom')" data-goal="click_pros_book_bottom" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+                <button id="bottom-cta" onclick="openBookModal('bottom')" data-goal="click_pros_book_bottom" class="inline-flex items-center gap-3 bg-white text-black px-10 py-4 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
                     <span>Book now</span>
                     <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
                 </button>
@@ -191,6 +206,19 @@
     <footer class="py-10 px-6 border-t border-white/10 text-center text-white/40 text-xs">
         <p>© Romeo Freediving · Dahab, Egypt · <a href="https://romeofreediving.com/" class="hover:text-white">romeofreediving.com</a></p>
     </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div id="sticky-cta" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-black/85 backdrop-blur border-t border-white/10 px-4 pt-3 opacity-0 pointer-events-none transition-opacity duration-300" style="padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));">
+        <button onclick="openBookModal('sticky')" data-goal="click_pros_book_sticky" class="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-3.5 text-sm uppercase tracking-widest font-semibold hover:bg-accent transition-colors">
+            <span>Book now</span>
+            <i data-lucide="arrow-right" class="lucide-icon" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button id="back-to-top" aria-label="Back to top" class="hidden md:flex fixed bottom-6 right-6 z-50 w-12 h-12 items-center justify-center bg-white/10 hover:bg-white text-white hover:text-black backdrop-blur border border-white/20 transition-all opacity-0 pointer-events-none translate-y-2" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i data-lucide="arrow-up" class="lucide-icon" aria-hidden="true"></i>
+    </button>
 
     <!-- PRIMARY BOOK MODAL -->
     <div id="book-modal" class="modal closed" onclick="if(event.target===this)closeBookModal()">
@@ -338,6 +366,28 @@
                 else if (e.key === 'ArrowRight') lightboxNext();
             }
         });
+
+        // Back to top + sticky mobile CTA — show after scrolling past hero (~80vh), hide near bottom CTA
+        const backTop = document.getElementById('back-to-top');
+        const stickyCta = document.getElementById('sticky-cta');
+        const bottomCta = document.getElementById('bottom-cta');
+        let bottomCtaVisible = false;
+        if (bottomCta && 'IntersectionObserver' in window) {
+            new IntersectionObserver((entries) => {
+                bottomCtaVisible = entries[0].isIntersecting;
+                updateScrollUI();
+            }, { rootMargin: '0px 0px -80px 0px' }).observe(bottomCta);
+        }
+        function updateScrollUI() {
+            const pastHero = window.scrollY > window.innerHeight * 0.8;
+            backTop.style.opacity = pastHero ? '1' : '0';
+            backTop.style.transform = pastHero ? 'translateY(0)' : 'translateY(8px)';
+            backTop.style.pointerEvents = pastHero ? 'auto' : 'none';
+            const showSticky = pastHero && !bottomCtaVisible;
+            stickyCta.style.opacity = showSticky ? '1' : '0';
+            stickyCta.style.pointerEvents = showSticky ? 'auto' : 'none';
+        }
+        window.addEventListener('scroll', updateScrollUI, { passive: true });
 
         // Yandex Metrika goal delegation (in case data-goal is on an element where onclick isn't enough)
         document.addEventListener('click', (e) => {
