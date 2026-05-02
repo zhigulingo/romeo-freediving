@@ -122,14 +122,14 @@
             <h2 class="text-3xl md:text-5xl font-extrabold mb-4">Моменты, которые запомнятся навсегда</h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(0)"><img src="/assets/photo1.jpg" alt="Подводная фотосессия 1" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(0)"><img src="/assets/tourist1.jpg" alt="Подводная фотосессия 1" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(1)"><img src="/assets/photo2.jpg" alt="Подводная фотосессия 2" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(2)"><img src="/assets/photo3.jpg" alt="Подводная фотосессия 3" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(2)"><img src="/assets/tourist2.jpg" alt="Подводная фотосессия 3" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(3)"><img src="/assets/photo4.jpg" alt="Подводная фотосессия 4" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(4)"><img src="/assets/photo5.jpg" alt="Подводная фотосессия 5" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(4)"><img src="/assets/tourist3.jpg" alt="Подводная фотосессия 5" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(5)"><img src="/assets/photo6.jpg" alt="Подводная фотосессия 6" class="w-full h-full object-cover" loading="lazy"></div>
             <div class="photo-item aspect-[3/4]" onclick="openLightbox(6)"><img src="/assets/photo7.jpg" alt="Подводная фотосессия 7" class="w-full h-full object-cover" loading="lazy"></div>
-            <div class="photo-item aspect-[3/4]" onclick="openLightbox(7)"><img src="/assets/photo8.jpg" alt="Подводная фотосессия 8" class="w-full h-full object-cover" loading="lazy"></div>
+            <div class="photo-item aspect-[3/4]" onclick="openLightbox(7)"><img src="/assets/tourist4.jpg" alt="Подводная фотосессия 8" class="w-full h-full object-cover" loading="lazy"></div>
         </div>
         <div class="mt-10 md:mt-12 text-center">
             <a href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" data-goal="click_tourist_gallery_instagram" class="inline-flex items-center gap-3 border border-white/30 text-white px-8 py-4 text-sm uppercase tracking-widest hover:border-white hover:bg-white/5 transition-colors">
@@ -485,7 +485,7 @@
         const bookModal = document.getElementById('book-modal');
         const detailsModal = document.getElementById('details-modal');
         const lightboxModal = document.getElementById('lightbox-modal');
-        const lightboxPhotos = ['/assets/photo1.jpg','/assets/photo2.jpg','/assets/photo3.jpg','/assets/photo4.jpg','/assets/photo5.jpg','/assets/photo6.jpg','/assets/photo7.jpg','/assets/photo8.jpg'];
+        const lightboxPhotos = ['/assets/tourist1.jpg','/assets/photo2.jpg','/assets/tourist2.jpg','/assets/photo4.jpg','/assets/tourist3.jpg','/assets/photo6.jpg','/assets/photo7.jpg','/assets/tourist4.jpg'];
         let lightboxIdx = 0;
         function lightboxRender() {
             document.getElementById('lightbox-img').src = lightboxPhotos[lightboxIdx];
