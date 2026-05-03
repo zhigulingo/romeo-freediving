@@ -273,7 +273,10 @@
 
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase">Romeo Freediving</div>
+        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase cursor-pointer flex items-center gap-2" onclick="navTo('home')">
+            <i id="mobile-back-arrow" data-lucide="arrow-left" class="w-4 h-4 hidden"></i>
+            <span>Romeo Freediving</span>
+        </div>
         <button onclick="toggleMobileMenu()" aria-label="Открыть меню" class="pointer-events-auto text-2xl focus:outline-none"><i data-lucide="menu"></i></button>
     </div>
 
@@ -1447,6 +1450,10 @@
             // Close mobile menu
             document.getElementById('mobile-menu-overlay').classList.remove('open');
             document.getElementById('mobile-menu-overlay').classList.add('closed');
+
+            // Toggle mobile back arrow (hidden on home, visible elsewhere)
+            const backArrow = document.getElementById('mobile-back-arrow');
+            if (backArrow) backArrow.classList.toggle('hidden', page === 'home');
         }
 
         // 2. Gallery Lightbox
