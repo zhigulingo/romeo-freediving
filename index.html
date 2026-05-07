@@ -161,6 +161,7 @@
         .case-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .case-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
         @media (max-width: 767px) {
+            .case-viewport { margin-left: -1.5rem; margin-right: -1.5rem; box-shadow: none; background: transparent; }
             .case-track { gap: 16px; padding-inline: 16px; }
             .case-slide { flex: 0 0 86%; min-width: 86%; }
         }
@@ -288,8 +289,13 @@
 
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase cursor-pointer" onclick="navTo('home')">
-            Romeo Freediving
+        <div class="flex items-center">
+            <button id="mobile-back-arrow" type="button" onclick="navTo('home')" aria-label="Назад к галерее" class="hidden pointer-events-auto mr-3 text-xl focus:outline-none">
+                <i data-lucide="arrow-left"></i>
+            </button>
+            <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase cursor-pointer" onclick="navTo('home')">
+                Romeo Freediving
+            </div>
         </div>
         <button onclick="toggleMobileMenu()" aria-label="Открыть меню" class="pointer-events-auto text-2xl focus:outline-none"><i data-lucide="menu"></i></button>
     </div>
@@ -405,7 +411,7 @@
         </div>
 
         <!-- 3. ABOUT ROMEO -->
-        <div class="py-20 md:py-32 bg-[#111] text-white border-t border-white/5">
+        <div class="py-20 md:py-32 bg-[#0a0a0a] text-white">
             <div class="container mx-auto px-6 md:px-12">
                 <h2 class="section-header text-white" data-i18n="section_about">О Ромео</h2>
                 <div class="flex flex-col md:flex-row gap-8 md:gap-12 items-stretch">
@@ -585,30 +591,30 @@
                         <p class="text-base md:text-lg text-white/50 max-w-2xl mx-auto font-light leading-relaxed" data-i18n="cta_subtitle">Готовые материалы за 5–7 дней — даже если вы никогда не ныряли. Сертифицированный инструктор Molchanovs, безопасно для новичков, технически продумано для опытных.</p>
                     </div>
 
-                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5 mb-14">
-                        <div class="border border-white/10 bg-white/[0.03] p-5 md:p-7 text-center">
-                            <div class="flex justify-center mb-3"><i data-lucide="image" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
-                            <div class="text-2xl md:text-3xl font-light text-white mb-2">5–30</div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5 mb-14">
+                        <div class="border border-white/10 bg-white/[0.03] p-6 md:p-7 text-center">
+                            <div class="flex justify-center mb-4"><i data-lucide="image" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
+                            <div class="text-2xl md:text-3xl font-light text-white mb-3">5–30</div>
                             <div class="text-[10px] md:text-xs uppercase tracking-widest text-white/50" data-i18n="cta_metric1_label">Обработанных фото</div>
                         </div>
-                        <div class="border border-white/10 bg-white/[0.03] p-5 md:p-7 text-center">
-                            <div class="flex justify-center mb-3"><i data-lucide="film" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
-                            <div class="text-2xl md:text-3xl font-light text-white mb-2">2</div>
+                        <div class="border border-white/10 bg-white/[0.03] p-6 md:p-7 text-center">
+                            <div class="flex justify-center mb-4"><i data-lucide="film" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
+                            <div class="text-2xl md:text-3xl font-light text-white mb-3">2</div>
                             <div class="text-[10px] md:text-xs uppercase tracking-widest text-white/50" data-i18n="cta_metric2_label">Видео 9:16 для Reels</div>
                         </div>
-                        <div class="border border-white/10 bg-white/[0.03] p-5 md:p-7 text-center">
-                            <div class="flex justify-center mb-3"><i data-lucide="aperture" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
-                            <div class="text-2xl md:text-3xl font-light text-white mb-2">Sony A7C</div>
+                        <div class="border border-white/10 bg-white/[0.03] p-6 md:p-7 text-center">
+                            <div class="flex justify-center mb-4"><i data-lucide="aperture" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
+                            <div class="text-2xl md:text-3xl font-light text-white mb-3">Sony A7C</div>
                             <div class="text-[10px] md:text-xs uppercase tracking-widest text-white/50" data-i18n="cta_metric3_label">+ DJI Osmo Action 6 POV</div>
                         </div>
-                        <div class="border border-white/10 bg-white/[0.03] p-5 md:p-7 text-center">
-                            <div class="flex justify-center mb-3"><i data-lucide="cloud" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
-                            <div class="text-2xl md:text-3xl font-light text-white mb-2">4K</div>
+                        <div class="border border-white/10 bg-white/[0.03] p-6 md:p-7 text-center">
+                            <div class="flex justify-center mb-4"><i data-lucide="cloud" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
+                            <div class="text-2xl md:text-3xl font-light text-white mb-3">4K</div>
                             <div class="text-[10px] md:text-xs uppercase tracking-widest text-white/50" data-i18n="cta_metric5_label">Качество видео</div>
                         </div>
-                        <div class="border border-white/10 bg-white/[0.03] p-5 md:p-7 text-center">
-                            <div class="flex justify-center mb-3"><i data-lucide="clock" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
-                            <div class="text-2xl md:text-3xl font-light text-white mb-2">5–7</div>
+                        <div class="border border-white/10 bg-white/[0.03] p-6 md:p-7 text-center">
+                            <div class="flex justify-center mb-4"><i data-lucide="clock" class="lucide-icon text-cyan-400" aria-hidden="true"></i></div>
+                            <div class="text-2xl md:text-3xl font-light text-white mb-3">5–7</div>
                             <div class="text-[10px] md:text-xs uppercase tracking-widest text-white/50" data-i18n="cta_metric4_label">Дней до результата</div>
                         </div>
                     </div>
@@ -618,7 +624,7 @@
                         <p class="text-xs text-gray-500 mt-5 max-w-md mx-auto" data-i18n="cta_note">Бесплатная консультация перед бронированием — расскажу, как пройдёт съёмка и какой формат подойдёт именно вам.</p>
                     </div>
 
-                    <div class="mt-14 pt-10 border-t border-gray-900 text-center">
+                    <div class="mt-16 pt-12 border-t border-gray-900 text-center">
                         <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-5" data-i18n="cta_direct">Или напишите напрямую</p>
                         <button type="button" onclick="openContactModal()" data-goal="click_cta_contact" class="inline-flex items-center gap-3 border border-white/40 px-8 py-4 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-colors" data-i18n="cta_contact_btn">
                             <i data-lucide="message-circle" class="lucide-icon" aria-hidden="true"></i>
@@ -985,9 +991,11 @@
     <!-- LIGHTBOX MODAL (gallery) -->
     <div id="lightbox-modal" class="fixed inset-0 z-[200] closed flex flex-col items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeLightbox()"></div>
-        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-4 right-4 md:top-6 md:right-6 z-30 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none text-3xl md:text-4xl leading-none">&times;</button>
-        <img id="lightbox-img" src="" class="relative z-10 max-w-full max-h-[78vh] object-contain" alt="">
-        <div class="relative z-10 mt-5 flex items-center gap-5">
+        <div class="relative z-10 inline-block">
+            <img id="lightbox-img" src="" class="block max-w-full max-h-[78vh] object-contain" alt="">
+            <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-2 right-2 z-30 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-white/30 bg-black/60 text-white hover:bg-white hover:text-black transition focus:outline-none text-2xl md:text-3xl leading-none">&times;</button>
+        </div>
+        <div class="relative z-10 mt-6 md:mt-8 flex items-center gap-8 md:gap-10">
             <button onclick="lightboxPrev()" aria-label="Previous photo" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
@@ -1001,8 +1009,8 @@
     <!-- CONTACT MODAL (WhatsApp / Telegram chooser) -->
     <div id="contact-modal" class="closed" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
         <div class="absolute inset-0" onclick="closeContactModal()"></div>
+        <button onclick="closeContactModal()" aria-label="Закрыть" class="absolute top-4 right-4 z-30 w-10 h-10 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none"><i data-lucide="x" class="w-5 h-5"></i></button>
         <div class="contact-card relative">
-            <button onclick="closeContactModal()" aria-label="Закрыть" class="absolute top-3 right-3 text-white/70 hover:text-white transition focus:outline-none"><i data-lucide="x" class="w-5 h-5"></i></button>
             <h3 id="contact-modal-title" class="text-xl font-light tracking-wide mb-2" data-i18n="contact_title">Свяжитесь с нами</h3>
             <p class="text-sm text-white/70 font-light leading-relaxed mb-6" data-i18n="contact_subtitle">Выберите удобный мессенджер — отвечу лично и помогу подобрать формат.</p>
             <div class="flex flex-col gap-3">
@@ -1036,7 +1044,7 @@
     <!-- FOOTER -->
     <footer class="bg-black text-white py-16 border-t border-gray-900">
         <div class="container mx-auto px-6 md:px-12">
-             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                  <div>
                     <h3 class="text-xl font-bold tracking-widest mb-3">ROMEO FREEDIVING</h3>
                     <p class="text-xs text-gray-500 uppercase tracking-widest leading-relaxed" data-i18n="footer_location">Dahab • Sharm El-Sheikh<br>Egypt</p>
@@ -1050,15 +1058,6 @@
                         <span onclick="navTo('education')" class="cursor-pointer hover:text-white transition" data-i18n="footer_nav_education">Education</span>
                     </div>
                  </div>
-                 <div>
-                    <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-4" data-i18n="footer_sitemap_label">Sitemap</p>
-                    <div class="flex flex-col gap-3 text-sm font-light text-gray-400">
-                        <span onclick="navTo('home')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_gallery">Gallery</span>
-                        <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_pricing">Pricing</span>
-                        <span onclick="navTo('rental')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_rental">Rental</span>
-                        <span onclick="navTo('education')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_education">Education</span>
-                    </div>
-                 </div>
                  <div class="flex flex-col items-start gap-4">
                      <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500" data-i18n="footer_contact_label">Contact</p>
                      <button type="button" onclick="openContactModal()" data-goal="click_contact_footer" class="border border-white px-6 py-2 text-xs uppercase tracking-widest hover:bg-white hover:text-black transition" data-i18n="footer_contact">Message us</button>
@@ -1069,9 +1068,8 @@
                      </div>
                  </div>
              </div>
-             <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+             <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase flex flex-col items-center gap-2">
                  <span data-i18n="footer_copyright">© 2026 Romeo Freediving</span>
-                 <span aria-hidden="true">·</span>
                  <a href="/privacy.html" class="hover:text-white transition" data-i18n="footer_privacy_link">Privacy Policy</a>
              </div>
         </div>
@@ -1256,11 +1254,6 @@
                 footer_nav_shooting: "Съемка",
                 footer_nav_rental: "Аренда",
                 footer_nav_education: "Обучение",
-                footer_sitemap_label: "Карта сайта",
-                footer_sitemap_gallery: "Галерея",
-                footer_sitemap_pricing: "Цены",
-                footer_sitemap_rental: "Аренда",
-                footer_sitemap_education: "Обучение",
                 footer_contact_label: "Контакты",
                 footer_contact: "Связаться",
                 footer_copyright: "© 2026 Romeo Freediving",
@@ -1431,11 +1424,6 @@
                 footer_nav_shooting: "Prices",
                 footer_nav_rental: "Rental",
                 footer_nav_education: "Education",
-                footer_sitemap_label: "Sitemap",
-                footer_sitemap_gallery: "Gallery",
-                footer_sitemap_pricing: "Pricing",
-                footer_sitemap_rental: "Rental",
-                footer_sitemap_education: "Education",
                 footer_contact_label: "Contact",
                 footer_contact: "Message us",
                 footer_copyright: "© 2026 Romeo Freediving",
@@ -1468,6 +1456,8 @@
         // 1. Navigation
         function navTo(page) {
             ymGoal('view_' + page);
+            const backArrow = document.getElementById('mobile-back-arrow');
+            if (backArrow) backArrow.classList.toggle('hidden', page === 'home');
             const target = document.getElementById('page-'+page);
             const currentActive = document.querySelector('.page-section.active');
             
@@ -1587,11 +1577,18 @@
                     if (isCaseDesktop()) return;
                     clearTimeout(scrollT);
                     scrollT = setTimeout(() => {
-                        const w = viewport.clientWidth || 1;
-                        const idx = Math.round(viewport.scrollLeft / w);
+                        const slides = viewport.querySelectorAll('.case-slide');
                         const dots = document.querySelectorAll('.case-dot');
-                        caseIdx = idx;
-                        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+                        if (!slides.length) return;
+                        const scrollLeft = viewport.scrollLeft;
+                        let nearestIdx = 0;
+                        let minDist = Infinity;
+                        slides.forEach((s, i) => {
+                            const dist = Math.abs(s.offsetLeft - scrollLeft);
+                            if (dist < minDist) { minDist = dist; nearestIdx = i; }
+                        });
+                        caseIdx = nearestIdx;
+                        dots.forEach((d, i) => d.classList.toggle('active', i === nearestIdx));
                     }, 80);
                 }, { passive: true });
             }
