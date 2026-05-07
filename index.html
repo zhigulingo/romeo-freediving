@@ -162,8 +162,9 @@
         .case-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
         @media (max-width: 767px) {
             .case-viewport { margin-left: -1.5rem; margin-right: -1.5rem; box-shadow: none; background: transparent; scroll-padding-inline: 10vw; }
-            .case-track { gap: 16px; padding-left: 10vw; padding-right: 10vw; }
+            .case-track { gap: 16px; padding-left: 10vw; }
             .case-slide { flex: 0 0 80vw; min-width: 80vw; }
+            .case-slide:last-child { margin-right: 10vw; }
         }
         @media (min-width: 768px) {
             .case-viewport { overflow: hidden; scroll-snap-type: none; }
