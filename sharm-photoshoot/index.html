@@ -79,9 +79,21 @@
         .bundle-tab:hover { color: rgba(255,255,255,0.85); }
         .bundle-tab.active { background: #fff; color: #000; }
         .bundle-tab.active .opacity-60 { opacity: 1; }
+        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 70; background: rgba(0,0,0,0.35); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .site-header a { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+        .site-header a:hover { color: #00bcd4; }
+        .site-header svg { width: 16px; height: 16px; }
     </style>
 </head>
 <body class="pb-24 md:pb-0">
+
+    <!-- SITE HEADER WITH BACK ARROW -->
+    <header class="site-header">
+        <a href="/" onclick="event.preventDefault(); if(document.referrer && document.referrer.indexOf(location.origin)===0 && window.history.length>1){history.back();}else{location.href='/';}" aria-label="Back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>Romeo Freediving</span>
+        </a>
+    </header>
 
     <!-- HERO -->
     <section class="relative min-h-screen flex items-center justify-center">

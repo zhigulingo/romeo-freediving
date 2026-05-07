@@ -40,20 +40,29 @@
             #cookie-banner .cookie-inner { gap: 10px; justify-content: flex-start; }
             #cookie-accept { margin-left: auto; }
         }
+        .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 70; background: rgba(10,10,10,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .site-header a.brand { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+        .site-header a.brand:hover { color: #00bcd4; text-decoration: none; }
+        .site-header svg { width: 16px; height: 16px; }
     </style>
 </head>
 <body>
 
-    <div class="fixed top-6 right-6 z-50 text-xs uppercase tracking-widest text-white/70 select-none">
+    <header class="site-header">
+        <a class="brand" href="/" onclick="event.preventDefault(); if(document.referrer && document.referrer.indexOf(location.origin)===0 && window.history.length>1){history.back();}else{location.href='/';}" aria-label="Back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+            <span>Romeo Freediving</span>
+        </a>
+    </header>
+
+    <div class="fixed top-3 right-6 z-[80] text-xs uppercase tracking-widest text-white/70 select-none">
         <span onclick="setLang('ru')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-ru">RU</span>
         <span class="mx-2 text-white/30">|</span>
         <span onclick="setLang('en')" class="cursor-pointer hover:text-cyan-400 transition-colors lang-en text-cyan-400">EN</span>
     </div>
 
-    <main class="max-w-2xl mx-auto px-6 py-20">
-        <a href="/" class="text-sm text-white/50 hover:text-accent" data-i18n="back_link">← Back to site</a>
-
-        <h1 data-i18n="priv_h1" class="mt-8">Privacy &amp; Cookie Policy</h1>
+    <main class="max-w-2xl mx-auto px-6 pt-28 pb-20">
+        <h1 data-i18n="priv_h1">Privacy &amp; Cookie Policy</h1>
         <p data-i18n="priv_intro">This page explains what data we collect on romeofreediving.com and why. Romeo Freediving is an individual photographer based in Dahab, Egypt. By using this site you agree to the practices described below.</p>
 
         <h2 data-i18n="priv_h2_data">What we collect</h2>
