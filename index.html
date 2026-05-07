@@ -192,18 +192,6 @@
         /* HERO → GALLERY transition (dark blend) */
         .hero-bottom-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, #0a0a0a 100%); pointer-events: none; z-index: 5; }
 
-        /* LIGHTBOX with swipe + arrows */
-        #lightbox-modal .lb-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 30; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; color: #fff; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.2); transition: background .2s ease; }
-        #lightbox-modal .lb-arrow:hover { background: rgba(0,0,0,0.7); }
-        #lightbox-modal .lb-prev { left: 1rem; }
-        #lightbox-modal .lb-next { right: 1rem; }
-        @media (max-width: 640px) {
-            #lightbox-modal .lb-arrow { width: 2.5rem; height: 2.5rem; }
-            #lightbox-modal .lb-prev { left: 0.5rem; }
-            #lightbox-modal .lb-next { right: 0.5rem; }
-        }
-        #lightbox-img { user-select: none; -webkit-user-drag: none; }
-
         /* Cookie banner */
         #cookie-banner { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: rgba(15,15,20,.96); color: #fff; padding: 12px 20px; border-top: 1px solid rgba(255,255,255,.08); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); font-size: 13px; line-height: 1.5; }
         #cookie-banner .cookie-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; }
@@ -296,9 +284,8 @@
 
     <!-- MOBILE HEADER -->
     <div class="md:hidden fixed top-8 w-full z-[70] header-blend flex justify-between items-center px-6 py-4 pointer-events-none">
-        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase cursor-pointer flex items-center gap-2" onclick="navTo('home')">
-            <i id="mobile-back-arrow" data-lucide="arrow-left" class="w-4 h-4 hidden"></i>
-            <span>Romeo Freediving</span>
+        <div class="pointer-events-auto font-bold tracking-widest text-xs uppercase cursor-pointer" onclick="navTo('home')">
+            Romeo Freediving
         </div>
         <button onclick="toggleMobileMenu()" aria-label="Открыть меню" class="pointer-events-auto text-2xl focus:outline-none"><i data-lucide="menu"></i></button>
     </div>
@@ -991,13 +978,20 @@
         </div>
     </section>
 
-    <!-- LIGHTBOX MODAL (gallery, swipe + arrows) -->
-    <div id="lightbox-modal" class="fixed inset-0 z-[200] closed flex items-center justify-center p-4">
+    <!-- LIGHTBOX MODAL (gallery) -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[200] closed flex flex-col items-center justify-center p-4">
         <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeLightbox()"></div>
-        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-6 right-6 z-30 text-white hover:text-cyan-400 transition focus:outline-none"><i data-lucide="x" class="w-8 h-8"></i></button>
-        <button type="button" onclick="lightboxPrev()" aria-label="Previous" class="lb-arrow lb-prev"><i data-lucide="arrow-left" class="w-5 h-5"></i></button>
-        <button type="button" onclick="lightboxNext()" aria-label="Next" class="lb-arrow lb-next"><i data-lucide="arrow-right" class="w-5 h-5"></i></button>
-        <img id="lightbox-img" src="" class="relative z-10 max-w-full max-h-[90vh] object-contain" alt="">
+        <button onclick="closeLightbox()" aria-label="Закрыть" class="absolute top-4 right-4 md:top-6 md:right-6 z-30 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none text-3xl md:text-4xl leading-none">&times;</button>
+        <img id="lightbox-img" src="" class="relative z-10 max-w-full max-h-[78vh] object-contain" alt="">
+        <div class="relative z-10 mt-5 flex items-center gap-5">
+            <button onclick="lightboxPrev()" aria-label="Previous photo" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <span id="lightbox-counter" class="text-white/80 text-sm tracking-widest tabular-nums select-none">1 / 8</span>
+            <button onclick="lightboxNext()" aria-label="Next photo" class="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-white/30 bg-black/40 text-white hover:bg-white hover:text-black transition focus:outline-none">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
     </div>
 
     <!-- CONTACT MODAL (WhatsApp / Telegram chooser) -->
@@ -1055,10 +1049,10 @@
                  <div>
                     <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-4" data-i18n="footer_sitemap_label">Sitemap</p>
                     <div class="flex flex-col gap-3 text-sm font-light text-gray-400">
-                        <a href="/result.html" class="hover:text-white transition" data-i18n="footer_sitemap_result">Real result</a>
-                        <a href="/sharm-photoshoot/" class="hover:text-white transition" data-i18n="footer_sitemap_sharm">Sharm photoshoot</a>
-                        <a href="/freedivers-dahab/" class="hover:text-white transition" data-i18n="footer_sitemap_dahab">Freedivers Dahab</a>
-                        <a href="/privacy.html" class="hover:text-white transition" data-i18n="footer_sitemap_privacy">Privacy Policy</a>
+                        <span onclick="navTo('home')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_gallery">Gallery</span>
+                        <span onclick="navTo('shooting')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_pricing">Pricing</span>
+                        <span onclick="navTo('rental')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_rental">Rental</span>
+                        <span onclick="navTo('education')" class="cursor-pointer hover:text-white transition" data-i18n="footer_sitemap_education">Education</span>
                     </div>
                  </div>
                  <div class="flex flex-col items-start gap-4">
@@ -1071,8 +1065,10 @@
                      </div>
                  </div>
              </div>
-             <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase">
+             <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
                  <span data-i18n="footer_copyright">© 2026 Romeo Freediving</span>
+                 <span aria-hidden="true">·</span>
+                 <a href="/privacy.html" class="hover:text-white transition" data-i18n="footer_privacy_link">Privacy Policy</a>
              </div>
         </div>
     </footer>
@@ -1257,13 +1253,14 @@
                 footer_nav_rental: "Аренда",
                 footer_nav_education: "Обучение",
                 footer_sitemap_label: "Карта сайта",
-                footer_sitemap_result: "Реальный результат",
-                footer_sitemap_sharm: "Фотосессия в Шарме",
-                footer_sitemap_dahab: "Фридайверы Дахаба",
-                footer_sitemap_privacy: "Политика конфиденциальности",
+                footer_sitemap_gallery: "Галерея",
+                footer_sitemap_pricing: "Цены",
+                footer_sitemap_rental: "Аренда",
+                footer_sitemap_education: "Обучение",
                 footer_contact_label: "Контакты",
                 footer_contact: "Связаться",
                 footer_copyright: "© 2026 Romeo Freediving",
+                footer_privacy_link: "Политика конфиденциальности",
                 burger_contact: "Связаться",
                 contact_title: "Свяжитесь с нами",
                 contact_subtitle: "Выберите удобный мессенджер — отвечу лично и помогу подобрать формат.",
@@ -1431,13 +1428,14 @@
                 footer_nav_rental: "Rental",
                 footer_nav_education: "Education",
                 footer_sitemap_label: "Sitemap",
-                footer_sitemap_result: "Real result",
-                footer_sitemap_sharm: "Sharm photoshoot",
-                footer_sitemap_dahab: "Freedivers Dahab",
-                footer_sitemap_privacy: "Privacy Policy",
+                footer_sitemap_gallery: "Gallery",
+                footer_sitemap_pricing: "Pricing",
+                footer_sitemap_rental: "Rental",
+                footer_sitemap_education: "Education",
                 footer_contact_label: "Contact",
                 footer_contact: "Message us",
                 footer_copyright: "© 2026 Romeo Freediving",
+                footer_privacy_link: "Privacy Policy",
                 burger_contact: "Message us",
                 contact_title: "Get in touch",
                 contact_subtitle: "Pick your messenger — I'll reply personally and help you choose the right format.",
@@ -1489,47 +1487,39 @@
             // Close mobile menu
             document.getElementById('mobile-menu-overlay').classList.remove('open');
             document.getElementById('mobile-menu-overlay').classList.add('closed');
-
-            // Toggle mobile back arrow (hidden on home, visible elsewhere)
-            const backArrow = document.getElementById('mobile-back-arrow');
-            if (backArrow) backArrow.classList.toggle('hidden', page === 'home');
         }
 
-        // 2. Gallery Lightbox (swipe + arrows + keyboard)
+        // 2. Gallery Lightbox (arrows + keyboard + swipe)
+        const lightboxModal = document.getElementById('lightbox-modal');
         const lightboxPhotos = [
             'assets/photo1.jpg','assets/photo2.jpg','assets/photo3.jpg','assets/photo4.jpg',
             'assets/photo5.jpg','assets/photo6.jpg','assets/photo7.jpg','assets/photo8.jpg'
         ];
         let lightboxIdx = 0;
-        function renderLightbox() {
-            const img = document.getElementById('lightbox-img');
-            if (img) img.src = lightboxPhotos[lightboxIdx];
+        function lightboxRender() {
+            document.getElementById('lightbox-img').src = lightboxPhotos[lightboxIdx];
+            document.getElementById('lightbox-counter').textContent = (lightboxIdx + 1) + ' / ' + lightboxPhotos.length;
         }
-        function openLightbox(i) {
-            const m = document.getElementById('lightbox-modal');
-            if (!m) return;
-            lightboxIdx = (typeof i === 'number') ? ((i % lightboxPhotos.length) + lightboxPhotos.length) % lightboxPhotos.length : 0;
-            renderLightbox();
-            m.classList.remove('closed'); m.classList.add('open');
+        function openLightbox(idx) {
+            lightboxIdx = ((idx % lightboxPhotos.length) + lightboxPhotos.length) % lightboxPhotos.length;
+            lightboxRender();
+            lightboxModal.classList.remove('closed'); lightboxModal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
         function closeLightbox() {
-            const m = document.getElementById('lightbox-modal');
-            if (!m) return;
-            m.classList.remove('open'); m.classList.add('closed');
+            lightboxModal.classList.remove('open'); lightboxModal.classList.add('closed');
             document.body.style.overflow = '';
         }
-        function lightboxPrev() { lightboxIdx = (lightboxIdx - 1 + lightboxPhotos.length) % lightboxPhotos.length; renderLightbox(); }
-        function lightboxNext() { lightboxIdx = (lightboxIdx + 1) % lightboxPhotos.length; renderLightbox(); }
+        function lightboxPrev() { lightboxIdx = (lightboxIdx - 1 + lightboxPhotos.length) % lightboxPhotos.length; lightboxRender(); }
+        function lightboxNext() { lightboxIdx = (lightboxIdx + 1) % lightboxPhotos.length; lightboxRender(); }
         (function initLightboxGestures(){
-            const m = document.getElementById('lightbox-modal');
-            if (!m) return;
+            if (!lightboxModal) return;
             let startX = 0, startY = 0, tracking = false;
-            m.addEventListener('touchstart', (e) => {
-                if (!m.classList.contains('open')) return;
+            lightboxModal.addEventListener('touchstart', (e) => {
+                if (!lightboxModal.classList.contains('open')) return;
                 const t = e.touches[0]; startX = t.clientX; startY = t.clientY; tracking = true;
             }, { passive: true });
-            m.addEventListener('touchend', (e) => {
+            lightboxModal.addEventListener('touchend', (e) => {
                 if (!tracking) return;
                 tracking = false;
                 const t = e.changedTouches[0];
