@@ -1774,11 +1774,6 @@
         if (window.lucide) initLucide();
         else window.addEventListener('DOMContentLoaded', initLucide);
 
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", initHeroAlphaLayer);
-        } else {
-            initHeroAlphaLayer();
-        }
     </script>
 
     <div id="cookie-banner" role="region" aria-label="Cookie notice" style="display:none;">
