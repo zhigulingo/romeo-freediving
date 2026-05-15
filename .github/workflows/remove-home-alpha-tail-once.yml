@@ -16,13 +16,16 @@ jobs:
           from pathlib import Path
           path = Path('index.html')
           text = path.read_text()
-          text = text.replace('''
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", initHeroAlphaLayer);
-        } else {
-            initHeroAlphaLayer();
-        }
-''', '\n')
+          lines = [
+              '',
+              '        if (document.readyState === "loading") {',
+              '            document.addEventListener("DOMContentLoaded", initHeroAlphaLayer);',
+              '        } else {',
+              '            initHeroAlphaLayer();',
+              '        }',
+              ''
+          ]
+          text = text.replace('\n'.join(lines), '\n')
           path.write_text(text)
           Path('.github/workflows/remove-home-alpha-tail-once.yml').unlink()
           PY
