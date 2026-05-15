@@ -1,0 +1,74 @@
+name: Remove home alpha video once
+
+on:
+  push:
+    paths:
+      - '.github/workflows/remove-home-alpha-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  remove-alpha:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove alpha video layer from homepage
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text()
+          snippets = [
+              '''        .hero-alpha-layer { position: absolute; z-index: 6; top: 8vh; right: -8vw; width: min(68vw, 860px); aspect-ratio: 16 / 9; opacity: 0.38; pointer-events: none; filter: saturate(1.08) contrast(1.06); }
+        .hero-alpha-layer video,
+        .hero-alpha-layer img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .hero-alpha-layer img { display: none; }
+        .hero-alpha-layer.use-fallback video { display: none; }
+        .hero-alpha-layer.use-fallback img { display: block; }
+        @media (max-width: 767px) {
+            .hero-alpha-layer { top: 18vh; right: -42vw; width: 115vw; opacity: 0.30; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-alpha-layer { display: none; }
+        }
+
+''',
+              '''            <div class="hero-alpha-layer" data-alpha-layer aria-hidden="true">
+                <video autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/hero-alpha.webm" type="video/webm">
+                </video>
+                <img src="assets/hero-alpha.webp" alt="">
+            </div>
+''',
+              '''        function initHeroAlphaLayer() {
+            const layer = document.querySelector('[data-alpha-layer]');
+            if (!layer) return;
+            const testVideo = document.createElement('video');
+            const supportsWebm = !!testVideo.canPlayType('video/webm; codecs="vp9"');
+            if (!supportsWebm) layer.classList.add('use-fallback');
+        }
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initHeroAlphaLayer);
+        } else {
+            initHeroAlphaLayer();
+        }
+'''
+          ]
+          for snippet in snippets:
+              text = text.replace(snippet, '')
+          path.write_text(text)
+          Path('.github/workflows/remove-home-alpha-once.yml').unlink()
+          PY
+      - name: Commit and push removal
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git add index.html .github/workflows/remove-home-alpha-once.yml
+          git commit -m "fix: remove home alpha video"
+          git push
