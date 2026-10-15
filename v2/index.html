@@ -3,304 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#071b22">
-  <meta name="description" content="Underwater photo and video experiences in Dahab and Sharm el-Sheikh with Romeo Freediving.">
-  <title>Underwater Shooting — Romeo Freediving</title>
+  <meta name="theme-color" content="#f7f7f5">
+  <meta name="description" content="Discover an underwater portrait experience in the Red Sea with photographer and freediving instructor Romeo.">
+  <title>Underwater shooting in the Red Sea — Romeo Freediving</title>
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=5">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --ink: #071b22;
-      --paper: #f3f5f2;
-      --cyan: #00d4e8;
-      --lime: #d6ff53;
-      --muted: #789098;
-      --radius: 28px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: Manrope, system-ui, sans-serif; overflow-x: hidden; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    img { display: block; width: 100%; }
-    .shell { width: min(100%, 1240px); margin: 0 auto; padding-inline: 18px; }
-    .topbar { position: fixed; z-index: 100; top: 12px; left: 50%; transform: translateX(-50%); width: calc(100% - 24px); max-width: 1200px; height: 56px; padding: 7px 8px 7px 16px; display: flex; align-items: center; justify-content: space-between; color: white; background: rgba(7,27,34,.72); border: 1px solid rgba(255,255,255,.14); border-radius: 18px; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
-    .brand img { width: 30px; height: 30px; border-radius: 9px; }
-    .book { border: 0; border-radius: 13px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 800; padding: 12px 15px; }
-    .chapter { padding: 104px 0 72px; }
-    .eyebrow { margin: 0 0 18px; color: #668087; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    .title { margin: 0; font-size: clamp(42px, 13vw, 112px); line-height: .91; letter-spacing: -.075em; text-wrap: balance; }
-    .intro { max-width: 580px; margin: 28px 0 0; color: #536b72; font-size: 16px; line-height: 1.55; }
-    .reveal { opacity: 0; transform: translateY(34px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.8,.2,1); }
-    .reveal.visible { opacity: 1; transform: none; }
+    :root{--ink:#171918;--paper:#f7f7f5;--soft:#ececea;--sea:#d8f2f3;--blue:#073b4c;--coral:#ff385c;--lime:#e6f57a;--muted:#6f7471;--line:rgba(23,25,24,.12);--r:28px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Manrope,system-ui,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}img{display:block;width:100%}button{font:inherit}.wrap{width:min(100%,1180px);margin:auto;padding-inline:20px}.kicker{margin:0 0 18px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.display{margin:0;font-size:clamp(48px,13vw,112px);line-height:.91;letter-spacing:-.075em;text-wrap:balance}.lead{max-width:570px;margin:25px 0 0;color:#585e5a;font-size:16px;line-height:1.6}.section{padding:105px 0}.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1)}.reveal.on{opacity:1;transform:none}
 
-    /* Scroll scene */
-    .hero-scene { height: 400vh; background: var(--ink); color: white; }
-    .hero-sticky { position: sticky; top: 0; height: 100svh; min-height: 620px; overflow: hidden; display: grid; place-items: center; }
-    .hero-glow { position: absolute; width: 100vw; height: 100vw; max-width: 760px; max-height: 760px; border-radius: 50%; background: radial-gradient(circle, rgba(0,212,232,.32), transparent 67%); filter: blur(8px); transform: translate(25%, -25%); }
-    .message { position: absolute; z-index: 4; left: 18px; right: 18px; top: 17%; max-width: 720px; margin: auto; padding: 22px 24px 25px; color: var(--ink); background: var(--lime); border-radius: 28px 28px 8px 28px; transform-origin: 90% 100%; box-shadow: 0 32px 90px rgba(0,0,0,.28); }
-    .message small { display: flex; justify-content: space-between; margin-bottom: 13px; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; opacity: .55; }
-    .message h1 { margin: 0; font-size: clamp(45px, 14vw, 104px); line-height: .84; letter-spacing: -.075em; text-transform: uppercase; }
-    .message p { margin: 18px 0 0; max-width: 420px; font-size: 14px; font-weight: 600; line-height: 1.4; }
-    .post-stack { position: absolute; z-index: 5; left: 50%; top: 48%; width: min(74vw, 360px); aspect-ratio: 4/5; transform: translateX(-50%); }
-    .post { position: absolute; inset: 0; overflow: hidden; border: 7px solid #fff; border-bottom-width: 56px; border-radius: 18px; background: #fff; box-shadow: 0 28px 70px rgba(0,0,0,.48); will-change: transform; }
-    .post img { height: 100%; object-fit: cover; }
-    .post::after { content: attr(data-caption); position: absolute; left: 11px; right: 11px; bottom: -39px; overflow: hidden; color: #0a1b21; font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
-    .post:nth-child(1) { z-index: 3; }
-    .post:nth-child(2) { z-index: 2; }
-    .post:nth-child(3) { z-index: 1; }
-    .scroll-cue { position: absolute; z-index: 8; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; opacity: .62; }
-    .scroll-cue i { width: 22px; height: 34px; border: 1px solid currentColor; border-radius: 20px; position: relative; }
-    .scroll-cue i::after { content: ""; position: absolute; width: 3px; height: 7px; top: 7px; left: 9px; border-radius: 3px; background: currentColor; animation: scrollDot 1.6s infinite; }
-    @keyframes scrollDot { 0% { transform: translateY(0); opacity: 0; } 30% { opacity: 1; } 100% { transform: translateY(11px); opacity: 0; } }
+    .nav{position:fixed;z-index:100;top:12px;left:50%;transform:translateX(-50%);width:calc(100% - 24px);max-width:1160px;height:58px;display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 15px;border:1px solid rgba(255,255,255,.35);border-radius:18px;background:rgba(247,247,245,.78);backdrop-filter:blur(20px);box-shadow:0 8px 30px rgba(0,0,0,.07)}.logo{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.logo img{width:32px;height:32px;border-radius:9px}.nav-cta,.cta{display:inline-flex;align-items:center;justify-content:center;border-radius:13px;background:var(--ink);color:#fff;font-size:12px;font-weight:800;padding:13px 16px}.nav-cta{background:var(--coral)}
 
-    /* Social gallery */
-    .social-section { background: var(--paper); }
-    .social-list { display: grid; gap: 18px; margin-top: 48px; }
-    .social-card { position: relative; min-height: 70svh; overflow: hidden; border-radius: var(--radius); background: #ccc; color: white; isolation: isolate; }
-    .social-card::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,.8)); }
-    .social-card > img { position: absolute; z-index: -2; inset: 0; height: 100%; object-fit: cover; transition: transform .8s ease; }
-    .social-card:hover > img { transform: scale(1.035); }
-    .social-meta { position: absolute; inset: auto 20px 20px; }
-    .network { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 13px; padding: 8px 11px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: rgba(0,0,0,.22); backdrop-filter: blur(12px); font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .social-meta h3 { margin: 0 0 9px; font-size: 30px; line-height: 1; letter-spacing: -.045em; }
-    .social-meta p { margin: 0; color: rgba(255,255,255,.75); font-size: 13px; line-height: 1.45; }
-    .arrow { position: absolute; right: 18px; top: 18px; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: white; color: var(--ink); font-size: 22px; }
+    /* Physical card scroll theatre */
+    .hero{height:470vh;background:#dff1ef}.stage{position:sticky;top:0;height:100svh;min-height:640px;overflow:hidden}.stage-copy{position:absolute;z-index:4;left:20px;right:20px;top:16%;max-width:920px;margin:auto}.stage-copy .kicker{color:#385a5a}.stage-copy h1{margin:0;font-size:clamp(54px,16vw,138px);line-height:.83;letter-spacing:-.085em;text-transform:uppercase}.stage-copy p{max-width:480px;margin:23px 0 0;font-size:15px;line-height:1.55}.card-field{position:absolute;inset:0;z-index:7;pointer-events:none}.photo-card{position:absolute;width:min(70vw,340px);padding:8px 8px 48px;border-radius:10px;background:#fff;box-shadow:0 28px 80px rgba(15,43,44,.25);will-change:transform,opacity}.photo-card img{height:100%;object-fit:cover;border-radius:5px}.photo-card span{position:absolute;left:14px;right:14px;bottom:14px;display:flex;justify-content:space-between;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.c1{aspect-ratio:4/5;left:50%;top:120%;transform:translateX(-50%) rotate(-4deg)}.c2{aspect-ratio:4/5;left:50%;top:122%;transform:translateX(-50%) rotate(5deg)}.c3{aspect-ratio:4/5;left:50%;top:124%;transform:translateX(-50%) rotate(-2deg)}.c4{aspect-ratio:4/5;left:50%;top:126%;transform:translateX(-50%) rotate(7deg)}.hero-note{position:absolute;z-index:10;left:50%;bottom:18px;transform:translateX(-50%);font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}.hero-note::before{content:"";display:inline-block;width:42px;height:1px;margin:0 10px 3px 0;background:currentColor}
 
-    /* Messenger */
-    .messenger-section { background: #cce8ed; }
-    .phone { margin-top: 45px; padding: 14px; border-radius: 38px; background: #071b22; box-shadow: 0 40px 100px rgba(7,27,34,.24); }
-    .phone-screen { min-height: 650px; padding: 24px 14px 20px; overflow: hidden; border-radius: 27px; background: #e8f1f1; }
-    .contact { display: flex; align-items: center; gap: 12px; padding: 0 5px 22px; border-bottom: 1px solid rgba(7,27,34,.08); }
-    .avatar { width: 44px; height: 44px; overflow: hidden; border-radius: 50%; }
-    .avatar img { height: 100%; object-fit: cover; }
-    .contact strong { display: block; font-size: 14px; }
-    .contact span { color: #5f7d84; font-size: 11px; }
-    .chat { padding-top: 28px; display: flex; flex-direction: column; gap: 10px; }
-    .bubble { width: fit-content; max-width: 86%; padding: 13px 15px; border-radius: 20px; font-size: 14px; line-height: 1.46; box-shadow: 0 5px 16px rgba(7,27,34,.05); }
-    .bubble.in { align-self: flex-start; background: white; border-bottom-left-radius: 6px; }
-    .bubble.out { align-self: flex-end; background: var(--lime); border-bottom-right-radius: 6px; }
-    .bubble.photo { padding: 4px; width: 78%; overflow: hidden; }
-    .bubble.photo img { aspect-ratio: 4/3; object-fit: cover; border-radius: 16px; }
-    .bubble time { display: block; margin-top: 5px; color: #6d858b; font-size: 9px; text-align: right; }
+    /* Airbnb-style summary */
+    .summary{position:relative;z-index:15;margin-top:-8vh;padding:0 0 85px}.summary-card{padding:28px;border-radius:32px;background:#fff;box-shadow:0 28px 80px rgba(0,0,0,.09)}.summary h2{margin:0;font-size:35px;line-height:1.04;letter-spacing:-.055em}.host-row{display:flex;align-items:center;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}.host-row img{width:48px;height:48px;border-radius:50%;object-fit:cover}.host-row strong{display:block;font-size:13px}.host-row span{color:var(--muted);font-size:11px}.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:22px}.fact{padding:15px;border-radius:17px;background:var(--soft)}.fact strong{display:block;font-size:13px}.fact span{color:var(--muted);font-size:10px}.rating{color:#eb3152}
 
-    /* Stories */
-    .stories-section { background: var(--ink); color: white; overflow: hidden; }
-    .stories-section .eyebrow, .stories-section .intro { color: #86a1a8; }
-    .story-window { margin-top: 44px; padding: 11px; border: 1px solid rgba(255,255,255,.14); border-radius: 34px; background: rgba(255,255,255,.06); }
-    .story-top { height: 40px; padding: 7px 8px; display: flex; gap: 5px; }
-    .story-top span { flex: 1; height: 3px; border-radius: 4px; background: rgba(255,255,255,.23); }
-    .story-top span:first-child { background: var(--lime); }
-    .story-track { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-    .story-track::-webkit-scrollbar { display: none; }
-    .story-card { flex: 0 0 100%; min-height: 550px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; overflow: hidden; scroll-snap-align: start; border-radius: 25px; background-size: cover; background-position: center; position: relative; isolation: isolate; }
-    .story-card::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.78)); }
-    .story-card blockquote { margin: 0 0 22px; font-size: 25px; line-height: 1.15; letter-spacing: -.035em; }
-    .story-card p { margin: 0; color: rgba(255,255,255,.72); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-    .swipe-note { display: flex; justify-content: space-between; margin-top: 13px; color: #78949b; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    /* Itinerary */
+    .itinerary{background:#fff}.steps{margin-top:55px}.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:28px 0;border-top:1px solid var(--line)}.step-number{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;font-weight:800}.step h3{margin:2px 0 9px;font-size:25px;line-height:1.05;letter-spacing:-.045em}.step p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.step-photo{grid-column:1/-1;margin-top:7px;overflow:hidden;border-radius:24px}.step-photo img{height:62svh;max-height:620px;object-fit:cover}.step:nth-child(2) .step-photo img{object-position:50% 62%}
 
-    /* FAQ */
-    .faq-section { background: #e7ebff; }
-    .faq-chat { margin-top: 42px; display: flex; flex-direction: column; gap: 12px; }
-    details { border-radius: 24px 24px 8px 24px; background: white; box-shadow: 0 12px 35px rgba(48,58,110,.08); overflow: hidden; }
-    summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 19px 20px; font-size: 15px; font-weight: 700; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; flex: 0 0 30px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: #e7ebff; font-size: 20px; transition: transform .25s; }
-    details[open] summary::after { transform: rotate(45deg); }
-    details p { margin: 0; padding: 0 20px 20px; color: #536b72; font-size: 14px; line-height: 1.55; }
-    .question { align-self: flex-end; width: 82%; margin-bottom: 3px; padding: 16px 18px; border-radius: 22px 22px 22px 7px; background: #7888ff; color: white; font-size: 14px; line-height: 1.4; }
+    /* Deliverables device mockups */
+    .deliver{overflow:hidden;background:var(--blue);color:#fff}.deliver .kicker,.deliver .lead{color:#a8c8ce}.devices{position:relative;height:760px;margin-top:42px}.phone{position:absolute;z-index:3;left:2%;top:55px;width:58%;max-width:320px;padding:9px;border-radius:38px;background:#101313;box-shadow:0 40px 100px rgba(0,0,0,.42);transform:rotate(-5deg)}.phone::before{content:"";position:absolute;z-index:2;top:15px;left:50%;width:36%;height:18px;transform:translateX(-50%);border-radius:20px;background:#101313}.phone-screen{overflow:hidden;border-radius:31px;background:#000}.phone-screen img{height:610px;object-fit:cover}.phone-ui{position:absolute;inset:auto 21px 24px;color:#fff;text-shadow:0 2px 15px #000}.phone-ui b{display:block;font-size:13px}.phone-ui small{font-size:10px}.gallery-mock{position:absolute;z-index:2;right:-32%;top:200px;width:88%;max-width:600px;padding:10px 10px 44px;border-radius:20px;background:#f7f7f5;box-shadow:0 40px 100px rgba(0,0,0,.35);transform:rotate(7deg);color:#171918}.gallery-top{height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 7px;font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.gallery-grid img{aspect-ratio:4/5;object-fit:cover;border-radius:9px}.delivery-chips{position:absolute;z-index:6;left:8%;bottom:15px;display:flex;flex-direction:column;gap:8px}.delivery-chips span{width:max-content;padding:11px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);font-size:10px;font-weight:700}
 
-    /* CTA */
-    .final { min-height: 100svh; display: flex; align-items: center; padding: 100px 0 50px; background: var(--lime); }
-    .final h2 { margin: 0; max-width: 880px; font-size: clamp(52px, 15vw, 136px); line-height: .83; letter-spacing: -.08em; text-transform: uppercase; }
-    .final p { max-width: 460px; margin: 32px 0; font-size: 16px; line-height: 1.55; }
-    .final-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .final-actions a { padding: 16px 20px; border-radius: 16px; background: var(--ink); color: white; font-size: 13px; font-weight: 800; }
-    .final-actions a.alt { color: var(--ink); background: rgba(255,255,255,.48); }
-    footer { padding: 20px 18px calc(20px + env(safe-area-inset-bottom)); background: var(--lime); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    /* Social physical posts */
+    .social{background:#efece5}.post-wall{position:relative;height:980px;margin-top:45px}.social-post{position:absolute;width:78%;max-width:390px;padding:9px 9px 52px;border-radius:14px;background:#fff;box-shadow:0 25px 75px rgba(0,0,0,.16);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1)}.social-post.reveal{transform:translateY(35px) rotate(var(--tilt))}.social-post.reveal.on{transform:rotate(var(--tilt))}.social-post:hover{z-index:10!important;transform:rotate(0)!important}.social-post img{aspect-ratio:4/5;object-fit:cover;border-radius:8px}.post-label{position:absolute;left:16px;right:16px;bottom:15px;display:flex;align-items:center;justify-content:space-between}.post-label b{font-size:11px}.post-label span{font-size:18px}.instagram{--tilt:-6deg;z-index:3;left:-2%;top:15px}.tiktok{--tilt:7deg;z-index:2;right:-3%;top:300px}.youtube{--tilt:-3deg;z-index:4;left:5%;top:605px}
 
-    @media (min-width: 760px) {
-      .shell { padding-inline: 32px; }
-      .message { left: 8vw; right: auto; top: 20%; width: min(58vw, 710px); }
-      .post-stack { left: 74%; top: 28%; width: min(28vw, 390px); }
-      .social-list { grid-template-columns: repeat(3, 1fr); }
-      .social-card { min-height: 650px; }
-      .messenger-layout { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 7vw; }
-      .phone { margin-top: 0; }
-      .story-window { max-width: 660px; margin-inline: auto; }
-      .faq-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 7vw; align-items: start; }
-      .faq-chat { margin-top: 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
+    /* Host profile */
+    .about{background:var(--sea)}.about-grid{display:grid;gap:44px}.portrait{position:relative;padding:12px 12px 60px;border-radius:15px;background:#fff;box-shadow:0 25px 70px rgba(8,59,76,.14)}.portrait.reveal{transform:translateY(28px) rotate(-2deg)}.portrait.reveal.on{transform:rotate(-2deg)}.portrait img{height:68svh;max-height:650px;object-fit:cover;border-radius:8px}.portrait span{position:absolute;bottom:20px;left:20px;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.bio h2{margin:0;font-size:49px;line-height:.95;letter-spacing:-.065em}.bio p{color:#456269;font-size:14px;line-height:1.65}.credentials{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:25px}.credential{padding:17px;border-radius:19px;background:rgba(255,255,255,.6)}.credential b{display:block;font-size:12px}.credential span{color:#587078;font-size:10px}.message{margin-top:22px;padding:17px 19px;border-radius:23px 23px 23px 7px;background:#fff;font-size:13px;line-height:1.55;box-shadow:0 10px 35px rgba(8,59,76,.08)}
+
+    /* Offer cards, all physical */
+    .offers{background:#fff}.offer-stack{display:grid;gap:18px;margin-top:48px}.offer{position:relative;overflow:hidden;padding:25px;border:1px solid var(--line);border-radius:28px;background:var(--paper);box-shadow:0 12px 35px rgba(0,0,0,.05)}.offer.featured{background:var(--ink);color:#fff}.offer small{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.offer h3{margin:35px 0 10px;font-size:31px;line-height:1;letter-spacing:-.05em}.offer p{min-height:64px;margin:0;color:var(--muted);font-size:12px;line-height:1.5}.offer.featured p{color:#afb4b1}.offer ul{list-style:none;padding:19px 0 0;margin:19px 0 0;border-top:1px solid var(--line)}.offer.featured ul{border-color:rgba(255,255,255,.15)}.offer li{padding:5px 0;font-size:12px}.offer li::before{content:"✓";margin-right:9px}.offer-badge{position:absolute;right:17px;top:17px;padding:8px 10px;border-radius:999px;background:var(--lime);color:var(--ink);font-size:9px;font-weight:800;text-transform:uppercase}
+
+    /* Stories are paper notes, not carousel */
+    .stories{background:#f2d9dc}.notes{display:grid;gap:30px;margin-top:52px}.note{--tilt:0deg;position:relative;padding:31px 27px 27px;border-radius:5px;background:#fffdf5;box-shadow:0 20px 50px rgba(81,38,46,.14)}.note.reveal{transform:translateY(28px) rotate(var(--tilt))}.note.reveal.on{transform:rotate(var(--tilt))}.note:nth-child(1){--tilt:-2deg}.note:nth-child(2){--tilt:1.5deg}.note:nth-child(3){--tilt:-1deg}.note::before{content:"";position:absolute;top:-12px;left:50%;width:76px;height:25px;transform:translateX(-50%) rotate(-2deg);background:rgba(255,255,255,.55);box-shadow:0 2px 5px rgba(0,0,0,.05)}.note blockquote{margin:0;font-size:22px;line-height:1.3;letter-spacing:-.03em}.note footer{margin-top:25px;color:#8b6c71;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+
+    /* Messenger FAQ */
+    .faq{background:#e9e8f7}.faq-grid{display:grid;gap:45px}.chat{display:flex;flex-direction:column;gap:10px}.q{align-self:flex-end;max-width:86%;padding:15px 18px;border-radius:22px 22px 6px 22px;background:#6366d9;color:#fff;font-size:13px;line-height:1.45}.a{align-self:flex-start;max-width:91%;padding:15px 18px;border-radius:22px 22px 22px 6px;background:#fff;font-size:13px;line-height:1.5;box-shadow:0 8px 24px rgba(52,51,110,.07)}.a small{display:block;margin-top:6px;color:#92949a;font-size:8px;text-align:right}
+
+    .book-final{min-height:100svh;display:flex;align-items:center;padding:100px 0 48px;background:var(--lime)}.book-final h2{margin:0;font-size:clamp(58px,16vw,140px);line-height:.82;letter-spacing:-.085em;text-transform:uppercase}.book-final p{max-width:500px;margin:32px 0;font-size:15px;line-height:1.6}.buttons{display:flex;flex-wrap:wrap;gap:10px}.buttons a{padding:16px 19px;border-radius:15px;background:var(--ink);color:#fff;font-size:12px;font-weight:800}.buttons a:last-child{background:rgba(255,255,255,.55);color:var(--ink)}.legal{padding:18px 20px calc(18px + env(safe-area-inset-bottom));background:var(--lime);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+
+    @media(min-width:760px){.wrap{padding-inline:32px}.stage-copy{left:7vw;right:auto;top:18%;width:66vw}.summary-card{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;padding:38px}.facts{margin-top:0}.steps{margin-left:18%}.step{grid-template-columns:60px 1fr}.step-photo{grid-column:2}.step-photo img{height:680px}.devices{height:850px}.phone{left:16%;width:310px}.gallery-mock{right:4%;width:550px}.delivery-chips{left:48%;bottom:55px}.post-wall{height:820px}.social-post{width:34%}.instagram{left:2%;top:80px}.tiktok{right:3%;top:170px}.youtube{left:34%;top:390px}.about-grid{grid-template-columns:1fr 1fr;align-items:center}.offer-stack{grid-template-columns:repeat(3,1fr)}.offer:nth-child(1){transform:rotate(-1.5deg)}.offer:nth-child(3){transform:rotate(1.5deg)}.notes{grid-template-columns:repeat(3,1fr);align-items:start}.faq-grid{grid-template-columns:.9fr 1.1fr;align-items:start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#top"><img src="/assets/favicon.png" alt=""><span>Romeo Freediving</span></a>
-    <a class="book" href="https://t.me/romeo_freediving" target="_blank" rel="noopener">Book a shoot</a>
-  </header>
-
+  <header class="nav"><a class="logo" href="#top"><img src="/assets/favicon.png" alt=""><span>Romeo Freediving</span></a><a class="nav-cta" href="https://t.me/romeo_freediving" target="_blank" rel="noopener">Check dates</a></header>
   <main id="top">
-    <section class="hero-scene" aria-label="Underwater shooting introduction">
-      <div class="hero-sticky">
-        <div class="hero-glow"></div>
-        <div class="message" id="heroMessage">
-          <small><span>New message</span><span>Red Sea · now</span></small>
-          <h1>Underwater<br>Shooting</h1>
-          <p>Photos and short films that feel like a memory from another world.</p>
+    <section class="hero" aria-label="Underwater shooting gallery">
+      <div class="stage">
+        <div class="stage-copy" id="stageCopy"><p class="kicker">A private Red Sea experience</p><h1>Underwater<br>shooting</h1><p>Learn to move beneath the surface and leave with photographs that feel like frames from another world.</p></div>
+        <div class="card-field">
+          <figure class="photo-card c1"><img src="/assets/shooting1.jpg" alt="Freediver photographed underwater"><span><b>Weightless</b><b>01</b></span></figure>
+          <figure class="photo-card c2"><img src="/assets/gallery2.webp" alt="Underwater portrait in blue water"><span><b>Natural light</b><b>02</b></span></figure>
+          <figure class="photo-card c3"><img src="/assets/photo3.webp" alt="Creative underwater portrait"><span><b>Red Sea</b><b>03</b></span></figure>
+          <figure class="photo-card c4"><img src="/assets/shooting-individual-2026.webp" alt="Freediving photo session"><span><b>Your story</b><b>04</b></span></figure>
         </div>
-        <div class="post-stack" aria-label="Selected underwater photos">
-          <article class="post" data-caption="@romeo_freediving · weightless"><img src="/assets/shooting1.jpg" alt="Freediver underwater in the Red Sea"></article>
-          <article class="post" data-caption="@romeo_freediving · blue hour"><img src="/assets/gallery2.webp" alt="Underwater portrait in blue water"></article>
-          <article class="post" data-caption="@romeo_freediving · beneath the surface"><img src="/assets/photo3.webp" alt="Creative underwater portrait"></article>
-        </div>
-        <div class="scroll-cue"><i></i><span>Scroll to unfold</span></div>
+        <div class="hero-note">Scroll to enter the water</div>
       </div>
     </section>
 
-    <section class="chapter social-section">
-      <div class="shell">
-        <p class="eyebrow reveal">01 · The gallery</p>
-        <h2 class="title reveal">One sea.<br>Three feeds.</h2>
-        <p class="intro reveal">Still frames, vertical stories and full-length films. Open the platform you use most.</p>
-        <div class="social-list">
-          <a class="social-card reveal" href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener" aria-label="Open Romeo Freediving on Instagram">
-            <img src="/assets/gallery1.jpg" alt="Underwater work on Instagram" loading="lazy">
-            <span class="arrow">↗</span>
-            <div class="social-meta"><span class="network">◎ Instagram</span><h3>Daily frames</h3><p>Portraits, behind the scenes and new sessions.</p></div>
-          </a>
-          <a class="social-card reveal" href="https://www.tiktok.com/@romeo_freediving" target="_blank" rel="noopener" aria-label="Open Romeo Freediving on TikTok">
-            <img src="/assets/shooting-training-2026.webp" alt="Underwater videos on TikTok" loading="lazy">
-            <span class="arrow">↗</span>
-            <div class="social-meta"><span class="network">♪ TikTok</span><h3>Motion studies</h3><p>Short dives, transitions and weightless movement.</p></div>
-          </a>
-          <a class="social-card reveal" href="https://www.youtube.com/@romeofreediving" target="_blank" rel="noopener" aria-label="Open Romeo Freediving on YouTube">
-            <img src="/assets/gallery4.jpg" alt="Freediving films on YouTube" loading="lazy">
-            <span class="arrow">↗</span>
-            <div class="social-meta"><span class="network">▶ YouTube</span><h3>Longer stories</h3><p>Films from the Red Sea, training and travel.</p></div>
-          </a>
-        </div>
-      </div>
-    </section>
+    <section class="summary"><div class="wrap"><div class="summary-card reveal"><div><p class="kicker">Discover your weightless portrait</p><h2>A private underwater photo experience in Dahab</h2><div class="host-row"><img src="/assets/profile.webp" alt="Romeo"><div><strong>Hosted by Romeo</strong><span>Underwater photographer · Molchanovs instructor</span></div></div></div><div class="facts"><div class="fact"><strong>80 minutes</strong><span>in the water</span></div><div class="fact"><strong>1–10 metres</strong><span>adapted to you</span></div><div class="fact"><strong>10–30 photos</strong><span>professionally edited</span></div><div class="fact"><strong class="rating">★ 5.0 feeling</strong><span>private and unhurried</span></div></div></div></div></section>
 
-    <section class="chapter messenger-section">
-      <div class="shell messenger-layout">
-        <div>
-          <p class="eyebrow reveal">02 · Meet your guide</p>
-          <h2 class="title reveal">Who is<br>Romeo?</h2>
-          <p class="intro reveal">Photographer in one hand. Safety diver in the other.</p>
-        </div>
-        <div class="phone reveal" aria-label="Conversation introducing Romeo">
-          <div class="phone-screen">
-            <div class="contact"><div class="avatar"><img src="/assets/profile.webp" alt="Romeo"></div><div><strong>Romeo</strong><span>online · Dahab</span></div></div>
-            <div class="chat">
-              <div class="bubble out">Hey! Who will be behind the camera?</div>
-              <div class="bubble in">I’m Romeo — an underwater photographer and certified Molchanovs Wave 1 / Wave 2 instructor.</div>
-              <div class="bubble in photo"><img src="/assets/profile-2.webp" alt="Romeo freediving underwater" loading="lazy"></div>
-              <div class="bubble out">I’ve never done freediving. Is that okay?</div>
-              <div class="bubble in">Absolutely. We start on shore, learn to breathe and move, then enter the water at your pace. I stay within arm’s reach.</div>
-              <div class="bubble in">You don’t perform for the camera. I help you become comfortable enough to forget it’s there. <time>10:42 ✓✓</time></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section itinerary"><div class="wrap"><p class="kicker reveal">What you’ll do</p><h2 class="display reveal">One morning.<br>Three chapters.</h2><p class="lead reveal">A clear route from dry land to your final dive, so you always know what comes next.</p><div class="steps">
+      <article class="step reveal"><div class="step-number">01</div><div><h3>Meet, breathe, feel safe</h3><p>We start with tea, references and a simple breathing session. You’ll learn how the shoot works and tell me what feels comfortable.</p></div><div class="step-photo"><img src="/assets/tourist2.jpg" alt="Preparing for a freediving session on the Red Sea shore" loading="lazy"></div></article>
+      <article class="step reveal"><div class="step-number">02</div><div><h3>Find your movement</h3><p>In shallow water we practise relaxed dives, soft hands and simple poses. No previous freediving or modelling experience is required.</p></div><div class="step-photo"><img src="/assets/shooting-training-2026.webp" alt="Learning underwater movement with Romeo" loading="lazy"></div></article>
+      <article class="step reveal"><div class="step-number">03</div><div><h3>Create the final frames</h3><p>Once you forget the camera, we shoot. Romeo stays close, directs each sequence and builds the images around the light and your natural rhythm.</p></div><div class="step-photo"><img src="/assets/gallery3.webp" alt="Final underwater portrait in the Red Sea" loading="lazy"></div></article>
+    </div></div></section>
 
-    <section class="chapter stories-section">
-      <div class="shell">
-        <p class="eyebrow reveal">03 · User stories</p>
-        <h2 class="title reveal">Swipe their<br>first dives.</h2>
-        <p class="intro reveal">Real sessions, shown like stories inside the app.</p>
-        <div class="story-window reveal">
-          <div class="story-top"><span></span><span></span><span></span></div>
-          <div class="story-track" id="storyTrack">
-            <article class="story-card" style="background-image:url('/assets/diver1.jpg')"><blockquote>“I arrived scared of deep water. An hour later I forgot I was ever afraid.”</blockquote><p>Anna · First underwater shoot</p></article>
-            <article class="story-card" style="background-image:url('/assets/diver2.jpg')"><blockquote>“Romeo never rushed me. Every shot felt calm, safe and completely natural.”</blockquote><p>Sasha · Dahab session</p></article>
-            <article class="story-card" style="background-image:url('/assets/diver3.jpg')"><blockquote>“The final frames looked like stills from a film — not like posed holiday photos.”</blockquote><p>Maria · Red Sea portrait</p></article>
-          </div>
-          <div class="swipe-note"><span>Swipe</span><span id="storyCount">01 / 03</span></div>
-        </div>
-      </div>
-    </section>
+    <section class="section deliver"><div class="wrap"><p class="kicker reveal">What you’ll take home</p><h2 class="display reveal">Not content.<br>A memory.</h2><p class="lead reveal">A private gallery of finished photographs and vertical films, ready to keep, print or share.</p><div class="devices reveal"><div class="phone"><div class="phone-screen"><img src="/assets/shooting2.webp" alt="Vertical underwater video preview" loading="lazy"><div class="phone-ui"><b>@romeo_freediving</b><small>Red Sea · vertical film</small></div></div></div><div class="gallery-mock"><div class="gallery-top"><span>Your private gallery</span><span>24 images</span></div><div class="gallery-grid"><img src="/assets/gallery1.jpg" alt="Gallery photograph" loading="lazy"><img src="/assets/gallery2.webp" alt="Gallery photograph" loading="lazy"><img src="/assets/gallery3.webp" alt="Gallery photograph" loading="lazy"><img src="/assets/gallery4.jpg" alt="Gallery photograph" loading="lazy"></div></div><div class="delivery-chips"><span>10–30 edited photographs</span><span>2 vertical 4K films</span><span>Private cloud gallery</span></div></div></div></section>
 
-    <section class="chapter faq-section">
-      <div class="shell faq-layout">
-        <div>
-          <p class="eyebrow reveal">04 · Before we dive</p>
-          <h2 class="title reveal">Ask me<br>anything.</h2>
-          <p class="intro reveal">The questions most people send before their first session.</p>
-        </div>
-        <div class="faq-chat reveal">
-          <div class="question">I can’t hold my breath for long. Is that a problem?</div>
-          <details open><summary>Not at all</summary><p>Ten to twenty relaxed seconds is enough for beautiful frames. Before the shoot, I’ll show you simple breathing and relaxation techniques.</p></details>
-          <div class="question">How deep will we go?</div>
-          <details><summary>Usually 1–10 metres</summary><p>We choose the depth around your comfort and experience. Beginners often get their best images close to the surface, where the light is strongest.</p></details>
-          <div class="question">Is it safe?</div>
-          <details><summary>Safety comes first</summary><p>I’m a certified Molchanovs instructor and active AIDA/CMAS athlete. I guide the full session and stay close throughout every dive.</p></details>
-          <div class="question">When do I get the photos?</div>
-          <details><summary>From 10 days</summary><p>You receive a private cloud link with edited high-resolution photographs. Materials are sometimes ready sooner.</p></details>
-        </div>
-      </div>
-    </section>
+    <section class="section social"><div class="wrap"><p class="kicker reveal">See the work in motion</p><h2 class="display reveal">Follow the<br>deep blue.</h2><p class="lead reveal">Three physical windows into the same body of work. Tap any card to open the channel.</p><div class="post-wall">
+      <a class="social-post instagram reveal" href="https://instagram.com/romeo_freediving" target="_blank" rel="noopener"><img src="/assets/gallery1.jpg" alt="Romeo Freediving Instagram"><span class="post-label"><b>◎ Instagram · daily frames</b><span>↗</span></span></a>
+      <a class="social-post tiktok reveal" href="https://www.tiktok.com/@romeo_freediving" target="_blank" rel="noopener"><img src="/assets/shooting-training-2026.webp" alt="Romeo Freediving TikTok"><span class="post-label"><b>♪ TikTok · short films</b><span>↗</span></span></a>
+      <a class="social-post youtube reveal" href="https://www.youtube.com/@romeofreediving" target="_blank" rel="noopener"><img src="/assets/gallery4.jpg" alt="Romeo Freediving YouTube"><span class="post-label"><b>▶ YouTube · full stories</b><span>↗</span></span></a>
+    </div></div></section>
 
-    <section class="final">
-      <div class="shell">
-        <p class="eyebrow">05 · Your turn</p>
-        <h2>Ready to<br>go below?</h2>
-        <p>Tell me where you’ll be and what you want to feel in the frame. We’ll build the session around you.</p>
-        <div class="final-actions"><a href="https://t.me/romeo_freediving" target="_blank" rel="noopener">Message on Telegram ↗</a><a class="alt" href="https://wa.me/201069901876" target="_blank" rel="noopener">WhatsApp ↗</a></div>
-      </div>
-    </section>
+    <section class="section about"><div class="wrap about-grid"><figure class="portrait reveal"><img src="/assets/profile-2.webp" alt="Romeo, underwater photographer and freediving instructor" loading="lazy"><span>Your host · Romeo · Dahab</span></figure><div class="bio reveal"><p class="kicker">Why Romeo</p><h2>Camera calm.<br>Safety first.</h2><p>I’m an underwater photographer, a certified Molchanovs Wave 1 / Wave 2 instructor and an active AIDA &amp; CMAS athlete. I live and work in Dahab, learning how its water, light and wind change every day.</p><p>This is not a rushed tourist shoot. I combine creative direction with the attention of a safety diver, adapting every sequence to your ability.</p><div class="credentials"><div class="credential"><b>Molchanovs</b><span>Wave 1 / Wave 2 instructor</span></div><div class="credential"><b>AIDA · CMAS</b><span>Active depth athlete</span></div><div class="credential"><b>Red Sea local</b><span>Spots selected by conditions</span></div><div class="credential"><b>Beginners welcome</b><span>Guidance from shore to water</span></div></div><div class="message">“You don’t have to know how to pose. My job is to create enough calm for natural movement to appear.”</div></div></div></section>
+
+    <section class="section offers"><div class="wrap"><p class="kicker reveal">Choose your session</p><h2 class="display reveal">Built around<br>your story.</h2><p class="lead reveal">A clear entry, signature and premium format — each private, each adapted to your level.</p><div class="offer-stack">
+      <article class="offer reveal"><small>01 · Entry</small><h3>First descent</h3><p>A calm introduction for one person who wants beautiful photographs close to the surface.</p><ul><li>Shore preparation</li><li>Guided water session</li><li>10 edited photographs</li></ul></article>
+      <article class="offer featured reveal"><span class="offer-badge">Most complete</span><small>02 · Signature</small><h3>Underwater story</h3><p>The full Romeo Freediving experience: portraits, movement and short vertical films.</p><ul><li>Breathing and movement</li><li>80 minutes in water</li><li>10–30 photos + 2 films</li></ul></article>
+      <article class="offer reveal"><small>03 · Premium</small><h3>Two-person film</h3><p>A private visual story for a couple, friends or two trained freedivers.</p><ul><li>Creative direction</li><li>Extended shoot time</li><li>Photo and film collection</li></ul></article>
+    </div></div></section>
+
+    <section class="section stories"><div class="wrap"><p class="kicker reveal">Guest notes</p><h2 class="display reveal">How it<br>felt.</h2><div class="notes"><article class="note reveal"><blockquote>“I arrived afraid of deep water. An hour later I had forgotten I was ever scared.”</blockquote><footer>Anna · first underwater session</footer></article><article class="note reveal"><blockquote>“Romeo never rushed me. Every frame felt calm, safe and completely natural.”</blockquote><footer>Sasha · Dahab</footer></article><article class="note reveal"><blockquote>“The result looked like stills from a film, not posed holiday photographs.”</blockquote><footer>Maria · Red Sea portrait</footer></article></div></div></section>
+
+    <section class="section faq"><div class="wrap faq-grid"><div><p class="kicker reveal">Questions before the water</p><h2 class="display reveal">Let’s make<br>it clear.</h2><p class="lead reveal">The honest answers most first-time guests need before booking.</p></div><div class="chat reveal"><div class="q">I can’t hold my breath for long.</div><div class="a">That’s completely fine. Ten to twenty relaxed seconds is enough for beautiful frames, and we practise before entering the water.<small>10:32 ✓✓</small></div><div class="q">How deep do I have to dive?</div><div class="a">You don’t have to reach a target. We usually work between 1 and 10 metres, choosing the depth around your comfort and the light.<small>10:33 ✓✓</small></div><div class="q">Is all the equipment included?</div><div class="a">Yes. Mask, fins and weights can be provided. Bring a swimsuit you love, water and something warm for after the session.<small>10:34 ✓✓</small></div><div class="q">When will I get everything?</div><div class="a">Editing starts immediately after the shoot. Your private high-resolution gallery is delivered from 10 days, sometimes sooner.<small>10:35 ✓✓</small></div></div></div></section>
+
+    <section class="book-final"><div class="wrap"><p class="kicker">Your Red Sea chapter</p><h2>Ready to<br>go below?</h2><p>Tell Romeo your dates, location and experience level. He’ll suggest the right spot and shape the session around you.</p><div class="buttons"><a href="https://t.me/romeo_freediving" target="_blank" rel="noopener">Check dates on Telegram ↗</a><a href="https://wa.me/201069901876" target="_blank" rel="noopener">Ask on WhatsApp ↗</a></div></div></section>
   </main>
-  <footer>© 2026 Romeo Freediving · Dahab / Sharm el-Sheikh</footer>
-
+  <footer class="legal">© 2026 Romeo Freediving · Dahab &amp; Sharm el-Sheikh</footer>
   <script>
-    const clamp = (n, min = 0, max = 1) => Math.min(max, Math.max(min, n));
-    const scene = document.querySelector('.hero-scene');
-    const message = document.querySelector('#heroMessage');
-    const posts = [...document.querySelectorAll('.post')];
-
-    function animateHero() {
-      const max = scene.offsetHeight - innerHeight;
-      const p = clamp(-scene.getBoundingClientRect().top / max);
-      const messageP = clamp(p / .3);
-      message.style.transform = `translateY(${-messageP * 34}px) scale(${1 - messageP * .2})`;
-      message.style.opacity = String(1 - clamp((p - .18) / .2) * .84);
-      const configs = [
-        { start: .15, x: -26, y: -25, r: -9 },
-        { start: .34, x: 25, y: 1, r: 8 },
-        { start: .55, x: -3, y: 27, r: -2 }
-      ];
-      posts.forEach((post, i) => {
-        const c = configs[i];
-        const q = clamp((p - c.start) / .24);
-        post.style.transform = `translate(${c.x * q}%, ${c.y * q}%) rotate(${c.r * q}deg) scale(${.9 + .1 * q})`;
-        post.style.opacity = String(.18 + q * .82);
-      });
-    }
-    addEventListener('scroll', animateHero, { passive: true });
-    addEventListener('resize', animateHero);
-    animateHero();
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-    }, { threshold: .13 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    const storyTrack = document.querySelector('#storyTrack');
-    const storyCount = document.querySelector('#storyCount');
-    storyTrack.addEventListener('scroll', () => {
-      const index = Math.round(storyTrack.scrollLeft / storyTrack.clientWidth) + 1;
-      storyCount.textContent = `${String(index).padStart(2, '0')} / 03`;
-    }, { passive: true });
+    const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n));
+    const hero=document.querySelector('.hero'),copy=document.querySelector('#stageCopy'),cards=[...document.querySelectorAll('.photo-card')];
+    const targets=[{x:-24,y:-105,r:-10},{x:23,y:-25,r:7},{x:-15,y:145,r:-5},{x:19,y:235,r:9}];
+    function heroMotion(){const range=hero.offsetHeight-innerHeight,p=clamp(-hero.getBoundingClientRect().top/range);copy.style.opacity=String(1-clamp((p-.11)/.18)*.78);copy.style.transform=`translateY(${-clamp(p/.3)*38}px) scale(${1-clamp(p/.3)*.08})`;cards.forEach((card,i)=>{const start=.1+i*.15,q=clamp((p-start)/.22),t=targets[i];card.style.top=`${124-(q*67)}%`;card.style.transform=`translateX(calc(-50% + ${t.x*q}vw)) translateY(${t.y*q}px) rotate(${t.r*q}deg) scale(${.82+.18*q})`;card.style.opacity=String(.12+.88*q)})}
+    addEventListener('scroll',heroMotion,{passive:true});addEventListener('resize',heroMotion);heroMotion();
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
 </html>
