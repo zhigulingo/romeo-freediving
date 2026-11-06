@@ -2,114 +2,96 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#06131a">
-  <title>Romeo Freediving — море ближе, чем кажется</title>
-  <meta name="description" content="Подводная съёмка, персональные тренировки по фридайвингу и путешествия небольшими группами.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f8f5">
+  <title>Romeo Freediving — underwater experiences</title>
+  <meta name="description" content="Подводные съёмки, персональные тренировки и путешествия с Romeo Freediving.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="logo" href="#top" aria-label="Romeo Freediving — на главную">
-      <span class="logo-wave">≈</span>
-      <span><b>ROMEO</b><small>FREEDIVING</small></span>
+  <header class="header">
+    <a class="brand" href="#top" aria-label="Romeo Freediving — главная">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-name">Romeo<span>Freediving</span></span>
     </a>
-    <a class="top-contact" href="https://t.me/romeo_freediving">Обсудить <span>↗</span></a>
+    <nav aria-label="Основная навигация">
+      <a href="#experiences">Впечатления</a><a href="#how">Как это работает</a><a href="#about">О Romeo</a>
+    </nav>
+    <div class="header-actions"><button type="button" aria-label="Выбрать язык">RU <span>⌄</span></button><a href="https://t.me/romeo_freediving">Связаться</a></div>
   </header>
 
   <main id="top">
-    <section class="directions" aria-label="Выберите направление">
-      <a class="direction direction-shoot" href="#shoot">
-        <span class="direction-bg"></span>
-        <span class="direction-shade"></span>
-        <span class="direction-index">01</span>
-        <span class="direction-content">
-          <span class="direction-kicker">Ваши истории под водой</span>
-          <strong>Съёмка<br>под водой</strong>
-          <span class="direction-copy">Фото и видео, в которых вы узнаете себя настоящими</span>
-          <span class="direction-link">Узнать больше <i>↘</i></span>
-        </span>
-      </a>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span>Дахаб · Шарм-эль-Шейх · Красное море</p>
+        <h1>Выберите своё<br><em>впечатление под водой</em></h1>
+        <p>Съёмка, обучение или целое путешествие. Безопасно с инструктором Molchanovs — даже если вы никогда не ныряли.</p>
+      </div>
 
-      <a class="direction direction-learn" href="#learn">
-        <span class="direction-bg"></span>
-        <span class="direction-shade"></span>
-        <span class="direction-index">02</span>
-        <span class="direction-content">
-          <span class="direction-kicker">Свобода начинается с вдоха</span>
-          <strong>Что такое<br>фридайвинг</strong>
-          <span class="direction-copy">Персональное обучение и тренировки в вашем темпе</span>
-          <span class="direction-link">Начать погружение <i>↘</i></span>
-        </span>
-      </a>
+      <div class="experience-grid" id="experiences">
+        <article class="experience-card card-photo">
+          <a class="card-image" href="#photo"><img src="../assets/shooting1.jpg" alt="Подводная фотосессия в Красном море"><span class="card-badge">Самое популярное</span><button type="button" aria-label="Добавить в избранное">♡</button></a>
+          <div class="card-info">
+            <div class="card-meta"><span>Дахаб · 2,5 часа</span><span class="rating">★ Индивидуально</span></div>
+            <h2>Съёмка под водой</h2>
+            <p>Профессиональные фото и видео. Опыт фридайвинга не нужен.</p>
+            <div class="card-bottom"><strong>от 150€ <small>за человека</small></strong><a href="https://t.me/romeo_freediving?text=Хочу%20подводную%20съёмку">Выбрать <span>→</span></a></div>
+          </div>
+        </article>
 
-      <a class="direction direction-travel" href="#travel">
-        <span class="direction-bg"></span>
-        <span class="direction-shade"></span>
-        <span class="direction-index">03</span>
-        <span class="direction-content">
-          <span class="direction-kicker">Вместе туда, где глубже</span>
-          <strong>Путешествия</strong>
-          <span class="direction-copy">Авторские выезды для компаний от 5 человек</span>
-          <span class="direction-link">Выбрать направление <i>↘</i></span>
-        </span>
-      </a>
-      <p class="hero-note">Подводный фотограф · инструктор · проводник</p>
+        <article class="experience-card card-learn">
+          <a class="card-image" href="#learn"><img src="../assets/course.jpg" alt="Персональная тренировка по фридайвингу"><span class="card-badge badge-mint">Для начинающих</span><button type="button" aria-label="Добавить в избранное">♡</button></a>
+          <div class="card-info">
+            <div class="card-meta"><span>Дахаб · персонально</span><span class="rating">★ Любой уровень</span></div>
+            <h2>Откройте фридайвинг</h2>
+            <p>Дыхание, расслабление и первые метры глубины в вашем темпе.</p>
+            <div class="card-bottom"><strong>100€ <small>за занятие</small></strong><a href="https://t.me/romeo_freediving?text=Хочу%20персональную%20тренировку">Выбрать <span>→</span></a></div>
+          </div>
+        </article>
+
+        <article class="experience-card card-trip">
+          <a class="card-image" href="#travel"><img src="../assets/diver3.jpg" alt="Фридайвинг-путешествие для группы"><span class="card-badge badge-sand">Для своей компании</span><button type="button" aria-label="Добавить в избранное">♡</button></a>
+          <div class="card-info">
+            <div class="card-meta"><span>Красное море и Азия</span><span class="rating">★ Новое</span></div>
+            <h2>Соберите путешествие</h2>
+            <p>Маршрут, фридайвинг и съёмка для вашей компании от 5 человек.</p>
+            <div class="card-bottom"><strong>от 5 человек <small>расчёт за 24 ч</small></strong><a href="https://t.me/romeo_freediving?text=Хочу%20собрать%20фридайвинг-путешествие">Обсудить <span>→</span></a></div>
+          </div>
+        </article>
+      </div>
+      <p class="hero-trust"><span>✓ Без опыта</span><span>✓ Снаряжение включено</span><span>✓ Инструктор Molchanovs</span><span>✓ Ответ в течение дня</span></p>
     </section>
 
-    <section class="intro">
-      <p class="section-label">ROMEO FREEDIVING</p>
-      <h1>Море не требует<br><em>быть кем-то другим.</em></h1>
-      <div class="intro-copy">
-        <p>Я помогаю почувствовать себя свободно под водой — без гонки за метрами и чужими результатами.</p>
-        <p>Можно прийти за кадрами, навыком или новым маршрутом. Начнём с того, что важно именно вам.</p>
+    <section class="how" id="how">
+      <div class="section-title"><p>Простой путь к воде</p><h2>От выбора до погружения —<br>без лишних шагов</h2></div>
+      <div class="steps">
+        <article><b>01</b><div><h3>Выберите формат</h3><p>Сразу видите длительность, цену и что входит.</p></div></article>
+        <article><b>02</b><div><h3>Напишите Romeo</h3><p>Кнопка откроет готовую заявку в Telegram.</p></div></article>
+        <article><b>03</b><div><h3>Подтвердите дату</h3><p>Получите детали подготовки и место встречи.</p></div></article>
       </div>
     </section>
 
-    <section class="service service-shoot" id="shoot">
-      <div class="service-photo"><img src="../assets/shooting1.jpg" alt="Фридайвер под водой" loading="lazy"></div>
-      <div class="service-body">
-        <span class="service-num">01 / СЪЁМКА</span>
-        <h2>Память,<br>которая движется</h2>
-        <p>Персональные и групповые съёмки в открытой воде. Помогу с подготовкой, образом и движением — опыт погружений не обязателен.</p>
-        <ul><li>Подводная фотосессия</li><li>Видео и reels</li><li>Съёмка пары или группы</li></ul>
-        <a class="button" href="https://t.me/romeo_freediving">Запланировать съёмку <span>↗</span></a>
-      </div>
+    <section class="feature" id="photo">
+      <div class="feature-photo"><img src="../assets/shooting-individual-2026.webp" alt="Индивидуальная подводная съёмка"><span>01 / PHOTO & VIDEO</span></div>
+      <div class="feature-copy"><p class="tag">Подводная съёмка</p><h2>Вы ныряете.<br>Я сохраняю момент.</h2><p class="lead">Сначала безопасность и спокойствие, потом кадр. Я подскажу, как двигаться, куда смотреть и когда просто отпустить контроль.</p><dl><div><dt>В воде</dt><dd>60 минут</dd></div><div><dt>Результат</dt><dd>от 20 фото</dd></div><div><dt>Готовность</dt><dd>от 10 дней</dd></div></dl><div class="price-row"><p><small>Стоимость в Дахабе</small><strong>от 150€</strong></p><a href="https://t.me/romeo_freediving?text=Хочу%20забронировать%20подводную%20съёмку">Проверить свободные даты →</a></div></div>
     </section>
 
-    <section class="service service-learn" id="learn">
-      <div class="service-body">
-        <span class="service-num">02 / ФРИДАЙВИНГ</span>
-        <h2>Глубина<br>без спешки</h2>
-        <p>Персональные занятия для первого знакомства и регулярные тренировки для тех, кто хочет двигаться дальше спокойно и безопасно.</p>
-        <ul><li>Знакомство с фридайвингом</li><li>Индивидуальная программа</li><li>Техника, расслабление, безопасность</li></ul>
-        <a class="button" href="https://t.me/romeo_freediving">Записаться на тренировку <span>↗</span></a>
-      </div>
-      <div class="service-photo"><img src="../assets/course.jpg" alt="Обучение фридайвингу" loading="lazy"></div>
+    <section class="feature reverse" id="learn">
+      <div class="feature-photo"><img src="../assets/course.webp" alt="Персональное обучение фридайвингу"><span>02 / LEARN</span></div>
+      <div class="feature-copy"><p class="tag">Персональное обучение</p><h2>Глубже —<br>не значит быстрее.</h2><p class="lead">Индивидуальная программа для первого знакомства или регулярного прогресса. Техника, расслабление и безопасность без сравнения с другими.</p><dl><div><dt>Формат</dt><dd>1 на 1</dd></div><div><dt>Уровень</dt><dd>любой</dd></div><div><dt>Снаряжение</dt><dd>включено</dd></div></dl><div class="price-row"><p><small>Персональное занятие</small><strong>100€</strong></p><a href="https://t.me/romeo_freediving?text=Хочу%20начать%20занятия%20по%20фридайвингу">Выбрать дату →</a></div></div>
     </section>
 
-    <section class="service service-travel" id="travel">
-      <div class="service-photo"><img src="../assets/diver3.jpg" alt="Подводное путешествие" loading="lazy"></div>
-      <div class="service-body">
-        <span class="service-num">03 / ПУТЕШЕСТВИЯ</span>
-        <h2>Своя компания.<br>Другое море.</h2>
-        <p>Соберите от пяти человек — я помогу превратить идею в подводное путешествие: локация, тренировки, съёмка и маршрут.</p>
-        <ul><li>Группы от 5 человек</li><li>Азия и Красное море</li><li>Программа под уровень группы</li></ul>
-        <a class="button" href="https://t.me/romeo_freediving">Собрать путешествие <span>↗</span></a>
-      </div>
+    <section class="trip" id="travel">
+      <div class="trip-overlay"></div><img src="../assets/photo8.jpg" alt="Фридайвинг-путешествие группой">
+      <div class="trip-content"><p class="tag">Путешествия · от 5 человек</p><h2>Ваша компания.<br>Ваше море.</h2><p>Соберите друзей — я предложу направление и программу под уровень группы: погружения, тренировки, съёмка и дни без расписания.</p><div class="trip-pills"><span>Красное море</span><span>Азия</span><span>Индивидуальный маршрут</span></div><a href="https://t.me/romeo_freediving?text=Нас%20пятеро%20или%20больше.%20Хотим%20обсудить%20путешествие">Получить расчёт за 24 часа →</a></div>
     </section>
 
-    <section class="final-cta">
-      <p>Не знаете, с чего начать?</p>
-      <h2>Расскажите, что<br>вас тянет к воде.</h2>
-      <a href="https://t.me/romeo_freediving">Написать Romeo <span>↗</span></a>
-    </section>
+    <section class="about" id="about"><img src="../assets/profile-2.webp" alt="Romeo — инструктор по фридайвингу"><div><p class="tag">Ваш проводник</p><h2>Romeo</h2><h3>Подводный фотограф и сертифицированный инструктор Molchanovs</h3><p>Я соединяю обучение, безопасность и визуальную историю. Чтобы первое погружение осталось не испытанием, а моментом, в который захочется вернуться.</p><p class="proof"><b>Molchanovs</b><span>сертифицированный<br>инструктор</span><b>Sony A7C</b><span>полнокадровая<br>камера</span></p></div></section>
   </main>
 
-  <footer><span>© 2026 ROMEO FREEDIVING</span><a href="https://instagram.com/romeo_freediving">@ROMEO_FREEDIVING ↗</a></footer>
+  <footer><a class="brand brand-footer" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span class="brand-name">Romeo<span>Freediving</span></span></a><p>Underwater experiences in the Red Sea</p><div><a href="https://instagram.com/romeo_freediving">Instagram ↗</a><a href="https://t.me/romeo_freediving">Telegram ↗</a></div></footer>
 </body>
 </html>
-
